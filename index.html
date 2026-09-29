@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alyssom Fernandes — Developer · Data & BI</title>
+  <meta name="description" content="Desenvolvedor com 5+ anos em controladoria, fiscal e DP. Construo sistemas em produção que substituem planilhas: automação, dados e BI.">
+  <meta name="author" content="Alyssom Fernandes">
+  <meta name="theme-color" content="#F4F3EE">
+
+  <!-- Compartilhamento (LinkedIn, WhatsApp...). Após publicar, troque og:image por uma URL absoluta. -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Alyssom Fernandes — Developer · Data & BI">
+  <meta property="og:description" content="Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Tema e idioma antes da primeira pintura (evita "piscar") -->
+  <script>
+    (function () {
+      var d = document.documentElement, L = ['pt', 'en', 'es'];
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        d.setAttribute('data-theme', t);
+      } catch (e) {}
+      try {
+        var q = (new URLSearchParams(location.search).get('lang') || '').toLowerCase(), s = null;
+        try { s = localStorage.getItem('lang'); } catch (e) {}
+        var n = (navigator.language || 'pt').slice(0, 2).toLowerCase();
+        var l = L.indexOf(q) > -1 ? q : (L.indexOf(s) > -1 ? s : (L.indexOf(n) > -1 ? n : 'en'));
+        if (l !== 'pt') {
+          d.classList.add('i18n-pending');
+          setTimeout(function () { d.classList.remove('i18n-pending'); }, 2500);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alyssom Fernandes",
+    "jobTitle": "Developer · Data & Business Intelligence",
+    "email": "mailto:alyssom1919@gmail.com",
+    "telephone": "+55 62 99667-4854",
+    "knowsLanguage": ["pt-BR", "en", "es"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Uniasselvi" },
+    "sameAs": [
+      "https://linkedin.com/in/alyssom-fernandes",
+      "https://github.com/alyssom-fernandes"
+    ]
+  }
+  </script>
+
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ícones reutilizados na página -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5 3.5-5 3.5z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v13c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-13"/><path d="M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 15l4-5"/><path d="M3.5 18.5a9 9 0 1 1 17 0"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-7M21 20H3"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 6.5 2.5 8.5 2.5 8.5h-17S6 15.5 6 9"/><path d="M10.2 21a2 2 0 0 0 3.6 0"/></symbol>
+      <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18"/><path d="M4 9h16M4 15h16M10 3v18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3.5 6 8.5 7 8.5-7"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.4 4.6 1.9 6.8 6 8-4.1 1.2-5.6 3.4-6 8-.4-4.6-1.9-6.8-6-8 4.1-1.2 5.6-3.4 6-8z"/></symbol>
+      <symbol id="i-sync" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.3L4 8.5M4 13a8 8 0 0 0 14.3 4.3L20 15.5"/><path d="M4 4v4.5h4.5M20 20v-4.5h-4.5"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main" data-i18n="ui.skip">Pular para o conteúdo</a>
+
+  <!-- Moldura da planilha (decorativa) -->
+  <div class="sheet-bg" aria-hidden="true">
+    <div class="wrap grid12"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+  <div class="row-gutter" id="rowGutter" aria-hidden="true"></div>
+
+  <!-- Barra de fórmulas + cabeçalho de colunas -->
+  <header class="topbar">
+    <div class="fbar">
+      <a class="fbar__brand" href="#inicio" data-i18n-attr="aria-label:ui.brand" aria-label="Alyssom Fernandes, voltar ao início">AF</a>
+      <div class="fbar__name" id="nameBox" aria-hidden="true">A1</div>
+      <div class="fbar__fx" aria-hidden="true">fx</div>
+      <div class="fbar__formula" aria-hidden="true">
+        <span class="fbar__text" id="formula"></span><span class="fbar__caret"></span>
+        <span class="fbar__result" id="formulaResult"></span>
+      </div>
+      <div class="fbar__tools">
+        <div class="lang" role="group" aria-label="Idioma" data-i18n-attr="aria-label:ui.lang">
+          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Alternar tema claro ou escuro" data-i18n-attr="aria-label:ui.theme;title:ui.theme">
+          <svg class="i icon-moon"><use href="#i-moon"/></svg>
+          <svg class="i icon-sun"><use href="#i-sun"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm fbar__cv cv-link" href="cv/Alyssom-Fernandes-CV-PT.pdf" download>
+          <svg class="i"><use href="#i-down"/></svg><span data-i18n="ui.cv">CV</span>
+        </a>
+      </div>
+    </div>
+    <div class="colhead" aria-hidden="true">
+      <div class="colhead__corner"></div>
+      <div class="wrap grid12 colhead__cols"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Cabeçalho exclusivo do currículo impresso / PDF -->
+    <header class="print-head print-only">
+      <h1>Alyssom Fernandes</h1>
+      <p class="ph-role" data-i18n="h.label">Developer · Data & Business Intelligence</p>
+      <p class="ph-contact">alyssom1919@gmail.com · +55 62 99667-4854 · linkedin.com/in/alyssom-fernandes · github.com/alyssom-fernandes</p>
+      <p class="ph-contact" data-i18n="h.available">Disponível · remoto ou relocação para Espanha e Portugal</p>
+    </header>
+
+    <!-- ============ INÍCIO ============ -->
+    <section id="inicio" class="hero" data-f="f.home" data-r="r.home">
+      <div class="wrap">
+        <div class="hero__top">
+          <p class="mono-label"><span class="cellref" data-cellref>A1</span><span data-i18n="h.label">Developer · Data & Business Intelligence</span></p>
+          <p class="pill"><span class="dot"></span><span data-i18n="h.available">Disponível · remoto ou relocação para Espanha e Portugal</span></p>
+        </div>
+
+        <h1 class="hero__name">
+          <span class="sel is-on">
+            <span class="hero__range" id="nameRange" aria-hidden="true">B3:H8</span>
+            <span class="line"><span class="word">Alyssom</span></span>
+            <span class="line"><span class="word">Fernandes</span></span>
+          </span>
+        </h1>
+
+        <div class="grid12 hero__grid">
+          <div class="hero__copy">
+            <p class="hero__lede" data-i18n-html="h.lede">Passei 5 anos dentro das <em>planilhas</em>. Hoje construo os <em>sistemas</em> que as substituem.</p>
+            <p class="hero__sub" data-i18n="h.sub">Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e entrego software em produção que automatiza conciliações, integra dados de ERPs e dá à gestão números em que dá para confiar.</p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#projetos"><span data-i18n="h.ctaProjects">Ver projetos</span><svg class="i arrow"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn--ghost cv-link" href="cv/Alyssom-Fernandes-CV-PT.pdf" download><svg class="i"><use href="#i-down"/></svg><span data-i18n="ui.cvLong">Baixar CV (PDF)</span></a>
+            </div>
+          </div>
+
+          <!-- Demo: a planilha caótica vira o dashboard do Fuel Mind -->
+          <figure class="demo hero__demo" id="demo" data-state="before">
+            <div class="demo__bar">
+              <span class="demo__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="demo__file">
+                <span class="demo__file-before" data-i18n="w.fileBefore">conciliacao_FINAL_v7(2).xlsx</span>
+                <span class="demo__file-after">controle-entradas-posto.web.app</span>
+              </span>
+              <div class="seg" role="group" aria-label="Alternar entre antes e depois" data-i18n-attr="aria-label:w.toggle">
+                <button type="button" data-demo="before" aria-pressed="true" data-i18n="w.before">Antes</button>
+                <button type="button" data-demo="after" aria-pressed="false" data-i18n="w.after">Depois</button>
+              </div>
+            </div>
+
+            <div class="demo__stage" aria-hidden="true">
+              <div class="demo__after">
+                <div class="dash">
+                  <div class="dash__head">
+                    <span class="dash__logo"><i></i>Fuel Mind</span>
+                    <span class="dash__chip" data-i18n="w.station">Posto 01</span>
+                    <span class="dash__chip dash__chip--role">admin</span>
+                  </div>
+                  <div class="dash__kpis">
+                    <div class="kpi kpi--ok"><span data-i18n="w.kpi1">Divergência</span><strong data-i18n="w.kpi1v">0,2%</strong></div>
+                    <div class="kpi"><span data-i18n="w.kpi2">NF-e importadas</span><strong>128</strong></div>
+                    <div class="kpi"><span data-i18n="w.kpi3">Tanques OK</span><strong>12/12</strong></div>
+                  </div>
+                  <div class="dash__chart">
+                    <div class="chart__title">
+                      <span data-i18n="w.chart">NF-e × medição · 7 dias</span>
+                      <span class="chart__legend"><span><i></i><span data-i18n="w.legendA">NF-e</span></span><span><i></i><span data-i18n="w.legendB">Medição</span></span></span>
+                    </div>
+                    <div class="chart__bars">
+                      <div class="chart__g"><i style="--h:62%"></i><i style="--h:61%"></i></div>
+                      <div class="chart__g"><i style="--h:80%"></i><i style="--h:79%"></i></div>
+                      <div class="chart__g"><i style="--h:46%"></i><i style="--h:46%"></i></div>
+                      <div class="chart__g"><i style="--h:71%"></i><i style="--h:70%"></i></div>
+                      <div class="chart__g"><i style="--h:90%"></i><i style="--h:89%"></i></div>
+                      <div class="chart__g"><i style="--h:55%"></i><i style="--h:55%"></i></div>
+                      <div class="chart__g"><i style="--h:74%"></i><i style="--h:73%"></i></div>
+                    </div>
+                  </div>
+                  <div class="dash__alert"><svg class="i"><use href="#i-check"/></svg><span data-i18n="w.alert">Conciliado automaticamente · 07:02</span></div>
+                </div>
+              </div>
+
+              <div class="demo__before">
+                <div class="xl-fx"><span class="xl-fx__name">F9</span><span class="xl-fx__i">fx</span><span class="xl-fx__f" data-i18n="w.fx">=PROCV(B9;'FINAL_v2 (2)'!A:F;4;FALSO)</span></div>
+                <div class="xl">
+                  <span class="c h"></span><span class="c h">A</span><span class="c h">B</span><span class="c h">C</span><span class="c h">D</span><span class="c h">E</span><span class="c h">F</span>
+                  <span class="c h">1</span><span class="c th" data-i18n="w.hDate">Data</span><span class="c th">NF-e</span><span class="c th" data-i18n="w.hLiters">Litros</span><span class="c th">ERP</span><span class="c th" data-i18n="w.hGauge">Medição</span><span class="c th" data-i18n="w.hDiff">Dif.</span>
+                  <span class="c h">2</span><span class="c tx">01/09</span><span class="c">4301</span><span class="c">15000</span><span class="c">15000</span><span class="c">14870</span><span class="c neg">-130</span>
+                  <span class="c h">3</span><span class="c tx">01/09</span><span class="c">4302</span><span class="c">10000</span><span class="c">9500</span><span class="c err" data-i18n="w.errNA">#N/D</span><span class="c err" data-i18n="w.errNA">#N/D</span>
+                  <span class="c h">4</span><span class="c tx">02/09</span><span class="c">4305</span><span class="c">20000</span><span class="c">20000</span><span class="c">19940</span><span class="c neg">-60</span>
+                  <span class="c h">5</span><span class="c tx">02/09</span><span class="c warn">??</span><span class="c">5000</span><span class="c"></span><span class="c">4990</span><span class="c warn" data-i18n="w.check">conferir!!</span>
+                  <span class="c h">6</span><span class="c tx">03/09</span><span class="c">4309</span><span class="c">15000</span><span class="c">15200</span><span class="c err" data-i18n="w.errRef">#REF!</span><span class="c err" data-i18n="w.errRef">#REF!</span>
+                  <span class="c h">7</span><span class="c tx">03/09</span><span class="c">4311</span><span class="c">12000</span><span class="c">12000</span><span class="c">11960</span><span class="c neg">-40</span>
+                  <span class="c h">8</span><span class="c tx">04/09</span><span class="c">4318</span><span class="c">8000</span><span class="c">8000</span><span class="c warn"></span><span class="c warn">??</span>
+                  <span class="c h">9</span><span class="c tx">04/09</span><span class="c">4320</span><span class="c">18000</span><span class="c">17600</span><span class="c">17550</span><span class="c err active" data-i18n="w.errVal">#VALOR!</span>
+                  <span class="c h">10</span><span class="c tx">05/09</span><span class="c">4322</span><span class="c">9000</span><span class="c">9000</span><span class="c">8970</span><span class="c neg">-30</span>
+                  <span class="c h">11</span><span class="c tot" data-i18n="w.total">TOTAL</span><span class="c"></span><span class="c tot">112000</span><span class="c err" data-i18n="w.errRef">#REF!</span><span class="c err" data-i18n="w.errRef">#REF!</span><span class="c err" data-i18n="w.errRef">#REF!</span>
+                </div>
+                <div class="xl-tabs"><span data-i18n="w.tab1">Planilha1</span><span data-i18n="w.tab2">Cópia de Planilha1</span><span>FINAL</span><span class="is-active">FINAL_v2</span><span data-i18n="w.tab5">NÃO MEXER</span><span>+3</span><span class="xl-tabs__fill"></span></div>
+              </div>
+            </div>
+
+            <figcaption class="demo__caption">
+              <span class="demo__cap-before" data-i18n="w.capBefore">6+ planilhas · conferência manual</span>
+              <span class="demo__cap-after" data-i18n="w.capAfter">1 sistema · conciliação automática</span>
+              <span class="demo__note" data-i18n="w.note">dados ilustrativos</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <ul class="metrics">
+          <li class="metric sel" tabindex="0" data-f="f.m2" data-r="r.m2">
+            <span class="metric__ref" data-cellref></span>
+            <strong class="metric__val" data-to="60" data-suffix="+">60+</strong>
+            <span class="metric__label" data-i18n="m2.label">empresas atendidas em folha e rotinas fiscais</span>
+            <span class="metric__src" data-i18n="m2.src">Astcon · 2021–2025</span>
+          </li>
+          <li class="metric sel" tabindex="0" data-f="f.m3" data-r="r.m3">
+            <span class="metric__ref" data-cellref></span>
+            <strong class="metric__val" data-to="9">9</strong>
+            <span class="metric__label" data-i18n="m3.label">projetos publicados, do banco de dados à interface</span>
+            <span class="metric__src" data-i18n="m3.src">GitHub · 2026</span>
+          </li>
+          <li class="metric sel" tabindex="0" data-f="f.m4" data-r="r.m4">
+            <span class="metric__ref" data-cellref></span>
+            <strong class="metric__val" data-to="5" data-suffix="+">5+</strong>
+            <span class="metric__label" data-i18n="m4.label">anos em controladoria, fiscal e DP/RH</span>
+            <span class="metric__src" data-i18n="m4.src">2021 → hoje</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PERFIL ============ -->
+    <section id="perfil" class="section" data-f="f.about" data-r="r.about">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker"><span class="kicker__n">01</span><span data-i18n="t.about">Perfil</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+          <h2 class="h2 reveal" data-i18n-html="a.title">A ponte entre <em>finanças</em> e <em>código</em>.</h2>
+        </header>
+
+        <div class="grid12 about">
+          <div class="about__text reveal">
+            <p data-i18n="a.p1">Por mais de 5 anos trabalhei nas rotinas de departamento pessoal, fiscal e, mais recentemente, controladoria. Só em folha e rotinas fiscais, atendi mais de 60 empresas. Vi de perto onde a operação quebra: planilhas desconectadas, conciliações feitas à mão e prazos que dependem da memória de alguém.</p>
+            <p data-i18n="a.p2">Em vez de só apontar esses problemas, comecei a resolvê-los com código. Hoje desenvolvo sistemas usados no dia a dia de um grupo empresarial, que trocam controles manuais por automação, dados integrados e alertas. E falo a língua dos dois lados: a do time financeiro e a do time técnico.</p>
+          </div>
+          <div class="about__facts reveal">
+            <table class="facts">
+              <caption class="sr-only" data-i18n="a.factsCap">Perfil rápido</caption>
+              <tbody>
+                <tr><th scope="row" data-i18n="a.f1k">Cargo atual</th><td data-i18n="a.f1v">Analista de Sistemas Financeiros Jr. · Grupo Zen</td></tr>
+                <tr><th scope="row" data-i18n="a.f2k">Foco</th><td data-i18n="a.f2v">Sistemas financeiros, automação de processos, dados & BI</td></tr>
+                <tr><th scope="row" data-i18n="a.f3k">Formação</th><td data-i18n="a.f3v">Tecnólogo em ADS · Uniasselvi (2026)</td></tr>
+                <tr><th scope="row" data-i18n="a.f4k">Idiomas</th><td data-i18n="a.f4v">Português (nativo) · Inglês (B1) · Espanhol (básico)</td></tr>
+                <tr><th scope="row" data-i18n="a.f5k">Modelo</th><td data-i18n="a.f5v">Remoto · relocação para Espanha ou Portugal</td></tr>
+                <tr><th scope="row" data-i18n="a.f6k">Fuso</th><td data-i18n="a.f6v">Brasil · UTC−3</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJETOS ============ -->
+    <section id="projetos" class="section" data-f="f.projects" data-r="r.projects">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker"><span class="kicker__n">02</span><span data-i18n="t.projects">Projetos</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+          <h2 class="h2 reveal" data-i18n-html="p.title">Problemas reais, <em>sistemas de verdade</em>.</h2>
+          <p class="lead reveal" data-i18n="p.intro">Cada projeto nasceu de um problema que eu vivi ou vi de perto. Aqui está o problema, o que eu construí e o que mudou.</p>
+        </header>
+
+        <div class="projects">
+
+          <!-- 01 · Fuel Mind -->
+          <article class="project reveal" id="fuel-mind">
+            <header class="project__head">
+              <span class="project__idx">#01</span>
+              <span class="project__cat" data-i18n="p1.cat">Automação & Dados</span>
+              <span class="tag tag--live" data-i18n="p.live">Em produção</span>
+            </header>
+            <div class="project__body">
+              <div class="project__text">
+                <div>
+                  <h3 class="project__name">Fuel Mind</h3>
+                  <p class="project__pitch" data-i18n="p1.pitch">Controle de entradas de combustível e fretes para distribuidoras e transportadoras, usado todos os dias numa operação real.</p>
+                </div>
+                <dl class="kv">
+                  <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p1.problem">O controle de combustível do grupo vivia em 6+ planilhas desconectadas, com conciliação manual entre NF-e, o ERP AutoSystem e as medições do Veeder Root.</dd></div>
+                  <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p1.solution">Importação automática dos XMLs de NF-e, cruzamento com os relatórios do AutoSystem com alerta de divergências, cálculo de frete por empresa, painel analítico e fechamento mensal em PDF e Excel.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p1.arch">JavaScript puro, sem etapa de build, sobre Firebase (Firestore, Auth, Hosting). Multiempresa com perfis de acesso, fila offline com sincronização em tempo real, Chart.js, jsPDF e SheetJS. 102 testes automatizados.</dd></div>
+                </dl>
+                <div class="result">
+                  <span class="result__label" data-i18n="p.result">Resultado</span>
+                  <strong class="result__val">6+ → 1</strong>
+                  <span class="result__txt" data-i18n="p1.result">planilhas desconectadas substituídas por um sistema usado todos os dias.</span>
+                </div>
+                <div class="project__foot">
+                  <ul class="chips"><li>JavaScript</li><li>Firebase</li><li>Firestore</li><li>Chart.js</li><li>jsPDF</li><li>SheetJS</li></ul>
+                  <div class="project__links">
+                    <a class="link-arrow link-arrow--primary" href="https://controle-entradas-posto.web.app" target="_blank" rel="noopener"><svg class="i"><use href="#i-play"/></svg><span data-i18n="ui.demo">Demo ao vivo</span></a>
+                    <a class="link-arrow" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-i18n="ui.code">Código</span></a>
+                  </div>
+                  <span class="project__demo-url print-only">controle-entradas-posto.web.app</span>
+                </div>
+              </div>
+              <div class="project__visual" aria-hidden="true">
+                <div class="mock">
+                  <div class="flow">
+                    <div class="flow__col">
+                      <div class="node"><svg class="i"><use href="#i-file"/></svg>NF-e · XML</div>
+                      <div class="node"><svg class="i"><use href="#i-db"/></svg>AutoSystem</div>
+                      <div class="node"><svg class="i"><use href="#i-gauge"/></svg>Veeder Root</div>
+                    </div>
+                    <svg class="flow__lines" viewBox="0 0 32 300" preserveAspectRatio="none"><path d="M0 50 C 18 50, 14 150, 32 150"/><path d="M0 150 L 32 150"/><path d="M0 250 C 18 250, 14 150, 32 150"/></svg>
+                    <div class="flow__core"><i></i><b>Fuel Mind</b><span data-i18n="mk.fm.core">conciliação automática</span></div>
+                    <svg class="flow__lines" viewBox="0 0 32 300" preserveAspectRatio="none"><path d="M0 150 C 18 150, 14 50, 32 50"/><path d="M0 150 L 32 150"/><path d="M0 150 C 18 150, 14 250, 32 250"/></svg>
+                    <div class="flow__col">
+                      <div class="node node--out"><svg class="i"><use href="#i-chart"/></svg><span data-i18n="mk.fm.o1">Dashboard</span></div>
+                      <div class="node node--out"><svg class="i"><use href="#i-bell"/></svg><span data-i18n="mk.fm.o2">Alertas</span></div>
+                      <div class="node node--out"><svg class="i"><use href="#i-sheet"/></svg>PDF · Excel</div>
+                    </div>
+                  </div>
+                </div>
+                <span class="mock-note" data-i18n="ui.mockNote">Interface ilustrativa</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 · Praxis -->
+          <article class="project reveal" id="praxis">
+            <header class="project__head">
+              <span class="project__idx">#02</span>
+              <span class="project__cat" data-i18n="p2.cat">Compras & Aprovações</span>
+              <span class="tag tag--live" data-i18n="ui.demo">Demo ao vivo</span>
+            </header>
+            <div class="project__body">
+              <div class="project__text">
+                <div>
+                  <h3 class="project__name">Praxis</h3>
+                  <p class="project__pitch" data-i18n="p2.pitch">Gestão de compras corporativas do pedido ao pagamento, com cotações, aprovações e rastreabilidade total, para várias empresas (CNPJs).</p>
+                </div>
+                <dl class="kv">
+                  <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p2.problem">Sem um sistema, compras correm por e-mail e planilha: cotações difíceis de comparar, aprovações sem registro e parcelas de pagamento sem controle.</dd></div>
+                  <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p2.solution">Kanban do fluxo de compras, cotações lado a lado com indicador de economia, aprovações com motivos de recusa estruturados, pagamento em parcelas com comprovante e linha do tempo de SLA que destaca a etapa mais lenta.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p2.arch">JavaScript com ES modules, sem build, sobre Firebase: Firestore, Auth com Custom Claims, Cloud Functions (Node 22) e Storage. Isolamento entre empresas por regras de segurança, 6 perfis de acesso, transações contra conflito de status e PWA.</dd></div>
+                </dl>
+                <div class="result">
+                  <span class="result__label" data-i18n="p.result">Resultado</span>
+                  <strong class="result__val" data-i18n="p2.resultVal">Ponta a ponta</strong>
+                  <span class="result__txt" data-i18n="p2.result">do pedido ao pagamento, com histórico de cada aprovação e 14 eventos de notificação.</span>
+                </div>
+                <div class="project__foot">
+                  <ul class="chips"><li>JavaScript</li><li>Firebase</li><li>Cloud Functions</li><li>Firestore Rules</li><li>PWA</li></ul>
+                  <div class="project__links">
+                    <a class="link-arrow link-arrow--primary" href="https://praxis-af618.web.app" target="_blank" rel="noopener"><svg class="i"><use href="#i-play"/></svg><span data-i18n="ui.demo">Demo ao vivo</span></a>
+                    <a class="link-arrow" href="https://github.com/alyssom-fernandes/Praxis" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-i18n="ui.code">Código</span></a>
+                  </div>
+                  <span class="project__demo-url print-only">praxis-af618.web.app</span>
+                </div>
+              </div>
+              <div class="project__visual" aria-hidden="true">
+                <div class="mock mwin">
+                  <div class="mwin__bar"><i></i><i></i><i></i><span>praxis · #PC-0217</span></div>
+                  <div class="px">
+                    <ol class="px__steps">
+                      <li><i></i><span data-i18n="mk.px.s1">Pedido</span></li>
+                      <li><i></i><span data-i18n="mk.px.s2">Cotação</span></li>
+                      <li class="now"><i></i><span data-i18n="mk.px.s3">Aprovação</span></li>
+                      <li class="todo"><i></i><span data-i18n="mk.px.s4">Pagamento</span></li>
+                      <li class="todo"><i></i><span data-i18n="mk.px.s5">Concluído</span></li>
+                    </ol>
+                    <div class="px__card">
+                      <header><span data-i18n="mk.px.quotes">Cotações · 3 fornecedores</span><span data-i18n="mk.px.saving">economia 12%</span></header>
+                      <ul class="px__quotes">
+                        <li class="best"><span data-i18n="mk.px.q1">Fornecedor A</span><b>R$ 8.420</b><em data-i18n="mk.px.best">melhor</em></li>
+                        <li><span data-i18n="mk.px.q2">Fornecedor B</span><b>R$ 9.180</b><em>+9%</em></li>
+                        <li><span data-i18n="mk.px.q3">Fornecedor C</span><b>R$ 9.570</b><em>+14%</em></li>
+                      </ul>
+                    </div>
+                    <p class="px__log"><b>09:12</b> <span data-i18n="mk.px.l1">cotação escolhida pelo comprador</span><br><b>09:40</b> <span data-i18n="mk.px.l2">aguardando aprovação do gestor</span></p>
+                  </div>
+                </div>
+                <span class="mock-note" data-i18n="ui.mockNote">Interface ilustrativa</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 · FlowTrack -->
+          <article class="project reveal" id="flowtrack">
+            <header class="project__head">
+              <span class="project__idx">#03</span>
+              <span class="project__cat" data-i18n="p3.cat">IA & Full-stack</span>
+              <span class="tag">React · FastAPI</span>
+            </header>
+            <div class="project__body">
+              <div class="project__text">
+                <div>
+                  <h3 class="project__name">FlowTrack</h3>
+                  <p class="project__pitch" data-i18n="p3.pitch">App de finanças pessoais que categoriza transações com IA, importa extratos de bancos e projeta o fluxo de caixa.</p>
+                </div>
+                <dl class="kv">
+                  <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p3.problem">Categorizar gastos à mão é a parte chata das finanças pessoais, e chamar uma IA para cada transação sai caro e lento.</dd></div>
+                  <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p3.solution">Importa extratos em PDF de 4 bancos, OFX e CSV. Categoriza em 3 camadas: regras fixas, cache de estabelecimentos e, só por último, o Claude Haiku. Tem orçamentos com alerta, metas, projeção de 12 meses, auditoria com desfazer e modo offline.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p3.arch">React 19 + TypeScript no front; FastAPI (Python) no back; Supabase Postgres com Row Level Security e autenticação por JWT. Worker assíncrono com retry exponencial, Sentry, CI no GitHub Actions (testes, e2e com Playwright, Lighthouse) e 5 ADRs documentando as decisões.</dd></div>
+                </dl>
+                <div class="result">
+                  <span class="result__label" data-i18n="p.result">Resultado</span>
+                  <strong class="result__val">~90%</strong>
+                  <span class="result__txt" data-i18n="p3.result">menos chamadas à IA do que mandar tudo para o modelo. 83 testes de integração.</span>
+                </div>
+                <div class="project__foot">
+                  <ul class="chips"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>Supabase</li><li>Claude Haiku</li><li>Playwright</li></ul>
+                  <div class="project__links">
+                    <a class="link-arrow link-arrow--primary" href="https://github.com/alyssom-fernandes/FlowTrack" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-i18n="ui.code">Código</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project__visual" aria-hidden="true">
+                <div class="mock mwin">
+                  <div class="mwin__bar"><i></i><i></i><i></i><span>flowtrack · <span data-i18n="mk.ft.tab">transações</span></span></div>
+                  <div class="ft">
+                    <div class="ft__sum">
+                      <div><span data-i18n="mk.ft.month">Gastos do mês</span><strong>R$ 3.482</strong></div>
+                      <div class="ft__bar"><i style="width:38%"></i><i style="width:27%"></i><i style="width:21%"></i><i style="width:14%"></i></div>
+                    </div>
+                    <ul class="ft__list">
+                      <li><span class="desc">PAG*SUPERMERC PAULISTA</span><span class="val">−R$ 287,40</span><span class="ft__cat"><svg class="i"><use href="#i-spark"/></svg><b data-i18n="mk.ft.c1">Mercado</b><span data-i18n="mk.ft.byAi">IA · 0,97</span></span></li>
+                      <li><span class="desc">UBER *TRIP 8H2K</span><span class="val">−R$ 23,90</span><span class="ft__cat"><svg class="i"><use href="#i-sync"/></svg><b data-i18n="mk.ft.c2">Transporte</b><span data-i18n="mk.ft.byCache">cache</span></span></li>
+                      <li><span class="desc">PIX RECEBIDO · SALÁRIO</span><span class="val">+R$ 5.200,00</span><span class="ft__cat"><svg class="i"><use href="#i-check"/></svg><b data-i18n="mk.ft.c3">Renda</b><span data-i18n="mk.ft.byRule">regra</span></span></li>
+                    </ul>
+                  </div>
+                </div>
+                <span class="mock-note" data-i18n="ui.mockNote">Interface ilustrativa</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 · AlertSignal -->
+          <article class="project reveal" id="alertsignal">
+            <header class="project__head">
+              <span class="project__idx">#04</span>
+              <span class="project__cat" data-i18n="p4.cat">Backend & Automação</span>
+              <span class="tag tag--live" data-i18n="p.live">Em produção</span>
+            </header>
+            <div class="project__body">
+              <div class="project__text">
+                <div>
+                  <h3 class="project__name">AlertSignal</h3>
+                  <p class="project__pitch" data-i18n="p4.pitch">Controle de vencimentos de alvarás e licenças de várias empresas, com alertas automáticos por e-mail.</p>
+                </div>
+                <dl class="kv">
+                  <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p4.problem">Os vencimentos de alvarás e licenças eram acompanhados numa planilha mantida à mão, com risco real de multa a cada prazo esquecido.</dd></div>
+                  <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p4.solution">Aplicação web que monitora os vencimentos e dispara e-mails 90, 30 e 7 dias antes (e lembretes depois do prazo), com vários responsáveis por documento, histórico completo, regras configuráveis e exportação para Excel com status por cor.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p4.arch">Python + Flask + SQLite com SQL puro, jobs agendados com APScheduler, envio de e-mail via smtplib, templates Jinja2 e relatórios com pandas/openpyxl. Perfis de administrador e visualizador.</dd></div>
+                </dl>
+                <div class="result">
+                  <span class="result__label" data-i18n="p.result">Resultado</span>
+                  <strong class="result__val">90 · 30 · 7</strong>
+                  <span class="result__txt" data-i18n="p4.result">dias de antecedência: alertas automáticos no lugar do controle manual.</span>
+                </div>
+                <div class="project__foot">
+                  <ul class="chips"><li>Python</li><li>Flask</li><li>SQLite</li><li>APScheduler</li><li>pandas</li></ul>
+                  <div class="project__links">
+                    <a class="link-arrow link-arrow--primary" href="https://github.com/alyssom-fernandes/AlertSignal" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-i18n="ui.code">Código</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project__visual" aria-hidden="true">
+                <div class="mock mwin">
+                  <div class="mwin__bar"><i></i><i></i><i></i><span>alertsignal · <span data-i18n="mk.al.tab">vencimentos</span></span></div>
+                  <div class="al">
+                    <div class="al__scale">
+                      <div class="al__track"></div>
+                      <span class="al__tick" style="--p:0%">90d</span>
+                      <span class="al__tick" style="--p:66.7%">30d</span>
+                      <span class="al__tick" style="--p:92.2%">7d</span>
+                      <span class="al__doc" style="--p:6.7%"></span>
+                      <span class="al__doc al__doc--w" style="--p:70%"></span>
+                      <span class="al__doc al__doc--e" style="--p:93.3%"></span>
+                    </div>
+                    <ul class="al__docs">
+                      <li><i></i><span data-i18n="mk.al.d1">Licença ambiental</span><b data-i18n="mk.al.d1v">84 dias</b></li>
+                      <li class="w"><i></i><span data-i18n="mk.al.d2">Alvará de funcionamento</span><b data-i18n="mk.al.d2v">27 dias</b></li>
+                      <li class="e"><i></i><span data-i18n="mk.al.d3">AVCB · Bombeiros</span><b data-i18n="mk.al.d3v">6 dias</b></li>
+                    </ul>
+                    <div class="toast-mail">
+                      <svg class="i"><use href="#i-mail"/></svg>
+                      <div><b data-i18n="mk.al.toastT">Alerta de 7 dias enviado</b><span data-i18n="mk.al.toastS">AVCB · 3 responsáveis notificados</span></div>
+                    </div>
+                  </div>
+                </div>
+                <span class="mock-note" data-i18n="ui.mockNote">Interface ilustrativa</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Outros projetos -->
+        <div class="more reveal">
+          <div class="more__head">
+            <h3 data-i18n="more.title">Outros projetos no GitHub</h3>
+            <span class="mono-label mono-label--formula" data-i18n="more.f">=FILTRO(repositórios; público)</span>
+          </div>
+          <div class="table-scroll">
+            <table class="repo-table">
+              <thead>
+                <tr><th scope="col" data-i18n="more.colName">Projeto</th><th scope="col" data-i18n="more.colWhat">O que é</th><th scope="col">Stack</th><th scope="col">Links</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Docke</th>
+                  <td data-i18n="more.docke">Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais por regime tributário, retenção legal e trilha de auditoria encadeada por hash.</td>
+                  <td class="stack">React · TypeScript · FastAPI · PostgreSQL (RLS) · Tesseract</td>
+                  <td class="links"><a href="https://github.com/alyssom-fernandes/Docke" target="_blank" rel="noopener" data-i18n="ui.code">Código</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">UnifyData</th>
+                  <td data-i18n="more.unify">Conciliação mensal de benefícios da folha: cruza o exportado do AutoSystem com o RH e gera um Excel por unidade. Versão web e versão Python, com correspondência aproximada de nomes.</td>
+                  <td class="stack">JavaScript · PDF.js · ExcelJS · Python · Streamlit · pandas</td>
+                  <td class="links"><a href="https://github.com/alyssom-fernandes/UnifyData-Web" target="_blank" rel="noopener">Web</a><a href="https://github.com/alyssom-fernandes/UnifyData-Python" target="_blank" rel="noopener">Python</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">AudiStock</th>
+                  <td data-i18n="more.audi">Auditoria de estoque físico com leitura de código de barras pela câmera, vários auditores ao mesmo tempo em tempo real e fila offline.</td>
+                  <td class="stack">JavaScript · Supabase Realtime · IndexedDB · jsPDF</td>
+                  <td class="links"><a href="https://github.com/alyssom-fernandes/AudiStock" target="_blank" rel="noopener" data-i18n="ui.code">Código</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">DeepChat</th>
+                  <td data-i18n="more.deep">Chat no navegador em que o DeepSeek responde e o ChatGPT revisa a resposta (ou o contrário). As chaves de API ficam só no navegador.</td>
+                  <td class="stack">HTML · CSS · JavaScript · <span data-i18n="more.aiApis">APIs de IA</span></td>
+                  <td class="links"><a href="https://alyssom-fernandes.github.io/DeepChat/" target="_blank" rel="noopener">Demo</a><a href="https://github.com/alyssom-fernandes/DeepChat" target="_blank" rel="noopener" data-i18n="ui.code">Código</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">ArtMaker</th>
+                  <td data-i18n="more.art">Gerador de encartes promocionais 1080×1920 para lojas, em um único arquivo HTML com Canvas.</td>
+                  <td class="stack">JavaScript · HTML5 Canvas</td>
+                  <td class="links"><a href="https://alyssom-fernandes.github.io/ArtMaker/" target="_blank" rel="noopener">Demo</a><a href="https://github.com/alyssom-fernandes/ArtMaker" target="_blank" rel="noopener" data-i18n="ui.code">Código</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIÊNCIA ============ -->
+    <section id="experiencia" class="section" data-f="f.xp" data-r="r.xp">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker"><span class="kicker__n">03</span><span data-i18n="t.xp">Experiência</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+          <h2 class="h2 reveal" data-i18n-html="x.title">5+ anos resolvendo <em>problemas de negócio</em>.</h2>
+        </header>
+
+        <ol class="xp">
+          <li class="xp__row sel reveal">
+            <div class="xp__when">
+              <span class="xp__period" data-i18n="x1.period">fev 2026 — atual</span>
+              <span class="xp__dur" data-since="2026-02">8 meses</span>
+              <span class="tag tag--live" data-i18n="ui.current">Atual</span>
+            </div>
+            <div class="xp__who">
+              <h3>Grupo Zen</h3>
+              <p class="xp__role" data-i18n="x1.role">Analista de Sistemas Financeiros Jr.</p>
+              <p class="xp__note" data-i18n="x1.note">Cargo formal: Auxiliar de Controladoria</p>
+            </div>
+            <ul class="xp__what">
+              <li data-i18n="x1.b1">Desenvolvi o Fuel Mind e o AlertSignal, sistemas internos que hoje rodam em produção.</li>
+              <li data-i18n="x1.b2">Automatizei a análise diária de divergências entre estoque físico, sistema e medições, que antes era feita à mão.</li>
+              <li data-i18n="x1.b3">Estruturei dados operacionais e financeiros de 3 unidades de negócio para apoiar as decisões da gestão.</li>
+            </ul>
+          </li>
+          <li class="xp__row sel reveal">
+            <div class="xp__when">
+              <span class="xp__period" data-i18n="x2.period">set 2025 — jan 2026</span>
+              <span class="xp__dur" data-months="4">4 meses</span>
+            </div>
+            <div class="xp__who">
+              <h3>Fazenda Novo México</h3>
+              <p class="xp__role" data-i18n="x2.role">Auxiliar Administrativo</p>
+              <p class="xp__note" data-i18n="x2.note">Agronegócio · contrato temporário</p>
+            </div>
+            <ul class="xp__what">
+              <li data-i18n="x2.b1">Gestão de operações administrativas em um projeto de irrigação de grande porte, sob alta pressão de prazos.</li>
+              <li data-i18n="x2.b2">Coordenação de equipes internas e interface com empresas terceirizadas em várias frentes ao mesmo tempo.</li>
+            </ul>
+          </li>
+          <li class="xp__row sel reveal">
+            <div class="xp__when">
+              <span class="xp__period" data-i18n="x3.period">fev 2021 — set 2025</span>
+              <span class="xp__dur" data-months="55">4 anos e 7 meses</span>
+            </div>
+            <div class="xp__who">
+              <h3>Astcon Assessoria Contábil</h3>
+              <p class="xp__role" data-i18n="x3.role">Auxiliar de Escritório — DP/RH</p>
+              <p class="xp__note" data-i18n="x3.note">Escritório de contabilidade</p>
+            </div>
+            <ul class="xp__what">
+              <li data-i18n="x3.b1">Rotinas completas de DP/RH para 60+ empresas clientes: admissões, demissões, férias, rescisões, INSS, FGTS, eSocial e DCTFWeb.</li>
+              <li data-i18n="x3.b2">Rigor analítico com grandes volumes de dados fiscais e trabalhistas.</li>
+              <li data-i18n="x3.b3">Referência técnica interna, responsável por treinar novos colaboradores.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section id="habilidades" class="section" data-f="f.skills" data-r="r.skills">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker"><span class="kicker__n">04</span><span data-i18n="t.skills">Habilidades</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+          <h2 class="h2 reveal" data-i18n-html="s.title">Habilidades, com <em>evidência</em>.</h2>
+          <p class="lead reveal" data-i18n="s.intro">Nada de barrinha de porcentagem inventada. Isto é uma tabela dinâmica: cada tecnologia cruzada com o projeto em que ela foi usada de verdade.</p>
+        </header>
+
+        <div class="print-skills print-only" id="printSkills"></div>
+
+        <div class="pivot-block reveal">
+          <h3><span data-i18n="s.t1">Tecnologias × Projetos</span><span class="mono-label" data-i18n="s.pivot">Tabela dinâmica</span></h3>
+          <div class="table-scroll">
+            <table class="pivot" id="pivotTech">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="s.colTech">Tecnologia</th>
+                  <th scope="col"><a href="#fuel-mind">Fuel Mind</a></th>
+                  <th scope="col"><a href="#praxis">Praxis</a></th>
+                  <th scope="col"><a href="#flowtrack">FlowTrack</a></th>
+                  <th scope="col"><a href="#alertsignal">AlertSignal</a></th>
+                  <th scope="col">Docke</th>
+                  <th scope="col">UnifyData</th>
+                  <th scope="col">AudiStock</th>
+                  <th scope="col" data-i18n="s.total">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row" data-i18n="s.r.auth">Autenticação & perfis de acesso</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td class="tot">6</td></tr>
+                <tr><th scope="row" data-i18n="s.r.reports">Relatórios PDF / Excel</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td class="on"></td><td class="tot">6</td></tr>
+                <tr><th scope="row">JavaScript</th><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td class="on"></td><td class="tot">5</td></tr>
+                <tr><th scope="row">Python</th><td></td><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="tot">4</td></tr>
+                <tr><th scope="row" data-i18n="s.r.dash">Dashboards & KPIs</th><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">4</td></tr>
+                <tr><th scope="row">PostgreSQL / Supabase</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td class="tot">3</td></tr>
+                <tr><th scope="row" data-i18n="s.r.jobs">Jobs agendados</th><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td></td><td></td><td class="tot">3</td></tr>
+                <tr><th scope="row" data-i18n="s.r.sync">Tempo real & offline</th><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td></td><td class="on"></td><td class="tot">3</td></tr>
+                <tr><th scope="row" data-i18n="s.r.tests">Testes automatizados</th><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">3</td></tr>
+                <tr><th scope="row">TypeScript</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">React</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">FastAPI</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">Firebase</th><td class="on"></td><td class="on"></td><td></td><td></td><td></td><td></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">pandas</th><td></td><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">CI (GitHub Actions)</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
+                <tr><th scope="row">Flask + SQLite</th><td></td><td></td><td></td><td class="on"></td><td></td><td></td><td></td><td class="tot">1</td></tr>
+                <tr><th scope="row" data-i18n="s.r.ai">IA generativa (Claude)</th><td></td><td></td><td class="on"></td><td></td><td></td><td></td><td></td><td class="tot">1</td></tr>
+                <tr><th scope="row">OCR (Tesseract)</th><td></td><td></td><td></td><td></td><td class="on"></td><td></td><td></td><td class="tot">1</td></tr>
+                <tr><th scope="row" data-i18n="s.r.nfe">NF-e (XML)</th><td class="on"></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tot">1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pivots" style="margin-top:40px">
+          <div class="pivot-block reveal">
+            <h3><span data-i18n="s.t2">Negócio × Experiência</span><span class="mono-label" data-i18n="s.pivot">Tabela dinâmica</span></h3>
+            <div class="table-scroll">
+              <table class="pivot" id="pivotDomain">
+                <thead>
+                  <tr><th scope="col" data-i18n="s.colArea">Área</th><th scope="col">Astcon</th><th scope="col">Novo México</th><th scope="col">Grupo Zen</th><th scope="col" data-i18n="s.total">Total</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row" data-i18n="s.d1">Rotinas fiscais</th><td class="on"></td><td></td><td class="on"></td><td class="tot">2</td></tr>
+                  <tr><th scope="row" data-i18n="s.d2">Análise de dados financeiros e operacionais</th><td class="on"></td><td></td><td class="on"></td><td class="tot">2</td></tr>
+                  <tr><th scope="row" data-i18n="s.d3">DP / folha (eSocial, DCTFWeb, FGTS, INSS)</th><td class="on"></td><td></td><td></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d4">Treinamento de equipe</th><td class="on"></td><td></td><td></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d5">Controladoria & conciliação</th><td></td><td></td><td class="on"></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d6">Controles internos</th><td></td><td></td><td class="on"></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d7">ERP (AutoSystem)</th><td></td><td></td><td class="on"></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d8">Coordenação de equipes e terceiros</th><td></td><td class="on"></td><td></td><td class="tot">1</td></tr>
+                  <tr><th scope="row" data-i18n="s.d9">Gestão administrativa de projetos</th><td></td><td class="on"></td><td></td><td class="tot">1</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="pivot-block reveal">
+            <h3 data-i18n="s.also">Também no dia a dia</h3>
+            <div class="also">
+              <ul class="chips">
+                <li>Git</li>
+                <li data-i18n="s.sql">SQL (básico)</li>
+                <li data-i18n="s.pbi">Power BI (básico)</li>
+                <li data-i18n="s.excel">Excel avançado</li>
+                <li>Vite</li>
+                <li>Streamlit</li>
+                <li>Playwright</li>
+                <li>Sentry</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMAÇÃO ============ -->
+    <section id="formacao" class="section" data-f="f.edu" data-r="r.edu">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker"><span class="kicker__n">05</span><span data-i18n="t.edu">Formação</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+          <h2 class="h2 reveal" data-i18n-html="e.title">Formação & <em>idiomas</em>.</h2>
+        </header>
+
+        <div class="grid12 edu">
+          <article class="edu__card sel reveal">
+            <div class="edu__top">
+              <span class="mono-label" data-i18n="e.kind">Ensino superior</span>
+              <span class="edu__check" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></span>
+            </div>
+            <h3 data-i18n="e.degree">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+            <p class="edu__meta">Uniasselvi · <span data-i18n="e.status">Concluído em 2026</span></p>
+          </article>
+
+          <div class="langs reveal">
+            <h3 data-i18n="e.langs">Idiomas</h3>
+            <div class="table-scroll">
+              <table class="cefr-table">
+                <thead>
+                  <tr><th scope="col" style="text-align:left" data-i18n="e.colLang">Idioma</th><th scope="col">A1</th><th scope="col">A2</th><th scope="col">B1</th><th scope="col">B2</th><th scope="col">C1</th><th scope="col">C2</th><th scope="col" data-i18n="e.native">Nativo</th><th scope="col" data-i18n="e.colLevel">Nível</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row" data-i18n="e.pt">Português</th><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lvl" data-i18n="e.ptLv">Nativo</td></tr>
+                  <tr><th scope="row" data-i18n="e.en">Inglês</th><td class="lv on"></td><td class="lv on"></td><td class="lv on"></td><td class="lv"></td><td class="lv"></td><td class="lv"></td><td class="lv"></td><td class="lvl" data-i18n="e.enLv">B1 · intermediário</td></tr>
+                  <tr><th scope="row" data-i18n="e.es">Espanhol</th><td class="lv on"></td><td class="lv on"></td><td class="lv"></td><td class="lv"></td><td class="lv"></td><td class="lv"></td><td class="lv"></td><td class="lvl" data-i18n="e.esLv">Básico</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section id="contato" class="section contact" data-f="f.contact" data-r="r.contact">
+      <div class="wrap">
+        <p class="kicker"><span class="kicker__n">06</span><span data-i18n="t.contact">Contato</span><span class="kicker__rule"></span><span class="kicker__cell" data-cellref></span></p>
+        <h2 class="contact__title reveal" data-i18n-html="c.title">Vamos <em>conversar</em>?</h2>
+        <p class="lead reveal" data-i18n="c.text">Estou aberto a posições remotas ou presenciais em desenvolvimento, dados e sistemas financeiros, e em processo de relocação para Espanha ou Portugal (visto de nômade digital em andamento).</p>
+
+        <div class="contact__mail reveal">
+          <a class="contact__email" href="mailto:alyssom1919@gmail.com">alyssom1919@gmail.com</a>
+          <button class="btn btn--ghost btn--sm" id="copyEmail" type="button" data-i18n="ui.copy">Copiar</button>
+        </div>
+
+        <ul class="contact__links reveal">
+          <li><a class="link-cell sel" href="https://linkedin.com/in/alyssom-fernandes" target="_blank" rel="noopener"><span class="mono-label">LinkedIn</span><strong>/in/alyssom-fernandes</strong><svg class="i arrow"><use href="#i-out"/></svg></a></li>
+          <li><a class="link-cell sel" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener"><span class="mono-label">GitHub</span><strong>/alyssom-fernandes</strong><svg class="i arrow"><use href="#i-out"/></svg></a></li>
+          <li><a class="link-cell sel" href="https://wa.me/5562996674854" target="_blank" rel="noopener"><span class="mono-label">WhatsApp</span><strong>+55 62 99667-4854</strong><svg class="i arrow"><use href="#i-out"/></svg></a></li>
+          <li><a class="link-cell sel cv-link" href="cv/Alyssom-Fernandes-CV-PT.pdf" download><span class="mono-label" data-i18n="c.cv">Currículo</span><strong data-i18n="c.cvSub">Baixar PDF</strong><svg class="i arrow"><use href="#i-down"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© 2026 Alyssom Fernandes · <span data-i18n="ft.built">Construído do zero em HTML, CSS e JavaScript. Nenhuma planilha foi ferida.</span></span>
+      <a href="#inicio" data-i18n="ui.backTop">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- Abas da planilha = navegação -->
+  <nav class="statusbar" aria-label="Seções da página" data-i18n-attr="aria-label:ui.sections">
+    <div class="statusbar__ready"><span class="dot"></span><span data-i18n="ui.ready">Pronto</span><span aria-hidden="true">·</span><span data-i18n="ui.avail">Aberto a oportunidades</span></div>
+    <ul class="tabs" id="tabs">
+      <li><a href="#inicio" data-i18n="t.home" aria-current="true">Início</a></li>
+      <li><a href="#perfil" data-i18n="t.about">Perfil</a></li>
+      <li><a href="#projetos" data-i18n="t.projects">Projetos</a></li>
+      <li><a href="#experiencia" data-i18n="t.xp">Experiência</a></li>
+      <li><a href="#habilidades" data-i18n="t.skills">Habilidades</a></li>
+      <li><a href="#formacao" data-i18n="t.edu">Formação</a></li>
+      <li><a href="#contato" data-i18n="t.contact">Contato</a></li>
+      <li><button class="tabs__add" id="tabAdd" type="button" aria-label="Nova aba" data-i18n-attr="aria-label:ui.newTab;title:ui.newTab">+</button></li>
+    </ul>
+    <div class="statusbar__zoom" aria-hidden="true"><span>−</span><span class="zoom"><span class="zoom__thumb" id="zoomThumb"></span></span><span>+</span><span class="zoom__pct" id="zoomPct">0%</span></div>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparar conceitos · Portfólio</title>
+  <style>
+    :root { --bg: #f3f2ee; --ink: #16171a; --muted: #5e6066; --line: #d9d7d0; --card: #fff; --accent: #2b50ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { margin: 0 0 6px; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.02em; }
+    .intro { margin: 0 0 28px; max-width: 70ch; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr)); gap: 20px; }
+    .card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .shots { display: grid; grid-template-columns: 1fr 26%; gap: 8px; padding: 12px; background: #e9e7e0; }
+    .shots img { display: block; width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); background: #ddd; }
+    .shots .mobile { align-self: start; }
+    .body { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px 18px; flex: 1; }
+    .body h2 { margin: 0; font-size: 1.25rem; letter-spacing: -.01em; }
+    .tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 99px; font-size: .75rem; color: var(--muted); vertical-align: 3px; }
+    .body p { margin: 0; }
+    dl { display: grid; grid-template-columns: 92px 1fr; gap: 4px 10px; margin: 0; font-size: .92rem; }
+    dt { color: var(--muted); }
+    dd { margin: 0; }
+    .states { display: flex; flex-wrap: wrap; gap: 6px; }
+    .states a { padding: 3px 9px; border: 1px solid var(--line); border-radius: 99px; font-size: .8rem; color: var(--ink); text-decoration: none; }
+    .states a:hover { border-color: var(--accent); color: var(--accent); }
+    .open { margin-top: auto; display: inline-flex; align-self: flex-start; padding: 10px 16px; border-radius: 8px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; }
+    .open:hover { background: var(--accent); }
+    .note { margin-top: 28px; padding: 14px 16px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Comparar conceitos do portfólio</h1>
+    <p class="intro">Protótipos de conceito, só em português e só com dados reais do <code>conteudo.md</code>. Abra cada um em tela cheia, teste no celular e compare com a planilha atual. As capturas são estáticas; o movimento só dá para julgar abrindo o protótipo.</p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="shots">
+          <img src="capturas/retrospectiva-desktop.png" alt="Retrospectiva no desktop" loading="lazy">
+          <img class="mobile" src="capturas/retrospectiva-mobile.png" alt="Retrospectiva no celular" loading="lazy">
+        </div>
+        <div class="body">
+          <h2>Retrospectiva <span class="tag">stories · formato "retrospectiva do ano"</span></h2>
+          <p>A carreira em 8 telas cheias que avançam sozinhas, com números que se montam e um cartão-resumo no fim. No desktop, um painel fixo mantém nome, CV e contato sempre à vista.</p>
+          <dl>
+            <dt>Forte em</dt><dd>celular, cor, ritmo, dá para "assistir" em 40 segundos</dd>
+            <dt>Atenção</dt><dd>conteúdo em sequência (o recrutador depende do botão "Pular para o resumo")</dd>
+          </dl>
+          <div class="states"><a href="retrospectiva.html?passo=4">A virada</a><a href="retrospectiva.html?passo=5">Projetos</a><a href="retrospectiva.html?estado=resumo">Resumo</a></div>
+          <a class="open" href="retrospectiva.html">Abrir protótipo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shots">
+          <img src="capturas/cidade-3d-hero-final.png" alt="Cidade de dados 3D no desktop" loading="lazy">
+          <img class="mobile" src="capturas/cidade-3d-mobile-final.png" alt="Cidade de dados 3D no celular" loading="lazy">
+        </div>
+        <div class="body">
+          <h2>Cidade de dados 3D <span class="tag">WebGL · Three.js</span></h2>
+          <p>A planilha vira uma cidade: cada andar de um prédio é uma tecnologia real do projeto, com os sistemas em produção coroados de luz. Rolar sobrevoa, clicar num prédio abre o projeto.</p>
+          <dl>
+            <dt>Forte em</dt><dd>impacto visual, mostra capacidade técnica além de dados</dd>
+            <dt>Atenção</dt><dd>não foi testada em GPU real; mais pesada no celular; alguns rótulos se sobrepõem</dd>
+          </dl>
+          <div class="states"><a href="cidade-3d.html?foco=fuel-mind">Prédio do Fuel Mind</a><a href="cidade-3d.html?vista=topo">Vista de topo</a><a href="cidade-3d.html?estado=estatico">Versão sem 3D</a></div>
+          <a class="open" href="cidade-3d.html">Abrir protótipo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shots">
+          <img src="capturas/ficha-rpg-desktop.png" alt="Ficha de personagem, tela de título" loading="lazy">
+          <img class="mobile" src="capturas/ficha-rpg-mobile.png" alt="Ficha de personagem no celular" loading="lazy">
+        </div>
+        <div class="body">
+          <h2>Ficha de personagem <span class="tag">interface de jogo</span></h2>
+          <p>Tela de título com "Pressione start" e uma transição forte até a ficha: nível = anos de carreira, atributos = em quantos projetos cada tecnologia aparece, missões = projetos, conquistas = fatos reais.</p>
+          <dl>
+            <dt>Forte em</dt><dd>a ficha funciona como um currículo de uma tela; memorável</dd>
+            <dt>Atenção</dt><dd>o tema "jogo" pode não agradar recrutadores mais formais</dd>
+          </dl>
+          <div class="states"><a href="ficha-rpg.html?estado=ficha">Ficha</a><a href="ficha-rpg.html?estado=missoes">Missões</a><a href="ficha-rpg.html?estado=equipamento">Equipamento</a></div>
+          <a class="open" href="ficha-rpg.html">Abrir protótipo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shots">
+          <img src="capturas/reportagem-desktop.png" alt="Reportagem de dados no desktop" loading="lazy">
+          <img class="mobile" src="capturas/reportagem-mobile.png" alt="Reportagem de dados no celular" loading="lazy">
+        </div>
+        <div class="body">
+          <h2>Reportagem de dados <span class="tag">scrollytelling editorial</span></h2>
+          <p>Uma reportagem visual: os mesmos pontos atravessam 4 gráficos sem cortes, dos meses de carreira à linha do tempo, à matriz tecnologias × projetos e aos projetos por situação.</p>
+          <dl>
+            <dt>Forte em</dt><dd>o mais "analista de dados", elegante e totalmente baseado em evidência</dd>
+            <dt>Atenção</dt><dd>menos "uau" imediato; o impacto vem ao rolar</dd>
+          </dl>
+          <div class="states"><a href="reportagem.html?passo=1">As planilhas</a><a href="reportagem.html?passo=2">A virada de 2026</a><a href="reportagem.html?passo=3">Matriz</a></div>
+          <a class="open" href="reportagem.html">Abrir protótipo →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="note">Para comparar: a versão atual (planilha) está em <a href="../index.html">../index.html</a>. Números ainda aguardando confirmação e usados nos protótipos: 60+ empresas, 3 unidades de negócio, 6+ planilhas substituídas e ~90% menos chamadas à IA (FlowTrack). Todos ficam num objeto <code>DATA</code> no topo de cada arquivo.</p>
+  </main>
+</body>
+</html>
