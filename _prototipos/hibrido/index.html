@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alyssom Fernandes — Developer · Data & BI</title>
+<meta name="description" content="Alyssom Fernandes, Developer · Data & Business Intelligence. 5+ anos em DP/RH, fiscal e controladoria; hoje constrói os sistemas que substituem as planilhas. Remoto ou relocação para Espanha e Portugal.">
+<meta name="theme-color" content="#F2F0EB">
+<meta name="author" content="Alyssom Fernandes">
+<!-- Compartilhamento (LinkedIn, WhatsApp...). Ao publicar: troque og:image e og:url por URLs absolutas
+     e adicione <link rel="canonical" href="https://SEU-DOMINIO/"> (o domínio final ainda não existe). -->
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Alyssom Fernandes — Developer · Data & Business Intelligence">
+<meta property="og:description" content="Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem. Remoto ou relocação para Espanha e Portugal.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maquete de uma cidade de dados sobre uma planilha, ao lado do nome Alyssom Fernandes.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alyssom Fernandes",
+  "jobTitle": "Developer · Data & Business Intelligence",
+  "email": "mailto:alyssom1919@gmail.com",
+  "telephone": "+55 62 99667-4854",
+  "address": { "@type": "PostalAddress", "addressCountry": "BR" },
+  "knowsLanguage": ["pt-BR", "en", "es"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Uniasselvi" },
+  "sameAs": ["https://linkedin.com/in/alyssom-fernandes", "https://github.com/alyssom-fernandes"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" crossorigin>
+<script>
+  // aplica a visão recrutador antes da primeira pintura (sem piscar o 3D)
+  if (/[?&]view=cv(&|$)/.test(location.search)) document.documentElement.classList.add('modo-cv');
+  if (/[?&]captura=1(&|$)/.test(location.search)) document.documentElement.classList.add('captura');
+</script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============ PALCO: cidade 3D (decorativa; o conteúdo está todo no HTML) ============ -->
+<div id="palco" aria-hidden="true">
+  <div id="folha"></div>
+  <canvas id="cidade" tabindex="-1"></canvas>
+  <div id="estatico"></div>
+  <div id="rotulos"></div>
+  <div id="etiqueta"><div class="card"><b></b><span></span><em></em></div></div>
+</div>
+<p id="legenda-fig" class="legenda-fig" aria-hidden="true"></p>
+
+<!-- ============ CABEÇALHO ============ -->
+<header class="topo" id="topo">
+  <a class="marca" href="#inicio" aria-label="Alyssom Fernandes, voltar ao início">
+    <span class="marca-sinal" aria-hidden="true">AF</span>
+    <span class="marca-txt"><b>Alyssom Fernandes</b><span>Developer · Data &amp; BI</span></span>
+  </a>
+  <nav class="topo-nav" aria-label="Seções">
+    <a href="#perfil">Perfil</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#formacao">Formação</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <div class="topo-acoes">
+    <a class="bt bt-linha bt-p bt-cv" href="../../cv/Alyssom-Fernandes-CV-PT.pdf" target="_blank" rel="noopener" aria-label="Baixar o currículo em PDF">CV <small>PDF</small></a>
+    <button class="bt bt-tinta bt-p" type="button" data-alterna-cv aria-pressed="false"><span class="rot-completo">Visão recrutador</span><span class="rot-cv">Versão completa</span></button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ============ ABERTURA ============ -->
+  <section class="sec sec-abertura" id="inicio" data-plano="abertura" aria-labelledby="h-nome"
+    data-legenda="<b>Fig. 1 — A cidade de dados.</b> Cada prédio nasce de um número da planilha: nos projetos, 1 andar = 1 tecnologia; nas tecnologias, 1 andar = 1 projeto. Volumes lisos e árvores são só cenário.">
+    <div class="col">
+      <p class="kicker"><i aria-hidden="true"></i>Portfólio · Da planilha ao sistema</p>
+      <h1 id="h-nome"><span>Alyssom</span> <em>Fernandes</em></h1>
+      <p class="cargo">Developer <span aria-hidden="true">·</span> Data &amp; Business Intelligence</p>
+      <p class="tese">Passei 5 anos dentro das <em>planilhas</em>. Hoje construo os <mark>sistemas</mark> que as substituem.</p>
+      <p class="dispo"><span class="pulso" aria-hidden="true"></span><span><b>Disponível</b> — remoto ou relocação para Espanha e <span class="nw">Portugal ·</span> <span class="nw">Brasil, UTC−3</span></span></p>
+      <div class="acoes">
+        <a class="bt bt-tinta" href="../../cv/Alyssom-Fernandes-CV-PT.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><path d="M7 1v10m0 0L2.5 6.5M7 11l4.5-4.5M1 15h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Baixar CV <small>PDF</small></a>
+        <a class="bt bt-linha" href="#contato">Contato</a>
+        <button class="bt bt-linha bt-recrutador" type="button" data-alterna-cv aria-pressed="false"><span class="rot-completo">Visão recrutador</span><span class="rot-cv">Versão completa</span></button>
+      </div>
+      <dl class="ficha">
+        <div><dt>Idiomas</dt><dd>Português nativo · Inglês B1 · Espanhol básico</dd></div>
+        <div><dt>Formação</dt><dd>Tecnólogo em ADS · Uniasselvi, 2026</dd></div>
+        <div class="so-cv"><dt>Contato</dt><dd><a href="mailto:alyssom1919@gmail.com">alyssom1919@gmail.com</a> · <a href="https://linkedin.com/in/alyssom-fernandes" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">GitHub</a> · <a class="nw" href="https://wa.me/5562996674854" target="_blank" rel="noopener">+55 62 99667-4854</a></dd></div>
+      </dl>
+      <ul class="placar" aria-label="Em números">
+        <li><b>9</b><span>projetos publicados no GitHub</span></li>
+        <li><b>2</b><span>sistemas em produção</span></li>
+        <li><b>5+</b><span>anos em DP/RH, fiscal e controladoria</span></li>
+      </ul>
+      <a class="rolar" href="#perfil"><i aria-hidden="true"></i>Role para percorrer a cidade</a>
+    </div>
+  </section>
+
+  <!-- ============ PERFIL ============ -->
+  <section class="sec" id="perfil" data-plano="perfil" aria-labelledby="h-perfil"
+    data-legenda="<b>Fig. 2 — A maquete sobre a planilha.</b> O chão é uma folha de cálculo: cabeçalhos, linhas e colunas. Tudo o que está de pé saiu dela.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-perfil"><span class="sec-n">01</span> Perfil</h2>
+      <p class="sec-tit">A ponte entre <em>finanças</em> e <em>código</em>.</p>
+      <p class="resumo">Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e entrego software em produção que automatiza conciliações, integra dados de ERPs e dá à gestão números em que dá para confiar.</p>
+      <p class="corpo">Por mais de 5 anos trabalhei nas rotinas de departamento pessoal, fiscal e, mais recentemente, controladoria. Só em folha e rotinas fiscais, atendi <b><span data-num="empresasClientes">60+</span> empresas</b>. Vi de perto onde a operação quebra: planilhas desconectadas, conciliações feitas à mão e prazos que dependem da memória de alguém.</p>
+      <p class="corpo">Em vez de só apontar esses problemas, comecei a resolvê-los com código. Hoje desenvolvo sistemas usados no dia a dia de um grupo empresarial, que trocam controles manuais por automação, dados integrados e alertas. E falo a língua dos dois lados: a do time financeiro e a do time técnico.</p>
+      <dl class="perfil-rapido">
+        <div><dt>Cargo atual</dt><dd>Analista de Sistemas Financeiros Jr. · Grupo Zen</dd></div>
+        <div><dt>Foco</dt><dd>Sistemas financeiros, automação de processos, dados &amp; BI</dd></div>
+        <div><dt>Modelo</dt><dd>Remoto · relocação para Espanha ou Portugal (visto de nômade digital em andamento)</dd></div>
+        <div><dt>Fuso</dt><dd>Brasil · UTC−3</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIÊNCIA ============ -->
+  <section class="sec" id="experiencia" data-plano="experiencia" aria-labelledby="h-exp"
+    data-legenda="<b>Fig. 3 — A avenida da carreira.</b> Cada célula da avenida é um mês, de fev/2021 até hoje, na cor de onde eu estava. Os marcos indicam o início de cada emprego.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-exp"><span class="sec-n">02</span> Experiência</h2>
+      <p class="sec-tit"><span>5+</span> anos resolvendo <em>problemas de negócio</em>.</p>
+
+      <figure class="fig fig-meses">
+        <figcaption><span class="fig-n">Fig. 3</span> Cada quadrado, um mês de carreira</figcaption>
+        <div class="meses" id="meses" role="img" aria-label="Grade de meses de fevereiro de 2021 até hoje: Astcon de fev/2021 a set/2025, Fazenda Novo México de set/2025 a jan/2026 e Grupo Zen de fev/2026 até hoje."></div>
+        <ul class="meses-leg">
+          <li><i class="c-astcon"></i><b>Astcon</b> <span>fev/2021 – set/2025</span></li>
+          <li><i class="c-nm"></i><b>Novo México</b> <span>set/2025 – jan/2026</span></li>
+          <li><i class="c-zen"></i><b>Grupo Zen</b> <span>fev/2026 – hoje</span></li>
+        </ul>
+      </figure>
+
+      <ol class="empregos">
+        <li class="emprego" id="exp-grupo-zen" data-plano="marco:grupo-zen" data-liga="grupo-zen">
+          <p class="emp-per">fev/2026 — atual</p>
+          <h3>Analista de Sistemas Financeiros Jr. <span>· Grupo Zen</span></h3>
+          <p class="emp-nota">Grupo empresarial · cargo formal: Auxiliar de Controladoria</p>
+          <ul>
+            <li>Desenvolvi o Fuel Mind e o AlertSignal, sistemas internos que hoje rodam em produção.</li>
+            <li>Automatizei a análise diária de divergências entre estoque físico, sistema e medições, que antes era feita à mão.</li>
+            <li>Estruturei dados operacionais e financeiros de <span data-num="unidadesNegocio">3</span> unidades de negócio.</li>
+          </ul>
+          <p class="emp-proj">Nasceram aqui: <a href="#projeto-fuel-mind">Fuel Mind</a> e <a href="#projeto-alertsignal">AlertSignal</a></p>
+        </li>
+        <li class="emprego" id="exp-novo-mexico" data-plano="marco:novo-mexico" data-liga="novo-mexico">
+          <p class="emp-per">set/2025 — jan/2026</p>
+          <h3>Auxiliar Administrativo <span>· Fazenda Novo México</span></h3>
+          <p class="emp-nota">Agronegócio · contrato temporário</p>
+          <ul>
+            <li>Operações administrativas num projeto de irrigação de grande porte.</li>
+            <li>Coordenação de equipes internas e de empresas terceirizadas.</li>
+          </ul>
+        </li>
+        <li class="emprego" id="exp-astcon" data-plano="marco:astcon" data-liga="astcon">
+          <p class="emp-per">fev/2021 — set/2025</p>
+          <h3>Auxiliar de Escritório — DP/RH <span>· Astcon Assessoria Contábil</span></h3>
+          <p class="emp-nota">Escritório de contabilidade</p>
+          <ul>
+            <li>Rotinas completas de DP/RH para <span data-num="empresasClientes">60+</span> empresas clientes: admissões, demissões, férias, rescisões, INSS, FGTS, eSocial e DCTFWeb.</li>
+            <li>Referência técnica interna, responsável por treinar novos colaboradores.</li>
+            <li>Usava planilhas o tempo todo.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJETOS ============ -->
+  <section class="sec" id="projetos" data-plano="projetos" aria-labelledby="h-proj"
+    data-legenda="<b>Fig. 4 — Bairro dos projetos.</b> 1 prédio = 1 projeto; 1 andar = 1 tecnologia comprovada na matriz. Telhado azul: em produção. Antena verde: demo ao vivo. Pavilhão térreo: fora da matriz.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-proj"><span class="sec-n">03</span> Projetos</h2>
+      <p class="sec-tit">Problemas reais, <em>sistemas de verdade</em>.</p>
+      <p class="intro">Cada projeto nasceu de um problema que eu vivi ou vi de perto. Aqui está o problema, o que eu construí e o que mudou.</p>
+
+      <figure class="fig fig-situacao">
+        <figcaption><span class="fig-n">Fig. 5</span> <span>Os <span data-num="projetos">9</span> projetos publicados, por situação</span></figcaption>
+        <div class="situacao" id="situacao"></div>
+      </figure>
+
+      <figure class="fig como-ler">
+        <figcaption><span class="fig-n">Legenda</span> Como ler a cidade</figcaption>
+        <ul>
+          <li><i class="ic ic-andar"></i><span><b>Prédio de projeto</b> · 1 andar = 1 tecnologia usada nele</span></li>
+          <li><i class="ic ic-torre"></i><span><b>Torre de tecnologia</b> · 1 andar = 1 projeto que a usa</span></li>
+          <li><i class="ic ic-azul"></i><span><b>Telhado azul</b> · sistema em produção</span></li>
+          <li><i class="ic ic-antena"></i><span><b>Antena verde</b> · demo ao vivo</span></li>
+          <li><i class="ic ic-pav"></i><span><b>Pavilhão térreo</b> · projeto fora da matriz</span></li>
+          <li><i class="ic ic-mes"></i><span><b>Avenida</b> · 1 célula = 1 mês de carreira</span></li>
+          <li><i class="ic ic-cena"></i><span><b>Volumes lisos e árvores</b> · cenário, sem dado</span></li>
+        </ul>
+      </figure>
+
+    </div>
+    <div class="vitrine vitrine-pj" data-plano="foco:fuel-mind"></div>
+    <div class="col col-cont">
+      <article class="pj" id="projeto-fuel-mind" tabindex="0" data-liga="fuel-mind" data-plano="foco:fuel-mind" aria-labelledby="pj-fuel-mind">
+        <header class="pj-cab">
+          <p class="pj-cat">01 · Automação &amp; Dados</p>
+          <h3 id="pj-fuel-mind">Fuel Mind</h3>
+          <p class="pj-sit"><span class="selo s-producao">Em produção</span> <span class="pj-nota">uso diário numa operação real · desenvolvido no Grupo Zen</span></p>
+        </header>
+        <p class="pj-pitch">Controle de entradas de combustível e fretes para distribuidoras e transportadoras, usado todos os dias numa operação real.</p>
+        <dl class="pj-det">
+          <div><dt>Problema</dt><dd>O controle de combustível vivia em <span data-num="planilhasSubstituidas">6+</span> planilhas desconectadas, com conciliação manual entre NF-e, o ERP AutoSystem e as medições dos tanques.</dd></div>
+          <div><dt>Solução</dt><dd>Importação automática dos XMLs de NF-e, cruzamento com os relatórios do AutoSystem com alerta de divergências, cálculo de frete por empresa, painel analítico e fechamento mensal em PDF e Excel.</dd></div>
+          <div><dt>Arquitetura</dt><dd>JavaScript puro, sem etapa de build, sobre Firebase (Firestore, Auth, Hosting). Multiempresa com perfis de acesso, fila offline com sincronização em tempo real, Chart.js, jsPDF e SheetJS.</dd></div>
+          <div class="res"><dt>Resultado</dt><dd><b>102</b> testes automatizados e <b><span data-num="planilhasSubstituidas">6+</span></b> planilhas desconectadas substituídas por um sistema usado todos os dias.</dd></div>
+        </dl>
+        <ul class="stack" aria-label="Stack"><li>JavaScript puro</li><li>Firebase (Firestore, Auth, Hosting)</li><li>Chart.js</li><li>jsPDF</li><li>SheetJS</li></ul>
+        <p class="pj-links">
+          <a class="bt bt-tinta bt-p" href="https://controle-entradas-posto.web.app" target="_blank" rel="noopener">Demo ao vivo <span aria-hidden="true">↗</span></a>
+          <a class="lk" data-repo="fuel-mind" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </article>
+
+    </div>
+    <div class="vitrine vitrine-pj" data-plano="foco:praxis"></div>
+    <div class="col col-cont">
+      <article class="pj" id="projeto-praxis" tabindex="0" data-liga="praxis" data-plano="foco:praxis" aria-labelledby="pj-praxis">
+        <header class="pj-cab">
+          <p class="pj-cat">02 · Compras &amp; Aprovações</p>
+          <h3 id="pj-praxis">Praxis</h3>
+          <p class="pj-sit"><span class="selo s-demo-ao-vivo">Demo ao vivo</span></p>
+        </header>
+        <p class="pj-pitch">Gestão de compras corporativas do pedido ao pagamento, com cotações, aprovações e rastreabilidade, para várias empresas.</p>
+        <dl class="pj-det">
+          <div><dt>Problema</dt><dd>Sem um sistema, compras correm por e-mail e planilha: cotações difíceis de comparar, aprovações sem registro e parcelas de pagamento sem controle.</dd></div>
+          <div><dt>Solução</dt><dd>Kanban do fluxo de compras, cotações lado a lado, aprovações com motivos de recusa estruturados, pagamento em parcelas com comprovante e linha do tempo de SLA que destaca a etapa mais lenta.</dd></div>
+          <div><dt>Arquitetura</dt><dd>JavaScript com ES modules, sem build, sobre Firebase: Firestore, Auth, Cloud Functions e Storage. Isolamento entre empresas por regras de segurança, perfis de acesso, transações contra conflito de status e PWA.</dd></div>
+          <div class="res"><dt>Resultado</dt><dd>Ponta a ponta, do pedido ao pagamento, com histórico de cada aprovação, <b>6</b> perfis de acesso e <b>14</b> eventos de notificação.</dd></div>
+        </dl>
+        <ul class="stack" aria-label="Stack"><li>JavaScript (ES modules)</li><li>Firebase</li><li>Cloud Functions</li><li>PWA</li></ul>
+        <p class="pj-links">
+          <a class="bt bt-tinta bt-p" href="https://praxis-af618.web.app" target="_blank" rel="noopener">Demo ao vivo <span aria-hidden="true">↗</span></a>
+          <a class="lk" data-repo="praxis" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </article>
+
+    </div>
+    <div class="vitrine vitrine-pj" data-plano="foco:flowtrack"></div>
+    <div class="col col-cont">
+      <article class="pj" id="projeto-flowtrack" tabindex="0" data-liga="flowtrack" data-plano="foco:flowtrack" aria-labelledby="pj-flowtrack">
+        <header class="pj-cab">
+          <p class="pj-cat">03 · IA &amp; Full-stack</p>
+          <h3 id="pj-flowtrack">FlowTrack</h3>
+          <p class="pj-sit"><span class="selo s-codigo">Código</span> <span class="pj-nota">backend fora do ar no momento</span></p>
+        </header>
+        <p class="pj-pitch">App de finanças pessoais que categoriza transações com IA, importa extratos de bancos e projeta o fluxo de caixa.</p>
+        <dl class="pj-det">
+          <div><dt>Problema</dt><dd>Categorizar gastos à mão é a parte chata das finanças pessoais, e chamar uma IA para cada transação sai caro e lento.</dd></div>
+          <div><dt>Solução</dt><dd>Importa extratos em PDF de <b>4</b> bancos, OFX e CSV. Categoriza em <b>3</b> camadas: regras fixas, cache de estabelecimentos e, só por último, o Claude Haiku. Tem orçamentos com alerta, metas, projeção de fluxo de caixa, auditoria com desfazer e modo offline.</dd></div>
+          <div><dt>Arquitetura</dt><dd>React 19 + TypeScript no front; FastAPI (Python) no back; Supabase Postgres com Row Level Security e autenticação por JWT. Worker assíncrono com retry exponencial, CI no GitHub Actions (testes e e2e com Playwright) e decisões documentadas em ADRs.</dd></div>
+          <div class="res"><dt>Resultado</dt><dd><b>83</b> testes de integração e <b><span data-num="menosChamadasIA">~90%</span></b> menos chamadas à IA do que mandar tudo para o modelo (afirmado no README).</dd></div>
+        </dl>
+        <ul class="stack" aria-label="Stack"><li>React 19</li><li>TypeScript</li><li>FastAPI (Python)</li><li>Supabase/PostgreSQL</li><li>Claude Haiku</li><li>Playwright</li></ul>
+        <p class="pj-links">
+          <a class="bt bt-linha bt-p" data-repo="flowtrack" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </article>
+
+    </div>
+    <div class="vitrine vitrine-pj" data-plano="foco:alertsignal"></div>
+    <div class="col col-cont">
+      <article class="pj" id="projeto-alertsignal" tabindex="0" data-liga="alertsignal" data-plano="foco:alertsignal" aria-labelledby="pj-alertsignal">
+        <header class="pj-cab">
+          <p class="pj-cat">04 · Backend &amp; Automação</p>
+          <h3 id="pj-alertsignal">AlertSignal</h3>
+          <p class="pj-sit"><span class="selo s-producao">Em produção</span> <span class="pj-nota">desenvolvido no Grupo Zen</span></p>
+        </header>
+        <p class="pj-pitch">Controle de vencimentos de alvarás e licenças de várias empresas, com alertas automáticos por e-mail.</p>
+        <dl class="pj-det">
+          <div><dt>Problema</dt><dd>Os vencimentos de alvarás e licenças eram acompanhados numa planilha mantida à mão, com risco real de multa a cada prazo esquecido.</dd></div>
+          <div><dt>Solução</dt><dd>Aplicação web que monitora os vencimentos e dispara e-mails antes do prazo (e lembretes depois dele), com vários responsáveis por documento, histórico completo, regras configuráveis e exportação para Excel com status por cor.</dd></div>
+          <div><dt>Arquitetura</dt><dd>Python + Flask + SQLite com SQL puro, jobs agendados com APScheduler, envio de e-mail via smtplib, templates Jinja2 e relatórios com pandas/openpyxl. Perfis de administrador e visualizador.</dd></div>
+          <div class="res"><dt>Resultado</dt><dd>Alertas automáticos <b>90, 30 e 7</b> dias antes de cada vencimento, no lugar do controle manual.</dd></div>
+        </dl>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Flask</li><li>SQLite</li><li>APScheduler</li><li>pandas</li></ul>
+        <p class="pj-links">
+          <a class="bt bt-linha bt-p" data-repo="alertsignal" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </article>
+
+      <h3 class="sub">Outros projetos no GitHub</h3>
+      <ul class="outros">
+        <li id="projeto-docke" tabindex="0" data-liga="docke" data-plano="foco:docke">
+          <p class="o-cab"><b>Docke</b> <span class="selo s-codigo">Código</span></p>
+          <p class="o-oque">Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais por regime tributário, retenção legal e trilha de auditoria encadeada por hash.</p>
+          <p class="o-pe"><span class="o-stack">React · TypeScript · FastAPI · PostgreSQL (RLS) · Tesseract</span> <span class="o-links"><a class="lk" data-repo="docke" data-rotulo="Código" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a></span></p>
+        </li>
+        <li id="projeto-unifydata" tabindex="0" data-liga="unifydata" data-plano="foco:unifydata">
+          <p class="o-cab"><b>UnifyData</b> <span class="selo s-codigo">Código</span></p>
+          <p class="o-oque">Conciliação mensal de benefícios da folha: cruza o exportado do AutoSystem com o RH e gera um Excel por unidade. Versão web e versão Python.</p>
+          <p class="o-pe"><span class="o-stack">JavaScript · PDF.js · ExcelJS · Python · Streamlit · pandas</span> <span class="o-links"><a class="lk" data-repo="unifydata" data-rotulo="Código" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a></span></p>
+        </li>
+        <li id="projeto-audistock" tabindex="0" data-liga="audistock" data-plano="foco:audistock">
+          <p class="o-cab"><b>AudiStock</b> <span class="selo s-codigo">Código</span></p>
+          <p class="o-oque">Auditoria de estoque com leitura de código de barras pela câmera, vários auditores em tempo real e fila offline.</p>
+          <p class="o-pe"><span class="o-stack">JavaScript · Supabase Realtime · IndexedDB</span> <span class="o-links"><a class="lk" data-repo="audistock" data-rotulo="Código" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a></span></p>
+        </li>
+        <li id="projeto-deepchat" tabindex="0" data-liga="deepchat" data-plano="foco:deepchat">
+          <p class="o-cab"><b>DeepChat</b> <span class="selo s-demo">Demo</span></p>
+          <p class="o-oque">Chat no navegador em que o DeepSeek responde e o ChatGPT revisa a resposta. As chaves de API ficam só no navegador (a demo exige chave própria).</p>
+          <p class="o-pe"><span class="o-stack">HTML · CSS · JavaScript · APIs de IA</span> <span class="o-links"><a class="lk" href="https://alyssom-fernandes.github.io/DeepChat/" target="_blank" rel="noopener">Demo <span aria-hidden="true">↗</span></a> <a class="lk" data-repo="deepchat" data-rotulo="Código" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a></span></p>
+        </li>
+        <li id="projeto-artmaker" tabindex="0" data-liga="artmaker" data-plano="foco:artmaker">
+          <p class="o-cab"><b>ArtMaker</b> <span class="selo s-demo-ao-vivo">Demo ao vivo</span></p>
+          <p class="o-oque">Gerador de encartes promocionais 1080×1920 para lojas, em um único arquivo HTML com Canvas.</p>
+          <p class="o-pe"><span class="o-stack">JavaScript · Canvas</span> <span class="o-links"><a class="lk" href="https://alyssom-fernandes.github.io/ArtMaker/" target="_blank" rel="noopener">Demo ao vivo <span aria-hidden="true">↗</span></a> <a class="lk" data-repo="artmaker" data-rotulo="Código" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">Perfil no GitHub <span aria-hidden="true">↗</span></a></span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ HABILIDADES ============ -->
+  <section class="sec" id="habilidades" data-plano="habilidades" aria-labelledby="h-hab"
+    data-legenda="<b>Fig. 6 — Bairro das tecnologias.</b> 1 torre = 1 tecnologia; 1 andar = 1 projeto em que ela aparece na matriz. As mais altas são as que mais se repetem.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-hab"><span class="sec-n">04</span> Habilidades</h2>
+      <p class="sec-tit">Habilidades, com <em>evidência</em>.</p>
+      <p class="intro">Nada de barrinha de porcentagem inventada. Cada tecnologia aparece cruzada com os projetos em que foi usada de verdade — e cada linha da tabela é uma torre da cidade.</p>
+
+      <figure class="fig fig-matriz">
+        <figcaption><span class="fig-n">Fig. 6</span> Tecnologias × projetos <small>passe o cursor numa linha para acender a torre</small></figcaption>
+        <div class="matriz-rolo"><table class="matriz" id="matriz"></table></div>
+        <p class="fig-nota">Fonte: repositórios publicados no GitHub. DeepChat e ArtMaker não entram na matriz.</p>
+      </figure>
+
+      <p class="so-cv hab-resumo" id="hab-resumo"></p>
+
+      <h3 class="sub">Negócio × experiência</h3>
+      <ul class="negocio">
+        <li><b>Rotinas fiscais</b><span>Astcon · Grupo Zen</span></li>
+        <li><b>Análise de dados financeiros e operacionais</b><span>Astcon · Grupo Zen</span></li>
+        <li><b>DP/folha — eSocial, DCTFWeb, FGTS, INSS</b><span>Astcon</span></li>
+        <li><b>Treinamento de equipe</b><span>Astcon</span></li>
+        <li><b>Controladoria &amp; conciliação, controles internos, ERP AutoSystem</b><span>Grupo Zen</span></li>
+        <li><b>Coordenação de equipes e terceiros, gestão administrativa de projetos</b><span>Novo México</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FORMAÇÃO & IDIOMAS ============ -->
+  <section class="sec" id="formacao" data-plano="formacao" aria-labelledby="h-form"
+    data-legenda="<b>Fig. 7 — 2026.</b> O ano da virada: Grupo Zen, dois sistemas em produção e o diploma de tecnólogo. O anel azul marca o mês de hoje.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-form"><span class="sec-n">05</span> Formação &amp; idiomas</h2>
+      <p class="sec-tit">Formação &amp; <em>idiomas</em>.</p>
+      <div class="diploma">
+        <p class="d-k">Ensino superior</p>
+        <p class="d-t">Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
+        <p class="d-s">Uniasselvi · concluído em 2026</p>
+      </div>
+      <table class="idiomas">
+        <caption>Idiomas</caption>
+        <thead><tr><th scope="col">Idioma</th><th scope="col">Nível</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Português</th><td>Nativo</td></tr>
+          <tr><th scope="row">Inglês</th><td><b>B1</b> · intermediário (QECR/CEFR)</td></tr>
+          <tr><th scope="row">Espanhol</th><td>Básico</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="sec sec-contato" id="contato" data-plano="contato" aria-labelledby="h-cont"
+    data-legenda="<b>Fig. 8 — Vista aérea.</b> A cidade inteira: os 9 projetos, as tecnologias que os sustentam e 5+ anos de avenida. O próximo prédio pode ser do seu time.">
+    <div class="vitrine"></div>
+    <div class="col">
+      <h2 class="sec-k" id="h-cont"><span class="sec-n">06</span> Contato</h2>
+      <p class="sec-tit">Vamos <em>conversar</em>?</p>
+      <p class="intro">Estou aberto a posições remotas em desenvolvimento, dados e sistemas financeiros, e em processo de relocação para Espanha ou Portugal (visto de nômade digital em andamento). Brasil · UTC−3.</p>
+      <ul class="contatos">
+        <li><span class="c-k">E-mail</span><a class="c-v" href="mailto:alyssom1919@gmail.com">alyssom1919@gmail.com</a><button class="copiar" type="button" data-copiar="alyssom1919@gmail.com">Copiar</button></li>
+        <li><span class="c-k">LinkedIn</span><a class="c-v" href="https://linkedin.com/in/alyssom-fernandes" target="_blank" rel="noopener">in/alyssom-fernandes <span aria-hidden="true">↗</span></a></li>
+        <li><span class="c-k">GitHub</span><a class="c-v" href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">alyssom-fernandes <span aria-hidden="true">↗</span></a></li>
+        <li><span class="c-k">WhatsApp</span><a class="c-v" href="https://wa.me/5562996674854" target="_blank" rel="noopener">+55 62 99667-4854 <span aria-hidden="true">↗</span></a></li>
+        <li><span class="c-k">Currículo</span><a class="c-v" href="../../cv/Alyssom-Fernandes-CV-PT.pdf" target="_blank" rel="noopener">CV em PDF (português) <span aria-hidden="true">↓</span></a></li>
+      </ul>
+      <p class="aviso-copia" role="status" aria-live="polite"></p>
+      <footer class="rodape">
+        <p>Protótipo híbrido: o 3D é a vitrine, o HTML é o currículo. <span id="modo-3d"></span></p>
+        <p><a href="../index.html">← Comparar com as outras versões</a></p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="cidade.js"></script>
+</body>
+</html>
