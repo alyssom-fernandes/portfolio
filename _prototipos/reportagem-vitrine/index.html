@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alyssom Fernandes — Developer · Data & Business Intelligence</title>
+<meta name="description" content="Alyssom Fernandes, Developer · Data & Business Intelligence. Cinco anos dentro das planilhas; hoje constrói os sistemas que as substituem.">
+<meta name="theme-color" content="#F3EFE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+/* =====================================================================
+   DADOS — fonte única: _prototipos/conteudo.md
+   Valores marcados com * no conteudo.md aguardam confirmação: troque em "pendentes".
+   ===================================================================== */
+const DATA = {
+  pessoa: {
+    nome: 'Alyssom Fernandes',
+    titulo: 'Developer · Data & Business Intelligence',
+    tese: 'Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem.',
+    email: 'alyssom1919@gmail.com',
+    linkedin: 'https://linkedin.com/in/alyssom-fernandes',
+    github: 'https://github.com/alyssom-fernandes',
+    whatsapp: 'https://wa.me/5562996674854',
+    whatsappLabel: '+55 62 99667-4854',
+    cv: '../../cv/Alyssom-Fernandes-CV-PT.pdf'
+  },
+  pendentes: {                       // * aguardando confirmação
+    empresasClientes: '60+',
+    planilhasSubstituidas: '6+',
+    unidadesNegocio: '3',
+    menosChamadasIA: '~90%'
+  },
+  status: { producao: 'Em produção', demo: 'Demo ao vivo', codigo: 'Código' },
+
+  // Carreira: meses [ano, mês]. fim null = hoje.
+  carreira: [
+    { id: 'astcon', inicio: [2021, 2], fim: [2025, 9], empresa: 'Astcon Assessoria Contábil', curto: 'Astcon', area: 'DP/RH', periodo: 'fev/2021 – set/2025' },
+    { id: 'nm',     inicio: [2025, 9], fim: [2026, 1], empresa: 'Fazenda Novo México', curto: 'Novo México', area: 'Administrativo', periodo: 'set/2025 – jan/2026' },
+    { id: 'zen',    inicio: [2026, 2], fim: null,      empresa: 'Grupo Zen', curto: 'Grupo Zen', area: 'Sistemas', periodo: 'fev/2026 – hoje' }
+  ],
+
+  destaques: [
+    { id: 'fuelmind', nome: 'Fuel Mind', status: 'producao', url: 'controle-entradas-posto.web.app',
+      frase: 'Cada litro que entra, conferido contra o ERP.',
+      resumo: 'Controle de entradas de combustível e fretes para distribuidoras e transportadoras.',
+      demo: 'https://controle-entradas-posto.web.app', codigo: 'https://github.com/alyssom-fernandes/Fuel-Mind',
+      stack: ['JavaScript', 'Firebase', 'Chart.js', 'jsPDF', 'SheetJS'],
+      legenda: 'Capturas da demonstração pública · dados fictícios da demo',
+      telas: { dashboard: 'img/fuelmind-dashboard.png', lancamentos: 'img/fuelmind-lancamentos.png', analitico: 'img/fuelmind-analitico.png', relatorios: 'img/fuelmind-relatorios.png' },
+      telasTam: [1440, 900], celular: 'img/fuelmind-celular.png', celularTam: [780, 1688],
+      itens: [
+        { tela: 'dashboard',   t: 'Entradas e fretes num lugar só', d: 'Combustível e fretes de distribuidoras e transportadoras no mesmo painel.' },
+        { tela: 'lancamentos', t: 'Importa a NF-e', d: 'Lê o XML das notas fiscais e cruza cada entrada com o ERP AutoSystem.' },
+        { tela: 'analitico',   t: 'Aponta divergências', d: 'Quando nota e sistema não batem, o alerta aparece na tela.' },
+        { tela: 'relatorios',  t: 'Fecha o mês', d: 'Fechamento mensal em PDF ou Excel, sem montar planilha à mão.' },
+        { tela: 'celular',     t: 'Em uso todo dia', d: p => `Em produção numa operação real, com 102 testes automatizados. Substituiu ${p.planilhasSubstituidas} planilhas desconectadas.` }
+      ] },
+
+    { id: 'praxis', nome: 'Praxis', status: 'demo', url: 'praxis-af618.web.app',
+      frase: 'Compras corporativas, do pedido ao pagamento.',
+      resumo: 'Cotações, aprovações, parcelas e SLA num fluxo só.',
+      demo: 'https://praxis-af618.web.app', codigo: 'https://github.com/alyssom-fernandes/Praxis',
+      stack: ['JavaScript (ES modules)', 'Firebase', 'Cloud Functions', 'PWA'],
+      legenda: 'Capturas da demonstração pública · dados fictícios da demo',
+      telas: { kanban: 'img/praxis-kanban.png', cotacoes: 'img/praxis-cotacoes.png', aprovacao: 'img/praxis-aprovacao.png', relatorios: 'img/praxis-relatorios.png' },
+      telasTam: [1440, 900], celular: 'img/praxis-celular.png', celularTam: [780, 1688],
+      itens: [
+        { tela: 'kanban',     t: 'Do pedido ao pagamento', d: 'Cada compra anda por etapas num quadro: solicitado, cotação, aprovação, comprado, entregue, pago.' },
+        { tela: 'cotacoes',   t: 'Cotações lado a lado', d: 'Propostas comparadas na mesma tela, com valor, prazo e condições.' },
+        { tela: 'aprovacao',  t: '6 perfis de acesso', d: 'Solicitante, comprador, aprovadores e financeiro, cada um com suas permissões, e 14 eventos de notificação.' },
+        { tela: 'relatorios', t: 'Parcelas e SLA', d: 'Gastos, parcelas a vencer e atrasos visíveis para quem decide.' },
+        { tela: 'celular',    t: 'Instala como app', d: 'PWA com Cloud Functions no Firebase: o mesmo fluxo no celular.' }
+      ] },
+
+    { id: 'flowtrack', nome: 'FlowTrack', status: 'codigo', obs: 'Backend fora do ar no momento', url: 'github.com/alyssom-fernandes/FlowTrack',
+      frase: 'Finanças pessoais que se categorizam sozinhas.',
+      resumo: 'Categorização por IA em 3 camadas: regras, cache e Claude Haiku.',
+      demo: null, codigo: 'https://github.com/alyssom-fernandes/FlowTrack',
+      stack: ['React 19', 'TypeScript', 'FastAPI', 'Supabase/PostgreSQL', 'Claude Haiku', 'Playwright'],
+      legenda: 'Capturas publicadas no repositório',
+      telas: { dashboard: 'img/flowtrack-dashboard.png', transacoes: 'img/flowtrack-transacoes.png' }, telasTam: [1920, 1080],
+      celular: 'img/flowtrack-celular.png', celularTam: [739, 1600],
+      itens: [
+        { tela: 'dashboard',  t: 'IA em 3 camadas', d: 'Primeiro regras, depois cache; só o que sobra vai para o Claude Haiku.' },
+        { tela: 'transacoes', t: 'Extratos de 4 bancos', d: 'Importa extratos de quatro bancos, além de arquivos OFX e CSV.' },
+        { tela: 'celular',    t: 'Menos chamadas à IA', d: p => `${p.menosChamadasIA} menos chamadas à IA, segundo o README do projeto.` },
+        { tela: 'dashboard',  t: '83 testes de integração', d: 'React 19 e TypeScript na frente; FastAPI e PostgreSQL por trás.' }
+      ] },
+
+    { id: 'alertsignal', nome: 'AlertSignal', status: 'producao', url: 'github.com/alyssom-fernandes/AlertSignal',
+      frase: 'Nenhum alvará vence esquecido.',
+      resumo: 'Vencimentos de alvarás e licenças de várias empresas, com avisos automáticos.',
+      demo: null, codigo: 'https://github.com/alyssom-fernandes/AlertSignal',
+      stack: ['Python', 'Flask', 'SQLite', 'APScheduler', 'pandas'],
+      legenda: 'Capturas publicadas no repositório',
+      telas: { dashboard: 'img/alertsignal-dashboard.png', empresas: 'img/alertsignal-empresas.png' }, telasTam: [1920, 1080],
+      itens: [
+        { tela: 'dashboard', t: 'Tudo num painel', d: 'Alvarás e licenças de várias empresas, com o que vence primeiro no topo.' },
+        { tela: 'empresas',  t: 'Por empresa', d: 'Cada empresa com seus documentos e datas de vencimento.' },
+        { tela: 'dashboard', t: 'Avisos em 90, 30 e 7 dias', d: 'E-mails automáticos saem antes de cada vencimento, sem depender de lembrete.' }
+      ] }
+  ],
+
+  // aparelho: 'tela' | 'celular'. telas vazias mostram "Demo em preparação".
+  outros: [
+    { id: 'artmaker', nome: 'ArtMaker', status: 'demo', aparelho: 'tela', url: 'alyssom-fernandes.github.io/ArtMaker',
+      telas: ['img/artmaker.png', 'img/artmaker-layout.png'], legenda: 'Captura da demo pública',
+      oque: 'Gerador de encartes 1080×1920 para lojas, num único arquivo HTML com Canvas.',
+      stack: ['JavaScript', 'Canvas'],
+      demo: 'https://alyssom-fernandes.github.io/ArtMaker/', codigo: [['Código', 'https://github.com/alyssom-fernandes/ArtMaker']] },
+    { id: 'deepchat', nome: 'DeepChat', status: 'demo', aparelho: 'tela', url: 'alyssom-fernandes.github.io/DeepChat',
+      telas: ['img/deepchat.png'], legenda: 'Captura da demo pública',
+      oque: 'Chat em que o DeepSeek responde e o ChatGPT revisa.', obs: 'A demo exige chave de API própria.',
+      stack: ['HTML', 'CSS', 'JavaScript', 'APIs de IA'],
+      demo: 'https://alyssom-fernandes.github.io/DeepChat/', codigo: [['Código', 'https://github.com/alyssom-fernandes/DeepChat']] },
+    { id: 'docke', nome: 'Docke', status: 'codigo', aparelho: 'tela', url: 'github.com/alyssom-fernandes/Docke', telas: [],
+      oque: 'Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais, retenção legal e trilha de auditoria encadeada por hash.',
+      stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL (RLS)', 'Tesseract'],
+      demo: null, codigo: [['Código', 'https://github.com/alyssom-fernandes/Docke']] },
+    { id: 'unifydata', nome: 'UnifyData', status: 'codigo', aparelho: 'tela', url: 'github.com/alyssom-fernandes', telas: [],
+      oque: 'Conciliação mensal de benefícios da folha (AutoSystem × RH), em versão web e Python.',
+      stack: ['JavaScript', 'PDF.js', 'ExcelJS', 'Python', 'Streamlit', 'pandas'],
+      demo: null, codigo: [['Código web', 'https://github.com/alyssom-fernandes/UnifyData-Web'], ['Código Python', 'https://github.com/alyssom-fernandes/UnifyData-Python']] },
+    { id: 'audistock', nome: 'AudiStock', status: 'codigo', aparelho: 'celular', telas: [],
+      oque: 'Auditoria de estoque com leitura de código de barras pela câmera, vários auditores em tempo real e fila offline.',
+      stack: ['JavaScript', 'Supabase Realtime', 'IndexedDB'],
+      demo: null, codigo: [['Código', 'https://github.com/alyssom-fernandes/AudiStock']] }
+  ],
+
+  // Tecnologias × projetos — colunas na ordem do conteudo.md
+  matriz: {
+    colunas: [['FM', 'Fuel Mind'], ['PX', 'Praxis'], ['FT', 'FlowTrack'], ['AS', 'AlertSignal'], ['DK', 'Docke'], ['UD', 'UnifyData'], ['AU', 'AudiStock']],
+    linhas: [
+      ['Autenticação & perfis de acesso', '1111101'], ['Relatórios PDF / Excel', '1111011'], ['JavaScript', '1101011'],
+      ['Python', '0011110'], ['Dashboards & KPIs', '1110100'], ['PostgreSQL / Supabase', '0010101'],
+      ['Jobs agendados', '0111000'], ['Tempo real & offline', '1010001'], ['Testes automatizados', '1010100'],
+      ['TypeScript', '0010100'], ['React', '0010100'], ['FastAPI', '0010100'], ['Firebase', '1100000'],
+      ['pandas', '0001010'], ['CI (GitHub Actions)', '0010100'], ['Flask + SQLite', '0001000'],
+      ['IA generativa (Claude)', '0010000'], ['OCR (Tesseract)', '0000100'], ['NF-e (XML)', '1000000']
+    ]
+  },
+  negocio: [
+    ['Rotinas fiscais', 'Astcon · Grupo Zen'],
+    ['Análise de dados financeiros e operacionais', 'Astcon · Grupo Zen'],
+    ['DP/folha — eSocial, DCTFWeb, FGTS, INSS', 'Astcon'],
+    ['Treinamento de equipe', 'Astcon'],
+    ['Controladoria & conciliação, controles internos, ERP AutoSystem', 'Grupo Zen'],
+    ['Coordenação de equipes e terceiros, gestão administrativa de projetos', 'Novo México']
+  ]
+};
+</script>
+<style>
+:root{
+  --paper:#F3EFE6; --paper-2:#ECE6D9; --card:#FBF9F4; --ink:#15140F; --ink-2:#4F4B42; --ink-3:#878173;
+  --rule:#D6CDBB; --faint:#E6DFD1; --zen:#2B3BEA; --zen-soft:rgba(43,59,234,.08); --hl:#F2DC5D;
+  --astcon:#B5A688; --nm:#7A705E; --ok:#1F9D55;
+  --mh:58px; --gx:48px;
+  --serif:'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --sans:'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .3  0 0 0 0 .22  0 0 0 .11 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --ease:cubic-bezier(.2,.75,.15,1);
+}
+@media (max-width:760px){ :root{ --mh:52px; --gx:16px } }
+*{ box-sizing:border-box }
+html{ background:var(--paper); -webkit-text-size-adjust:100% }
+body{ margin:0; color:var(--ink); background:var(--paper) var(--noise); font-family:var(--serif); font-optical-sizing:auto;
+  overflow-x:clip; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility }
+a{ color:inherit }
+img{ display:block; max-width:100% }
+::selection{ background:var(--hl); color:var(--ink) }
+:focus-visible{ outline:2px solid var(--zen); outline-offset:3px; border-radius:2px }
+.wrap{ max-width:1440px; margin:0 auto; padding:0 var(--gx) }
+.sec-k{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--zen); margin:0 0 14px; display:flex; align-items:center; gap:10px }
+.sec-k::after{ content:''; width:40px; height:1px; background:currentColor }
+.sec-t{ margin:0; font-size:clamp(2.1rem, 4.2vw, 3.8rem); font-weight:450; letter-spacing:-.028em; line-height:1; font-variation-settings:'opsz' 72; max-width:20ch }
+.sec-t em{ color:var(--zen) }
+.sec-p{ font-family:var(--sans); font-size:17px; line-height:1.55; color:var(--ink-2); max-width:58ch; margin:20px 0 0 }
+
+/* ---------- Cabeçalho ---------- */
+.mast{ position:sticky; top:0; z-index:60; height:var(--mh); display:flex; align-items:center; gap:24px; padding:0 var(--gx);
+  background:var(--paper) var(--noise); border-bottom:1px solid var(--ink) }
+.brand{ font-family:var(--serif); font-weight:600; font-size:21px; letter-spacing:-.01em; text-decoration:none; white-space:nowrap }
+.mast-nav{ display:flex; gap:22px; margin-right:auto }
+.mast-nav a{ font-family:var(--sans); font-size:14px; text-decoration:none; color:var(--ink-2) }
+.mast-nav a:hover{ color:var(--ink) }
+.mast-acts{ display:flex; gap:8px; margin-left:auto }
+.pill{ font-family:var(--sans); font-weight:600; font-size:13px; text-decoration:none; padding:8px 14px; border:1px solid var(--ink); border-radius:999px; line-height:1; white-space:nowrap; transition:background .25s, color .25s }
+.pill:hover{ background:var(--ink); color:var(--paper) }
+.pill.solid{ background:var(--ink); color:var(--paper) }
+.pill.solid:hover{ background:var(--zen); border-color:var(--zen) }
+.progress{ position:absolute; left:0; right:0; bottom:-1px; height:3px; background:var(--zen); transform-origin:0 50%; transform:scaleX(0) }
+@media (max-width:900px){ .mast-nav{ display:none } }
+
+/* ---------- Botões ---------- */
+.btn{ display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 20px; border-radius:999px; border:1px solid var(--ink); text-decoration:none;
+  font-family:var(--sans); font-weight:600; font-size:15px; white-space:nowrap; transition:background .25s, color .25s, border-color .25s, transform .25s var(--ease) }
+.btn:hover{ transform:translateY(-2px) }
+.btn.solid{ background:var(--ink); color:var(--paper) }
+.btn.solid:hover{ background:var(--zen); border-color:var(--zen) }
+.btn.ghost:hover{ background:var(--card) }
+.btn.sm{ min-height:38px; padding:0 14px; font-size:13.5px; gap:8px }
+.btn .arr{ font-family:var(--mono); font-weight:400 }
+
+/* ---------- ABERTURA ---------- */
+.hero{ min-height:calc(100vh - var(--mh)); display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:72px; align-items:center; padding-top:28px; padding-bottom:48px }
+.folio{ grid-column:1 / -1; align-self:start; display:flex; justify-content:space-between; gap:16px; border-bottom:1px solid var(--ink); padding:0 0 10px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2) }
+.kicker{ margin:0 0 20px; font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--zen); display:flex; align-items:center; gap:10px; animation:itIn .8s .05s var(--ease) both }
+.kicker i{ width:8px; height:8px; background:var(--zen); display:block; border-radius:1px }
+.nome{ margin:0; font-weight:450; font-size:clamp(3.2rem, 6.3vw, 6.3rem); line-height:1; letter-spacing:-.04em; font-variation-settings:'opsz' 72 }
+.ln{ display:block; overflow:hidden; padding:0 .06em .12em 0; margin-bottom:-.12em }
+.nome .ln + .ln{ margin-top:-.02em }
+.ln > span{ display:inline-block; transform:translateY(110%); animation:lnUp 1.1s var(--ease) forwards; animation-delay:calc(var(--i) * 110ms + 100ms) }
+@keyframes lnUp{ to{ transform:none } }
+@keyframes itIn{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+.tese{ margin:clamp(22px, 3.4vh, 34px) 0 0; font-size:clamp(1.6rem, 2.5vw, 2.35rem); line-height:1.14; letter-spacing:-.018em; font-weight:400; max-width:24ch; font-variation-settings:'opsz' 48;
+  animation:itIn .9s .45s var(--ease) both }
+.strike{ position:relative; animation:fade .6s 1.35s forwards }
+@keyframes fade{ to{ color:var(--ink-3) } }
+.strike::after{ content:''; position:absolute; left:-3%; right:-3%; top:55%; height:.07em; background:var(--ink); border-radius:2px;
+  transform:scaleX(0) rotate(-2deg); transform-origin:0 50%; animation:strike .65s 1.15s cubic-bezier(.6,0,.2,1) forwards }
+@keyframes strike{ to{ transform:scaleX(1) rotate(-2deg) } }
+.sis{ font-style:italic; color:var(--zen); position:relative; padding:0 .04em;
+  background:linear-gradient(transparent 62%, var(--hl) 62%, var(--hl) 92%, transparent 92%) no-repeat 0 0 / 0% 100%; animation:marker .8s 1.65s var(--ease) forwards }
+@keyframes marker{ to{ background-size:100% 100% } }
+.linha-fina{ margin:20px 0 0; font-family:var(--sans); font-size:clamp(1rem, 1.15vw, 1.1rem); line-height:1.55; color:var(--ink-2); max-width:52ch; animation:itIn .9s .7s var(--ease) both }
+.assina{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; margin-top:26px; padding-top:18px; border-top:1px solid var(--rule); max-width:640px; animation:itIn .9s .85s var(--ease) both }
+.role{ font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; color:var(--ink) }
+.dispo{ display:flex; gap:10px; align-items:flex-start; font-family:var(--sans); font-size:14.5px; line-height:1.45; color:var(--ink-2) }
+.dispo b{ color:var(--ink); font-weight:650 }
+.dispo small{ display:block; font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-top:2px }
+.pulse{ position:relative; flex:none; width:10px; height:10px; margin-top:6px; border-radius:50%; background:var(--ok) }
+.pulse::after{ content:''; position:absolute; inset:0; border-radius:50%; background:var(--ok); animation:pulse 2s ease-out infinite }
+@keyframes pulse{ from{ transform:scale(1); opacity:.6 } to{ transform:scale(2.8); opacity:0 } }
+.acoes{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin-top:24px; animation:itIn .9s 1s var(--ease) both }
+.redes{ display:flex; gap:2px }
+.redes a{ font-family:var(--sans); font-size:14px; font-weight:500; text-decoration:none; padding:12px 8px; color:var(--ink-2) }
+.redes a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:4px }
+
+.ficha{ border-top:2px solid var(--ink); animation:itIn 1s .9s var(--ease) both }
+.ficha-h{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); padding:10px 0; border-bottom:1px solid var(--ink) }
+.ficha-r{ display:grid; grid-template-columns:auto 1fr; gap:4px 18px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--rule) }
+.ficha-r b{ grid-row:span 2; font-weight:300; font-size:clamp(3rem, 4.4vw, 4.4rem); line-height:.85; letter-spacing:-.05em; font-variation-settings:'opsz' 72; min-width:1.9em }
+.ficha-r b.z{ color:var(--zen) }
+.ficha-r b sup{ font-size:.4em; color:var(--zen); vertical-align:top; font-weight:400 }
+.ficha-r span{ font-family:var(--sans); font-size:15px; font-weight:600; line-height:1.3 }
+.ficha-r small{ font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.02em }
+.ficha-n{ font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-top:12px; line-height:1.5 }
+.agora{ margin-top:22px; padding:16px 18px; background:var(--card); border:1px solid var(--ink); border-radius:4px; font-family:var(--sans); font-size:14px; line-height:1.45; color:var(--ink-2) }
+.agora b{ display:block; color:var(--ink); font-size:15px; margin-top:4px }
+.agora .k{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--zen) }
+
+/* ---------- Cenas fixas (trajetória e lançamentos) ---------- */
+.scene{ position:relative }
+.stick{ position:sticky; top:var(--mh); height:calc(100vh - var(--mh)); overflow:hidden }
+
+/* ---------- TRAJETÓRIA ---------- */
+.traj .stick{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:64px; align-items:center; max-width:1440px; margin:0 auto; padding:0 var(--gx) }
+.t-txt{ position:relative; height:min(560px, 76%); }
+.t-head{ position:absolute; left:0; top:0 }
+.t-steps{ position:absolute; left:0; right:0; top:84px; bottom:0 }
+.t-step{ position:absolute; left:0; right:0; top:0; will-change:opacity, transform }
+.t-n{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--zen); margin:0 0 14px; display:flex; align-items:center; gap:10px }
+.t-n span{ color:var(--ink-3) }
+.t-n::after{ content:''; flex:0 0 40px; height:1px; background:var(--rule) }
+.t-step h3{ margin:0 0 16px; font-size:clamp(2rem, 2.9vw, 2.8rem); line-height:1.02; letter-spacing:-.024em; font-weight:500; font-variation-settings:'opsz' 60 }
+.t-step h3 em{ color:var(--zen) }
+.t-step p{ margin:0 0 14px; font-size:clamp(1.05rem, 1.25vw, 1.2rem); line-height:1.55; color:var(--ink-2); max-width:34rem; font-variation-settings:'opsz' 14 }
+.t-step p b{ color:var(--ink); font-weight:600 }
+.t-step .src{ font-family:var(--mono); font-size:11px; color:var(--ink-3); line-height:1.5 }
+.t-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:16px }
+.t-chips span{ font-family:var(--mono); font-size:11.5px; padding:5px 9px; border:1px solid var(--ink); border-radius:999px; background:var(--card) }
+
+.t-fig{ position:relative }
+.fig-k{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--zen); display:flex; align-items:center; gap:10px }
+.fig-k::after{ content:''; width:32px; height:1px; background:currentColor }
+.fig-t{ font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.01em; margin-top:8px }
+.fig-top{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:22px }
+.cnt{ text-align:right; white-space:nowrap }
+.cnt b{ display:block; font-weight:300; font-size:76px; line-height:.8; letter-spacing:-.05em; font-variation-settings:'opsz' 72; font-variant-numeric:tabular-nums }
+.cnt span{ font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em }
+.grid-m{ display:grid; grid-template-columns:44px repeat(12, minmax(0,1fr)); gap:5px; align-items:center }
+.grid-m .ax{ font-family:var(--mono); font-size:11px; color:var(--ink-3); text-align:center }
+.grid-m .yr{ text-align:right; padding-right:8px }
+.grid-m .yr.b{ color:var(--ink); font-weight:500 }
+.cell{ position:relative; aspect-ratio:1; border-radius:4px; background:var(--faint) }
+.cell.fut{ background:transparent; box-shadow:inset 0 0 0 1px rgba(135,129,115,.45) }
+.cell.pre{ background:var(--faint) }
+.cell i{ position:absolute; inset:0; border-radius:inherit; transform:scale(.3); opacity:0; will-change:transform, opacity }
+.cell i.o{ transform:none; opacity:0; box-shadow:inset 0 0 0 1.5px var(--ink); background:transparent }
+.cell.hoje::after{ content:''; position:absolute; inset:-4px; border:2px solid var(--zen); border-radius:6px; animation:ring 2.2s ease-out infinite }
+@keyframes ring{ 0%{ transform:scale(1); opacity:.9 } 70%,100%{ transform:scale(1.4); opacity:0 } }
+.lg{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; margin-top:26px; padding-top:18px; border-top:1px solid var(--rule) }
+.lg-i{ display:grid; grid-template-columns:16px 1fr; gap:3px 10px; align-items:start; transition:none }
+.lg-i i{ width:16px; height:16px; border-radius:3px; margin-top:2px; display:block }
+.lg-i b{ font-family:var(--sans); font-size:14px; font-weight:600 }
+.lg-i em{ grid-column:2; font-style:normal; font-family:var(--sans); font-size:13px; color:var(--ink-2) }
+.lg-i span{ grid-column:2; font-family:var(--mono); font-size:11px; color:var(--ink-3); white-space:nowrap }
+.lg-i strong{ grid-column:2; font-family:var(--mono); font-size:12px; font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums }
+.virada{ position:absolute; left:0; top:0; pointer-events:none; opacity:0; will-change:opacity, transform }
+.virada .tag{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11.5px; font-weight:500; color:#fff; background:var(--zen); padding:6px 10px; border-radius:3px; white-space:nowrap }
+.fig-q{ margin:22px 0 0; font-style:italic; font-size:22px; line-height:1.3; max-width:30ch; opacity:0; will-change:opacity, transform }
+.fig-q b{ font-weight:500; color:var(--zen) }
+
+/* ---------- PROJETOS ---------- */
+.p-intro{ padding-top:140px; padding-bottom:30px }
+.counts{ display:flex; gap:48px; margin-top:40px; padding-top:22px; border-top:1px solid var(--rule); flex-wrap:wrap }
+.counts div{ font-family:var(--sans); font-size:14px; color:var(--ink-2) }
+.counts b{ display:block; font-weight:300; font-size:58px; line-height:.9; color:var(--ink); letter-spacing:-.04em; margin-bottom:6px; font-family:var(--serif) }
+.counts b.z{ color:var(--zen) }
+
+.launch .stick{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:56px; align-items:center; max-width:1440px; margin:0 auto; padding:0 var(--gx) }
+.l-num{ display:flex; align-items:center; gap:12px; flex-wrap:wrap }
+.l-num .kk{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3) }
+.badge{ display:inline-flex; align-items:center; gap:7px; font:500 11.5px/1 var(--mono); padding:6px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap }
+.badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:currentColor }
+.badge.producao{ color:var(--zen) } .badge.demo{ color:var(--ink) } .badge.codigo{ color:var(--ink-3) }
+.l-txt h3{ font-weight:500; font-size:clamp(46px, 5.2vw, 80px); line-height:.92; letter-spacing:-.035em; margin:16px 0 10px; font-variation-settings:'opsz' 72 }
+.l-frase{ font-style:italic; font-size:clamp(20px, 1.8vw, 26px); line-height:1.2; margin:0 0 6px; max-width:24ch }
+.l-res{ font-family:var(--sans); font-size:15px; color:var(--ink-2); line-height:1.45; margin:0; max-width:44ch }
+.l-list{ list-style:none; margin:22px 0 0; padding:0; border-left:1px solid var(--rule); position:relative }
+.l-list li{ padding:8px 0 8px 20px; opacity:.3; will-change:opacity, transform }
+.l-list li b{ display:block; font-family:var(--sans); font-size:15.5px; font-weight:600 }
+.l-list li span{ display:block; font-family:var(--sans); font-size:14px; color:var(--ink-2); line-height:1.42; margin-top:3px; max-width:46ch }
+.l-bar{ position:absolute; left:-1px; top:0; width:2px; height:100%; background:var(--zen); transform-origin:top; transform:scaleY(0) }
+.l-meta{ margin-top:18px; font-family:var(--mono); font-size:12px; color:var(--ink-3); line-height:1.6 }
+.l-meta em{ font-style:normal; color:#A8691A }
+.l-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px }
+.l-stage{ position:relative; height:100%; display:flex; align-items:center; justify-content:center }
+.l-rig{ position:relative; width:min(100%, 780px); will-change:transform }
+
+/* tela simples: janela de navegador minimalista */
+.win{ position:relative; background:#fff; border:1px solid #CFC6B4; border-radius:12px; overflow:hidden;
+  box-shadow:0 1px 0 rgba(21,20,15,.04), 0 30px 60px -28px rgba(21,20,15,.35), 0 12px 24px -16px rgba(21,20,15,.18) }
+.win-bar{ height:34px; display:flex; align-items:center; gap:14px; padding:0 12px; background:#F7F4ED; border-bottom:1px solid #E1D9C8 }
+.win-bar i{ display:flex; gap:6px } .win-bar i::before, .win-bar i::after, .win-bar i b{ content:''; width:9px; height:9px; border-radius:50%; background:#D8D0BF; display:block }
+.win-url{ flex:1; max-width:360px; margin:0 auto; transform:translateX(-24px); height:22px; border-radius:6px; background:#EDE7DA; font:11px/22px var(--mono); color:var(--ink-3); text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 10px }
+.win-scr{ position:relative; aspect-ratio:16/10; background:#0b0b0c; overflow:hidden }
+.win-scr.w169{ aspect-ratio:16/9 }
+.win-scr img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; opacity:0; will-change:opacity }
+.win-scr img:first-child{ opacity:1 }
+.dim{ position:absolute; inset:0; background:#15140F; opacity:0; pointer-events:none }
+.l-cap{ margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.02em; display:flex; align-items:center; gap:8px }
+.l-cap::before{ content:''; width:14px; height:1px; background:currentColor }
+.phone{ --pw:170px; width:var(--pw); aspect-ratio:9/19.3; padding:calc(var(--pw)*.04); border-radius:calc(var(--pw)*.16); background:#141412;
+  box-shadow:inset 0 0 0 1px #3a3934, 0 30px 50px -18px rgba(20,18,10,.5); position:relative }
+.phone .ps{ position:relative; width:100%; height:100%; border-radius:calc(var(--pw)*.125); overflow:hidden; background:#050506 }
+.phone .ps img{ width:100%; height:100%; object-fit:cover; object-position:top center }
+.phone::after{ content:''; position:absolute; top:calc(var(--pw)*.07); left:50%; width:24%; height:calc(var(--pw)*.045); margin-left:-12%; border-radius:99px; background:#141412 }
+.l-rig .phone{ position:absolute; right:-3%; bottom:-6%; --pw:min(13vw, 180px); will-change:transform, opacity; opacity:0 }
+
+/* ---------- OUTROS ---------- */
+.others{ padding-top:140px; padding-bottom:40px }
+.grid-o{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:20px; margin-top:44px }
+.card{ grid-column:span 2; background:var(--card); border:1px solid var(--rule); border-radius:14px; padding:22px 22px 22px; display:flex; flex-direction:column; min-width:0 }
+.card.big{ grid-column:span 3 }
+.c-stage{ height:240px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; border-radius:10px;
+  background:radial-gradient(ellipse at 50% 110%, var(--paper-2), transparent 70%) }
+.card.big .c-stage{ height:300px }
+.card.big .c-stage .win{ width:min(92%, 410px) }
+.c-stage .win{ width:min(92%, 330px); border-radius:9px; transition:transform .6s var(--ease) }
+.c-stage .win-bar{ height:24px; gap:10px } .c-stage .win-bar i::before, .c-stage .win-bar i::after, .c-stage .win-bar i b{ width:7px; height:7px }
+.c-stage .win-url{ height:16px; font-size:9.5px; line-height:16px; transform:translateX(-16px) }
+.card:hover .c-stage .win{ transform:translateY(-6px) }
+.c-stage .phone{ --pw:100px }
+.c-stage .win-scr img{ transition:opacity .5s }
+.card:hover .win-scr img + img{ opacity:1 }
+.card h4{ font-weight:500; font-size:30px; letter-spacing:-.02em; margin:0 0 8px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-variation-settings:'opsz' 36 }
+.card p{ font-family:var(--sans); font-size:14.5px; line-height:1.45; color:var(--ink-2); margin:0 }
+.card .obs{ margin-top:6px; font-family:var(--mono); font-size:12px; color:#A8691A }
+.card .capt{ margin-top:8px; font-family:var(--mono); font-size:10.5px; color:var(--ink-3) }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 18px }
+.chips span{ font:11.5px/1 var(--mono); padding:6px 8px; border-radius:6px; background:var(--paper-2); color:var(--ink-2) }
+.card .l-cta{ margin-top:auto }
+.prep{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:8%;
+  background:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 100% 12.5%, linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 8.333% 100%,
+  radial-gradient(ellipse at 50% 120%, rgba(43,59,234,.4), transparent 60%), #0D0E14; color:#EEF0FB; overflow:hidden }
+.prep b{ font-family:var(--serif); font-weight:500; font-size:clamp(16px, 1.6vw, 22px) }
+.prep span{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9EA7F5; display:flex; align-items:center; gap:7px }
+.prep span::before{ content:''; width:6px; height:6px; border-radius:50%; background:#7C88FF; animation:blink 1.6s ease-in-out infinite }
+@keyframes blink{ 50%{ opacity:.25 } }
+.phone .prep b{ font-size:14px } .phone .prep span{ font-size:8px }
+
+/* ---------- HABILIDADES ---------- */
+.skills{ padding-top:140px; padding-bottom:40px }
+.sk-grid{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:64px; margin-top:44px; align-items:start }
+.mx{ width:100%; border-collapse:collapse; font-family:var(--sans) }
+.mx th, .mx td{ padding:0 }
+.mx thead th{ height:118px; vertical-align:bottom; text-align:left; border-bottom:1px solid var(--ink) }
+.mx thead th.c{ width:44px; position:relative }
+.mx thead th.c span{ position:absolute; left:50%; bottom:10px; transform-origin:0 100%; transform:rotate(-55deg); white-space:nowrap; font-size:13px; font-weight:600 }
+.mx thead th.t{ width:52px; text-align:right; font-family:var(--mono); font-size:10.5px; font-weight:500; color:var(--ink-3); padding-bottom:10px; letter-spacing:.06em }
+.mx thead th.l{ font-family:var(--mono); font-size:10.5px; font-weight:500; color:var(--ink-3); padding-bottom:10px; letter-spacing:.1em; text-transform:uppercase }
+.mx tbody tr{ border-bottom:1px solid var(--faint) }
+.mx tbody th{ text-align:left; font-size:14px; font-weight:500; color:var(--ink); padding:7px 12px 7px 0; white-space:nowrap }
+.mx td{ text-align:center; height:34px }
+.mx td i{ display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--ink); transform:scale(0); will-change:transform }
+.mx td.t{ text-align:right; font-family:var(--mono); font-size:12px; color:var(--ink-2) }
+.mx tr.top th, .mx tr.top td.t{ color:var(--zen); font-weight:600 }
+.mx tr.top td i{ background:var(--zen) }
+.mx tfoot td{ font-family:var(--mono); font-size:12px; color:var(--ink-3); padding-top:10px }
+.mx-n{ margin-top:16px; font-family:var(--mono); font-size:11.5px; color:var(--ink-3); line-height:1.6 }
+.neg{ border-top:2px solid var(--ink) }
+.neg h3{ margin:0; padding:12px 0; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--ink-2); border-bottom:1px solid var(--ink) }
+.neg li{ display:flex; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1px solid var(--rule); font-family:var(--sans); font-size:15px; line-height:1.4 }
+.neg li span{ font-family:var(--mono); font-size:11.5px; color:var(--ink-3); white-space:nowrap; padding-top:2px }
+.neg ul{ list-style:none; margin:0; padding:0 }
+
+/* ---------- FORMAÇÃO ---------- */
+.edu{ padding-top:120px; padding-bottom:120px }
+.edu-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px; margin-top:40px }
+.edu-c{ border-top:2px solid var(--ink); padding-top:18px }
+.edu-c .k{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3) }
+.edu-c h3{ margin:10px 0 6px; font-weight:500; font-size:28px; line-height:1.1; letter-spacing:-.02em }
+.edu-c p{ margin:0; font-family:var(--sans); font-size:15px; color:var(--ink-2) }
+.lang{ display:grid; grid-template-columns:110px 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--rule); font-family:var(--sans); font-size:15px }
+.lang .bar{ height:6px; background:var(--faint); border-radius:3px; overflow:hidden }
+.lang .bar i{ display:block; height:100%; background:var(--ink); transform-origin:0 50%; transform:scaleX(0); will-change:transform }
+.lang small{ font-family:var(--mono); font-size:11.5px; color:var(--ink-3) }
+
+/* ---------- CONTATO ---------- */
+.contato{ background:var(--ink); color:var(--paper) }
+.ct-in{ max-width:1440px; margin:0 auto; padding:110px var(--gx) 40px }
+.ct-top{ display:grid; grid-template-columns:1.25fr 1fr; gap:64px; align-items:end; padding-bottom:52px; border-bottom:1px solid rgba(243,239,230,.25) }
+.ct-top .sec-k{ color:var(--hl) }
+.ct-h{ margin:0; font-size:clamp(2.4rem, 5.2vw, 5rem); line-height:.96; letter-spacing:-.035em; font-weight:400; font-variation-settings:'opsz' 72 }
+.ct-h em{ color:var(--hl) }
+.ct-p{ font-family:var(--sans); font-size:16px; line-height:1.55; color:rgba(243,239,230,.75); margin:0 0 22px; max-width:48ch }
+.ct-cta{ display:flex; flex-wrap:wrap; gap:12px }
+.ct-cta .btn{ border-color:var(--paper); color:var(--paper) }
+.ct-cta .btn.solid{ background:var(--paper); color:var(--ink) }
+.ct-cta .btn.solid:hover{ background:var(--hl); border-color:var(--hl) }
+.ct-cta .btn.ghost:hover{ background:rgba(243,239,230,.1) }
+.ct-grid{ display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px; padding:40px 0 60px }
+.ct-grid h3{ margin:0 0 12px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:rgba(243,239,230,.55) }
+.ct-grid p, .ct-grid li{ margin:0; font-family:var(--sans); font-size:15px; line-height:1.7 }
+.ct-grid ul{ list-style:none; margin:0; padding:0 }
+.ct-grid a{ text-decoration:none; border-bottom:1px solid rgba(243,239,230,.3) }
+.ct-grid a:hover{ color:var(--hl); border-color:var(--hl) }
+.ct-foot{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:rgba(243,239,230,.5); text-transform:uppercase }
+
+/* ---------- Desktop médio ---------- */
+@media (max-width:1180px){
+  .hero{ gap:44px } .traj .stick, .launch .stick{ gap:40px }
+  .t-step h3{ font-size:2rem }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:760px){
+  .mast{ gap:10px } .brand{ font-size:18px } .pill{ padding:8px 12px; font-size:12.5px }
+  .hero{ grid-template-columns:1fr; gap:34px; padding-top:18px; min-height:0 }
+  .folio{ font-size:10px } .folio span:last-child{ display:none }
+  .kicker{ font-size:11px; margin-bottom:14px }
+  .nome{ font-size:clamp(3rem, 15vw, 4rem) }
+  .tese{ font-size:1.55rem; margin-top:20px }
+  .linha-fina{ font-size:.98rem; margin-top:14px }
+  .assina{ margin-top:18px; gap:10px }
+  .dispo{ font-size:13.5px }
+  .acoes{ margin-top:18px; gap:8px }
+  .acoes .btn{ flex:1 1 auto; justify-content:center; min-height:46px; font-size:14px; padding:0 14px }
+  .redes{ width:100%; justify-content:space-between }
+  .ficha-r b{ font-size:3rem }
+  .sec-p{ font-size:15.5px }
+
+  .traj .stick{ grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:0; padding:14px var(--gx) 0; align-items:start }
+  .t-fig{ order:-1 }
+  .fig-t{ font-size:17px; margin-top:4px } .fig-k{ font-size:10px }
+  .fig-top{ margin-bottom:12px }
+  .cnt b{ font-size:48px }
+  .grid-m{ grid-template-columns:34px repeat(12, minmax(0,1fr)); gap:3px }
+  .grid-m .ax{ font-size:9.5px } .grid-m .yr{ padding-right:4px }
+  .cell{ border-radius:2px }
+  .lg{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-top:12px; padding-top:10px }
+  .lg-i{ grid-template-columns:10px 1fr; gap:1px 6px }
+  .lg-i i{ width:10px; height:10px; margin-top:3px }
+  .lg-i b{ font-size:12px } .lg-i em, .lg-i span{ display:none } .lg-i strong{ font-size:11px }
+  .virada .tag{ font-size:10px; padding:4px 7px }
+  .fig-q{ display:none }
+  .t-txt{ height:auto; align-self:stretch; margin-top:16px }
+  .t-head{ display:none }
+  .t-steps{ top:0 }
+  .t-step h3{ font-size:1.55rem; margin-bottom:8px }
+  .t-step p{ font-size:.98rem; line-height:1.5; margin-bottom:8px }
+  .t-step .src, .t-step .xtra{ display:none }
+  .t-chips{ margin-top:8px } .t-chips span{ font-size:10.5px; padding:4px 7px }
+
+  .p-intro{ padding-top:90px; padding-bottom:10px } .counts{ gap:26px } .counts b{ font-size:44px }
+  .launch .stick{ grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:0; padding:18px var(--gx) 0; align-items:start }
+  .l-stage{ order:-1; height:auto; padding:6px 14px 0 0 }
+  .l-rig .phone{ --pw:78px; right:-4%; bottom:-14% }
+  .win-bar{ height:24px } .win-url{ height:16px; font-size:9px; line-height:16px }
+  .l-cap{ margin-top:8px; font-size:9.5px; padding-right:84px }
+  .l-txt{ padding-top:22px }
+  .l-txt h3{ font-size:40px; margin:10px 0 4px }
+  .l-frase{ font-size:18px } .l-res{ display:none }
+  .l-list{ margin-top:12px; height:96px }
+  .l-list li{ position:absolute; inset:0 0 auto 0; padding-top:2px }
+  .l-list li span{ font-size:13.5px }
+  .l-meta{ margin-top:4px; font-size:10.5px }
+  .l-cta{ margin-top:10px } .l-cta .btn{ min-height:40px; padding:0 14px; font-size:13px }
+
+  .others, .skills{ padding-top:90px; padding-bottom:20px }
+  .grid-o{ grid-template-columns:1fr; gap:16px }
+  .card, .card.big{ grid-column:auto; padding:18px 16px }
+  .c-stage, .card.big .c-stage{ height:210px }
+  .c-stage .win, .card.big .c-stage .win{ width:min(92%, 290px) }
+  .sk-grid{ grid-template-columns:1fr; gap:40px }
+  .mx thead th{ height:96px }
+  .mx thead th.c{ width:30px } .mx thead th.c span{ font-size:11px }
+  .mx thead th.t{ width:30px }
+  .mx tbody th{ font-size:12px; white-space:normal; padding-right:6px; line-height:1.2 }
+  .mx td{ height:30px } .mx td i{ width:11px; height:11px }
+  .edu{ padding-top:80px; padding-bottom:80px } .edu-grid{ grid-template-columns:1fr }
+  .lang{ grid-template-columns:80px 1fr auto }
+  .ct-in{ padding:80px var(--gx) 30px }
+  .ct-top{ grid-template-columns:1fr; gap:26px; padding-bottom:34px }
+  .ct-cta .btn{ flex:1 1 auto; justify-content:center }
+  .ct-grid{ grid-template-columns:1fr 1fr; gap:26px 18px; padding:30px 0 44px }
+  .ct-grid p, .ct-grid li{ font-size:14px }
+}
+
+/* modo captura (?cena=...&progresso=...) */
+html.cap .scene{ height:calc(100vh) !important }
+html.cap .off{ display:none !important }
+</style>
+</head>
+<body>
+
+<header class="mast" id="mast">
+  <a class="brand" href="#topo">Alyssom Fernandes</a>
+  <nav class="mast-nav" aria-label="Seções">
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#formacao">Formação</a>
+  </nav>
+  <div class="mast-acts">
+    <a class="pill solid" data-cv href="#" target="_blank" rel="noopener">CV ↓</a>
+    <a class="pill" href="#contato">Contato</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="topo">
+  <!-- 1. ABERTURA: ele -->
+  <section class="hero wrap" data-cena="abertura">
+    <div class="folio"><span>Perfil · Developer · Data &amp; Business Intelligence</span><span id="dataHoje"></span></div>
+    <div>
+      <p class="kicker"><i></i>Do DP/RH ao código · 2021 → hoje</p>
+      <h1 class="nome"><span class="ln"><span style="--i:0">Alyssom</span></span><span class="ln"><span style="--i:1">Fernandes</span></span></h1>
+      <p class="tese">Passei 5 anos dentro das <span class="strike">planilhas</span>. Hoje construo os <em class="sis">sistemas</em> que as substituem.</p>
+      <p class="linha-fina">Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e entrego software em produção que automatiza conciliações, integra dados de ERPs e dá à gestão números em que dá para confiar.</p>
+      <div class="assina">
+        <span class="role">Developer · Data &amp; Business Intelligence</span>
+        <p class="dispo"><span class="pulse" aria-hidden="true"></span><span><b>Disponível</b> para remoto ou relocação para Espanha e Portugal · Brasil, UTC−3<small>Visto de nômade digital em andamento.</small></span></p>
+      </div>
+      <div class="acoes">
+        <a class="btn solid" data-cv href="#" target="_blank" rel="noopener">Baixar CV (PDF) <span class="arr">↓</span></a>
+        <a class="btn ghost" href="#contato">Contato</a>
+        <nav class="redes" aria-label="Redes">
+          <a data-l="linkedin" href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a data-l="github" href="#" target="_blank" rel="noopener">GitHub ↗</a>
+        </nav>
+      </div>
+    </div>
+    <aside class="ficha" aria-label="Em números">
+      <div class="ficha-h"><span>Em números</span><span>2021 → hoje</span></div>
+      <div class="ficha-r"><b>5<sup>+</sup></b><span>anos de carreira</span><small>controladoria, fiscal e DP/RH</small></div>
+      <div class="ficha-r"><b data-pend="empresasClientes"></b><span>empresas clientes em DP/RH</span><small>Astcon · 2021–2025</small></div>
+      <div class="ficha-r"><b class="z">2</b><span>sistemas em produção</span><small>criados no Grupo Zen · 2026</small></div>
+      <div class="agora"><span class="k">Hoje</span><b>Analista de Sistemas Financeiros Jr. · Grupo Zen</b>Tecnólogo em Análise e Desenvolvimento de Sistemas, concluído em 2026.</div>
+    </aside>
+  </section>
+
+  <!-- 2. TRAJETÓRIA contada com dados -->
+  <section class="scene traj" id="trajetoria" data-cena="trajetoria" style="height:460vh">
+    <div class="stick">
+      <div class="t-txt">
+        <div class="t-head"><p class="sec-k">Trajetória</p></div>
+        <div class="t-steps" id="tSteps">
+          <article class="t-step">
+            <p class="t-n">01 <span>/ 04</span></p>
+            <h3>Primeiro, as planilhas</h3>
+            <p>De fev/2021 a set/2025, na Astcon Assessoria Contábil, fez as rotinas completas de DP/RH de <b><span data-pend="empresasClientes"></span> empresas clientes</b>.<span class="xtra"> Virou referência técnica interna e treinava quem chegava. A ferramenta de todo dia era a planilha.</span></p>
+            <div class="t-chips"><span>admissões</span><span>demissões</span><span>férias</span><span>rescisões</span><span>INSS</span><span>FGTS</span><span>eSocial</span><span>DCTFWeb</span></div>
+          </article>
+          <article class="t-step">
+            <p class="t-n">02 <span>/ 04</span></p>
+            <h3>Um projeto de campo</h3>
+            <p>Na Fazenda Novo México, cuidou das operações administrativas de um projeto de irrigação de grande porte, <b>coordenando equipes internas e empresas terceirizadas</b>.</p>
+            <p class="src">Auxiliar Administrativo (contrato temporário) · set/2025 – jan/2026</p>
+          </article>
+          <article class="t-step">
+            <p class="t-n">03 <span>/ 04</span></p>
+            <h3>A virada de <em>2026</em></h3>
+            <p>No Grupo Zen, desenvolveu <b>dois sistemas internos que hoje rodam em produção</b>, automatizou a análise diária de divergências entre estoque físico, sistema e medições (antes feita à mão) e estruturou dados operacionais e financeiros de <b><span data-pend="unidadesNegocio"></span> unidades de negócio</b>.</p>
+            <p class="src">Analista de Sistemas Financeiros Jr. (cargo formal: Auxiliar de Controladoria) · fev/2026 – hoje</p>
+          </article>
+          <article class="t-step">
+            <p class="t-n">04 <span>/ 04</span></p>
+            <h3>Das planilhas <em>para os sistemas</em></h3>
+            <p>Quem passou cinco anos dentro das planilhas sabe onde elas quebram: arquivos desconectados, conciliações à mão, prazos que dependem da memória de alguém. <b>Ele fala a língua do time financeiro e a do time técnico.</b></p>
+            <p class="src">Tecnólogo em Análise e Desenvolvimento de Sistemas · Uniasselvi, 2026</p>
+          </article>
+        </div>
+      </div>
+      <figure class="t-fig" style="margin:0">
+        <div class="fig-top">
+          <div><div class="fig-k">Fig. 1</div><div class="fig-t">Cada quadrado, um mês de carreira</div></div>
+          <div class="cnt"><b id="cntN">0</b><span>meses</span></div>
+        </div>
+        <div class="grid-m" id="gridM"></div>
+        <div class="lg" id="lg"></div>
+        <p class="fig-q" id="figQ">“Passei 5 anos dentro das planilhas. Hoje construo os <b>sistemas</b> que as substituem.”</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3. PROJETOS -->
+  <section class="p-intro wrap" id="projetos" data-cena="projetos">
+    <p class="sec-k" data-rev>Projetos</p>
+    <h2 class="sec-t" data-rev>O que ele construiu, <em>com as telas de verdade</em>.</h2>
+    <p class="sec-p" data-rev>Cada projeto apresentado como produto: o problema que resolve, as telas e onde testar. Os dois primeiros nasceram de rotinas reais do trabalho.</p>
+    <div class="counts" data-rev>
+      <div><b>9</b>projetos publicados</div>
+      <div><b class="z">2</b>sistemas em produção</div>
+      <div><b>3</b>com demo ao vivo</div>
+    </div>
+  </section>
+  <div id="launches"></div>
+
+  <section class="others wrap" id="outros" data-cena="outros">
+    <p class="sec-k" data-rev>Também no GitHub</p>
+    <h2 class="sec-t" data-rev>Mais cinco ferramentas.</h2>
+    <p class="sec-p" data-rev>Menores, mas cada uma resolve uma rotina concreta. As que ainda não têm demo publicada aparecem como estão: em preparação.</p>
+    <div class="grid-o" id="gridO"></div>
+  </section>
+
+  <!-- 4. HABILIDADES -->
+  <section class="skills wrap" id="habilidades" data-cena="habilidades">
+    <p class="sec-k" data-rev>Habilidades</p>
+    <h2 class="sec-t" data-rev>Habilidades, <em>com evidência</em>.</h2>
+    <p class="sec-p" data-rev>Nada de barrinha de porcentagem inventada: cada tecnologia cruzada com o projeto em que ela foi usada de verdade.</p>
+    <div class="sk-grid">
+      <div>
+        <table class="mx" id="mx"></table>
+        <p class="mx-n">Cada ponto é uma evidência num repositório publicado. DeepChat e ArtMaker, projetos de demonstração, ficam fora desta conta.</p>
+      </div>
+      <div class="neg" data-rev>
+        <h3>Negócio × experiência</h3>
+        <ul id="neg"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FORMAÇÃO & IDIOMAS -->
+  <section class="edu wrap" id="formacao" data-cena="formacao">
+    <p class="sec-k" data-rev>Formação &amp; idiomas</p>
+    <div class="edu-grid">
+      <div class="edu-c" data-rev>
+        <span class="k">Ensino superior</span>
+        <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+        <p>Uniasselvi · concluído em 2026</p>
+      </div>
+      <div class="edu-c" data-rev id="langs">
+        <span class="k">Idiomas</span>
+        <div class="lang"><span>Português</span><span class="bar"><i data-v="1"></i></span><small>Nativo</small></div>
+        <div class="lang"><span>Inglês</span><span class="bar"><i data-v=".6"></i></span><small>B1 · intermediário</small></div>
+        <div class="lang"><span>Espanhol</span><span class="bar"><i data-v=".25"></i></span><small>Básico</small></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 6. CONTATO -->
+<footer class="contato" id="contato" data-cena="contato">
+  <div class="ct-in">
+    <div class="ct-top">
+      <div>
+        <p class="sec-k">Contato</p>
+        <h2 class="ct-h">Vamos <em>conversar</em>?</h2>
+      </div>
+      <div>
+        <p class="ct-p">Aberto a posições remotas ou presenciais em desenvolvimento, dados e sistemas financeiros, e em processo de relocação para Espanha ou Portugal (visto de nômade digital em andamento).</p>
+        <div class="ct-cta">
+          <a class="btn solid" data-cv href="#" target="_blank" rel="noopener">Baixar CV (PDF) <span class="arr">↓</span></a>
+          <a class="btn ghost" id="ctMail" href="#"></a>
+        </div>
+      </div>
+    </div>
+    <div class="ct-grid">
+      <div><h3>Quem</h3><p>Alyssom Fernandes<br>Developer · Data &amp; Business Intelligence</p></div>
+      <div><h3>Disponibilidade</h3><p>Remoto ou relocação para Espanha e Portugal<br>Brasil · UTC−3</p></div>
+      <div><h3>Contato</h3><ul id="ctLinks"></ul></div>
+      <div><h3>Formação e idiomas</h3><p>Tecnólogo em ADS — Uniasselvi, 2026<br>Português nativo · Inglês B1 · Espanhol básico</p></div>
+    </div>
+    <div class="ct-foot"><span>Alyssom Fernandes · Brasil · UTC−3</span><span>Prévia de conceito “Reportagem + Vitrine”</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const P = DATA.pendentes, PES = DATA.pessoa;
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+const lerp = (a, b, t) => a + (b - a) * t;
+const txt = v => typeof v === 'function' ? v(P) : v;
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const mobile = () => innerWidth <= 760;
+
+/* ---------- textos e links ---------- */
+$$('[data-pend]').forEach(el => el.textContent = P[el.dataset.pend]);
+$$('[data-cv]').forEach(a => a.href = PES.cv);
+$$('[data-l]').forEach(a => a.href = PES[a.dataset.l]);
+$('#ctMail').href = 'mailto:' + PES.email; $('#ctMail').textContent = PES.email;
+$('#ctLinks').innerHTML = [['mailto:' + PES.email, 'E-mail'], [PES.linkedin, 'LinkedIn ↗'], [PES.github, 'GitHub ↗'], [PES.whatsapp, 'WhatsApp ' + PES.whatsappLabel]]
+  .map(([h, t]) => `<li><a href="${h}"${h.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${t}</a></li>`).join('');
+$('#dataHoje').textContent = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date()) + ' · Brasil, UTC−3';
+
+/* ---------- TRAJETÓRIA: grade de meses ---------- */
+const mi = (y, m) => y * 12 + (m - 1);
+const now = new Date();
+const PH = DATA.carreira.map(p => ({ ...p, a: mi(...p.inicio), b: p.fim ? mi(...p.fim) : null }));
+const HOJE = Math.max(mi(now.getFullYear(), now.getMonth() + 1), PH[PH.length - 1].a);
+PH.forEach(p => { if (p.b === null) p.b = HOJE; });
+const Y0 = DATA.carreira[0].inicio[0], Y1 = Math.floor(HOJE / 12);
+const COL = { astcon: 'var(--astcon)', nm: 'var(--nm)', zen: 'var(--zen)' };
+// fase dominante de cada mês (no mês de transição, a que começa)
+const phaseOf = i => { let f = null; for (const p of PH) if (i >= p.a && i <= p.b) f = p; return f; };
+const phasesAt = i => PH.filter(p => i >= p.a && i <= p.b);
+const gridM = $('#gridM');
+let gh = '<span></span>' + 'JFMAMJJASOND'.split('').map(l => `<span class="ax">${l}</span>`).join('');
+const cells = [];     // meses de carreira, em ordem
+for (let y = Y0; y <= Y1; y++) {
+  gh += `<span class="ax yr${y === Y1 ? ' b' : ''}">${y}</span>`;
+  for (let m = 1; m <= 12; m++) {
+    const i = mi(y, m), phs = phasesAt(i), ph = phaseOf(i);
+    if (i > HOJE) { gh += '<span class="cell fut"></span>'; continue; }
+    if (!ph) { gh += '<span class="cell pre"></span>'; continue; }
+    const bg = phs.length > 1 ? `linear-gradient(135deg, ${COL[phs[0].id]} 50%, ${COL[phs[1].id]} 50%)` : COL[ph.id];
+    gh += `<span class="cell${i === HOJE ? ' hoje' : ''}" data-i="${i}"><i style="background:${bg}"></i><i class="o"></i></span>`;
+  }
+}
+gridM.innerHTML = gh;
+$$('.cell[data-i]', gridM).forEach(el => { const i = +el.dataset.i; cells.push({ i, ph: phaseOf(i).id, f: el.firstChild, o: el.lastChild }); });
+// tag da virada sobre a linha de 2026
+const virada = document.createElement('div'); virada.className = 'virada'; virada.innerHTML = '<span class="tag">2026 · planilhas → sistemas</span>';
+const tFig = $('.t-fig'); tFig.style.position = 'relative'; tFig.appendChild(virada);
+$('#lg').innerHTML = PH.map(p => `<div class="lg-i" data-ph="${p.id}"><i style="background:${COL[p.id]}"></i><b>${p.curto}</b><em>${p.area}</em><span>${p.periodo}</span><strong>0 meses</strong></div>`).join('');
+const lgCount = Object.fromEntries(PH.map(p => [p.id, $(`.lg-i[data-ph="${p.id}"] strong`)]));
+const phTot = Object.fromEntries(PH.map(p => [p.id, cells.filter(c => c.ph === p.id).length]));
+// janelas de progresso de cada fase (preenchimento contínuo, mês a mês)
+const WIN = { astcon: [.06, .42], nm: [.44, .56], zen: [.60, .74] };
+const firstOf = id => cells.findIndex(c => c.ph === id);
+const tSteps = $$('.t-step');
+const STEPR = [[0, .43], [.43, .58], [.58, .78], [.78, 1]];
+const cntN = $('#cntN'), figQ = $('#figQ');
+
+function renderTraj(p) {
+  let total = 0;
+  const filled = { astcon: 0, nm: 0, zen: 0 };
+  for (const id of Object.keys(WIN)) {
+    const [a, b] = WIN[id], n = phTot[id], s0 = firstOf(id);
+    const x = clamp((p - a) / (b - a)) * n;          // meses preenchidos (contínuo)
+    for (let k = 0; k < n; k++) {
+      const c = cells[s0 + k], v = clamp(x - k);
+      const e = v * v * (3 - 2 * v);
+      // na última etapa, a planilha "se apaga" e os sistemas ficam em destaque
+      const fade = id === 'zen' ? 1 : 1 - .62 * smooth(.8, .95, p);
+      c.f.style.opacity = (e * fade).toFixed(3);
+      c.f.style.transform = `scale(${lerp(.3, 1, e).toFixed(3)})`;
+      c.o.style.opacity = id === 'zen' ? 0 : (e * .55 * smooth(.8, .95, p)).toFixed(3);
+    }
+    filled[id] = Math.min(n, Math.floor(x + .0001));
+    total += filled[id];
+    lgCount[id].textContent = filled[id] + (filled[id] === 1 ? ' mês' : ' meses');
+  }
+  cntN.textContent = total;
+  // tag da virada: posiciona sobre a linha do ano de 2026
+  const zc = cells[firstOf('zen')];
+  if (zc) {
+    const el = zc.f.parentNode, g = tFig.getBoundingClientRect(), r = el.getBoundingClientRect();
+    const k = smooth(.66, .76, p);
+    virada.style.top = (r.bottom - g.top + 8) + 'px';
+    virada.style.left = (r.left - g.left) + 'px';
+    virada.style.opacity = k.toFixed(3);
+    virada.style.transform = `translateY(${lerp(10, 0, k).toFixed(1)}px)`;
+  }
+  const q = smooth(.84, .96, p);
+  figQ.style.opacity = q.toFixed(3); figQ.style.transform = `translateY(${lerp(14, 0, q).toFixed(1)}px)`;
+  tSteps.forEach((s, j) => {
+    const [a, b] = STEPR[j];
+    const inn = j === 0 ? 1 : smooth(a - .025, a + .025, p);
+    const out = j === tSteps.length - 1 ? 0 : smooth(b - .025, b + .025, p);
+    s.style.opacity = (inn * (1 - out)).toFixed(3);
+    s.style.transform = `translateY(${((1 - inn) * 28 - out * 28).toFixed(1)}px)`;
+    s.style.pointerEvents = inn * (1 - out) > .5 ? 'auto' : 'none';
+  });
+}
+
+/* ---------- LANÇAMENTOS ---------- */
+const launches = [];
+$('#launches').innerHTML = DATA.destaques.map((d, i) => {
+  const telas = Object.entries(d.telas), [tw, th] = d.telasTam;
+  const cta = (d.demo ? `<a class="btn solid sm" href="${d.demo}" target="_blank" rel="noopener">Ver demo ao vivo <span class="arr">↗</span></a>` : '')
+    + `<a class="btn ghost sm" href="${d.codigo}" target="_blank" rel="noopener">Código <span class="arr">↗</span></a>`;
+  return `<section class="scene launch" id="l-${d.id}" data-cena="${d.id}" style="height:${100 + d.itens.length * 70}vh">
+    <div class="stick">
+      <div class="l-txt">
+        <div class="l-num"><span class="kk">Projeto ${String(i + 1).padStart(2, '0')} / ${String(DATA.destaques.length).padStart(2, '0')}</span><span class="badge ${d.status}">${DATA.status[d.status]}</span></div>
+        <h3>${esc(d.nome)}</h3>
+        <p class="l-frase">${esc(d.frase)}</p>
+        <p class="l-res">${esc(d.resumo)}</p>
+        <ol class="l-list"><i class="l-bar"></i>${d.itens.map(it => `<li><b>${esc(it.t)}</b><span>${esc(txt(it.d))}</span></li>`).join('')}</ol>
+        <div class="l-meta">${d.stack.join(' · ')}${d.obs ? `<br><em>${esc(d.obs)}</em>` : ''}</div>
+        <div class="l-cta">${cta}</div>
+      </div>
+      <div class="l-stage">
+        <div class="l-rig">
+          <div class="win"><div class="win-bar"><i><b></b></i><span class="win-url">${esc(d.url)}</span></div>
+            <div class="win-scr${tw / th > 1.7 ? ' w169' : ''}">${telas.map(([k, src]) => `<img data-k="${k}" src="${src}" alt="${esc(d.nome)}: tela ${k}" width="${tw}" height="${th}" loading="lazy" decoding="async">`).join('')}<i class="dim"></i></div>
+          </div>
+          ${d.celular ? `<div class="phone"><div class="ps"><img src="${d.celular}" alt="${esc(d.nome)} no celular" width="${d.celularTam[0]}" height="${d.celularTam[1]}" loading="lazy" decoding="async"></div></div>` : ''}
+          <p class="l-cap">${esc(d.legenda)}</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}).join('');
+DATA.destaques.forEach(d => {
+  const sec = $('#l-' + d.id);
+  launches.push({ d, sec, rig: $('.l-rig', sec), imgs: $$('.win-scr img', sec), phone: $('.phone', sec), dim: $('.dim', sec), lis: $$('.l-list li', sec), bar: $('.l-bar', sec) });
+});
+
+function renderLaunch(L, p) {
+  const it = L.d.itens, n = it.length;
+  const x = clamp(p, 0, .9999) * n, h = Math.floor(x), u = x - h;
+  const b = h < n - 1 ? smooth(.7, 1, u) : 0;      // mistura contínua com o próximo destaque
+  const keys = Object.keys(L.d.telas);
+  const lastWin = j => { for (let q = Math.min(j, n - 1); q >= 0; q--) if (it[q].tela !== 'celular') return it[q].tela; return keys[0]; };
+  const A = lastWin(h), B = lastWin(h + 1);
+  L.imgs.forEach(img => { const k = img.dataset.k; img.style.opacity = clamp((k === A ? 1 - b : 0) + (k === B ? b : 0)).toFixed(3); });
+  const mob = mobile();
+  L.lis.forEach((li, j) => {
+    const v = 1 - smooth(.38, .62, Math.abs(x - (j + .5)));
+    li.style.opacity = mob ? v.toFixed(3) : (.3 + .7 * v).toFixed(3);
+    li.style.transform = mob ? `translateY(${((j + .5 - x) * 18).toFixed(1)}px)` : 'none';
+  });
+  L.bar.style.transform = `scaleY(${clamp(p).toFixed(4)})`;
+  const tel = j => it[Math.min(j, n - 1)].tela;
+  const phoneW = (tel(h) === 'celular' ? 1 - b : 0) + (tel(h + 1) === 'celular' ? b : 0);
+  // a tela sobe devagar e assenta, de forma contínua
+  const enter = smooth(0, .22, p);
+  const ty = lerp(46, 0, enter) + lerp(0, -22, smooth(.22, 1, p));
+  const s = lerp(.94, 1, enter) - phoneW * .03;
+  L.rig.style.transform = `translate3d(${(-phoneW * (mob ? 4 : 2)).toFixed(2)}%, ${ty.toFixed(1)}px, 0) scale(${s.toFixed(4)})`;
+  L.dim.style.opacity = (phoneW * .5).toFixed(3);
+  if (L.phone) {
+    const pin = smooth(.04, .24, p);
+    const tx = lerp(40, 0, pin) + phoneW * (mob ? -70 : -90);
+    L.phone.style.opacity = pin.toFixed(3);
+    L.phone.style.transform = `translate3d(${tx.toFixed(1)}%, ${(lerp(18, 0, pin) - phoneW * 8).toFixed(1)}%, 0) rotate(${lerp(6, 0, pin).toFixed(2)}deg) scale(${(1 + phoneW * .38).toFixed(4)})`;
+  }
+}
+
+/* ---------- OUTROS ---------- */
+$('#gridO').innerHTML = DATA.outros.map((o, i) => {
+  const scr = o.telas.length
+    ? o.telas.map(src => `<img src="${src}" alt="${esc(o.nome)}: tela da demo" width="1440" height="900" loading="lazy" decoding="async">`).join('')
+    : `<div class="prep"><span>Demo em preparação</span><b>${esc(o.nome)}</b></div>`;
+  const dev = o.aparelho === 'celular'
+    ? `<div class="phone"><div class="ps">${scr}</div></div>`
+    : `<div class="win"><div class="win-bar"><i><b></b></i><span class="win-url">${esc(o.url)}</span></div><div class="win-scr">${scr}</div></div>`;
+  const cta = (o.demo ? `<a class="btn solid sm" href="${o.demo}" target="_blank" rel="noopener">Ver demo <span class="arr">↗</span></a>` : '')
+    + o.codigo.map(([l, u]) => `<a class="btn ghost sm" href="${u}" target="_blank" rel="noopener">${l} <span class="arr">↗</span></a>`).join('');
+  return `<article class="card ${i < 2 ? 'big' : ''}" data-rev>
+    <div class="c-stage">${dev}</div>
+    <h4>${esc(o.nome)} <span class="badge ${o.status}">${DATA.status[o.status]}</span></h4>
+    <p>${esc(o.oque)}</p>${o.obs ? `<div class="obs">${esc(o.obs)}</div>` : ''}${o.legenda ? `<div class="capt">${esc(o.legenda)}${o.telas.length > 1 ? ' · passe o mouse para ver outra tela' : ''}</div>` : ''}
+    <div class="chips">${o.stack.map(s => `<span>${esc(s)}</span>`).join('')}</div>
+    <div class="l-cta">${cta}</div>
+  </article>`;
+}).join('');
+
+/* ---------- HABILIDADES: matriz ---------- */
+const MX = DATA.matriz, KC = MX.colunas.length;
+const rowTot = MX.linhas.map(([, v]) => [...v].reduce((s, c) => s + +c, 0));
+const colTot = MX.colunas.map((_, c) => MX.linhas.reduce((s, [, v]) => s + +v[c], 0));
+const maxRow = Math.max(...rowTot);
+$('#mx').innerHTML = `<thead><tr><th class="l">Tecnologia / capacidade</th>${MX.colunas.map(([, n]) => `<th class="c"><span>${n}</span></th>`).join('')}<th class="t">Total</th></tr></thead>
+  <tbody>${MX.linhas.map(([n, v], r) => `<tr class="${rowTot[r] === maxRow ? 'top' : ''}"><th>${esc(n)}</th>${[...v].map(c => `<td>${c === '1' ? '<i></i>' : ''}</td>`).join('')}<td class="t">${rowTot[r]}</td></tr>`).join('')}</tbody>
+  <tfoot><tr><td>Tecnologias por projeto</td>${colTot.map(t => `<td style="text-align:center">${t}</td>`).join('')}<td></td></tr></tfoot>`;
+const mxRows = $$('#mx tbody tr').map(tr => $$('td i', tr));
+$('#neg').innerHTML = DATA.negocio.map(([a, b]) => `<li>${esc(a)}<span>${esc(b)}</span></li>`).join('');
+function renderMatrix(q) {
+  const R = mxRows.length;
+  mxRows.forEach((dots, r) => dots.forEach((d, k) => {
+    const s = (r / R) * .75 + k * .012;
+    d.style.transform = `scale(${smooth(s, s + .2, q).toFixed(3)})`;
+  }));
+}
+const langBars = $$('#langs .bar i');
+const renderLangs = q => langBars.forEach((b, j) => b.style.transform = `scaleX(${(+b.dataset.v * smooth(j * .1, j * .1 + .6, q)).toFixed(3)})`);
+
+/* ---------- revelação contínua (posição na tela → estado) ---------- */
+const revs = $$('[data-rev]');
+function renderRevs(all) {
+  const vh = innerHeight;
+  for (const el of revs) {
+    const r = el.getBoundingClientRect();
+    const t = all ? 1 : smooth(0, 1, (vh * .98 - r.top) / (vh * .3));
+    el.style.opacity = t.toFixed(3);
+    el.style.transform = `translateY(${((1 - t) * 26).toFixed(1)}px)`;
+  }
+}
+
+/* ---------- rolagem ---------- */
+const traj = $('#trajetoria'), mx = $('#mx'), langs = $('#langs'), bar = $('#progress');
+const prog = el => { const r = el.getBoundingClientRect(); const span = r.height - innerHeight; return span > 0 ? clamp(-r.top / span) : 0; };
+const enterQ = (el, k = .75) => { const r = el.getBoundingClientRect(); return clamp((innerHeight * .95 - r.top) / (r.height * k)); };
+
+const qs = new URLSearchParams(location.search);
+const cena = qs.get('cena');
+if (cena) {
+  const p = qs.has('progresso') ? clamp(parseFloat(qs.get('progresso')) || 0) : 1;
+  document.documentElement.classList.add('cap');
+  const secs = $$('[data-cena]'), idx = secs.findIndex(s => s.dataset.cena === cena);
+  secs.forEach((s, i) => { if (i < idx) s.classList.add('off'); });
+  $$('img[loading="lazy"]').forEach(im => im.loading = 'eager');
+  const draw = () => {
+    renderTraj(cena === 'trajetoria' ? p : 1);
+    launches.forEach(L => renderLaunch(L, L.d.id === cena ? p : 0));
+    renderMatrix(cena === 'habilidades' ? p : 1); renderLangs(1); renderRevs(true);
+  };
+  draw(); addEventListener('resize', draw); addEventListener('load', draw);
+  scrollTo(0, 0);
+  return;
+}
+
+let queued = false;
+const frame = () => {
+  queued = false;
+  const vh = innerHeight, doc = document.documentElement;
+  bar.style.transform = `scaleX(${clamp(scrollY / (doc.scrollHeight - vh)).toFixed(4)})`;
+  const tr = traj.getBoundingClientRect();
+  if (tr.top < vh && tr.bottom > 0) renderTraj(prog(traj));
+  for (const L of launches) {
+    const r = L.sec.getBoundingClientRect();
+    if (r.top < vh * 1.5 && r.bottom > -vh * .5) renderLaunch(L, prog(L.sec));
+  }
+  renderMatrix(enterQ(mx)); renderLangs(enterQ(langs, 1.2)); renderRevs(false);
+};
+const req = () => { if (!queued) { queued = true; requestAnimationFrame(frame); } };
+addEventListener('scroll', req, { passive: true });
+addEventListener('resize', req);
+renderTraj(0); frame();
+})();
+</script>
+</body>
+</html>
