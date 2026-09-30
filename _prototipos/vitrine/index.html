@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alyssom Fernandes — Vitrine</title>
+<meta name="description" content="Alyssom Fernandes, Developer · Data & Business Intelligence. Projetos apresentados como lançamentos de produto.">
+<meta name="theme-color" content="#F3F0E8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/fuelmind-dashboard.png">
+<script>
+/* =====================================================================
+   DADOS — fonte única: _prototipos/conteudo.md
+   Valores marcados com * no conteudo.md aguardam confirmação: troque aqui.
+   Para publicar a demo de um projeto: preencha "demo" e "tela" (caminho da imagem).
+   ===================================================================== */
+const DATA = {
+  pessoa: {
+    email: 'alyssom1919@gmail.com',
+    linkedin: 'https://linkedin.com/in/alyssom-fernandes',
+    github: 'https://github.com/alyssom-fernandes',
+    whatsapp: 'https://wa.me/5562996674854',
+    whatsappLabel: '+55 62 99667-4854',
+    cv: '../../cv/Alyssom-Fernandes-CV-PT.pdf'
+  },
+  pendentes: {                       // * aguardando confirmação
+    empresasClientes: '60+',
+    planilhasSubstituidas: '6+',
+    unidadesNegocio: '3',
+    menosChamadasIA: '~90%'
+  },
+  status: { producao: 'Em produção', demo: 'Demo ao vivo', codigo: 'Código' },
+
+  destaques: [
+    { id: 'fuelmind', nome: 'Fuel Mind', status: 'producao',
+      frase: 'Cada litro que entra, conferido contra o ERP.',
+      resumo: 'Controle de entradas de combustível e fretes para distribuidoras e transportadoras.',
+      demo: 'https://controle-entradas-posto.web.app',
+      codigo: 'https://github.com/alyssom-fernandes/Fuel-Mind',
+      stack: ['JavaScript', 'Firebase', 'Chart.js', 'jsPDF', 'SheetJS'],
+      telas: { dashboard: 'img/fuelmind-dashboard.png', analitico: 'img/fuelmind-analitico.png', fretes: 'img/fuelmind-fretes.png' },
+      telasTam: [1440, 900],
+      celular: 'img/fuelmind-celular.png', celularTam: [780, 1688],
+      itens: [
+        { tela: 'dashboard', t: 'Importa a NF-e', d: 'Lê o XML das notas fiscais e cruza cada entrada com o ERP AutoSystem.' },
+        { tela: 'analitico', t: 'Aponta divergências', d: 'Quando nota e sistema não batem, o alerta aparece na tela.' },
+        { tela: 'fretes',    t: 'Fecha o mês', d: 'Combustível e fretes consolidados em PDF ou Excel para o fechamento mensal.' },
+        { tela: 'celular',   t: 'Em uso todo dia', d: p => `Em produção numa operação real, com 102 testes automatizados. Substituiu ${p.planilhasSubstituidas} planilhas desconectadas.` }
+      ] },
+
+    { id: 'praxis', nome: 'Praxis', status: 'demo',
+      frase: 'Compras corporativas, do pedido ao pagamento.',
+      resumo: 'Cotações, aprovações, parcelas e SLA num fluxo só.',
+      demo: 'https://praxis-af618.web.app',
+      codigo: 'https://github.com/alyssom-fernandes/Praxis',
+      stack: ['JavaScript (ES modules)', 'Firebase', 'Cloud Functions', 'PWA'],
+      telas: { entrada: 'img/praxis.png' }, telasTam: [1440, 900],
+      itens: [
+        { tela: 'entrada', t: 'Do pedido ao pagamento', d: 'O caminho inteiro de uma compra corporativa, sem troca de planilhas por e-mail.' },
+        { tela: 'entrada', t: 'Cotações lado a lado', d: 'Propostas comparadas na mesma tela, com aprovações, parcelas e SLA.' },
+        { tela: 'entrada', t: '6 perfis de acesso', d: 'Cada perfil com suas permissões, e 14 eventos de notificação mantendo todos no fluxo.' },
+        { tela: 'entrada', t: 'Instala como app', d: 'PWA com Cloud Functions no Firebase. A demo tem modo de acesso aberto.' }
+      ] },
+
+    { id: 'flowtrack', nome: 'FlowTrack', status: 'codigo', obs: 'Backend fora do ar no momento',
+      frase: 'Finanças pessoais que se categorizam sozinhas.',
+      resumo: 'Categorização por IA em 3 camadas: regras, cache e Claude Haiku.',
+      demo: null,
+      codigo: 'https://github.com/alyssom-fernandes/FlowTrack',
+      stack: ['React 19', 'TypeScript', 'FastAPI', 'Supabase/PostgreSQL', 'Claude Haiku', 'Playwright'],
+      telas: { dashboard: 'img/flowtrack-dashboard.png', transacoes: 'img/flowtrack-transacoes.png' }, telasTam: [1920, 1080],
+      celular: 'img/flowtrack-celular.png', celularTam: [739, 1600],
+      itens: [
+        { tela: 'dashboard',  t: 'IA em 3 camadas', d: 'Primeiro regras, depois cache; só o que sobra vai para o Claude Haiku.' },
+        { tela: 'transacoes', t: 'Extratos de 4 bancos', d: 'Importa extratos de quatro bancos, além de arquivos OFX e CSV.' },
+        { tela: 'celular',    t: 'Menos chamadas à IA', d: p => `${p.menosChamadasIA} menos chamadas à IA, segundo o README do projeto.` },
+        { tela: 'dashboard',  t: '83 testes de integração', d: 'React 19 e TypeScript na frente; FastAPI e PostgreSQL por trás.' }
+      ] },
+
+    { id: 'alertsignal', nome: 'AlertSignal', status: 'producao',
+      frase: 'Nenhum alvará vence esquecido.',
+      resumo: 'Vencimentos de alvarás e licenças de várias empresas, com avisos automáticos.',
+      demo: null,
+      codigo: 'https://github.com/alyssom-fernandes/AlertSignal',
+      stack: ['Python', 'Flask', 'SQLite', 'APScheduler', 'pandas'],
+      telas: { dashboard: 'img/alertsignal-dashboard.png', empresas: 'img/alertsignal-empresas.png' }, telasTam: [1920, 1080],
+      itens: [
+        { tela: 'dashboard', t: 'Tudo num painel', d: 'Alvarás e licenças de várias empresas, com o que vence primeiro no topo.' },
+        { tela: 'empresas',  t: 'Por empresa', d: 'Cada empresa com seus documentos e datas de vencimento.' },
+        { tela: 'dashboard', t: 'Avisos em 90, 30 e 7 dias', d: 'E-mails automáticos saem antes de cada vencimento, sem depender de lembrete.' }
+      ] }
+  ],
+
+  // aparelho: 'notebook' | 'celular'. tela: null mostra "Demo em preparação".
+  outros: [
+    { id: 'artmaker', nome: 'ArtMaker', status: 'demo', aparelho: 'notebook', tela: 'img/artmaker.png',
+      oque: 'Gerador de encartes 1080×1920 para lojas, num único arquivo HTML com Canvas.',
+      stack: ['JavaScript', 'Canvas'],
+      demo: 'https://alyssom-fernandes.github.io/ArtMaker/', codigo: [['Código', 'https://github.com/alyssom-fernandes/ArtMaker']] },
+    { id: 'deepchat', nome: 'DeepChat', status: 'demo', aparelho: 'notebook', tela: 'img/deepchat.png',
+      oque: 'Chat em que o DeepSeek responde e o ChatGPT revisa.', obs: 'A demo exige chave de API própria.',
+      stack: ['HTML', 'CSS', 'JavaScript', 'APIs de IA'],
+      demo: 'https://alyssom-fernandes.github.io/DeepChat/', codigo: [['Código', 'https://github.com/alyssom-fernandes/DeepChat']] },
+    { id: 'docke', nome: 'Docke', status: 'codigo', aparelho: 'notebook', tela: null,
+      oque: 'Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais, retenção legal e trilha de auditoria encadeada por hash.',
+      stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL (RLS)', 'Tesseract'],
+      demo: null, codigo: [['Código', 'https://github.com/alyssom-fernandes/Docke']] },
+    { id: 'unifydata', nome: 'UnifyData', status: 'codigo', aparelho: 'notebook', tela: null,
+      oque: 'Conciliação mensal de benefícios da folha (AutoSystem × RH), em versão web e Python.',
+      stack: ['JavaScript', 'PDF.js', 'ExcelJS', 'Python', 'Streamlit', 'pandas'],
+      demo: null, codigo: [['Código web', 'https://github.com/alyssom-fernandes/UnifyData-Web'], ['Código Python', 'https://github.com/alyssom-fernandes/UnifyData-Python']] },
+    { id: 'audistock', nome: 'AudiStock', status: 'codigo', aparelho: 'celular', tela: null,
+      oque: 'Auditoria de estoque com leitura de código de barras pela câmera, vários auditores em tempo real e fila offline.',
+      stack: ['JavaScript', 'Supabase Realtime', 'IndexedDB'],
+      demo: null, codigo: [['Código', 'https://github.com/alyssom-fernandes/AudiStock']] }
+  ],
+
+  carreira: [
+    { periodo: 'fev/2021 – set/2025', empresa: 'Astcon Assessoria Contábil', linha: p => `DP/RH completo para ${p.empresasClientes} empresas clientes: admissões, férias, rescisões, eSocial, DCTFWeb.` },
+    { periodo: 'set/2025 – jan/2026', empresa: 'Fazenda Novo México', linha: () => 'Operações administrativas num projeto de irrigação de grande porte, com equipes e terceirizadas.' },
+    { periodo: 'fev/2026 – hoje', empresa: 'Grupo Zen', linha: p => `Analista de Sistemas Financeiros Jr.: criou o Fuel Mind e o AlertSignal e estruturou dados de ${p.unidadesNegocio} unidades de negócio.` }
+  ]
+};
+</script>
+<style>
+:root{
+  --paper:#F3F0E8; --paper-2:#EAE5D9; --card:#FAF8F3; --ink:#15150F; --ink-2:#4C4A42; --ink-3:#86816F;
+  --rule:#D8D1C0; --green:#17784A; --green-soft:rgba(23,120,74,.1); --amber:#A8691A; --grey:#6C6A62;
+  --hh:60px; --gx:48px;
+  --serif:'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --sans:'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, Consolas, monospace;
+}
+@media (max-width:760px){ :root{ --hh:52px; --gx:16px } }
+*{ box-sizing:border-box }
+html{ background:var(--paper); -webkit-text-size-adjust:100% }
+body{ margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); overflow-x:clip; -webkit-font-smoothing:antialiased }
+a{ color:inherit }
+img{ display:block; max-width:100% }
+::selection{ background:var(--green); color:#fff }
+:focus-visible{ outline:2px solid var(--green); outline-offset:3px }
+
+/* ---------- Cabeçalho ---------- */
+.top{ position:fixed; inset:0 0 auto; height:var(--hh); z-index:50; display:flex; align-items:center; gap:28px; padding:0 var(--gx);
+  background:rgba(243,240,232,.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--rule) }
+.brand{ font-family:var(--serif); font-weight:600; font-size:20px; letter-spacing:-.01em; text-decoration:none; white-space:nowrap }
+.brand span{ color:var(--green) }
+.nav{ display:flex; gap:22px; margin-right:auto }
+.nav a{ font-size:14px; text-decoration:none; color:var(--ink-2) }
+.nav a:hover{ color:var(--ink) }
+.acts{ display:flex; gap:8px; margin-left:auto }
+.btn{ display:inline-flex; align-items:center; gap:8px; font:600 14px/1 var(--sans); padding:11px 16px; border-radius:999px; text-decoration:none;
+  border:1px solid var(--ink); white-space:nowrap; transition:background .2s, color .2s, transform .2s }
+.btn:hover{ transform:translateY(-1px) }
+.btn.solid{ background:var(--ink); color:var(--paper) }
+.btn.solid:hover{ background:var(--green); border-color:var(--green) }
+.btn.ghost:hover{ background:var(--ink); color:var(--paper) }
+.btn.sm{ padding:8px 13px; font-size:13px }
+.btn .arr{ font-family:var(--mono); font-weight:400 }
+@media (max-width:860px){ .nav{ display:none } }
+
+.kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3) }
+.wrap{ max-width:1320px; margin:0 auto; padding:0 var(--gx) }
+
+/* ---------- Aparelhos (CSS) ---------- */
+.laptop{ --lw:640px; width:var(--lw); position:relative; transform-style:preserve-3d }
+.lid{ position:relative; padding:calc(var(--lw)*.02) calc(var(--lw)*.02) calc(var(--lw)*.028); border-radius:calc(var(--lw)*.024) calc(var(--lw)*.024) 4px 4px }
+.bezel{ position:absolute; inset:0; border-radius:inherit; background:#0E0F11; box-shadow:inset 0 0 0 1px #2B2D31, inset 0 0 0 3px #0E0F11, inset 0 0 0 4px #1d1f23 }
+.bezel::after{ content:''; position:absolute; left:50%; top:calc(var(--lw)*.008); width:5px; height:5px; margin-left:-2.5px; border-radius:50%; background:#24262b }
+.screen{ position:relative; aspect-ratio:16/10; overflow:hidden; border-radius:2px; background:#050506 }
+.screen img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center }
+.base{ position:relative; height:calc(var(--lw)*.026); width:114%; margin-left:-7%;
+  background:linear-gradient(#E4E5E7 0 18%, #B9BCC1 60%, #8F9398); border-radius:2px 2px calc(var(--lw)*.03) calc(var(--lw)*.03) / 2px 2px 100% 100% }
+.base::before{ content:''; position:absolute; left:42%; right:42%; top:0; height:42%; background:linear-gradient(#a5a8ad,#c9cbcf); border-radius:0 0 8px 8px }
+.shadow{ position:absolute; left:4%; right:4%; bottom:calc(var(--lw)*-.05); height:calc(var(--lw)*.05); border-radius:50%;
+  background:radial-gradient(closest-side, rgba(20,18,10,.28), transparent); filter:blur(4px) }
+.phone{ --pw:160px; width:var(--pw); aspect-ratio:9/19.3; padding:calc(var(--pw)*.045); border-radius:calc(var(--pw)*.17); background:#0E0F11;
+  box-shadow:inset 0 0 0 1px #34363b, inset 0 0 0 3px #0E0F11, inset 0 0 0 4px #25272c, 0 30px 50px -18px rgba(20,18,10,.45); position:relative }
+.phone .pscreen{ position:relative; width:100%; height:100%; border-radius:calc(var(--pw)*.13); overflow:hidden; background:#050506 }
+.phone .pscreen img{ width:100%; height:100%; object-fit:cover; object-position:top center }
+.phone::after{ content:''; position:absolute; top:calc(var(--pw)*.075); left:50%; width:26%; height:calc(var(--pw)*.05); margin-left:-13%; border-radius:99px; background:#0E0F11 }
+
+/* ---------- ABERTURA ---------- */
+.hero{ height:280vh; position:relative }
+.sticky{ position:sticky; top:0; height:100vh; overflow:hidden }
+.hero .sticky{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); align-items:center; gap:40px; padding:var(--hh) var(--gx) 0; max-width:1440px; margin:0 auto }
+.h-txt{ position:relative; z-index:2 }
+.h-txt h1{ font-family:var(--serif); font-weight:500; font-size:clamp(44px, 5vw, 76px); line-height:.95; letter-spacing:-.03em; margin:18px 0 12px }
+.h-role{ font-size:17px; font-weight:600; color:var(--green); letter-spacing:.01em }
+.h-tese{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(24px, 2.35vw, 34px); line-height:1.18; letter-spacing:-.015em; margin:30px 0 26px; max-width:19ch }
+.h-disp{ display:flex; flex-wrap:wrap; gap:8px 18px; font-family:var(--mono); font-size:12.5px; color:var(--ink-2) }
+.h-disp b{ font-weight:500; color:var(--ink); display:inline-flex; align-items:center; gap:8px }
+.dot{ width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px var(--green-soft) }
+.h-hint{ margin-top:40px; font-family:var(--mono); font-size:12px; color:var(--ink-3); display:flex; align-items:center; gap:10px }
+.h-hint i{ display:block; width:1px; height:34px; background:linear-gradient(var(--ink-3), transparent); animation:drip 1.8s ease-in-out infinite; transform-origin:top }
+@keyframes drip{ 0%{ transform:scaleY(0) } 60%{ transform:scaleY(1); opacity:1 } 100%{ transform:scaleY(1); opacity:0 } }
+
+.h-stage{ position:relative; display:flex; justify-content:center; align-items:center; height:100%; perspective:1800px }
+.h-rig{ position:relative; transform-style:preserve-3d; will-change:transform }
+.h-rig .laptop{ --lw:min(46vw, 740px) }
+.h-rig .screen{ overflow:visible; background:transparent }
+.h-rig .bezel, .h-rig .base, .h-rig .shadow, .h-cap{ will-change:opacity, transform }
+.tile{ position:absolute; width:calc(100% / 12); height:calc(100% / 8); will-change:transform }
+.tile .c, .tile .s{ position:absolute; inset:0 }
+.tile .c{ background:#FFFEFB; border-right:1px solid #DCE2DB; border-bottom:1px solid #DCE2DB }
+.tile .c::after{ content:''; position:absolute; left:14%; top:42%; height:16%; width:var(--bw, 0); border-radius:2px; background:#B9C4BC }
+.tile.hd .c{ background:#EEF3EE }
+.tile.hd .c::after{ background:#7F9687 }
+.tile.sel .c{ box-shadow:inset 0 0 0 2px var(--green); z-index:1 }
+.tile .s{ background-image:url(img/fuelmind-dashboard.png); background-size:1200% 800%; background-repeat:no-repeat; opacity:0 }
+.sheet-lbl{ position:absolute; z-index:3; font-family:var(--mono); font-size:11px; color:var(--ink-3); pointer-events:none }
+.cols{ left:-5%; right:-5%; bottom:105%; display:grid; grid-template-columns:repeat(12, 1fr); text-align:center; padding-bottom:6px }
+.rows{ right:105%; top:-5%; bottom:-5%; display:grid; grid-template-rows:repeat(8, 1fr); align-items:center; padding-right:8px; text-align:right }
+.fx{ left:-5%; right:-5%; bottom:calc(105% + 30px); display:flex; gap:10px; align-items:center; padding:7px 10px; background:#FFFEFB; border:1px solid #DCE2DB; border-radius:4px; font-size:12px; color:var(--ink-2) }
+.fx b{ color:var(--green); font-style:italic; font-weight:500 }
+.h-cap{ position:absolute; left:0; right:0; top:calc(100% + 38px); text-align:center; font-family:var(--mono); font-size:12px; color:var(--ink-2); opacity:0 }
+.h-cap b{ color:var(--green); font-weight:500 }
+
+/* ---------- LANÇAMENTOS ---------- */
+.intro{ padding:120px 0 40px }
+.intro h2, .others-hd h2, .end h2{ font-family:var(--serif); font-weight:500; font-size:clamp(34px, 4.2vw, 60px); line-height:1.02; letter-spacing:-.025em; margin:14px 0 0; max-width:18ch }
+.intro p{ font-size:18px; color:var(--ink-2); max-width:52ch; line-height:1.5; margin:20px 0 0 }
+.counts{ display:flex; gap:44px; margin-top:44px; padding-top:22px; border-top:1px solid var(--rule); flex-wrap:wrap }
+.counts div{ font-size:14px; color:var(--ink-2) }
+.counts b{ display:block; font-family:var(--serif); font-weight:400; font-size:54px; line-height:1; color:var(--ink); letter-spacing:-.03em; margin-bottom:4px }
+
+.launch{ position:relative }
+.launch .sticky{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:48px; align-items:center; padding:var(--hh) var(--gx) 0; max-width:1440px; margin:0 auto }
+.l-txt{ position:relative; z-index:2 }
+.l-num{ display:flex; align-items:center; gap:12px }
+.badge{ display:inline-flex; align-items:center; gap:7px; font:500 12px/1 var(--mono); padding:6px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap }
+.badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:currentColor }
+.badge.producao{ color:var(--green) } .badge.demo{ color:var(--amber) } .badge.codigo{ color:var(--grey) }
+.l-txt h3{ font-family:var(--serif); font-weight:500; font-size:clamp(46px, 5.4vw, 84px); line-height:.92; letter-spacing:-.035em; margin:18px 0 10px }
+.l-frase{ font-family:var(--serif); font-style:italic; font-size:clamp(20px, 1.8vw, 26px); line-height:1.2; margin:0 0 6px; max-width:24ch }
+.l-res{ font-size:15px; color:var(--ink-2); line-height:1.45; margin:0; max-width:44ch }
+.l-list{ list-style:none; margin:26px 0 0; padding:0; border-left:1px solid var(--rule); position:relative }
+.l-list li{ padding:9px 0 9px 20px; opacity:.32; will-change:opacity }
+.l-list li b{ display:block; font-size:16px; font-weight:600 }
+.l-list li span{ display:block; font-size:14.5px; color:var(--ink-2); line-height:1.42; margin-top:3px; max-width:44ch }
+.l-bar{ position:absolute; left:-1px; top:0; width:2px; height:100%; background:var(--green); transform-origin:top; transform:scaleY(0) }
+.l-meta{ margin-top:22px; font-family:var(--mono); font-size:12px; color:var(--ink-3); line-height:1.6 }
+.l-meta em{ font-style:normal; color:var(--amber) }
+.l-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px }
+.l-stage{ position:relative; height:100%; display:flex; align-items:center; justify-content:center; perspective:1700px }
+.l-rig{ position:relative; transform-style:preserve-3d; will-change:transform }
+.l-rig .laptop{ --lw:min(50vw, 760px) }
+.l-rig .screen img{ opacity:0; will-change:opacity }
+.l-rig .screen img:first-child{ opacity:1 }
+.l-rig .phone{ --pw:min(12vw, 176px); position:absolute; right:-1%; bottom:-4%; will-change:transform }
+.dim{ position:absolute; inset:0; background:#000; opacity:0; pointer-events:none }
+
+/* ---------- OUTROS ---------- */
+.others{ padding:130px 0 40px }
+.others-hd p{ font-size:17px; color:var(--ink-2); max-width:54ch; line-height:1.5; margin:18px 0 0 }
+.grid{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:20px; margin-top:48px }
+.card{ grid-column:span 2; background:var(--card); border:1px solid var(--rule); border-radius:18px; padding:26px 24px 24px; display:flex; flex-direction:column; min-width:0 }
+.card.big{ grid-column:span 3 }
+.c-stage{ height:230px; display:flex; align-items:flex-end; justify-content:center; perspective:1200px; margin-bottom:24px;
+  background:radial-gradient(ellipse at 50% 100%, var(--paper-2), transparent 70%); border-radius:12px }
+.card.big .c-stage{ height:290px }
+.c-dev{ transition:transform .6s cubic-bezier(.2,.75,.15,1); transform:rotateX(8deg) }
+.card:hover .c-dev{ transform:rotateX(0) translateY(-6px) }
+.c-stage .laptop{ --lw:min(26vw, 330px); margin-bottom:22px }
+.card.big .c-stage .laptop{ --lw:min(38vw, 420px) }
+.c-stage .phone{ --pw:104px; margin-bottom:14px }
+.card h4{ font-family:var(--serif); font-weight:500; font-size:30px; letter-spacing:-.02em; margin:0 0 8px; display:flex; align-items:center; gap:12px; flex-wrap:wrap }
+.card p{ font-size:14.5px; line-height:1.45; color:var(--ink-2); margin:0 }
+.card .obs{ margin-top:6px; font-family:var(--mono); font-size:12px; color:var(--amber) }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 18px }
+.chips span{ font:12px/1 var(--mono); padding:6px 8px; border-radius:6px; background:var(--paper-2); color:var(--ink-2) }
+.card .l-cta{ margin-top:auto }
+/* tela "Demo em preparação" */
+.prep{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:8%;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 100% 12.5%,
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 8.333% 100%,
+    radial-gradient(ellipse at 50% 120%, rgba(23,120,74,.35), transparent 60%), #0B0D0C; color:#E9EFE9; overflow:hidden }
+.prep b{ font-family:var(--serif); font-weight:500; font-size:clamp(15px, 1.6vw, 22px); letter-spacing:-.01em }
+.prep span{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#8FB9A1; display:flex; align-items:center; gap:7px }
+.prep span::before{ content:''; width:6px; height:6px; border-radius:50%; background:#3CC27E; animation:pulse 1.6s ease-in-out infinite }
+.prep::after{ content:''; position:absolute; left:0; right:0; height:30%; top:-30%; background:linear-gradient(transparent, rgba(60,194,126,.09), transparent); animation:scan 3.4s linear infinite }
+@keyframes pulse{ 50%{ opacity:.25 } }
+@keyframes scan{ to{ transform:translateY(430%) } }
+
+/* ---------- FECHAMENTO ---------- */
+.end{ padding:130px 0 60px }
+.end-grid{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:64px; margin-top:48px }
+.xp{ list-style:none; margin:0; padding:0; border-top:1px solid var(--ink) }
+.xp li{ display:grid; grid-template-columns:170px minmax(0,1fr); gap:20px; padding:18px 0; border-bottom:1px solid var(--rule) }
+.xp time{ font-family:var(--mono); font-size:12.5px; color:var(--ink-3); padding-top:3px }
+.xp b{ display:block; font-size:16px; font-weight:600; margin-bottom:3px }
+.xp span{ font-size:15px; color:var(--ink-2); line-height:1.45 }
+.facts{ margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:22px }
+.facts b{ display:block; font-size:15px; font-weight:600; margin-top:6px; line-height:1.35 }
+.contact{ background:var(--ink); color:var(--paper); border-radius:20px; padding:34px 32px; align-self:start }
+.contact h3{ font-family:var(--serif); font-weight:400; font-style:italic; font-size:34px; line-height:1.08; letter-spacing:-.02em; margin:0 0 22px }
+.contact a.row{ display:flex; justify-content:space-between; gap:14px; padding:14px 0; border-top:1px solid rgba(243,240,232,.16); text-decoration:none; font-size:15px }
+.contact a.row span{ font-family:var(--mono); font-size:12px; color:#A9A493; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.contact a.row:hover span{ color:#7FD6A7 }
+.contact .btn{ margin-top:22px; border-color:var(--paper); background:var(--paper); color:var(--ink); width:100%; justify-content:center }
+.contact .btn:hover{ background:#7FD6A7; border-color:#7FD6A7 }
+.foot{ margin-top:70px; padding-top:22px; border-top:1px solid var(--rule); display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-family:var(--mono); font-size:12px; color:var(--ink-3) }
+
+/* ---------- Celular ---------- */
+@media (max-width:760px){
+  .top{ gap:10px } .brand{ font-size:17px } .btn.sm{ padding:7px 11px; font-size:12.5px }
+  .hero .sticky{ grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:0; align-items:start; padding-top:calc(var(--hh) + 22px) }
+  .h-txt h1{ font-size:42px; margin:10px 0 8px }
+  .h-role{ font-size:14.5px }
+  .h-tese{ font-size:23px; margin:18px 0 16px }
+  .h-disp{ font-size:11.5px; gap:6px 12px }
+  .h-hint{ display:none }
+  .h-rig .laptop{ --lw:calc(100vw - 64px) }
+  .h-stage{ align-items:center; padding-top:34px }
+  .fx{ display:none } .rows{ padding-right:4px; font-size:9px } .cols{ font-size:9px; padding-bottom:3px }
+  .h-cap{ top:calc(100% + 26px); font-size:11px }
+
+  .intro{ padding:90px 0 20px } .intro p{ font-size:16px } .counts{ gap:26px } .counts b{ font-size:42px }
+  .launch .sticky{ grid-template-columns:1fr; grid-template-rows:38% 1fr; gap:0; padding-top:var(--hh); align-items:stretch }
+  .l-stage{ order:-1 }
+  .l-rig .laptop{ --lw:calc(100vw - 72px) }
+  .l-rig .phone{ --pw:84px; right:-3%; bottom:-10% }
+  .l-txt{ padding-top:4px }
+  .l-txt h3{ font-size:44px; margin:12px 0 6px }
+  .l-frase{ font-size:19px }
+  .l-res{ display:none }
+  .l-list{ margin-top:14px; height:104px }
+  .l-list li{ position:absolute; inset:0 0 auto 0; padding-top:4px }
+  .l-list li span{ font-size:14px }
+  .l-meta{ margin-top:6px; font-size:11px }
+  .l-cta{ margin-top:12px } .l-cta .btn{ padding:10px 14px; font-size:13px }
+
+  .others{ padding:90px 0 20px }
+  .grid{ grid-template-columns:1fr; gap:16px }
+  .card, .card.big{ grid-column:auto; padding:20px 18px }
+  .c-stage, .card.big .c-stage{ height:210px }
+  .card.big .c-stage .laptop, .c-stage .laptop{ --lw:min(calc(100vw - 100px), 300px) }
+  .end{ padding:90px 0 40px } .end-grid{ grid-template-columns:1fr; gap:36px }
+  .xp li{ grid-template-columns:1fr; gap:4px }
+  .contact{ padding:28px 22px } .contact h3{ font-size:28px }
+}
+
+/* modo captura (?cena=...&progresso=...) */
+html.cap .hero, html.cap .launch{ height:100vh !important }
+html.cap .off{ display:none !important }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#topo">Alyssom <span>Fernandes</span></a>
+  <nav class="nav" aria-label="Seções">
+    <a href="#lancamentos">Lançamentos</a>
+    <a href="#outros">Outros projetos</a>
+    <a href="#trajetoria">Trajetória</a>
+  </nav>
+  <div class="acts">
+    <a class="btn ghost sm" id="cvTop" href="#" target="_blank" rel="noopener">CV (PDF)</a>
+    <a class="btn solid sm" href="#contato">Contato</a>
+  </div>
+</header>
+
+<main id="topo">
+  <!-- ABERTURA -->
+  <section class="hero" id="hero" data-cena="abertura">
+    <div class="sticky">
+      <div class="h-txt">
+        <div class="kicker">Portfólio · 2026</div>
+        <h1>Alyssom<br>Fernandes</h1>
+        <div class="h-role">Developer · Data &amp; Business Intelligence</div>
+        <p class="h-tese">Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem.</p>
+        <div class="h-disp">
+          <b><i class="dot"></i>Remoto ou relocação para Espanha e Portugal</b>
+          <span>Brasil · UTC−3</span>
+        </div>
+        <div class="h-hint"><i></i>Role devagar: a planilha vira sistema</div>
+      </div>
+      <div class="h-stage">
+        <div class="h-rig" id="hRig">
+          <div class="laptop">
+            <div class="lid">
+              <div class="bezel" id="hBezel"></div>
+              <div class="screen" id="hScreen">
+                <div class="sheet-lbl fx" id="hFx"><b>fx</b> =PROCV(NF_e; AutoSystem; 2; FALSO)</div>
+                <div class="sheet-lbl cols" id="hCols"></div>
+                <div class="sheet-lbl rows" id="hRows"></div>
+              </div>
+            </div>
+            <div class="base" id="hBase"></div>
+            <div class="shadow" id="hShadow"></div>
+          </div>
+          <div class="h-cap" id="hCap"><b>Fuel Mind</b> · tela real do sistema em produção</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANÇAMENTOS -->
+  <section class="intro wrap" id="lancamentos" data-cena="intro">
+    <div class="kicker">Lançamentos</div>
+    <h2>Ferramentas que nasceram de problemas reais do escritório.</h2>
+    <p>Cada projeto apresentado como produto: o que resolve, a tela de verdade e onde testar.</p>
+    <div class="counts">
+      <div><b>9</b>projetos publicados</div>
+      <div><b>2</b>sistemas em produção</div>
+      <div><b>3</b>com demo ao vivo</div>
+    </div>
+  </section>
+  <div id="launches"></div>
+
+  <!-- OUTROS -->
+  <section class="others wrap" id="outros" data-cena="grade">
+    <div class="others-hd">
+      <div class="kicker">Também no GitHub</div>
+      <h2>Mais cinco ferramentas.</h2>
+      <p>Menores, mas cada uma resolve uma rotina concreta. As que ainda não têm demo publicada aparecem como estão: em preparação.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- FECHAMENTO -->
+  <section class="end wrap" id="trajetoria" data-cena="fechamento">
+    <div class="kicker">Trajetória</div>
+    <h2>Do departamento pessoal ao desenvolvimento.</h2>
+    <div class="end-grid">
+      <div>
+        <ul class="xp" id="xp"></ul>
+        <div class="facts">
+          <div><div class="kicker">Formação</div><b>Tecnólogo em Análise e Desenvolvimento de Sistemas — Uniasselvi, 2026</b></div>
+          <div><div class="kicker">Idiomas</div><b>Português nativo · Inglês B1 · Espanhol básico</b></div>
+        </div>
+      </div>
+      <aside class="contact" id="contato">
+        <h3>Vamos conversar sobre o seu próximo sistema?</h3>
+        <a class="row" id="cE">E-mail <span></span></a>
+        <a class="row" id="cL" target="_blank" rel="noopener">LinkedIn <span>/in/alyssom-fernandes</span></a>
+        <a class="row" id="cG" target="_blank" rel="noopener">GitHub <span>/alyssom-fernandes</span></a>
+        <a class="row" id="cW" target="_blank" rel="noopener">WhatsApp <span></span></a>
+        <a class="btn" id="cvEnd" target="_blank" rel="noopener">Baixar CV (PDF) <span class="arr">↓</span></a>
+      </aside>
+    </div>
+    <div class="foot"><span>Alyssom Fernandes · Brasil · UTC−3</span><span>Prévia de conceito “Vitrine”</span></div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const P = DATA.pendentes, pes = DATA.pessoa;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const txt = (v) => typeof v === 'function' ? v(P) : v;
+  const mobile = () => innerWidth <= 760;
+
+  /* ---------- contatos ---------- */
+  $('#cvTop').href = pes.cv; $('#cvEnd').href = pes.cv;
+  $('#cE').href = 'mailto:' + pes.email; $('#cE span').textContent = pes.email;
+  $('#cL').href = pes.linkedin; $('#cG').href = pes.github;
+  $('#cW').href = pes.whatsapp; $('#cW span').textContent = pes.whatsappLabel;
+  $('#xp').innerHTML = DATA.carreira.map(c => `<li><time>${c.periodo}</time><div><b>${c.empresa}</b><span>${txt(c.linha)}</span></div></li>`).join('');
+
+  /* ---------- ABERTURA: planilha -> tela do Fuel Mind ---------- */
+  const COLS = 12, ROWS = 8, N = COLS * ROWS;
+  const scr = $('#hScreen');
+  $('#hCols').innerHTML = 'ABCDEFGHIJKL'.split('').map(l => `<span>${l}</span>`).join('');
+  $('#hRows').innerHTML = Array.from({ length: ROWS }, (_, i) => `<span>${i + 1}</span>`).join('');
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const perm = Array.from({ length: N }, (_, i) => i);
+  for (let i = N - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  const tiles = [];
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < N; i++) {
+    const c = i % COLS, r = Math.floor(i / COLS);
+    const sp = perm[i], sc = sp % COLS, sr = Math.floor(sp / COLS);   // posição inicial (embaralhada)
+    const el = document.createElement('div');
+    el.className = 'tile' + (sr === 0 ? ' hd' : '') + (sp === 29 ? ' sel' : '');
+    el.style.left = (c * 100 / COLS) + '%';
+    el.style.top = (r * 100 / ROWS) + '%';
+    const bw = sr === 0 ? 30 + rnd() * 40 : (rnd() < .62 ? 20 + rnd() * 60 : 0);
+    el.style.setProperty('--bw', bw.toFixed(0) + '%');
+    el.innerHTML = `<div class="c"></div><div class="s" style="background-position:${(c / (COLS - 1) * 100).toFixed(3)}% ${(r / (ROWS - 1) * 100).toFixed(3)}%"></div>`;
+    const E = 1.1; // planilha começa um pouco maior que a tela
+    const dx = ((sc + .5 - COLS / 2) * E) - (c + .5 - COLS / 2);
+    const dy = ((sr + .5 - ROWS / 2) * E) - (r + .5 - ROWS / 2);
+    // ordem de chegada: de cima para baixo com ruído, para a tela "se montar"
+    const d = .06 + (r / ROWS) * .26 + rnd() * .16;
+    tiles.push({ el, c: el.firstChild, s: el.lastChild, dx, dy, d, rot: (rnd() - .5) * 26, lift: 0.6 + rnd() * 1.4 });
+    frag.appendChild(el);
+  }
+  scr.appendChild(frag);
+  const hEls = { rig: $('#hRig'), bezel: $('#hBezel'), base: $('#hBase'), shadow: $('#hShadow'), cap: $('#hCap'), fx: $('#hFx'), cols: $('#hCols'), rows: $('#hRows') };
+
+  function renderHero(p) {
+    const E = 1.1;
+    for (const t of tiles) {
+      const k = smooth(t.d, t.d + .36, p);          // 0 = planilha, 1 = no lugar
+      if (k >= 1) { t.el.style.transform = 'none'; t.c.style.opacity = 0; t.s.style.opacity = 1; continue; }
+      const arc = Math.sin(Math.PI * k);
+      const x = t.dx * (1 - k) * 100, y = (t.dy * (1 - k) - arc * t.lift * .5) * 100;
+      const sc = lerp(E, 1, k) * (1 - arc * .18);
+      t.el.style.transform = `translate(${x.toFixed(2)}%, ${y.toFixed(2)}%) rotate(${(t.rot * arc).toFixed(2)}deg) scale(${sc.toFixed(4)})`;
+      t.c.style.opacity = (1 - smooth(.25, .8, k)).toFixed(3);
+      t.s.style.opacity = smooth(.2, .75, k).toFixed(3);
+    }
+    const lbl = 1 - smooth(.02, .2, p);
+    hEls.fx.style.opacity = hEls.cols.style.opacity = hEls.rows.style.opacity = lbl;
+    const f = smooth(.58, .86, p);
+    hEls.bezel.style.opacity = f;
+    hEls.bezel.style.transform = `scale(${lerp(1.06, 1, f).toFixed(4)})`;
+    hEls.base.style.opacity = f;
+    hEls.base.style.transform = `translateY(${lerp(26, 0, f).toFixed(1)}px)`;
+    hEls.shadow.style.opacity = f;
+    const c = smooth(.86, .97, p);
+    hEls.cap.style.opacity = c;
+    hEls.cap.style.transform = `translateY(${lerp(10, 0, c).toFixed(1)}px)`;
+    // o notebook assenta com leve inclinação no final
+    hEls.rig.style.transform = `rotateX(${lerp(0, 7, smooth(.7, 1, p)).toFixed(2)}deg) scale(${lerp(1, .97, smooth(.7, 1, p)).toFixed(4)})`;
+  }
+
+  /* ---------- LANÇAMENTOS ---------- */
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const launches = [];
+  $('#launches').innerHTML = DATA.destaques.map((d, i) => {
+    const telas = Object.entries(d.telas);
+    const [tw, th] = d.telasTam;
+    const cta = (d.demo ? `<a class="btn solid" href="${d.demo}" target="_blank" rel="noopener">Ver demo ao vivo <span class="arr">↗</span></a>` : '')
+      + `<a class="btn ghost" href="${d.codigo}" target="_blank" rel="noopener">Código <span class="arr">↗</span></a>`;
+    return `<section class="launch" id="l-${d.id}" data-cena="${d.id}" style="height:${100 + d.itens.length * 75}vh">
+      <div class="sticky">
+        <div class="l-txt">
+          <div class="l-num"><span class="kicker">Lançamento ${String(i + 1).padStart(2, '0')} / ${String(DATA.destaques.length).padStart(2, '0')}</span><span class="badge ${d.status}">${DATA.status[d.status]}</span></div>
+          <h3>${esc(d.nome)}</h3>
+          <p class="l-frase">${esc(d.frase)}</p>
+          <p class="l-res">${esc(d.resumo)}</p>
+          <ol class="l-list"><i class="l-bar"></i>${d.itens.map(it => `<li><b>${esc(it.t)}</b><span>${esc(txt(it.d))}</span></li>`).join('')}</ol>
+          <div class="l-meta">${d.stack.join(' · ')}${d.obs ? `<br><em>${esc(d.obs)}</em>` : ''}</div>
+          <div class="l-cta">${cta}</div>
+        </div>
+        <div class="l-stage">
+          <div class="l-rig">
+            <div class="laptop">
+              <div class="lid"><div class="bezel"></div>
+                <div class="screen">${telas.map(([k, src]) => `<img data-k="${k}" src="${src}" alt="${esc(d.nome)}: tela ${k}" width="${tw}" height="${th}" loading="lazy" decoding="async">`).join('')}<i class="dim"></i></div>
+              </div>
+              <div class="base"></div><div class="shadow"></div>
+            </div>
+            ${d.celular ? `<div class="phone"><div class="pscreen"><img src="${d.celular}" alt="${esc(d.nome)} no celular" width="${d.celularTam[0]}" height="${d.celularTam[1]}" loading="lazy" decoding="async"></div></div>` : ''}
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }).join('');
+
+  DATA.destaques.forEach(d => {
+    const sec = $('#l-' + d.id);
+    launches.push({
+      d, sec, rig: $('.l-rig', sec), imgs: [...sec.querySelectorAll('.screen img')], phone: $('.phone', sec),
+      dim: $('.dim', sec), lis: [...sec.querySelectorAll('.l-list li')], bar: $('.l-bar', sec)
+    });
+  });
+
+  function renderLaunch(L, p) {
+    const it = L.d.itens, n = it.length;
+    const x = clamp(p, 0, .9999) * n;               // posição contínua na lista de destaques
+    const h = Math.floor(x), u = x - h;
+    const b = h < n - 1 ? smooth(.72, 1, u) : 0;    // mistura com o próximo destaque
+    const telaDe = j => it[Math.min(j, n - 1)].tela;
+    const keys = Object.keys(L.d.telas);
+    // tela do notebook: o celular mantém a última tela do notebook
+    const lastLaptop = j => { for (let q = Math.min(j, n - 1); q >= 0; q--) if (it[q].tela !== 'celular') return it[q].tela; return keys[0]; };
+    const a = lastLaptop(h), bb = lastLaptop(h + 1);
+    L.imgs.forEach(img => {
+      const k = img.dataset.k;
+      const o = (k === a ? 1 - b : 0) + (k === bb ? b : 0);
+      img.style.opacity = clamp(o).toFixed(3);
+    });
+    // destaque ativo
+    const mob = mobile();
+    L.lis.forEach((li, j) => {
+      const dist = Math.abs(x - (j + .5));
+      const v = 1 - smooth(.38, .62, dist);
+      li.style.opacity = mob ? v.toFixed(3) : (.28 + .72 * v).toFixed(3);
+      li.style.transform = mob ? `translateY(${((j + .5 - x) * 18).toFixed(1)}px)` : 'none';
+    });
+    L.bar.style.transform = `scaleY(${clamp(p).toFixed(4)})`;
+    // celular em foco
+    const phoneW = (telaDe(h) === 'celular' ? 1 - b : 0) + (telaDe(h + 1) === 'celular' ? b : 0);
+    // movimento contínuo do aparelho
+    const ry = lerp(-20, 16, p), rx = lerp(9, 2, p) ;
+    const s = lerp(.9, 1.02, smooth(0, .5, p)) - phoneW * .04;
+    L.rig.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${(ry + phoneW * -6).toFixed(2)}deg) scale(${s.toFixed(4)})`;
+    L.dim.style.opacity = (phoneW * .45).toFixed(3);
+    if (L.phone) {
+      const pin = smooth(.05, .3, p);
+      const tx = lerp(24, 0, pin) + phoneW * (mob ? -60 : -85);
+      L.phone.style.transform = `translate3d(${tx.toFixed(1)}%, ${(phoneW * -8).toFixed(1)}%, ${(60 + phoneW * 120).toFixed(0)}px) rotateY(${(-ry * .6 + phoneW * 8).toFixed(2)}deg) scale(${(1 + phoneW * .32).toFixed(4)})`;
+      L.phone.style.opacity = pin.toFixed(3);
+    }
+  }
+
+  /* ---------- OUTROS ---------- */
+  $('#grid').innerHTML = DATA.outros.map((o, i) => {
+    const tela = o.tela
+      ? `<img src="${o.tela}" alt="${esc(o.nome)}: tela de entrada da demo" width="1440" height="900" loading="lazy" decoding="async">`
+      : `<div class="prep"><span>Demo em preparação</span><b>${esc(o.nome)}</b></div>`;
+    const dev = o.aparelho === 'celular'
+      ? `<div class="phone"><div class="pscreen">${tela}</div></div>`
+      : `<div class="laptop"><div class="lid"><div class="bezel"></div><div class="screen">${tela}</div></div><div class="base"></div><div class="shadow"></div></div>`;
+    const cta = (o.demo ? `<a class="btn solid sm" href="${o.demo}" target="_blank" rel="noopener">Ver demo <span class="arr">↗</span></a>` : '')
+      + o.codigo.map(([l, u]) => `<a class="btn ghost sm" href="${u}" target="_blank" rel="noopener">${l} <span class="arr">↗</span></a>`).join('');
+    return `<article class="card ${i < 2 ? 'big' : ''}">
+      <div class="c-stage"><div class="c-dev">${dev}</div></div>
+      <h4>${esc(o.nome)} <span class="badge ${o.status}">${DATA.status[o.status]}</span></h4>
+      <p>${esc(o.oque)}</p>${o.obs ? `<div class="obs">${esc(o.obs)}</div>` : ''}
+      <div class="chips">${o.stack.map(s => `<span>${esc(s)}</span>`).join('')}</div>
+      <div class="l-cta">${cta}</div>
+    </article>`;
+  }).join('');
+
+  /* ---------- rolagem ---------- */
+  const hero = $('#hero');
+  const prog = el => { const r = el.getBoundingClientRect(); const span = r.height - innerHeight; return span > 0 ? clamp(-r.top / span) : 0; };
+  const qs = new URLSearchParams(location.search);
+  const capP = qs.has('progresso') ? clamp(parseFloat(qs.get('progresso')) || 0) : null;
+  const cena = qs.get('cena') || (capP !== null ? 'abertura' : null);
+
+  if (cena) {
+    document.documentElement.classList.add('cap');
+    // esconde tudo antes da cena pedida
+    const secs = [...document.querySelectorAll('[data-cena]')];
+    const idx = secs.findIndex(s => s.dataset.cena === cena);
+    secs.forEach((s, i) => { if (i < idx) s.classList.add('off'); });
+    const p = capP ?? 0;
+    const draw = () => {
+      renderHero(cena === 'abertura' ? p : 1);
+      launches.forEach(L => renderLaunch(L, L.d.id === cena ? p : 0));
+    };
+    draw(); addEventListener('resize', draw);
+    // as imagens lazy fora da tela: força carregamento na captura
+    document.querySelectorAll('img[loading="lazy"]').forEach(im => { if (im.closest('[data-cena="' + cena + '"]')) im.loading = 'eager'; });
+    scrollTo(0, 0);
+    return;
+  }
+
+  let queued = false;
+  const frame = () => {
+    queued = false;
+    const vh = innerHeight;
+    const hr = hero.getBoundingClientRect();
+    if (hr.bottom > -vh) renderHero(prog(hero));
+    for (const L of launches) {
+      const r = L.sec.getBoundingClientRect();
+      if (r.top < vh * 1.5 && r.bottom > -vh * .5) renderLaunch(L, prog(L.sec));
+    }
+  };
+  const req = () => { if (!queued) { queued = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', req, { passive: true });
+  addEventListener('resize', req);
+  frame();
+})();
+</script>
+</body>
+</html>
