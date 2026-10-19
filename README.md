@@ -62,7 +62,8 @@ O botão "Baixar CV" do site já aponta para o PDF do idioma que está aberto.
 
 ## Pendências conhecidas
 
-- **FlowTrack, Docke e AudiStock** estão com o backend fora do ar (projeto Supabase pausado;
-  Railway e Fly.io sem resposta). Quando voltarem, dá para adicionar o link "Demo ao vivo" nos cards.
+- A demo do **Docke** não está linkada porque a API dele está fora do ar; o card mostra só o código.
+  FlowTrack, AudiStock, UnifyData-Web, DeepChat e ArtMaker já têm o link da demo (os quatro últimos
+  com `?demo=1`).
 - As ilustrações dos projetos são representações (marcadas como "Interface ilustrativa").
   Dá para trocar por prints reais: Fuel Mind, FlowTrack e AlertSignal já têm prints nos repositórios.
