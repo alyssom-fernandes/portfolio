@@ -57,8 +57,8 @@ O botão "Baixar CV" do site já aponta para o PDF do idioma que está aberto.
 1. Crie um repositório (por exemplo `alyssom-fernandes.github.io`) e envie estes arquivos.
    Não precisa enviar `_versao-anterior/` nem `_source/`.
 2. No GitHub: **Settings → Pages → Branch: main / (root)**.
-3. Depois de publicado, troque no `index.html` o `og:image` por uma URL absoluta, por exemplo
-   `https://alyssom-fernandes.github.io/assets/img/og.png`, para a prévia aparecer no LinkedIn/WhatsApp.
+3. O `og:image`, o `og:url` e o `canonical` do `index.html` já apontam para
+   `https://alyssom-fernandes.github.io/portfolio/`. Se o endereço do site mudar, troque os três.
 
 ## Pendências conhecidas
 
