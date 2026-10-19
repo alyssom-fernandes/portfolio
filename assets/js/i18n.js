@@ -43,7 +43,7 @@
     'f.m4': '=ANO(HOJE()) - 2021', 'r.m4': '5+',
 
     'h.label': 'Developer · Data & Business Intelligence',
-    'h.available': 'Disponível · remoto ou relocação para Espanha e Portugal',
+    'h.available': 'Disponível · remoto ou relocação para Europa e Américas',
     'h.lede': 'Passei 5 anos dentro das <em>planilhas</em>. Hoje construo os <em>sistemas</em> que as substituem.',
     'h.sub': 'Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e entrego software em produção que automatiza conciliações, integra dados de ERPs e dá à gestão números em que dá para confiar.',
     'h.ctaProjects': 'Ver projetos',
@@ -77,7 +77,7 @@
     'a.f2k': 'Foco', 'a.f2v': 'Sistemas financeiros, automação de processos, dados & BI',
     'a.f3k': 'Formação', 'a.f3v': 'Tecnólogo em ADS · Uniasselvi (2026)',
     'a.f4k': 'Idiomas', 'a.f4v': 'Português (nativo) · Inglês (B1) · Espanhol (básico)',
-    'a.f5k': 'Modelo', 'a.f5v': 'Remoto · relocação para Espanha ou Portugal',
+    'a.f5k': 'Modelo', 'a.f5v': 'Remoto ou relocação para Europa e Américas',
     'a.f6k': 'Fuso', 'a.f6v': 'Brasil · UTC−3',
 
     'f.projects': '=CLASSIFICAR(projetos; impacto; -1)', 'r.projects': '9 projetos',
@@ -195,7 +195,7 @@
     'e.es': 'Espanhol', 'e.esLv': 'Básico',
 
     'c.title': 'Vamos <em>conversar</em>?',
-    'c.text': 'Estou aberto a posições remotas ou presenciais em desenvolvimento, dados e sistemas financeiros, e em processo de relocação para Espanha ou Portugal (visto de nômade digital em andamento).',
+    'c.text': 'Estou aberto a posições remotas ou com relocação para Europa e Américas, em desenvolvimento, dados e sistemas financeiros.',
     'c.cv': 'Currículo', 'c.cvSub': 'Baixar PDF',
 
     'ft.built': 'Construído do zero em HTML, CSS e JavaScript. Nenhuma planilha foi ferida.'
@@ -238,7 +238,7 @@
     'f.m4': '=YEAR(TODAY()) - 2021', 'r.m4': '5+',
 
     'h.label': 'Developer · Data & Business Intelligence',
-    'h.available': 'Available · remote or relocating to Spain and Portugal',
+    'h.available': 'Available · remote or relocation to Europe and the Americas',
     'h.lede': 'I spent 5 years inside <em>spreadsheets</em>. Now I build the <em>systems</em> that replace them.',
     'h.sub': "Developer with a background in controllership, tax and payroll. I understand the business problem because I've lived it, and I ship production software that automates reconciliations, integrates ERP data and gives managers numbers they can trust.",
     'h.ctaProjects': 'See projects',
@@ -272,7 +272,7 @@
     'a.f2k': 'Focus', 'a.f2v': 'Financial systems, process automation, data & BI',
     'a.f3k': 'Education', 'a.f3v': 'Technologist degree in Systems Analysis & Development · Uniasselvi (2026)',
     'a.f4k': 'Languages', 'a.f4v': 'Portuguese (native) · English (B1) · Spanish (basic)',
-    'a.f5k': 'Work model', 'a.f5v': 'Remote · relocating to Spain or Portugal',
+    'a.f5k': 'Work model', 'a.f5v': 'Remote or relocation to Europe and the Americas',
     'a.f6k': 'Time zone', 'a.f6v': 'Brazil · UTC−3',
 
     'f.projects': '=SORT(projects, impact, -1)', 'r.projects': '9 projects',
@@ -390,7 +390,7 @@
     'e.es': 'Spanish', 'e.esLv': 'Basic',
 
     'c.title': "Let's <em>talk</em>.",
-    'c.text': "I'm open to remote or on-site roles in software development, data and financial systems, and I'm relocating to Spain or Portugal (digital nomad visa in progress).",
+    'c.text': "I'm open to remote roles or relocation to Europe and the Americas, in software development, data and financial systems.",
     'c.cv': 'Résumé', 'c.cvSub': 'Download PDF',
 
     'ft.built': 'Built from scratch in HTML, CSS and JavaScript. No spreadsheets were harmed.'
@@ -433,7 +433,7 @@
     'f.m4': '=AÑO(HOY()) - 2021', 'r.m4': '5+',
 
     'h.label': 'Developer · Data & Business Intelligence',
-    'h.available': 'Disponible · remoto o reubicación a España y Portugal',
+    'h.available': 'Disponible · remoto o reubicación a Europa y las Américas',
     'h.lede': 'Pasé 5 años dentro de <em>hojas de cálculo</em>. Hoy construyo los <em>sistemas</em> que las reemplazan.',
     'h.sub': 'Desarrollador con experiencia en contraloría, fiscal y nómina. Entiendo el problema de negocio porque lo he vivido, y entrego software en producción que automatiza conciliaciones, integra datos de ERPs y da a la gerencia números confiables.',
     'h.ctaProjects': 'Ver proyectos',
@@ -467,7 +467,7 @@
     'a.f2k': 'Enfoque', 'a.f2v': 'Sistemas financieros, automatización de procesos, datos y BI',
     'a.f3k': 'Formación', 'a.f3v': 'Tecnólogo en Análisis y Desarrollo de Sistemas · Uniasselvi (2026)',
     'a.f4k': 'Idiomas', 'a.f4v': 'Portugués (nativo) · Inglés (B1) · Español (básico)',
-    'a.f5k': 'Modalidad', 'a.f5v': 'Remoto · reubicación a España o Portugal',
+    'a.f5k': 'Modalidad', 'a.f5v': 'Remoto o reubicación a Europa y las Américas',
     'a.f6k': 'Zona horaria', 'a.f6v': 'Brasil · UTC−3',
 
     'f.projects': '=ORDENAR(proyectos; impacto; -1)', 'r.projects': '9 proyectos',
@@ -585,7 +585,7 @@
     'e.es': 'Español', 'e.esLv': 'Básico',
 
     'c.title': '¿<em>Hablamos</em>?',
-    'c.text': 'Estoy abierto a puestos remotos o presenciales en desarrollo, datos y sistemas financieros, y en proceso de reubicación a España o Portugal (visado de nómada digital en trámite).',
+    'c.text': 'Estoy abierto a puestos remotos o con reubicación a Europa y las Américas, en desarrollo, datos y sistemas financieros.',
     'c.cv': 'Currículum', 'c.cvSub': 'Descargar PDF',
 
     'ft.built': 'Construido desde cero en HTML, CSS y JavaScript. Ninguna hoja de cálculo resultó herida.'
