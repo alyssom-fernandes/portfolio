@@ -15,6 +15,10 @@
   const COLS = 'ABCDEFGHIJKL';
   const EMAIL = 'alyssom1919@gmail.com';
 
+  // Consultado na hora de cada efeito, para respeitar uma troca feita com a página aberta.
+  const motionQuery = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  const reduceMotion = () => !!(motionQuery && motionQuery.matches);
+
   doc.classList.add('js');
 
   /* ------------------------------------------------------------------
@@ -229,6 +233,11 @@
 
   function typeFormula(text, result) {
     clearInterval(typing);
+    if (reduceMotion()) {
+      formulaEl.textContent = text;
+      resultEl.textContent = result;
+      return;
+    }
     resultEl.textContent = '';
     let i = 0;
     const step = Math.max(1, Math.ceil(text.length / 20));
@@ -319,7 +328,8 @@
      ------------------------------------------------------------------ */
   function countUp(el) {
     const to = parseFloat(el.dataset.to);
-    if (Number.isNaN(to)) return;
+    // O HTML já traz o valor final; sem animação, ele só fica como está.
+    if (Number.isNaN(to) || reduceMotion()) return;
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const start = performance.now();
@@ -384,7 +394,7 @@
 
     toggles.forEach(btn => btn.addEventListener('click', () => {
       touched = true;
-      setState(btn.dataset.demo);
+      setState(btn.dataset.demo, !reduceMotion());
     }));
 
     setState('before', false);
@@ -393,7 +403,9 @@
       const dio = new IntersectionObserver(entries => {
         if (!entries[0].isIntersecting) return;
         dio.disconnect();
-        setTimeout(() => { if (!touched) setState('after'); }, 1600);
+        // Com menos movimento, a planilha só vira dashboard quando a pessoa clica em "Depois".
+        if (reduceMotion()) return;
+        setTimeout(() => { if (!touched && !reduceMotion()) setState('after'); }, 1600);
       }, { threshold: 0.55 });
       dio.observe(demo);
     }
@@ -516,7 +528,7 @@
     addTab.addEventListener('click', () => {
       toast(t('ui.newTabToast'));
       const target = $('#contato');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) target.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth' });
     });
   }
 
