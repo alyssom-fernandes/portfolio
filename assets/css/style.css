@@ -677,6 +677,15 @@ main, .footer { position: relative; z-index: 1; }
 @media (min-width: 1000px) {
   .hero__copy { grid-column: 1 / span 5; padding-top: 8px; }
   .hero__demo { grid-column: 6 / -1; }
+  /* No desktop o nome acompanha a altura da tela, para a frase-chave e os
+     botões caberem na primeira dobra (1366x768 inclusive). */
+  .hero { padding-top: clamp(24px, 4vh, 64px); }
+  .hero__name {
+    margin: clamp(20px, 3.5vh, 56px) 0 clamp(24px, 4vh, 64px);
+    font-size: clamp(4.5rem, min(16vw, 13vh), 10.75rem);
+  }
+  .hero__lede { max-width: 22ch; font-size: clamp(1.75rem, min(3.3vw, 4.8vh), 2.75rem); }
+  .hero__copy { gap: clamp(16px, 2.6vh, 24px); }
 }
 @media (min-width: 1180px) {
   .hero__copy { grid-column: 1 / span 5; }
