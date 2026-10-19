@@ -1526,6 +1526,21 @@ main, .footer { position: relative; z-index: 1; }
 .is-ready .hero__name .word { transform: none; }
 .is-ready .hero__name .sel::after, .is-ready .hero__name .sel::before, .is-ready .hero__range { opacity: 1; }
 
+/* Quem pede menos movimento no sistema vê tudo já no lugar: sem revelações,
+   sem cursor piscando e sem pulsos. O JS também pula a digitação da fórmula,
+   os contadores e a planilha que se desfaz. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+  .js .hero__name .word { transform: none; }
+  .js .hero__name .sel::after, .js .hero__name .sel::before, .js .hero__range { opacity: 1; }
+}
+
 /* ---------- 18. Impressão / PDF do currículo ---------- */
 @page { size: A4; margin: 13mm 14mm 14mm; }
 
