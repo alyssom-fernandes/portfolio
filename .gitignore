@@ -2,21 +2,6 @@
 .claude/
 _source/
 _versao-anterior/
-_prototipos/conteudo.md
 
-# Capturas: publicar só as usadas na página de comparação
-_prototipos/capturas/*
-!_prototipos/capturas/retrospectiva-desktop.png
-!_prototipos/capturas/retrospectiva-mobile.png
-!_prototipos/capturas/cidade-3d-hero-final.png
-!_prototipos/capturas/cidade-3d-mobile-final.png
-!_prototipos/capturas/ficha-rpg-desktop.png
-!_prototipos/capturas/ficha-rpg-mobile.png
-!_prototipos/capturas/reportagem-desktop.png
-!_prototipos/capturas/reportagem-mobile.png
-!_prototipos/capturas/hibrido-abertura.png
-!_prototipos/capturas/hibrido-celular-abertura.png
-!_prototipos/capturas/vitrine-lancamento-fuelmind.png
-!_prototipos/capturas/vitrine-celular.png
-!_prototipos/capturas/rv-abertura.png
-!_prototipos/capturas/rv-praxis-celular.png
+# Protótipos de conceito: ficam fora do repositório (cópia local em ../portfolio-prototipos)
+_prototipos/
