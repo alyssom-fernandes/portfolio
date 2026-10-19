@@ -318,7 +318,7 @@
                 <dl class="kv">
                   <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p1.problem">A compra de combustível e o frete do grupo eram controlados em planilhas desconectadas, e a conferência entre as NF-e e o relatório de tanque do AutoSystem era feita à mão.</dd></div>
                   <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p1.solution">Importação do XML da NF-e, conferência dia a dia com o relatório de tanque do AutoSystem, alertas de preço, frete por placa, motorista, empresa e conjunto, painel analítico e fechamento do mês em PDF e Excel.</dd></div>
-                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p1.arch">JavaScript puro, sem etapa de build, sobre Firebase (Firestore, Auth, Hosting). Multiempresa com perfis de acesso, fila offline com sincronização em tempo real, Chart.js, jsPDF e SheetJS. 102 testes automatizados.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p1.arch">JavaScript puro, sem etapa de build, sobre Firebase (Firestore, Auth, Hosting). Multiempresa com perfis de acesso garantidos pelas regras do Firestore, alterações guardadas no navegador quando a conexão cai, Chart.js, jsPDF e SheetJS. Testes automatizados no CI (GitHub Actions).</dd></div>
                 </dl>
                 <div class="result">
                   <span class="result__label" data-i18n="p.result">Resultado</span>
@@ -432,12 +432,12 @@
                 <dl class="kv">
                   <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p3.problem">Categorizar gastos à mão é a parte chata das finanças pessoais, e chamar uma IA para cada transação sai caro e lento.</dd></div>
                   <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p3.solution">Importa extratos em PDF de 4 bancos, OFX e CSV. Categoriza em 3 camadas: regras fixas, cache de estabelecimentos e, só por último, o Claude Haiku. Tem orçamentos com alerta, metas, projeção de saldo de 30 dias, auditoria com desfazer e modo offline.</dd></div>
-                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p3.arch">React 19 + TypeScript no front; FastAPI (Python) no back; Supabase Postgres com Row Level Security e autenticação por JWT. Worker assíncrono com retry exponencial, Sentry, CI no GitHub Actions (testes, e2e com Playwright, Lighthouse) e 5 ADRs documentando as decisões.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p3.arch">React 19 + TypeScript no front; FastAPI (Python) no back; Supabase Postgres com Row Level Security e autenticação por JWT. Worker assíncrono com retry exponencial, Sentry, CI no GitHub Actions (testes, e2e com Playwright, Lighthouse) e decisões registradas em ADRs.</dd></div>
                 </dl>
                 <div class="result">
                   <span class="result__label" data-i18n="p.result">Resultado</span>
                   <strong class="result__val" data-i18n="p3.resultVal">3 camadas</strong>
-                  <span class="result__txt" data-i18n="p3.result">regras fixas e cache de estabelecimentos antes da IA: o Claude Haiku só entra no que as duas primeiras não resolvem. 83 testes de integração.</span>
+                  <span class="result__txt" data-i18n="p3.result">regras fixas e cache de estabelecimentos antes da IA: o Claude Haiku só entra no que as duas primeiras não resolvem.</span>
                 </div>
                 <div class="project__foot">
                   <ul class="chips"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>Supabase</li><li>Claude Haiku</li><li>Playwright</li></ul>
@@ -484,7 +484,7 @@
                 <dl class="kv">
                   <div><dt data-i18n="p.problem">Problema</dt><dd data-i18n="p4.problem">Os vencimentos de alvarás e licenças eram acompanhados numa planilha mantida à mão, com risco real de multa a cada prazo esquecido.</dd></div>
                   <div><dt data-i18n="p.solution">Solução</dt><dd data-i18n="p4.solution">Aplicação web que monitora os vencimentos e envia avisos por e-mail aos 90, 30 e 7 dias e lembrete diário depois de vencido, com vários responsáveis por documento, histórico completo, regras configuráveis e exportação para Excel com status por cor.</dd></div>
-                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p4.arch">Python + Flask + SQLite com SQL puro, jobs agendados com APScheduler, envio de e-mail via smtplib, templates Jinja2 e relatórios com pandas/openpyxl. Perfis de administrador e visualizador.</dd></div>
+                  <div><dt data-i18n="p.arch">Arquitetura</dt><dd data-i18n="p4.arch">Python + Flask + SQLite com SQL puro, jobs agendados com APScheduler, envio de e-mail via smtplib, templates Jinja2 e relatórios com pandas/openpyxl. Perfis de administrador e visualizador e testes automatizados no CI.</dd></div>
                 </dl>
                 <div class="result">
                   <span class="result__label" data-i18n="p.result">Resultado</span>
@@ -667,6 +667,8 @@
                 </tr>
               </thead>
               <tbody>
+                <tr><th scope="row" data-i18n="s.r.tests">Testes automatizados</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="tot">7</td></tr>
+                <tr><th scope="row">CI (GitHub Actions)</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="tot">7</td></tr>
                 <tr><th scope="row" data-i18n="s.r.auth">Autenticação & perfis de acesso</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td class="tot">6</td></tr>
                 <tr><th scope="row" data-i18n="s.r.reports">Relatórios PDF / Excel</th><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td class="on"></td><td class="tot">6</td></tr>
                 <tr><th scope="row">JavaScript</th><td class="on"></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td class="on"></td><td class="tot">5</td></tr>
@@ -675,13 +677,11 @@
                 <tr><th scope="row">PostgreSQL / Supabase</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td class="tot">3</td></tr>
                 <tr><th scope="row" data-i18n="s.r.jobs">Jobs agendados</th><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td></td><td></td><td class="tot">3</td></tr>
                 <tr><th scope="row" data-i18n="s.r.sync">Tempo real & offline</th><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td></td><td class="on"></td><td class="tot">3</td></tr>
-                <tr><th scope="row" data-i18n="s.r.tests">Testes automatizados</th><td class="on"></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">3</td></tr>
                 <tr><th scope="row">TypeScript</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
                 <tr><th scope="row">React</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
                 <tr><th scope="row">FastAPI</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
                 <tr><th scope="row">Firebase</th><td class="on"></td><td class="on"></td><td></td><td></td><td></td><td></td><td></td><td class="tot">2</td></tr>
                 <tr><th scope="row">pandas</th><td></td><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td class="tot">2</td></tr>
-                <tr><th scope="row">CI (GitHub Actions)</th><td></td><td></td><td class="on"></td><td></td><td class="on"></td><td></td><td></td><td class="tot">2</td></tr>
                 <tr><th scope="row">Flask + SQLite</th><td></td><td></td><td></td><td class="on"></td><td></td><td></td><td></td><td class="tot">1</td></tr>
                 <tr><th scope="row" data-i18n="s.r.ai">IA generativa (Claude)</th><td></td><td></td><td class="on"></td><td></td><td></td><td></td><td></td><td class="tot">1</td></tr>
                 <tr><th scope="row">OCR (Tesseract)</th><td></td><td></td><td></td><td></td><td class="on"></td><td></td><td></td><td class="tot">1</td></tr>
