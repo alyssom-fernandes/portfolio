@@ -8,7 +8,7 @@
 (() => {
   const pt = {
     'meta.title': 'Alyssom Fernandes — Developer · Data & BI',
-    'meta.desc': 'Desenvolvedor com 5+ anos em controladoria, fiscal e DP. Construo sistemas em produção que substituem planilhas: automação, dados e BI.',
+    'meta.desc': 'Desenvolvedor com 5+ anos em controladoria, fiscal e DP. Construo sistemas que substituem planilhas, cada um nascido de um problema real: automação, dados e BI.',
 
     'ui.skip': 'Pular para o conteúdo',
     'ui.lang': 'Idioma',
@@ -49,7 +49,7 @@
     'h.label': 'Developer · Data & Business Intelligence',
     'h.available': 'Disponível · remoto ou relocação para Europa e Américas',
     'h.lede': 'Passei 5 anos dentro das <em>planilhas</em>. Hoje construo os <em>sistemas</em> que as substituem.',
-    'h.sub': 'Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e entrego software em produção que automatiza conciliações, integra dados de ERPs e dá à gestão números em que dá para confiar.',
+    'h.sub': 'Desenvolvedor com base em controladoria, fiscal e DP/RH. Entendo o problema de negócio porque já vivi ele, e crio software a partir de dores reais: automatizo conciliações, integro dados de ERPs e dou à gestão números em que dá para confiar.',
     'h.ctaProjects': 'Ver projetos',
 
     'm2.label': 'todos os projetos publicados têm testes automatizados no CI',
@@ -193,7 +193,7 @@
 
   const en = {
     'meta.title': 'Alyssom Fernandes — Developer · Data & BI',
-    'meta.desc': 'Developer with 5+ years in controllership, tax and payroll. I build production systems that replace spreadsheets: automation, data and BI.',
+    'meta.desc': 'Developer with 5+ years in controllership, tax and payroll. I build systems that replace spreadsheets, each one born from a real problem: automation, data and BI.',
 
     'ui.skip': 'Skip to content',
     'ui.lang': 'Language',
@@ -234,7 +234,7 @@
     'h.label': 'Developer · Data & Business Intelligence',
     'h.available': 'Available · remote or relocation to Europe and the Americas',
     'h.lede': 'I spent 5 years inside <em>spreadsheets</em>. Now I build the <em>systems</em> that replace them.',
-    'h.sub': "Developer with a background in controllership, tax and payroll. I understand the business problem because I've lived it, and I ship production software that automates reconciliations, integrates ERP data and gives managers numbers they can trust.",
+    'h.sub': "Developer with a background in controllership, tax and payroll. I understand the business problem because I've lived it, and I build software from real pain points: automating reconciliations, integrating ERP data and giving managers numbers they can trust.",
     'h.ctaProjects': 'See projects',
 
     'm2.label': 'every published project runs automated tests in CI',
@@ -378,7 +378,7 @@
 
   const es = {
     'meta.title': 'Alyssom Fernandes — Developer · Data & BI',
-    'meta.desc': 'Desarrollador con más de 5 años en contraloría, fiscal y nómina. Construyo sistemas en producción que reemplazan hojas de cálculo: automatización, datos y BI.',
+    'meta.desc': 'Desarrollador con más de 5 años en contraloría, fiscal y nómina. Construyo sistemas que reemplazan hojas de cálculo, cada uno nacido de un problema real: automatización, datos y BI.',
 
     'ui.skip': 'Saltar al contenido',
     'ui.lang': 'Idioma',
@@ -419,7 +419,7 @@
     'h.label': 'Developer · Data & Business Intelligence',
     'h.available': 'Disponible · remoto o reubicación a Europa y las Américas',
     'h.lede': 'Pasé 5 años dentro de <em>hojas de cálculo</em>. Hoy construyo los <em>sistemas</em> que las reemplazan.',
-    'h.sub': 'Desarrollador con experiencia en contraloría, fiscal y nómina. Entiendo el problema de negocio porque lo he vivido, y entrego software en producción que automatiza conciliaciones, integra datos de ERPs y da a la gerencia números confiables.',
+    'h.sub': 'Desarrollador con experiencia en contraloría, fiscal y nómina. Entiendo el problema de negocio porque lo he vivido, y creo software a partir de problemas reales: automatizo conciliaciones, integro datos de ERPs y doy a la gerencia números confiables.',
     'h.ctaProjects': 'Ver proyectos',
 
     'm2.label': 'todos los proyectos publicados tienen pruebas automatizadas en CI',
