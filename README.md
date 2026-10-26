@@ -88,4 +88,3 @@ endereço do site mudar, troque os três.
 
 - Os PDFs em `cv/` ainda são os gerados antes da revisão dos textos do site; precisam ser gerados de novo
   com o script acima.
-- A demo do **Docke** não está linkada porque a API dele está fora do ar; o site mostra só o código.
