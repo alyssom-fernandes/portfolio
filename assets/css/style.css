@@ -1375,7 +1375,7 @@ main, .footer { position: relative; z-index: 1; }
 }
 
 /* ---------- 18. Impressão / PDF do currículo ---------- */
-@page { size: A4; margin: 13mm 14mm 14mm; }
+@page { size: A4; margin: 12mm 13mm 12mm; }
 
 @media print {
   :root, [data-theme="dark"] {
@@ -1387,7 +1387,7 @@ main, .footer { position: relative; z-index: 1; }
     --gutter: 0px; --pad: 0px; --header-h: 0px; --status-h: 0px;
   }
   html, body { background: #fff !important; }
-  body { padding: 0; font-size: 9.6pt; line-height: 1.45; }
+  body { padding: 0; font-size: 9.3pt; line-height: 1.42; }
 
   .topbar, .statusbar, .sheet-bg, .row-gutter, .skip, .toast, .footer,
   .hero__top, .hero__name, .hero__copy, .hero__demo,
@@ -1414,9 +1414,9 @@ main, .footer { position: relative; z-index: 1; }
   #experiencia { order: 3; }
   #projetos { order: 4; }
   #habilidades { order: 5; }
-  #formacao { order: 6; }
+  #formacao { order: 6; break-inside: avoid; }
 
-  .section { padding: 0; margin-top: 8pt; }
+  .section { padding: 0; margin-top: 6pt; }
   .hero { padding: 0; }
   .section__head { margin: 0 0 5pt; }
   .kicker {
@@ -1438,9 +1438,9 @@ main, .footer { position: relative; z-index: 1; }
   .about__text, .about__facts { grid-column: 1 / -1; }
   .about__facts { display: none; }
   .about__text { gap: 4pt; }
-  .about__text p { max-width: none; font-size: 9.6pt; line-height: 1.5; color: #222; }
+  .about__text p { max-width: none; font-size: 9.3pt; line-height: 1.45; color: #222; }
 
-  .projects { gap: 7pt; }
+  .projects { gap: 5pt; }
   .project { border: 0; }
   /* O projeto pode continuar na página seguinte, mas cada linha fica inteira */
   .project__body, .project__text { display: contents; }
@@ -1451,14 +1451,14 @@ main, .footer { position: relative; z-index: 1; }
   .project__cat { font-size: 7.4pt; }
   .project__body { display: block; }
   .project__text { padding: 2pt 0 0; gap: 3pt; }
-  .project__name { font-size: 11pt; letter-spacing: -.01em; }
+  .project__name { font-size: 10.5pt; letter-spacing: -.01em; }
   .kv > div { grid-template-columns: 62pt 1fr; gap: 6pt; padding: 1pt 0; border: 0; }
   .kv dt { font-size: 7pt; line-height: 1.6; }
-  .kv dd { font-size: 8.6pt; line-height: 1.34; color: #222; }
+  .kv dd { font-size: 8.3pt; line-height: 1.32; color: #222; }
   .result { display: flex; align-items: baseline; gap: 6pt; padding: 0; border: 0; }
   .result__label { width: 62pt; flex: none; font-size: 7pt; }
   .result__val { font-size: 10pt; letter-spacing: 0; }
-  .result__txt { padding: 0; font-size: 8.8pt; }
+  .result__txt { padding: 0; font-size: 8.5pt; }
   .project__foot { gap: 0; }
   .chips { gap: 0 4pt; }
   .chips li { padding: 0; border: 0; background: none; font-size: 7.6pt; color: #555; }
