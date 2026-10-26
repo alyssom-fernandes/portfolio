@@ -83,7 +83,3 @@ do site aponta para o PDF do idioma que está aberto.
 O GitHub Pages publica a `main` (**Settings → Pages → Branch: main / (root)**). O `og:image`, o `og:url`
 e o `canonical` do `index.html` apontam para `https://alyssom-fernandes.github.io/portfolio/`; se o
 endereço do site mudar, troque os três.
-
-## Pendências conhecidas
-
-- A demo do **Docke** não está linkada porque a API dele está fora do ar; o site mostra só o código.
