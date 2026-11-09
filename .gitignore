@@ -20,3 +20,9 @@ _prototipos/capturas/*
 !_prototipos/capturas/vitrine-celular.png
 !_prototipos/capturas/rv-abertura.png
 !_prototipos/capturas/rv-praxis-celular.png
+
+# Dependências do Node
+node_modules/
+
+# Críticas por projeto (uso pessoal, não publicar)
+_criticas-projetos/

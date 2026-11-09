@@ -1,0 +1,512 @@
+{
+  "alertsignal/celular": {
+    "src": "assets/projetos/alertsignal/celular.webp",
+    "w": 546,
+    "h": 1182,
+    "variantes": []
+  },
+  "alertsignal/dashboard": {
+    "src": "assets/projetos/alertsignal/dashboard.webp",
+    "w": 1920,
+    "h": 1080,
+    "variantes": [
+      {
+        "src": "assets/projetos/alertsignal/dashboard-960.webp",
+        "w": 960,
+        "h": 540
+      }
+    ]
+  },
+  "alertsignal/empresa": {
+    "src": "assets/projetos/alertsignal/empresa.webp",
+    "w": 2016,
+    "h": 1260,
+    "variantes": [
+      {
+        "src": "assets/projetos/alertsignal/empresa-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "alertsignal/empresas": {
+    "src": "assets/projetos/alertsignal/empresas.webp",
+    "w": 1919,
+    "h": 1079,
+    "variantes": [
+      {
+        "src": "assets/projetos/alertsignal/empresas-960.webp",
+        "w": 960,
+        "h": 540
+      }
+    ]
+  },
+  "alertsignal/relatorio": {
+    "src": "assets/projetos/alertsignal/relatorio.webp",
+    "w": 2016,
+    "h": 1260,
+    "variantes": [
+      {
+        "src": "assets/projetos/alertsignal/relatorio-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "alertsignal/visao-geral": {
+    "src": "assets/projetos/alertsignal/visao-geral.webp",
+    "w": 2016,
+    "h": 1260,
+    "variantes": [
+      {
+        "src": "assets/projetos/alertsignal/visao-geral-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "artmaker/celular": {
+    "src": "assets/projetos/artmaker/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "artmaker/cores": {
+    "src": "assets/projetos/artmaker/cores.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/artmaker/cores-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "artmaker/editor": {
+    "src": "assets/projetos/artmaker/editor.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/artmaker/editor-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "artmaker/estilo": {
+    "src": "assets/projetos/artmaker/estilo.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/artmaker/estilo-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "artmaker/layout": {
+    "src": "assets/projetos/artmaker/layout.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/artmaker/layout-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "artmaker/principal": {
+    "src": "assets/projetos/artmaker/principal.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/artmaker/principal-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "audistock/celular": {
+    "src": "assets/projetos/audistock/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "audistock/contagem": {
+    "src": "assets/projetos/audistock/contagem.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/audistock/contagem-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "audistock/dashboard": {
+    "src": "assets/projetos/audistock/dashboard.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/audistock/dashboard-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "audistock/fechamento": {
+    "src": "assets/projetos/audistock/fechamento.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/audistock/fechamento-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "audistock/relatorio": {
+    "src": "assets/projetos/audistock/relatorio.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/audistock/relatorio-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "deepchat/celular": {
+    "src": "assets/projetos/deepchat/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "deepchat/inicio": {
+    "src": "assets/projetos/deepchat/inicio.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/deepchat/inicio-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "deepchat/principal": {
+    "src": "assets/projetos/deepchat/principal.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/deepchat/principal-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "deepchat/revisao-codigo": {
+    "src": "assets/projetos/deepchat/revisao-codigo.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/deepchat/revisao-codigo-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "deepchat/revisao-correta": {
+    "src": "assets/projetos/deepchat/revisao-correta.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/deepchat/revisao-correta-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "deepchat/revisao-veredito": {
+    "src": "assets/projetos/deepchat/revisao-veredito.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/deepchat/revisao-veredito-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "flowtrack/celular": {
+    "src": "assets/projetos/flowtrack/celular.webp",
+    "w": 739,
+    "h": 1600,
+    "variantes": []
+  },
+  "flowtrack/dashboard": {
+    "src": "assets/projetos/flowtrack/dashboard.webp",
+    "w": 1920,
+    "h": 1080,
+    "variantes": [
+      {
+        "src": "assets/projetos/flowtrack/dashboard-960.webp",
+        "w": 960,
+        "h": 540
+      }
+    ]
+  },
+  "flowtrack/relatorios": {
+    "src": "assets/projetos/flowtrack/relatorios.webp",
+    "w": 1920,
+    "h": 1080,
+    "variantes": [
+      {
+        "src": "assets/projetos/flowtrack/relatorios-960.webp",
+        "w": 960,
+        "h": 540
+      }
+    ]
+  },
+  "flowtrack/transacoes": {
+    "src": "assets/projetos/flowtrack/transacoes.webp",
+    "w": 1920,
+    "h": 1080,
+    "variantes": [
+      {
+        "src": "assets/projetos/flowtrack/transacoes-960.webp",
+        "w": 960,
+        "h": 540
+      }
+    ]
+  },
+  "fuelmind/analitico": {
+    "src": "assets/projetos/fuelmind/analitico.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/analitico-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "fuelmind/celular": {
+    "src": "assets/projetos/fuelmind/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "fuelmind/dashboard": {
+    "src": "assets/projetos/fuelmind/dashboard.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/dashboard-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "fuelmind/fretes": {
+    "src": "assets/projetos/fuelmind/fretes.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/fretes-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "fuelmind/grupo": {
+    "src": "assets/projetos/fuelmind/grupo.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/grupo-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "fuelmind/lancamentos": {
+    "src": "assets/projetos/fuelmind/lancamentos.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/lancamentos-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "fuelmind/relatorios": {
+    "src": "assets/projetos/fuelmind/relatorios.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/fuelmind/relatorios-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/aprovacao": {
+    "src": "assets/projetos/praxis/aprovacao.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/aprovacao-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/celular": {
+    "src": "assets/projetos/praxis/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "praxis/celular-pedido": {
+    "src": "assets/projetos/praxis/celular-pedido.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "praxis/cotacoes": {
+    "src": "assets/projetos/praxis/cotacoes.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/cotacoes-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/kanban": {
+    "src": "assets/projetos/praxis/kanban.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/kanban-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/lista": {
+    "src": "assets/projetos/praxis/lista.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/lista-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/principal": {
+    "src": "assets/projetos/praxis/principal.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/principal-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "praxis/relatorios": {
+    "src": "assets/projetos/praxis/relatorios.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/praxis/relatorios-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "unifydata/base": {
+    "src": "assets/projetos/unifydata/base.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/unifydata/base-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "unifydata/celular": {
+    "src": "assets/projetos/unifydata/celular.webp",
+    "w": 780,
+    "h": 1688,
+    "variantes": []
+  },
+  "unifydata/pendencias": {
+    "src": "assets/projetos/unifydata/pendencias.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/unifydata/pendencias-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "unifydata/relatorio": {
+    "src": "assets/projetos/unifydata/relatorio.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/unifydata/relatorio-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "unifydata/resultado": {
+    "src": "assets/projetos/unifydata/resultado.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/unifydata/resultado-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  }
+}

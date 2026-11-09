@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-alyssom",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "imagens": "node scripts/converter-imagens.mjs",
+    "build": "node scripts/gerar-site.mjs",
+    "capturas": "node scripts/capturar-telas.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}

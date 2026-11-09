@@ -1,0 +1,414 @@
+{
+  "_leia": "Textos do site em português. Tradução: copie para textos.en.json / textos.es.json e traduza só os valores (as chaves ficam iguais). Marcação: *ênfase* · **negrito** · ~riscado~ · {variavel} (vem de fonte/dados.json; não traduza o que está entre chaves). Chaves que começam com _ são ignoradas.",
+
+  "meta": {
+    "titulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "descricao": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Remoto ou relocação para a Europa. Hoje constrói os sistemas que substituem as planilhas.",
+    "ogTitulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "ogDescricao": "Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem."
+  },
+
+  "identidade": {
+    "titulo": "Developer · Data & Business Intelligence",
+    "tese": "Passei 5 anos dentro das ~planilhas~. Hoje construo os *sistemas* que as substituem.",
+    "pais": "Brasil",
+    "disponibilidade": "Remoto ou relocação para a Europa",
+    "rubricaAlt": "Rubrica de Alyssom Fernandes"
+  },
+
+  "interface": {
+    "pularParaConteudo": "Pular para o conteúdo",
+    "secoes": "Seções",
+    "idioma": "Idioma",
+    "redes": "Redes",
+    "cvCurto": "CV",
+    "baixarCv": "Baixar CV (PDF)",
+    "contato": "Contato",
+    "verDemo": "Ver demo ao vivo",
+    "abreEmNovaAba": "abre em nova aba",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "rotulosCodigo": {
+      "codigo": "Código",
+      "codigoWeb": "Código web",
+      "codigoPython": "Código Python"
+    },
+    "status": {
+      "producao": "Em produção",
+      "demo": "Demo ao vivo",
+      "codigo": "Código"
+    }
+  },
+
+  "formato": {
+    "mesesCurtos": ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+    "mesesLongos": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],
+    "mesAno": "{mes}/{ano}",
+    "mesAnoLongo": "{mes} de {ano}",
+    "periodo": "{inicio} – {fim}",
+    "hoje": "hoje",
+    "mes": "mês",
+    "meses": "meses"
+  },
+
+  "abertura": {
+    "folio": "Perfil · Developer · Data & Business Intelligence",
+    "kicker": "Da contabilidade ao código · {anoInicio}\u00a0→\u00a0hoje",
+    "linhaFina": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Conheço o problema de negócio por dentro e entrego software em produção que automatiza fechamentos e conciliações, do AutoSystem ao desconto em folha.",
+    "disponivel": "**Disponível** para remoto ou relocação para a Europa · {pais}, {fuso}",
+    "ficha": {
+      "titulo": "Em números",
+      "periodo": "{anoInicio}\u00a0→\u00a0hoje",
+      "anosRotulo": "anos de carreira",
+      "anosNota": "contabilidade, DP/RH e controladoria",
+      "empresasRotulo": "empresas clientes em DP/RH",
+      "empresasNota": "{carreira.astcon.curto} · {carreira.astcon.anos}",
+      "projetosRotulo": "projetos publicados",
+      "projetosNota": "no GitHub · {demosAtivas} com demo ao vivo"
+    },
+    "agora": {
+      "rotulo": "Hoje",
+      "titulo": "{carreira.zen.cargo} · {carreira.zen.empresa}",
+      "texto": "Tecnólogo em Análise e Desenvolvimento de Sistemas, concluído em {formacao.conclusao}."
+    }
+  },
+
+  "trajetoria": {
+    "secao": "Trajetória",
+    "figura": {
+      "rotulo": "Fig. 1",
+      "titulo": "Cada quadrado, um mês de carreira",
+      "iniciaisMeses": "JFMAMJJASOND",
+      "virada": "{carreira.zen.ano} · planilhas → sistemas",
+      "aspas": "“{texto}”",
+      "legendaGrade": "Grade de meses de fevereiro de {anoInicio} até hoje, colorida por empresa."
+    },
+    "passos": [
+      {
+        "titulo": "Primeiro, as planilhas",
+        "texto": "De {carreira.astcon.inicio} a {carreira.astcon.fim}, na {carreira.astcon.empresa}, fez as rotinas completas de DP/RH de **{empresasClientes} empresas clientes**, atuou também no contábil e auxiliou as demais áreas da contabilidade.",
+        "extra": "Coordenava a equipe, virou referência técnica interna e treinava quem chegava.",
+        "fonte": "{carreira.astcon.cargo} · {carreira.astcon.periodo}",
+        "chips": ["admissões", "demissões", "férias", "rescisões", "INSS", "FGTS", "eSocial", "DCTFWeb"]
+      },
+      {
+        "titulo": "Um projeto de campo",
+        "texto": "Na {carreira.novomexico.empresa}, deu apoio administrativo geral a um projeto de irrigação de grande porte: **ajudava a coordenar equipes internas e empresas terceirizadas**, fazia reuniões, fiscalizava e auxiliava no financeiro.",
+        "extra": "",
+        "fonte": "{carreira.novomexico.cargo} · {carreira.novomexico.periodo}",
+        "chips": []
+      },
+      {
+        "titulo": "A virada de *{carreira.zen.ano}*",
+        "texto": "No {carreira.zen.empresa}, um grupo com mais de {empresasGrupoBase} empresas, desenvolveu **vários sistemas internos que estão em produção**.",
+        "extra": "Os que estão publicados no GitHub aparecem nos projetos abaixo, marcados como “Em produção”.",
+        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}) · {carreira.zen.periodo}",
+        "chips": []
+      },
+      {
+        "titulo": "Das planilhas *para os sistemas*",
+        "texto": "Quem passou cinco anos dentro das planilhas sabe onde elas quebram: arquivos desconectados, conciliações à mão, prazos que dependem da memória de alguém. **Ele fala a língua do time financeiro e a do time técnico.**",
+        "extra": "",
+        "fonte": "{formacao.curso} · {formacao.instituicao}, {formacao.conclusao}",
+        "chips": []
+      }
+    ]
+  },
+
+  "carreira": {
+    "astcon": {
+      "area": "DP/RH e contábil",
+      "tipo": "escritório de contabilidade",
+      "cargo": "Auxiliar de Escritório (DP/RH e contábil)",
+      "cargoFormal": "",
+      "itens": [
+        "Rotinas completas de DP/RH para {empresasClientes} empresas clientes: admissões, demissões, férias, rescisões, INSS, FGTS, eSocial e DCTFWeb.",
+        "Atuei também no contábil e auxiliei as demais áreas da contabilidade.",
+        "Coordenação de equipe; fui referência técnica interna e treinava novos colaboradores."
+      ]
+    },
+    "novomexico": {
+      "area": "Administrativo",
+      "tipo": "agronegócio",
+      "cargo": "Auxiliar Administrativo (contrato temporário)",
+      "cargoFormal": "",
+      "itens": [
+        "Apoio administrativo geral num projeto de irrigação de grande porte.",
+        "Ajudava a coordenar equipes internas e empresas terceirizadas; fazia reuniões, fiscalizava e auxiliava no financeiro."
+      ]
+    },
+    "zen": {
+      "area": "Sistemas",
+      "tipo": "um grupo com mais de {empresasGrupoBase} empresas",
+      "cargo": "Analista de Sistemas Financeiros Jr.",
+      "cargoFormal": "cargo formal: Auxiliar de Controladoria",
+      "itens": [
+        "Desenvolvi vários sistemas internos que estão em produção.",
+        "Controladoria e conciliação, controles internos e ERP AutoSystem."
+      ]
+    }
+  },
+
+  "projetos": {
+    "secao": "Projetos",
+    "titulo": "O que ele construiu, *com as telas de verdade*.",
+    "texto": "**Todos nasceram de problemas reais que ele viveu no trabalho.** Cada um aparece como produto, numa cena própria: o que resolve, as telas, os números com a fonte e onde testar. Os marcados como “Em produção” estão em uso no Grupo Zen.",
+    "marca": "Os sistemas levam a assinatura **{marca}**, a marca dele.",
+    "publicados": "projetos publicados",
+    "comDemo": "com demo ao vivo",
+    "indice": {
+      "titulo": "Índice",
+      "texto": "Um projeto por cena, nesta ordem. Clique no nome para ir direto a ele.",
+      "rotulo": "Índice de projetos"
+    },
+    "legendas": {
+      "demo": "Capturas da demonstração pública · dados fictícios da demonstração",
+      "repositorio": "Capturas publicadas no repositório"
+    },
+    "cartoes": {
+      "secao": "Também no GitHub",
+      "titulo": "Mais {n} projetos.",
+      "tituloUm": "Mais um projeto.",
+      "texto": "Ainda sem telas publicadas: o que cada um resolve, a stack e o código.",
+      "textoUm": "Ainda sem telas publicadas: o que ele resolve, a stack e o código.",
+      "fichaRotulo": "Repositório",
+      "fichaStack": "Stack"
+    },
+    "fuelmind": {
+      "frase": "Da NF-e de entrada ao fechamento do mês.",
+      "resumo": "Controle das entradas de combustível e dos fretes, com o aluguel dos veículos e o pagamento dos motoristas.",
+      "prova": "**{testes}** testes automatizados",
+      "cv": "Controle das entradas de combustível e dos fretes, em uso diário numa operação real: importa a NF-e (XML) e fecha o mês em PDF/Excel. {testes} testes automatizados; substituiu {planilhasSubstituidas} planilhas desconectadas.",
+      "itens": {
+        "painel": { "titulo": "Entradas num painel só", "texto": "Notas descarregadas, litros e gastos do mês acompanhados no mesmo painel." },
+        "nfe": { "titulo": "Importa a NF-e", "texto": "Lê o XML da NF-e para lançar cada entrada de combustível." },
+        "fretes": { "titulo": "Fretes e pagamentos", "texto": "Fretes mês a mês, com o aluguel dos veículos e o pagamento dos motoristas no fechamento." },
+        "fechamento": { "titulo": "Fecha o mês", "texto": "Fechamento mensal em PDF ou Excel." },
+        "producao": { "titulo": "Em uso todo dia", "texto": "Em produção numa operação real, com {testes} testes automatizados. Substituiu {planilhasSubstituidas} planilhas desconectadas." }
+      }
+    },
+    "unifydata": {
+      "frase": "Das compras nas lojas ao desconto em folha.",
+      "resumo": "Fechamento mensal das compras a prazo que os funcionários fazem nas lojas do grupo (posto, restaurante, hotel), registradas no AutoSystem: cruza com o RH e gera a planilha de desconto em folha.",
+      "prova": "**{testesWeb}** testes (web) + **{testesPython}** (Python) no GitHub Actions",
+      "cv": "Fechamento mensal das compras a prazo dos funcionários nas lojas do grupo, registradas no AutoSystem: cruza com o RH e gera a planilha de desconto em folha por empresa, CSV e relatório A4. A versão web roda em produção; a Python cruza pelo nome. {testesWeb} + {testesPython} testes no GitHub Actions.",
+      "itens": {
+        "entrada": { "titulo": "AutoSystem × RH", "texto": "Os relatórios de compras a prazo das lojas entram ao lado da base de funcionários do RH." },
+        "pendencias": { "titulo": "Aponta o que não bate", "texto": "Compra sem cadastro no RH ou sem empresa vira pendência, com valor, matrícula e loja." },
+        "desconto": { "titulo": "Desconto em folha", "texto": "Gera a planilha de desconto, uma aba por empresa, além de CSV e relatório A4." },
+        "versoes": { "titulo": "Web e Python", "texto": "A versão web, a que roda em produção, cruza pela matrícula e funciona também no celular; a Python (Streamlit) cruza pelo nome, com revisão humana." }
+      }
+    },
+    "alertsignal": {
+      "frase": "Prazos de alvarás e licenças com aviso automático.",
+      "resumo": "Vencimentos de alvarás e licenças de várias empresas, com avisos diários por e-mail a partir de {aviso1} dias antes do vencimento e urgência maior aos {aviso2} e aos {aviso3} dias.",
+      "prova": "**{testes}** testes automatizados no GitHub Actions",
+      "cv": "Vencimentos de alvarás e licenças de várias empresas, com avisos diários por e-mail a partir de {aviso1} dias antes e urgência maior aos {aviso2} e aos {aviso3}; relatório em PDF, Excel e CSV. {testes} testes no GitHub Actions.",
+      "itens": {
+        "painel": { "titulo": "Visão geral", "texto": "Vencidos, a renovar, em dia e sem data, com o gráfico dos próximos {meses} meses." },
+        "avisos": { "titulo": "Avisos diários por e-mail", "texto": "Cada empresa mostra os documentos por urgência, com vencimento e prazo. Os avisos começam {aviso1} dias antes, com urgência maior aos {aviso2} e aos {aviso3}; as faixas são configuráveis." },
+        "relatorio": { "titulo": "Relatório de vencimentos", "texto": "Filtra por situação e sai em PDF, Excel e CSV." }
+      }
+    },
+    "artmaker": {
+      "frase": "Encartes de ofertas prontos para o Status.",
+      "resumo": "Gerador de encartes de ofertas {formato} no formato do Status do WhatsApp, num único arquivo HTML com Canvas; salva tudo no próprio aparelho.",
+      "prova": "**{testes}** testes automatizados no GitHub Actions",
+      "cv": "Gerador de encartes de ofertas {formato} para o Status do WhatsApp, num único arquivo HTML com Canvas; salva no próprio aparelho. O padrão do app é o Mercado Vitória, cliente real. {testes} testes no GitHub Actions.",
+      "itens": {
+        "cliente": { "titulo": "Feito para um cliente real", "texto": "O padrão do app é o Mercado Vitória." },
+        "cores": { "titulo": "{paletas} paletas prontas", "texto": "As paletas aparecem em miniatura, desenhadas pelo próprio motor do encarte." },
+        "estilo": { "titulo": "Estilo e tema", "texto": "Fonte, quadro, borda, cantos e formato do preço, com tema claro e escuro." },
+        "status": { "titulo": "Pronto para o Status", "texto": "O encarte sai em {formato}, com Compartilhar e Baixar, e fica salvo no próprio aparelho." }
+      }
+    },
+    "deepchat": {
+      "frase": "Uma IA responde. Outra revisa.",
+      "resumo": "Chat em que o DeepSeek responde e o ChatGPT revisa a resposta com um veredito, pontos fortes, o que melhorar e, quando há erro, uma versão revisada. Sem servidor: tudo roda no navegador, e as chaves, se guardadas, ficam criptografadas.",
+      "prova": "**{testes}** testes automatizados no GitHub Actions",
+      "cv": "Chat em que o DeepSeek responde e o ChatGPT revisa a resposta com um veredito e, quando há erro, uma versão revisada; sem servidor, com as chaves guardadas criptografadas no navegador. Demonstração sem chave de API; {testes} testes no GitHub Actions.",
+      "itens": {
+        "veredito": { "titulo": "Veredito em destaque", "texto": "Cada resposta recebe um veredito: correta, parcialmente correta ou incorreta." },
+        "revisada": { "titulo": "Versão revisada", "texto": "Na demonstração, a função de CPF sai parcialmente correta porque aceita 111.111.111-11, e a revisão traz a versão corrigida." },
+        "chaves": { "titulo": "Sem servidor", "texto": "As perguntas vão direto do navegador às APIs, e as chaves, se guardadas, ficam criptografadas. A demonstração dispensa chave." },
+        "celular": { "titulo": "Também no celular", "texto": "A mesma conversa e a mesma revisão, com layout próprio para o celular." }
+      }
+    },
+    "praxis": {
+      "frase": "Do pedido ao pagamento, num fluxo só.",
+      "resumo": "Compras corporativas do pedido ao pagamento, em {etapas} etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa.",
+      "cv": "Compras corporativas do pedido ao pagamento, em {etapas} etapas: cotações, aprovações, parcelas, prazo e tempo por etapa. {perfis} perfis de acesso e {eventos} eventos de notificação; no fluxo, solicitante, comprador, aprovadores e financeiro.",
+      "itens": {
+        "fluxo": { "titulo": "Do pedido ao pagamento", "texto": "As {etapas} etapas num quadro só, com o total em reais de cada coluna. Cada cartão traz a empresa, o valor e quantos dias faltam para o prazo." },
+        "cotacoes": { "titulo": "Cotações lado a lado", "texto": "Propostas na mesma tela, com valor, diferença para a menor, prazo de entrega e condições. A indicada fica marcada." },
+        "perfis": { "titulo": "{perfis} perfis de acesso", "texto": "O pedido mostra quem precisa agir agora e a economia frente à proposta mais cara. No fluxo, solicitante, comprador, aprovadores e financeiro, cada um com suas permissões." },
+        "app": { "titulo": "Instala como app", "texto": "PWA: o mesmo fluxo no celular, com as etapas em abas e a navegação embaixo." }
+      }
+    },
+    "audistock": {
+      "frase": "Do estoque contado ao relatório de faltas e sobras.",
+      "resumo": "Auditoria de estoque: a equipe conta pelo celular, informa o saldo do ERP no fechamento e recebe o relatório de faltas e sobras em PDF, Excel e CSV, com fila offline para contar sem internet.",
+      "prova": "**{testesUnidade}** testes de unidade e banco + **{testesE2e}** de ponta a ponta no GitHub Actions",
+      "cv": "Auditoria de estoque: contagem pelo celular (teclado, leitor de código de barras ou câmera) com fila offline, fechamento com o saldo do ERP e relatório de faltas e sobras em PDF, Excel e CSV. {testesUnidade} testes de unidade e banco e {testesE2e} de ponta a ponta no GitHub Actions.",
+      "itens": {
+        "visao": { "titulo": "Auditorias em andamento", "texto": "O progresso de cada contagem, o resumo da última auditoria e as maiores faltas e sobras em proporção ao saldo." },
+        "contagem": { "titulo": "Conta pelo celular", "texto": "Teclado, leitor de código de barras ou câmera, com fila offline para contar sem internet." },
+        "relatorio": { "titulo": "Faltas e sobras contra o ERP", "texto": "No fechamento, a equipe informa o saldo do ERP. O relatório mostra sistema, contado e diferença de cada item e sai em PDF, Excel e CSV." }
+      }
+    },
+    "flowtrack": {
+      "frase": "Finanças pessoais que se categorizam sozinhas.",
+      "resumo": "Finanças pessoais com categorização por IA em {camadas} camadas (regras → cache → Claude Haiku); importa extratos de {bancos} bancos, OFX e CSV.",
+      "prova": "**{testes}** testes automatizados",
+      "cv": "Finanças pessoais com categorização por IA em {camadas} camadas (regras → cache → Claude Haiku); importa extratos de {bancos} bancos, OFX e CSV. {testes} testes automatizados.",
+      "itens": {
+        "camadas": { "titulo": "IA em {camadas} camadas", "texto": "Primeiro regras, depois cache; só o que sobra vai para o Claude Haiku." },
+        "extratos": { "titulo": "Extratos de {bancos} bancos", "texto": "Importa extratos de {bancos} bancos, além de arquivos OFX e CSV." },
+        "relatorios": { "titulo": "Relatórios", "texto": "Receitas, gastos e saldo, gastos por categoria e os maiores gastos." }
+      }
+    },
+    "docke": {
+      "frase": "Documentos de várias empresas, com trilha de auditoria.",
+      "resumo": "Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais, retenção legal e trilha de auditoria encadeada por hash.",
+      "cv": "Gestão eletrônica de documentos multiempresa: OCR, obrigações fiscais, retenção legal e trilha de auditoria encadeada por hash."
+    }
+  },
+
+  "alt": {
+    "fuelmind": {
+      "dashboard": "Fuel Mind: painel com notas descarregadas, litros e gastos do mês",
+      "lancamentos": "Fuel Mind: tela de lançamentos com importação do XML da NF-e",
+      "fretes": "Fuel Mind: fretes mês a mês",
+      "relatorios": "Fuel Mind: relatórios e fechamento do mês",
+      "celular": "Fuel Mind no celular: painel"
+    },
+    "unifydata": {
+      "base": "UnifyData: base de funcionários carregada e relatórios de compras das lojas prontos para processar",
+      "pendencias": "UnifyData: pendências do cruzamento, sem cadastro ou sem empresa, com valor, matrícula e loja",
+      "resultado": "UnifyData: fechamento pronto, com o total a descontar por empresa e por loja e as saídas em Excel, CSV e PDF",
+      "celular": "UnifyData no celular: fechamento pronto"
+    },
+    "alertsignal": {
+      "visao-geral": "AlertSignal: visão geral com documentos vencidos, a renovar, em dia e sem data e o gráfico de vencimentos",
+      "empresa": "AlertSignal: documentos de uma empresa por urgência, com vencimento, prazo e responsáveis",
+      "relatorio": "AlertSignal: relatório de vencimentos agrupado por empresa, com saídas em PDF, Excel e CSV",
+      "celular": "AlertSignal no celular: documentos de uma empresa em cartões"
+    },
+    "artmaker": {
+      "editor": "ArtMaker: editor com os dados da loja e das ofertas e a prévia do encarte",
+      "cores": "ArtMaker: paletas de cores em miniatura, uma delas aplicada ao encarte",
+      "estilo": "ArtMaker: opções de fonte, quadro, borda, cantos e preço, em tema claro",
+      "celular": "ArtMaker no celular: encarte final com Compartilhar e Baixar"
+    },
+    "deepchat": {
+      "revisao-veredito": "DeepChat: revisão de uma resposta com o veredito Incorreta, pontos fortes e o que melhorar",
+      "revisao-codigo": "DeepChat: versão revisada de uma função que valida CPF, agora recusando sequências repetidas como 111.111.111-11",
+      "inicio": "DeepChat: tela inicial com os campos das chaves de API e o acesso à demonstração",
+      "celular": "DeepChat no celular: revisão com pontos fortes, o que melhorar e sugestões"
+    },
+    "praxis": {
+      "kanban": "Praxis: quadro de pedidos em sete etapas, com o total de cada coluna e cartões com empresa, prazo e valor",
+      "cotacoes": "Praxis: três cotações de um pedido lado a lado, com valor, diferença para a menor, prazo de entrega e condições",
+      "aprovacao": "Praxis: pedido em aprovação, com a régua das etapas, o próximo passo, a proposta indicada, a economia e as pessoas envolvidas",
+      "celular": "Praxis no celular: quadro de pedidos com as etapas em abas"
+    },
+    "audistock": {
+      "dashboard": "AudiStock: auditorias em andamento, resumo da última auditoria e maiores faltas e sobras em proporção ao saldo",
+      "relatorio": "AudiStock: relatório de uma auditoria com sistema, contado e diferença de cada item e saídas em Excel, PDF e CSV",
+      "celular": "AudiStock no celular: contagem com teclado, leitor e câmera e o progresso da auditoria"
+    },
+    "flowtrack": {
+      "dashboard": "FlowTrack: painel com saldo, receitas e gastos",
+      "transacoes": "FlowTrack: lista de transações categorizadas",
+      "relatorios": "FlowTrack: relatórios com receitas, gastos, saldo e gastos por categoria"
+    }
+  },
+
+  "habilidades": {
+    "secao": "Habilidades",
+    "titulo": "Habilidades, *com evidência*.",
+    "texto": "Nada de barrinha de porcentagem inventada: cada tecnologia cruzada com o projeto em que ela foi usada de verdade.",
+    "cabecalho": "Tecnologia / capacidade",
+    "total": "Total",
+    "porProjeto": "Tecnologias por projeto",
+    "nota": "Cada ponto é uma evidência no código ou no CI de um repositório publicado.",
+    "notaFora": "{foraDaMatriz} ficam fora desta conta.",
+    "negocioTitulo": "Negócio × experiência",
+    "linhas": {
+      "javascript": "JavaScript",
+      "testes": "Testes automatizados",
+      "autenticacao": "Autenticação & perfis de acesso",
+      "relatorios": "Relatórios PDF / Excel",
+      "dashboards": "Dashboards & KPIs",
+      "ci": "CI (GitHub Actions)",
+      "python": "Python",
+      "jobs": "Jobs agendados",
+      "postgres": "PostgreSQL / Supabase",
+      "offline": "Offline & sincronização",
+      "tempoReal": "Tempo real",
+      "iaGenerativa": "IA generativa",
+      "typescript": "TypeScript",
+      "react": "React",
+      "fastapi": "FastAPI",
+      "firebase": "Firebase",
+      "pandas": "pandas",
+      "flask": "Flask + SQLite",
+      "ocr": "OCR (Tesseract)",
+      "nfe": "NF-e (XML)"
+    },
+    "negocio": {
+      "contabil": "Rotinas contábeis e apoio às áreas da contabilidade",
+      "analiseDados": "Análise de dados financeiros e operacionais",
+      "folha": "DP/folha — eSocial, DCTFWeb, FGTS, INSS",
+      "treinamento": "Treinamento e coordenação de equipe",
+      "controladoria": "Controladoria & conciliação, controles internos, ERP AutoSystem",
+      "coordenacao": "Coordenação de equipes internas e terceirizadas, reuniões, fiscalização, apoio ao financeiro, gestão administrativa de projeto"
+    }
+  },
+
+  "formacao": {
+    "secao": "Formação & idiomas",
+    "superiorRotulo": "Ensino superior",
+    "curso": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+    "cursoCurto": "Tecnólogo em ADS",
+    "detalhe": "Curso superior de tecnologia · {formacao.instituicao} · concluído em {formacao.conclusao}",
+    "idiomasRotulo": "Idiomas",
+    "idiomas": {
+      "pt": { "nome": "Português", "nivel": "Nativo", "curto": "Português\u00a0nativo" },
+      "en": { "nome": "Inglês", "nivel": "B1 · intermediário", "curto": "Inglês\u00a0B1" },
+      "es": { "nome": "Espanhol", "nivel": "Básico", "curto": "Espanhol\u00a0básico" }
+    }
+  },
+
+  "contato": {
+    "secao": "Contato",
+    "titulo": "Vamos *conversar*?",
+    "texto": "Aberto a vagas em desenvolvimento, dados e sistemas financeiros, remotas ou com relocação para a Europa.",
+    "quem": "Quem",
+    "disponibilidade": "Disponibilidade",
+    "contato": "Contato",
+    "formacaoIdiomas": "Formação e idiomas",
+    "cv": "Currículo (PDF)",
+    "atualizado": "Atualizado em {atualizado}"
+  },
+
+  "erro404": {
+    "titulo": "Página não encontrada",
+    "texto": "Este endereço não existe ou mudou de lugar.",
+    "link": "Ir para o portfólio em português"
+  },
+
+  "cv": {
+    "site": "Portfólio",
+    "resumoTitulo": "Resumo",
+    "resumo": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. De {carreira.astcon.anoInicio} a {carreira.astcon.anoFim} fiz as rotinas completas de DP/RH de {empresasClientes} empresas clientes e atuei também no contábil; desde {carreira.zen.ano}, no Grupo Zen, desenvolvo sistemas internos que estão em produção. Todos os meus projetos nasceram de problemas reais que vivi no trabalho.",
+    "experienciaTitulo": "Experiência",
+    "projetosTitulo": "Projetos",
+    "habilidadesTitulo": "Habilidades",
+    "tecnologias": "Tecnologias",
+    "negocio": "Negócio",
+    "formacaoTitulo": "Formação e idiomas"
+  }
+}

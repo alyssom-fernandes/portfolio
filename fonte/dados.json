@@ -1,0 +1,267 @@
+{
+  "_leia": "Tudo que NÃO é texto humano. Os textos ficam em fonte/textos.<idioma>.json. Depois de editar: npm run build.",
+
+  "site": {
+    "baseUrl": "https://alyssom-fernandes.github.io/portfolio/",
+    "idiomaPadrao": "pt",
+    "idiomas": [
+      { "codigo": "pt", "nome": "Português", "lang": "pt-BR", "hreflang": "pt-BR", "ogLocale": "pt_BR", "pasta": "" },
+      { "codigo": "en", "nome": "English", "lang": "en", "hreflang": "en", "ogLocale": "en_US", "pasta": "en/" },
+      { "codigo": "es", "nome": "Español", "lang": "es-ES", "hreflang": "es-ES", "ogLocale": "es_ES", "pasta": "es/" }
+    ],
+    "corTema": "#F3EFE6"
+  },
+
+  "identidade": {
+    "nome": "Alyssom Fernandes",
+    "marca": "AFN Systems",
+    "rubrica": "assets/img/rubrica.webp",
+    "email": "alyssom1919@gmail.com",
+    "linkedin": "https://linkedin.com/in/alyssom-fernandes",
+    "github": "https://github.com/alyssom-fernandes",
+    "whatsapp": "https://wa.me/5562996674854",
+    "whatsappExibicao": "+55 62 99667-4854",
+    "fuso": "UTC−3",
+    "cv": {
+      "pt": "cv/Alyssom-Fernandes-CV-PT.pdf",
+      "en": "cv/Alyssom-Fernandes-CV-EN.pdf",
+      "es": "cv/Alyssom-Fernandes-CV-ES.pdf"
+    }
+  },
+
+  "numeros": {
+    "empresasClientes": "60+",
+    "planilhasSubstituidas": "6+",
+    "empresasGrupo": "20+"
+  },
+
+  "carreira": [
+    { "id": "astcon", "empresa": "Astcon Assessoria Contábil", "curto": "Astcon", "inicio": [2021, 2], "fim": [2025, 9], "cor": "#B5A688" },
+    { "id": "novomexico", "empresa": "Fazenda Novo México", "curto": "Novo México", "inicio": [2025, 9], "fim": [2026, 1], "cor": "#7A705E" },
+    { "id": "zen", "empresa": "Grupo Zen", "curto": "Grupo Zen", "inicio": [2026, 2], "fim": null, "cor": "#2B3BEA" }
+  ],
+
+  "formacao": { "instituicao": "Uniasselvi", "conclusao": 2026 },
+
+  "idiomasFalados": [
+    { "id": "pt", "codigo": "pt", "barra": 1 },
+    { "id": "en", "codigo": "en", "barra": 0.6 },
+    { "id": "es", "codigo": "es", "barra": 0.25 }
+  ],
+
+  "_projetos": "Ordem na página = campo ordem (do mais forte para o menor). nivel: lancamento (cena de rolagem com telas) ou cartao (sem telas). Cada destaque (itens) mostra uma tela; \"celular\" usa a captura de celular. demo.ativa false esconde o botão da demo e tira o projeto da contagem.",
+  "projetos": [
+    {
+      "id": "artmaker",
+      "nome": "ArtMaker",
+      "nivel": "lancamento",
+      "ordem": 1,
+      "emProducao": false,
+      "demo": { "url": "https://alyssom-fernandes.github.io/ArtMaker/?demo=1", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/ArtMaker" }],
+      "stack": ["JavaScript", "HTML5 Canvas", "localStorage", "IndexedDB", "Web Share API", "node:test", "GitHub Actions"],
+      "numeros": { "formato": "1080×1920", "testes": "17", "paletas": "8" },
+      "telas": ["artmaker/editor", "artmaker/cores", "artmaker/estilo"],
+      "celular": "artmaker/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "cliente", "tela": "artmaker/editor" },
+        { "id": "cores", "tela": "artmaker/cores" },
+        { "id": "estilo", "tela": "artmaker/estilo" },
+        { "id": "status", "tela": "celular" }
+      ]
+    },
+    {
+      "id": "unifydata",
+      "nome": "UnifyData",
+      "nivel": "lancamento",
+      "ordem": 2,
+      "emProducao": true,
+      "demo": { "url": "https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1", "ativa": true },
+      "codigo": [
+        { "rotulo": "codigoWeb", "url": "https://github.com/alyssom-fernandes/UnifyData-Web" },
+        { "rotulo": "codigoPython", "url": "https://github.com/alyssom-fernandes/UnifyData-Python" }
+      ],
+      "stack": ["JavaScript", "SheetJS", "PDF.js", "ExcelJS", "Python", "Streamlit", "pandas", "thefuzz", "openpyxl", "GitHub Actions"],
+      "numeros": { "testesWeb": "11", "testesPython": "13" },
+      "telas": ["unifydata/base", "unifydata/pendencias", "unifydata/resultado"],
+      "celular": "unifydata/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "entrada", "tela": "unifydata/base" },
+        { "id": "pendencias", "tela": "unifydata/pendencias" },
+        { "id": "desconto", "tela": "unifydata/resultado" },
+        { "id": "versoes", "tela": "celular" }
+      ]
+    },
+    {
+      "id": "fuelmind",
+      "nome": "Fuel Mind",
+      "nivel": "lancamento",
+      "ordem": 3,
+      "emProducao": true,
+      "demo": { "url": "https://controle-entradas-posto.web.app", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Fuel-Mind" }],
+      "stack": ["JavaScript", "Firebase", "Chart.js", "jsPDF", "SheetJS"],
+      "numeros": { "testes": "103" },
+      "telas": ["fuelmind/dashboard", "fuelmind/lancamentos", "fuelmind/fretes", "fuelmind/relatorios"],
+      "celular": "fuelmind/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "painel", "tela": "fuelmind/dashboard" },
+        { "id": "nfe", "tela": "fuelmind/lancamentos" },
+        { "id": "fretes", "tela": "fuelmind/fretes" },
+        { "id": "fechamento", "tela": "fuelmind/relatorios" },
+        { "id": "producao", "tela": "celular" }
+      ]
+    },
+    {
+      "id": "praxis",
+      "nome": "Praxis",
+      "nivel": "lancamento",
+      "ordem": 4,
+      "emProducao": false,
+      "demo": { "url": "https://praxis-af618.web.app", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Praxis" }],
+      "stack": ["JavaScript (ES modules)", "Firebase (Firestore, Auth, Storage, Hosting)", "PWA", "Cloud Functions"],
+      "numeros": { "perfis": "6", "eventos": "14", "etapas": "7" },
+      "telas": ["praxis/kanban", "praxis/cotacoes", "praxis/aprovacao"],
+      "celular": "praxis/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "fluxo", "tela": "praxis/kanban" },
+        { "id": "cotacoes", "tela": "praxis/cotacoes" },
+        { "id": "perfis", "tela": "praxis/aprovacao" },
+        { "id": "app", "tela": "celular" }
+      ]
+    },
+    {
+      "id": "deepchat",
+      "nome": "DeepChat",
+      "nivel": "lancamento",
+      "ordem": 5,
+      "emProducao": false,
+      "demo": { "url": "https://alyssom-fernandes.github.io/DeepChat/?demo=1", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/DeepChat" }],
+      "stack": ["JavaScript (ES modules)", "DeepSeek API", "OpenAI API", "marked", "DOMPurify", "Web Crypto", "node:test", "GitHub Actions"],
+      "numeros": { "testes": "26" },
+      "telas": ["deepchat/revisao-veredito", "deepchat/revisao-codigo", "deepchat/inicio"],
+      "celular": "deepchat/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "veredito", "tela": "deepchat/revisao-veredito" },
+        { "id": "revisada", "tela": "deepchat/revisao-codigo" },
+        { "id": "chaves", "tela": "deepchat/inicio" },
+        { "id": "celular", "tela": "celular" }
+      ]
+    },
+    {
+      "id": "audistock",
+      "nome": "AudiStock",
+      "nivel": "lancamento",
+      "ordem": 6,
+      "emProducao": false,
+      "demo": { "url": "https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AudiStock" }],
+      "stack": ["JavaScript", "Supabase (PostgreSQL + Auth)", "IndexedDB", "jsPDF", "ExcelJS", "SheetJS", "BarcodeDetector", "node:test", "PGlite", "Playwright", "GitHub Actions"],
+      "numeros": { "testesUnidade": "70", "testesE2e": "34" },
+      "telas": ["audistock/dashboard", "audistock/relatorio"],
+      "celular": "audistock/celular",
+      "legenda": "demo",
+      "itens": [
+        { "id": "visao", "tela": "audistock/dashboard" },
+        { "id": "contagem", "tela": "celular" },
+        { "id": "relatorio", "tela": "audistock/relatorio" }
+      ]
+    },
+    {
+      "id": "alertsignal",
+      "nome": "AlertSignal",
+      "nivel": "lancamento",
+      "ordem": 7,
+      "emProducao": true,
+      "demo": null,
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AlertSignal" }],
+      "stack": ["Python", "Flask", "SQLite", "APScheduler", "pandas", "openpyxl", "Jinja2", "JavaScript", "unittest", "GitHub Actions"],
+      "numeros": { "aviso1": "90", "aviso2": "30", "aviso3": "7", "meses": "12", "testes": "22" },
+      "telas": ["alertsignal/visao-geral", "alertsignal/empresa", "alertsignal/relatorio"],
+      "celular": "alertsignal/celular",
+      "legenda": "repositorio",
+      "itens": [
+        { "id": "painel", "tela": "alertsignal/visao-geral" },
+        { "id": "avisos", "tela": "alertsignal/empresa" },
+        { "id": "relatorio", "tela": "alertsignal/relatorio" }
+      ]
+    },
+    {
+      "id": "flowtrack",
+      "nome": "FlowTrack",
+      "nivel": "lancamento",
+      "ordem": 8,
+      "emProducao": false,
+      "demo": { "url": "https://flowtrack-afn.vercel.app", "ativa": false },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/FlowTrack" }],
+      "stack": ["React 19", "TypeScript", "FastAPI", "Supabase/PostgreSQL", "Claude Haiku", "pytest", "Playwright"],
+      "numeros": { "bancos": "4", "testes": "83", "camadas": "3" },
+      "telas": ["flowtrack/dashboard", "flowtrack/transacoes", "flowtrack/relatorios"],
+      "celular": null,
+      "legenda": "repositorio",
+      "itens": [
+        { "id": "camadas", "tela": "flowtrack/dashboard" },
+        { "id": "extratos", "tela": "flowtrack/transacoes" },
+        { "id": "relatorios", "tela": "flowtrack/relatorios" }
+      ]
+    },
+    {
+      "id": "docke",
+      "nome": "Docke",
+      "nivel": "cartao",
+      "ordem": 9,
+      "emProducao": false,
+      "demo": { "url": "https://docke-two.vercel.app", "ativa": false },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Docke" }],
+      "stack": ["React", "TypeScript", "FastAPI", "PostgreSQL (RLS)", "Tesseract"],
+      "numeros": {},
+      "telas": [],
+      "celular": null,
+      "legenda": null,
+      "itens": []
+    }
+  ],
+
+  "matriz": {
+    "_leia": "Uma marca (1) só com evidência no código ou no CI do repositório (conferido em 03/10/2026; testes e CI revistos em 11/10/2026). Cada caractere de marcas segue a ordem de colunas, que é a mesma ordem dos projetos na página.",
+    "colunas": ["artmaker", "unifydata", "fuelmind", "praxis", "deepchat", "audistock", "alertsignal", "flowtrack", "docke"],
+    "linhas": [
+      { "id": "testes", "marcas": "111011111" },
+      { "id": "javascript", "marcas": "111111100" },
+      { "id": "ci", "marcas": "110011111" },
+      { "id": "autenticacao", "marcas": "001101111" },
+      { "id": "relatorios", "marcas": "011101110" },
+      { "id": "dashboards", "marcas": "001101111" },
+      { "id": "python", "marcas": "010000111" },
+      { "id": "jobs", "marcas": "000100111" },
+      { "id": "postgres", "marcas": "000001011" },
+      { "id": "offline", "marcas": "001001010" },
+      { "id": "tempoReal", "marcas": "001100000" },
+      { "id": "iaGenerativa", "marcas": "000010010" },
+      { "id": "typescript", "marcas": "000000011" },
+      { "id": "react", "marcas": "000000011" },
+      { "id": "fastapi", "marcas": "000000011" },
+      { "id": "firebase", "marcas": "001100000" },
+      { "id": "pandas", "marcas": "010000100" },
+      { "id": "flask", "marcas": "000000100" },
+      { "id": "ocr", "marcas": "000000001" },
+      { "id": "nfe", "marcas": "001000000" }
+    ]
+  },
+
+  "negocio": [
+    { "id": "contabil", "onde": ["astcon"] },
+    { "id": "analiseDados", "onde": ["astcon", "zen"] },
+    { "id": "folha", "onde": ["astcon"] },
+    { "id": "treinamento", "onde": ["astcon"] },
+    { "id": "controladoria", "onde": ["zen"] },
+    { "id": "coordenacao", "onde": ["novomexico"] }
+  ]
+}

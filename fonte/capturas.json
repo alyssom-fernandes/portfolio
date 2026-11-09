@@ -1,0 +1,640 @@
+{
+  "padroes": {
+    "esperaMs": 1500,
+    "tempoLimiteMs": 45000
+  },
+  "projetos": [
+    {
+      "id": "fuelmind",
+      "nome": "Fuel Mind",
+      "ativo": true,
+      "url": "https://controle-entradas-posto.web.app/",
+      "entrada": [
+        {
+          "clicar": "Acessar modo demo"
+        },
+        {
+          "clicar": "Ana Ribeiro",
+          "exato": false
+        },
+        {
+          "esperar": "#nav-dashboard"
+        }
+      ],
+      "telas": [
+        {
+          "nome": "dashboard",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-dashboard"
+            }
+          ],
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "lancamentos",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-lancamentos"
+            }
+          ],
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "analitico",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-analitico"
+            }
+          ],
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "relatorios",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-central"
+            }
+          ],
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "fretes",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-fretes"
+            }
+          ],
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "grupo",
+          "passos": [
+            {
+              "clicarSeletor": "#nav-grupo"
+            }
+          ],
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "entrarDeNovo": true,
+          "esperar": "#btnHamburger",
+          "esperaMs": 2500,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "praxis",
+      "nome": "Praxis",
+      "ativo": true,
+      "url": "https://praxis-af618.web.app/",
+      "entrada": [
+        {
+          "clicar": "Acessar modo demo"
+        },
+        {
+          "clicar": "Artur Mendes",
+          "exato": false
+        },
+        {
+          "esperarTexto": "PRX-0004"
+        },
+        {
+          "clicar": "Pular"
+        },
+        {
+          "aguardar": 1000
+        }
+      ],
+      "telas": [
+        {
+          "nome": "kanban",
+          "rota": "?tela=pedidos",
+          "esperarTexto": "PRX-0009",
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "aprovacao",
+          "rota": "?tela=pedidos",
+          "passos": [
+            {
+              "esperarTexto": "PRX-0003"
+            },
+            {
+              "clicar": "PRX-0003"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela",
+          "esperarTexto": "Manutenção preventiva ar-condicionado"
+        },
+        {
+          "nome": "cotacoes",
+          "rota": "?tela=pedidos",
+          "passos": [
+            {
+              "esperarTexto": "PRX-0003"
+            },
+            {
+              "clicar": "PRX-0003"
+            },
+            {
+              "esperarTexto": "Manutenção preventiva ar-condicionado"
+            },
+            {
+              "clicar": "Lado a lado"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela",
+          "esperarTexto": "Cotações lado a lado"
+        },
+        {
+          "nome": "relatorios",
+          "rota": "?tela=pedidos",
+          "observacao": "Abrir pelo menu, não por ?tela=relatorios: pelo endereço direto a demo mostra as parcelas em dobro.",
+          "passos": [
+            {
+              "esperarTexto": "PRX-0009"
+            },
+            {
+              "clicar": "Relatórios"
+            },
+            {
+              "esperarTexto": "Gasto"
+            },
+            {
+              "clicar": "Ano"
+            }
+          ],
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "rota": "?tela=pedidos",
+          "esperarTexto": "PRX-0004",
+          "esperaMs": 2500,
+          "dispositivo": "celular"
+        },
+        {
+          "nome": "lista",
+          "observacao": "Visão em lista: mostra o nome da empresa (no kanban a demo mostra ids) e não tem o selo \"Atrasado\".",
+          "rota": "?tela=pedidos",
+          "passos": [
+            {
+              "esperarTexto": "PRX-0009"
+            },
+            {
+              "clicarSeletor": "#btn-lista"
+            }
+          ],
+          "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular-pedido",
+          "rota": "?tela=pedidos",
+          "entrarDeNovo": true,
+          "passos": [
+            {
+              "esperarTexto": "PRX-0004"
+            },
+            {
+              "clicar": "Aprovação",
+              "exato": false
+            },
+            {
+              "esperarTexto": "PRX-0003"
+            },
+            {
+              "clicar": "PRX-0003"
+            }
+          ],
+          "esperarTexto": "Manutenção preventiva ar-condicionado",
+          "esperaMs": 2500,
+          "dispositivo": "celular"
+        }
+      ],
+      "tempoLimiteMs": 200000
+    },
+    {
+      "id": "unifydata",
+      "nome": "UnifyData",
+      "ativo": true,
+      "url": "https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1",
+      "observacao": "Demo com arquivos de exemplo (nada é enviado). \"Ignorar\" só tira a pendência da planilha da demo. entradaSempre porque cada tela parte da base recém-carregada.",
+      "entradaSempre": true,
+      "entrada": [
+        {
+          "esperarTexto": "RESTAURANTE.csv"
+        },
+        {
+          "aguardar": 1500
+        }
+      ],
+      "telas": [
+        {
+          "nome": "base",
+          "rolar": {
+            "y": 0
+          },
+          "esperaMs": 1500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "pendencias",
+          "passos": [
+            {
+              "clicarSeletor": "#btn-process"
+            },
+            {
+              "esperar": "#etapa-pendencias"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "resultado",
+          "passos": [
+            {
+              "clicarSeletor": "#btn-process"
+            },
+            {
+              "esperar": "#etapa-pendencias"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "esperar": "#etapa-resultado"
+            },
+            {
+              "esperarSumir": ".toast"
+            }
+          ],
+          "esperar": "#etapa-resultado",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "relatorio",
+          "observacao": "Versão de impressão (relatório A4) desenhada como folha; nada é impresso.",
+          "passos": [
+            {
+              "clicarSeletor": "#btn-process"
+            },
+            {
+              "esperar": "#etapa-pendencias"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "esperar": "#etapa-resultado"
+            },
+            {
+              "esperarSumir": ".toast"
+            },
+            {
+              "folhaImpressa": {
+                "largura": "210mm",
+                "margem": "14mm 12mm",
+                "zoom": 1.3
+              }
+            }
+          ],
+          "esperaMs": 1500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "passos": [
+            {
+              "clicarSeletor": "#btn-process"
+            },
+            {
+              "esperar": "#etapa-pendencias"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "clicar": "Ignorar"
+            },
+            {
+              "esperar": "#etapa-resultado"
+            },
+            {
+              "esperarSumir": ".toast"
+            }
+          ],
+          "esperar": "#etapa-resultado",
+          "esperaMs": 2000,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "audistock",
+      "nome": "AudiStock",
+      "ativo": true,
+      "url": "https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1",
+      "observacao": "Ids fixos da demo: AUD-2026-0007 (em contagem) e AUD-2026-0006 (finalizada). Nenhuma contagem é registrada.",
+      "entrada": [
+        {
+          "esperarTexto": "Maiores faltas"
+        }
+      ],
+      "telas": [
+        {
+          "nome": "dashboard",
+          "url": "https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1",
+          "esperarTexto": "Maiores faltas",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "contagem",
+          "url": "https://alyssom-fernandes.github.io/AudiStock/contagem.html?id=e18068e4-fd2e-4436-b281-e7d047e96b4c&demo=1",
+          "esperarTexto": "Itens contados",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "fechamento",
+          "url": "https://alyssom-fernandes.github.io/AudiStock/estoque-sistema.html?id=e18068e4-fd2e-4436-b281-e7d047e96b4c&demo=1",
+          "esperarTexto": "saldos informados",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "relatorio",
+          "url": "https://alyssom-fernandes.github.io/AudiStock/relatorios.html?id=da935148-8179-4cd0-9765-8a772c21722a&demo=1",
+          "esperarTexto": "Itens com falta",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "url": "https://alyssom-fernandes.github.io/AudiStock/contagem.html?id=e18068e4-fd2e-4436-b281-e7d047e96b4c&demo=1",
+          "entrarDeNovo": true,
+          "esperarTexto": "Registrar contagem",
+          "esperaMs": 2500,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "artmaker",
+      "nome": "ArtMaker",
+      "ativo": true,
+      "url": "https://alyssom-fernandes.github.io/ArtMaker/?demo=1",
+      "observacao": "v2 com ?demo=1 (produtos de exemplo, nada é salvo). Mercado Vitória é cliente real que autorizou o uso. entradaSempre: a troca de paleta e de tema não passa de uma tela para outra.",
+      "entradaSempre": true,
+      "entrada": [
+        {
+          "esperar": "#aba-conteudo"
+        },
+        {
+          "aguardar": 1500
+        }
+      ],
+      "telas": [
+        {
+          "nome": "editor",
+          "passos": [
+            {
+              "clicarSeletor": "#aba-conteudo"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "cores",
+          "passos": [
+            {
+              "clicarSeletor": "#aba-cores"
+            },
+            {
+              "clicar": "Vermelho Mercado",
+              "exato": false
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "estilo",
+          "passos": [
+            {
+              "clicarSeletor": "#aba-estilo"
+            },
+            {
+              "clicarSeletor": "#btn-tema"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "passos": [
+            {
+              "clicarSeletor": "#btn-ver"
+            }
+          ],
+          "esperaMs": 2000,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "deepchat",
+      "nome": "DeepChat",
+      "ativo": true,
+      "url": "https://alyssom-fernandes.github.io/DeepChat/",
+      "observacao": "A demonstração (?demo=1) usa respostas gravadas e dispensa chave de API. O script nunca digita chaves.",
+      "telas": [
+        {
+          "nome": "inicio",
+          "esperarTexto": "Outra revisa",
+          "esperaMs": 2000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "revisao-veredito",
+          "rota": "?demo=1",
+          "esperar": ".msg-revisao",
+          "rolar": {
+            "y": 99999,
+            "em": "#rolagem"
+          },
+          "esperaMs": 1500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "revisao-codigo",
+          "rota": "?demo=1",
+          "passos": [
+            {
+              "esperar": ".msg-revisao"
+            },
+            {
+              "clicar": "Escreva uma função em JavaScript que valide um CPF."
+            },
+            {
+              "esperarTexto": "Parcialmente correta"
+            },
+            {
+              "clicar": "Ver a versão revisada"
+            }
+          ],
+          "rolar": {
+            "y": 99999,
+            "em": "#rolagem"
+          },
+          "esperaMs": 1500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "revisao-correta",
+          "rota": "?demo=1",
+          "passos": [
+            {
+              "esperar": ".msg-revisao"
+            },
+            {
+              "clicar": "Qual a diferença entre juros simples e compostos?"
+            },
+            {
+              "esperarTexto": "Correta"
+            }
+          ],
+          "rolar": {
+            "ate": ".msg-revisao"
+          },
+          "esperaMs": 1500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "rota": "?demo=1",
+          "entrarDeNovo": true,
+          "esperar": ".msg-revisao",
+          "rolar": {
+            "y": 99999,
+            "em": "#rolagem"
+          },
+          "esperaMs": 1500,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "flowtrack",
+      "nome": "FlowTrack",
+      "ativo": false,
+      "url": "https://flowtrack-afn.vercel.app/",
+      "observacao": "Em 30/09/2026 o botão respondia 'Modo demo temporariamente indisponível'. Rotas tiradas do código publicado; conferir quando a demo voltar.",
+      "entrada": [
+        {
+          "clicar": "Acessar modo demo"
+        },
+        {
+          "esperarUrlSem": "/login"
+        }
+      ],
+      "telas": [
+        {
+          "nome": "dashboard",
+          "rota": "/dashboard",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "transacoes",
+          "rota": "/transactions",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "rota": "/dashboard",
+          "entrarDeNovo": true,
+          "esperaMs": 3000,
+          "dispositivo": "celular"
+        }
+      ]
+    },
+    {
+      "id": "docke",
+      "nome": "Docke",
+      "ativo": false,
+      "url": "https://docke-two.vercel.app/",
+      "observacao": "Em 30/09/2026 a API (docke-api.fly.dev) não respondia e o botão de demo não saía do login. Rotas tiradas do código publicado; conferir quando a demo voltar.",
+      "entrada": [
+        {
+          "clicar": "Acessar modo demo"
+        },
+        {
+          "esperarUrlSem": "/login"
+        }
+      ],
+      "telas": [
+        {
+          "nome": "dashboard",
+          "rota": "/dashboard",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "documentos",
+          "rota": "/documents",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "celular",
+          "rota": "/dashboard",
+          "entrarDeNovo": true,
+          "esperaMs": 3000,
+          "dispositivo": "celular"
+        }
+      ]
+    }
+  ]
+}
