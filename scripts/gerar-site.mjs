@@ -282,6 +282,7 @@ ${alternativas.map(([hl, u]) => `<link rel="alternate" hreflang="${hl}" href="${
 <meta property="og:locale" content="${idioma.ogLocale}">
 ${idiomasLinks.filter(i => i !== idioma).map(i => `<meta property="og:locale:alternate" content="${i.ogLocale}">`).join('\n')}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${esc(ogUrl)}">
 <meta name="theme-color" content="${tema}">
 <link rel="icon" href="${pref}favicon.svg" type="image/svg+xml">
 <link rel="preload" href="${pref}${FONTES.serif}" as="font" type="font/woff2" crossorigin>
