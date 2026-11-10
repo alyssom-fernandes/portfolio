@@ -122,7 +122,7 @@
         "titulo": "El giro de {carreira.zen.ano}",
         "texto": "En {carreira.zen.empresa}, un grupo con más de {empresasGrupoBase} empresas, entré como {carreira.zen.cargo} y empecé a desarrollar sistemas internos.",
         "extra": "",
-        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
+        "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Convertir hojas de cálculo en sistemas",
@@ -148,7 +148,7 @@
     "novomexico": {
       "area": "Administración",
       "tipo": "agronegocio",
-      "cargo": "Auxiliar administrativo (contrato temporal)",
+      "cargo": "Auxiliar administrativo",
       "cargoFormal": "",
       "itens": [
         "Apoyo administrativo a un proyecto de riego.",
@@ -158,8 +158,8 @@
     "zen": {
       "area": "Sistemas",
       "tipo": "un grupo con más de {empresasGrupoBase} empresas",
-      "cargo": "Analista de Sistemas Financieros Júnior",
-      "cargoFormal": "puesto formal: Auxiliar de Control de Gestión",
+      "cargo": "Auxiliar de Control de Gestión",
+      "cargoFormal": "",
       "itens": [
         "Desarrollo de sistemas internos.",
         "Control de gestión y conciliación, controles internos y ERP AutoSystem."

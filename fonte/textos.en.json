@@ -122,7 +122,7 @@
         "titulo": "The turning point of {carreira.zen.ano}",
         "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, I joined as {carreira.zen.cargo} and began developing in-house systems.",
         "extra": "",
-        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
+        "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Turning spreadsheets into systems",
@@ -148,7 +148,7 @@
     "novomexico": {
       "area": "Administration",
       "tipo": "agribusiness",
-      "cargo": "Administrative Assistant (temporary contract)",
+      "cargo": "Administrative Assistant",
       "cargoFormal": "",
       "itens": [
         "Administrative support for an irrigation project.",
@@ -158,8 +158,8 @@
     "zen": {
       "area": "Systems",
       "tipo": "a group of more than {empresasGrupoBase} companies",
-      "cargo": "Junior Financial Systems Analyst",
-      "cargoFormal": "formal title: Financial Control Assistant",
+      "cargo": "Financial Control Assistant",
+      "cargoFormal": "",
       "itens": [
         "In-house systems development.",
         "Financial control and reconciliation, internal controls, and the AutoSystem ERP."

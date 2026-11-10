@@ -122,7 +122,7 @@
         "titulo": "A virada de {carreira.zen.ano}",
         "texto": "No {carreira.zen.empresa}, um grupo com mais de {empresasGrupoBase} empresas, entrei como {carreira.zen.cargo} e passei a desenvolver sistemas internos.",
         "extra": "",
-        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
+        "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Das planilhas para os sistemas",
@@ -148,7 +148,7 @@
     "novomexico": {
       "area": "Administrativo",
       "tipo": "agronegócio",
-      "cargo": "Auxiliar Administrativo (contrato temporário)",
+      "cargo": "Auxiliar Administrativo",
       "cargoFormal": "",
       "itens": [
         "Apoio administrativo a um projeto de irrigação.",
@@ -158,8 +158,8 @@
     "zen": {
       "area": "Sistemas",
       "tipo": "um grupo com mais de {empresasGrupoBase} empresas",
-      "cargo": "Analista de Sistemas Financeiros Jr.",
-      "cargoFormal": "cargo formal: Auxiliar de Controladoria",
+      "cargo": "Auxiliar de Controladoria",
+      "cargoFormal": "",
       "itens": [
         "Desenvolvimento de sistemas internos.",
         "Controladoria e conciliação, controles internos e ERP AutoSystem."
