@@ -21,7 +21,7 @@
     "cvCurto": "CV",
     "baixarCv": "Download CV (PDF)",
     "contato": "Contact",
-    "verDestaque": "See the featured project",
+    "verDestaque": "See the projects",
     "verDetalhes": "See details",
     "demo": "Demo",
     "abrirDemo": "Open the demo",
@@ -108,25 +108,25 @@
     "passos": [
       {
         "titulo": "First, the spreadsheets",
-        "texto": "From {carreira.astcon.inicio} to {carreira.astcon.fim}, at {carreira.astcon.empresa}, he ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting.",
-        "extra": "He coordinated the team, became the in-house go-to person for technical questions, and trained new hires.",
+        "texto": "From {carreira.astcon.inicio} to {carreira.astcon.fim}, at {carreira.astcon.empresa}, I ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting.",
+        "extra": "I coordinated the team, became the in-house go-to person for technical questions, and trained new hires.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "A field project",
-        "texto": "At {carreira.novomexico.empresa}, he gave administrative support to an irrigation project: he helped coordinate in-house teams and contractors, ran meetings, tracked the progress of the construction work, and supported the finance team.",
+        "texto": "At {carreira.novomexico.empresa}, I gave administrative support to an irrigation project: I helped coordinate in-house teams and contractors, ran meetings, tracked the progress of the construction work, and supported the finance team.",
         "extra": "",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
         "titulo": "The turning point of {carreira.zen.ano}",
-        "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, he joined as {carreira.zen.cargo} and began developing in-house systems.",
+        "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, I joined as {carreira.zen.cargo} and began developing in-house systems.",
         "extra": "",
         "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
       },
       {
         "titulo": "Turning spreadsheets into systems",
-        "texto": "Anyone who has spent five years inside spreadsheets knows where they break: a file that doesn’t talk to the next one, reconciliation done by hand, a deadline that depends on someone’s memory. That is what he automates today.",
+        "texto": "After five years inside spreadsheets, I know where they break: a file that doesn’t talk to the next one, reconciliation done by hand, a deadline that depends on someone’s memory. That is what I automate today.",
         "extra": "",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
@@ -170,7 +170,7 @@
     "secao": "Projects",
     "titulo": "{projetosPublicados} published projects, {demosAtivas} with a live demo.",
     "texto": "Each one grew out of a problem at work or in daily life.",
-    "marca": "He signs the systems as {marca}.",
+    "marca": "I sign my systems as {marca}.",
     "indice": {
       "rotulo": "Project index",
       "testes": "{n} tests"
@@ -200,8 +200,8 @@
     },
     "artmaker": {
       "frase": "Deal flyers ready for WhatsApp Status.",
-      "origem": "Someone asked him for help with the promo graphics for her grocery store. Instead of making the graphics and keeping her dependent on him, he built the tool so she could make them herself.",
-      "origemLonga": "Someone asked him for help making promo graphics for the products in her grocery store. If he made the graphics, she would always depend on him. So he built a tool that makes the job simple: she sets everything up the way she wants and gets the finished graphic at the end.",
+      "origem": "Someone asked me for help with the promo graphics for her grocery store. Instead of making the graphics and keeping her dependent on me, I built the tool so she could make them herself.",
+      "origemLonga": "Someone asked me for help making promo graphics for the products in her grocery store. If I made the graphics, she would always depend on me. So I built a tool that makes the job simple: she sets everything up the way she wants and gets the finished graphic at the end.",
       "problema": "Every promo graphic would depend on someone who knew how to put it together.",
       "resumo": "A {formato} deal flyer generator in WhatsApp Status format, in a single HTML file with Canvas. Everything is saved on the device itself.",
       "prova": "node --test on GitHub Actions.",
@@ -228,7 +228,7 @@
     "unifydata": {
       "frase": "Calculates payroll deductions for employee purchases.",
       "origem": "Employees buy from the group’s companies “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. For the payroll deduction, someone had to pull a report from each company and build the HR spreadsheet in Excel; HR uses Domínio (payroll software).",
-      "origemLonga": "It was built to help one of the group’s departments with employees’ internal purchases. They buy the group’s products “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. Someone had to pull a report from each company and, from it, build the spreadsheet for HR in Excel; HR uses Domínio (payroll software). It was a lot of work; UnifyData was built to make it easier.",
+      "origemLonga": "I built UnifyData to help one of the group’s departments with employees’ internal purchases. They buy the group’s products “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. Someone had to pull a report from each company and, from it, build the spreadsheet for HR in Excel; HR uses Domínio (payroll software). It was a lot of work, and UnifyData makes it easier.",
       "problema": "One report per company, combined by hand in Excel for HR.",
       "resumo": "Closes employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
       "prova": "{web} in the web version and {python} in the Python version, on GitHub Actions.",
@@ -254,8 +254,8 @@
     },
     "deepchat": {
       "frase": "DeepSeek answers and ChatGPT checks the answer.",
-      "origem": "AI answers aren’t always reliable. He used to carry the same question from one AI to another until both reached a consensus, and being the messenger got tiring.",
-      "origemLonga": "Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, he carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs he used most.",
+      "origem": "AI answers aren’t always reliable. I used to carry the same question from one AI to another until both reached a consensus, and being the messenger got tiring.",
+      "origemLonga": "Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, I carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs I used most.",
       "problema": "Checking an answer meant copying and pasting between two AIs.",
       "resumo": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there is an error, a revised version. No server: everything runs in the browser.",
       "prova": "node --test on GitHub Actions.",
@@ -282,7 +282,7 @@
     "praxis": {
       "frase": "From request to payment, in a single flow.",
       "origem": "Organizing the group’s purchasing: the more the group grew, the harder it was to track and control each request.",
-      "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. Praxis was inspired by the best purchasing management and tracking tools on the market.",
+      "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. I built Praxis inspired by the best purchasing management and tracking tools on the market.",
       "problema": "Requests, quotes, and approvals that were hard to track.",
       "resumo": "Corporate purchasing from request to payment, in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage, with {perfis} access roles.",
       "prova": "{unidade} unit and {regras} Firestore and Storage rules tests, on GitHub Actions.",
@@ -308,8 +308,8 @@
     },
     "flowtrack": {
       "frase": "Personal finances that categorize themselves.",
-      "origem": "Keeping track of his own finances was always hard: spreadsheets were tedious to fill in, and apps charged a monthly fee. He built his own organizer, with the best of the tools he knew.",
-      "origemLonga": "He always found it hard to keep track of his own finances. Filling in spreadsheets was tedious and tiring, and the apps charged monthly fees he didn’t want to pay. So he developed his own finance organizer, built around his needs, combining the best of the tools he knew.",
+      "origem": "Keeping track of my own finances was always hard: spreadsheets were tedious to fill in, and apps charged a monthly fee. I built my own organizer, with the best of the tools I knew.",
+      "origemLonga": "I always found it hard to keep track of my own finances. Filling in spreadsheets was tedious and tiring, and the apps charged monthly fees I didn’t want to pay. So I developed my own finance organizer, built around my needs, combining the best of the tools I knew.",
       "problema": "A spreadsheet that was tiring to fill in; an app with a monthly fee.",
       "resumo": "Personal finances with automatic categorization in {camadas} layers (rules, cache, and a language model); imports statements from {bancos} banks, OFX, and CSV.",
       "prova": "{backend} backend, {frontend} frontend, and {e2e} end-to-end.",
@@ -332,8 +332,8 @@
     },
     "audistock": {
       "frase": "Stock counts on a phone, checked against the ERP.",
-      "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. He built AudiStock to work like AutoSystem and integrate with it, solving the operators’ complaints.",
-      "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. He built AudiStock to work in a similar way and integrate with AutoSystem, solving the problems the operators complained about.",
+      "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. I built AudiStock to work like AutoSystem and integrate with it, solving the operators’ complaints.",
+      "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. I built AudiStock to work in a similar way and integrate with AutoSystem, solving the problems the operators complained about.",
       "problema": "Stock counts drew complaints from the auditors.",
       "resumo": "Stock audits: the team counts on a phone, enters the ERP balance at closing, and gets a report of shortages and overages in PDF, Excel, and CSV, with an offline queue for counting without internet.",
       "prova": "{unidade} unit and database tests and {e2e} end-to-end, on GitHub Actions.",
@@ -356,7 +356,7 @@
     "fuelmind": {
       "frase": "Reads fuel invoices (NF-e) and closes the month.",
       "origem": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor), then carried over to another one that calculated vehicle rental and the drivers’ freight. Typing errors caused delays and made audits harder.",
-      "origemLonga": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; he built the tool to put an end to that.",
+      "origemLonga": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; I built the tool to put an end to that.",
       "problema": "License plates, drivers, invoices, and amounts typed in by hand, with broken formulas.",
       "resumo": "Tracks fuel deliveries and freight: reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.",
       "prova": "{unidade} unit and {regras} Firestore rules tests, on GitHub Actions.",
@@ -387,7 +387,7 @@
     "alertsignal": {
       "frase": "Permit and license deadlines with automatic alerts.",
       "origem": "Expiration dates for business permits, AVCB (fire safety certificate), and other licenses of the group’s companies sat in spreadsheets that didn’t always get opened. The tool alerts each person in charge when an expiration date gets close.",
-      "origemLonga": "Expiration dates for business permits, AVCB (fire safety certificate), and other licenses of the group’s companies were tracked in spreadsheets, but they didn’t always get opened for a check. He developed the tool to notify the people responsible for each license when its expiration date gets close.",
+      "origemLonga": "Expiration dates for business permits, AVCB (fire safety certificate), and other licenses of the group’s companies were tracked in spreadsheets, but they didn’t always get opened for a check. I developed the tool to notify the people responsible for each license when its expiration date gets close.",
       "problema": "Deadlines that depended on someone opening the spreadsheet.",
       "resumo": "Tracks permit and license expirations for multiple companies, with daily email alerts starting {aviso1} days before each deadline and higher urgency at {aviso2} and {aviso3} days.",
       "prova": "unittest on GitHub Actions.",
@@ -413,8 +413,8 @@
     },
     "docke": {
       "frase": "Documents for multiple companies, with an audit trail.",
-      "origem": "The group was going to move all its documents to the cloud. He developed Docke around the key points of that move, shaped to the teams’ routine.",
-      "origemLonga": "The group was going to migrate all its documentation to the cloud. He developed Docke to meet the key points of that migration, shaped to the teams’ routine.",
+      "origem": "The group was going to move all its documents to the cloud. I developed Docke around the key points of that move, shaped to the teams’ routine.",
+      "origemLonga": "The group was going to migrate all its documentation to the cloud. I developed Docke to meet the key points of that migration, shaped to the teams’ routine.",
       "problema": "Documents from multiple companies to organize in the cloud, with deadlines and legal retention.",
       "resumo": "Electronic document management for multiple companies: search in scanned text (OCR), compliance deadlines, legal retention, and a hash-chained audit trail.",
       "prova": "{backend} backend and {e2e} end-to-end, on GitHub Actions.",

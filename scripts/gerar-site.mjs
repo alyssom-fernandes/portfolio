@@ -346,7 +346,7 @@ function gerarPagina(idioma) {
         <div class="ab-acoes">
           <a class="btn tinta" href="${cvHref}" target="_blank" rel="noopener">${esc(T.interface.baixarCv)}</a>
           <a class="btn contorno" href="#contato">${esc(T.interface.contato)}</a>
-          <a class="ab-link" href="#p-${projetos[0].id}">${esc(T.interface.verDestaque)}</a>
+          <a class="ab-link" href="#projetos">${esc(T.interface.verDestaque)}</a>
         </div>
       </div>
       <dl class="ficha" aria-label="${p0('abertura.ficha.titulo')}">
@@ -402,13 +402,7 @@ function gerarPagina(idioma) {
   </section>`;
 
   /* introdução dos projetos: a cortina do papel para a tela */
-  const indice = `<nav class="indice-w" aria-label="${p0('projetos.indice.rotulo')}">
-          <ol class="indice">${projetos.map(p => `
-            <li><a href="#p-${p.id}"><b>${esc(p.nome)}</b><span>${p0(`projetos.${p.id}.frase`, varsP(p))}</span><em>${p0('projetos.indice.testes', { n: varsP(p).testesTotal })}</em></a></li>`).join('')}
-          </ol>
-        </nav>`;
-  const intro = `<section class="cena intro" id="projetos-cena" data-cena="projetos" aria-labelledby="proj-t">
-    <span class="ancora" id="projetos"></span>
+  const intro = `<section class="cena intro" id="projetos-cena" data-cena="projetos">
     <div class="fixo">
       <div class="camada papel">
         <div class="camada-in"><p class="fecho">${p0('trajetoria.fecho')}</p></div>
@@ -416,59 +410,45 @@ function gerarPagina(idioma) {
       <div class="camada tela">
         <div class="camada-in">
           <p class="fecho clone" aria-hidden="true">${p0('trajetoria.fecho')}</p>
-          <div class="in-wrap">
-            <div class="in-txt">
-              <h2 id="proj-t">${h('projetos.titulo')}</h2>
-              <p class="in-lead">${h('projetos.texto')}</p>
-              <p class="in-marca">${h('projetos.marca')}</p>
-            </div>
-            ${indice}
-          </div>
         </div>
       </div>
     </div>
   </section>`;
 
-  /* projetos: nove resumos com o mesmo peso */
-  const resumos = projetos.map((p, idx) => {
+  /* projetos: nove cartões com o mesmo peso; o resto fica na página de cada projeto */
+  const cartoes = projetos.map(p => {
     const vp = varsP(p), vit = daVitrine(p);
-    const telasJanela = [...new Set(vit.map(it => it.tela).filter(t => t !== 'celular'))];
-    const m0 = manifesto[telasJanela[0]];
-    const ar = (m0.w / m0.h).toFixed(4);
-    const cel = p.composicao.celular;
-    const foco = k => (p.foco && p.foco[k]) ? ` style="--foco:${p.foco[k]}"` : '';
-    const imgs = telasJanela.map((k, j) => imgDe(k, pref, C, { attrs: ` data-k="${k}"${foco(k)}`, sizes: '(max-width: 760px) 100vw, 1000px', carregar: 'lazy' })).join('');
-    const itens = vit.map(it => `<li data-tela="${it.tela}"><b>${h(`projetos.${p.id}.itens.${it.id}.titulo`, vp)}</b></li>`).join('');
-    const descs = vit.map(it => `<p>${h(`projetos.${p.id}.itens.${it.id}.texto`, vp)}</p>`).join('');
-    return `<section class="cena proj lado-${p.composicao.lado}${cel ? ` cel-${cel}` : ''}" id="p-${p.id}" data-cena="${p.id}" data-proj style="--cor:${p.cor}; --ar:${ar}" aria-labelledby="t-${p.id}">
-    <div class="fixo">
-      <header class="p-cab">
-        <h3 class="p-nome" id="t-${p.id}" style="view-transition-name:nome-${p.id}">${esc(p.nome)}</h3>
-        <p class="p-frase">${h(`projetos.${p.id}.frase`, vp)}</p>
-        <p class="p-origem">${h(`projetos.${p.id}.origem`, vp)}</p>
-      </header>
-      <div class="p-corpo">
-        <figure class="palco">
-          <div class="grupo">
-            <div class="janela" style="view-transition-name:janela-${p.id}">
-              <div class="j-barra"><span>${esc(barraUrl(p))}</span><span class="j-leg">${p0(`projetos.legendas.${p.legenda}`)}</span></div>
-              <div class="j-tela">${imgs}</div>
-            </div>
-            ${cel ? `<div class="celular">${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 260px' })}</div>` : ''}
-          </div>
-        </figure>
-        <div class="ficha-p">
-          <div class="fp-problema"><p class="fp-rot">${p0('projetos.rotulos.problema')}</p><p>${h(`projetos.${p.id}.problema`, vp)}</p></div>
-          <div class="fp-sistema"><p class="fp-rot">${p0('projetos.rotulos.sistema')}</p><ol class="destaques">${itens}</ol><div class="descs">${descs}</div></div>
-          <div class="fp-fim">
-            <div><p class="fp-rot">${p0('projetos.rotulos.prova')}</p>${prova(p, C)}</div>
-            <div class="acoes">${botoes(p, C, pref)}</div>
-          </div>
+    const telas = [...new Set(vit.map(it => it.tela).filter(t => t !== 'celular'))].slice(0, 2);
+    const sz = '(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 460px';
+    const imgs = telas.map(k => imgDe(k, pref, C, { sizes: sz })).join('');
+    const cel = p.composicao.celular === 'sempre' && p.celular;
+    const href = `${pref}projetos/${p.id}/`;
+    return `<li class="cartao" id="p-${p.id}" style="--cor:${p.cor}">
+        <a class="ct-midia" href="${href}" tabindex="-1" aria-hidden="true">
+          <span class="ct-tela${telas.length > 1 ? ' duas' : ''}" style="view-transition-name:janela-${p.id}">${imgs}</span>
+          ${cel ? `<span class="ct-cel">${imgDe(p.celular, pref, C, { sizes: '120px' })}</span>` : ''}
+        </a>
+        <div class="ct-txt">
+          <h3 class="ct-nome"><a href="${href}" style="view-transition-name:nome-${p.id}">${esc(p.nome)}</a></h3>
+          <p class="ct-frase">${h(`projetos.${p.id}.frase`, vp)}</p>
+          <p class="ct-testes"><b>${esc(vp.testesTotal)}</b> ${p0('projetos.rotulos.testes')}</p>
+          <p class="ct-stack">${stackDe(p).slice(0, 3).map(esc).join(', ')}</p>
         </div>
+        <div class="ct-acoes">${botoes(p, C, pref)}</div>
+      </li>`;
+  }).join('\n      ');
+  const resumos = `<section class="grade-p" id="projetos" aria-labelledby="proj-t">
+    <header class="gp-cab">
+      <h2 id="proj-t">${h('projetos.titulo')}</h2>
+      <div class="gp-txt">
+        <p class="in-lead">${h('projetos.texto')}</p>
+        <p class="in-marca">${h('projetos.marca')}</p>
       </div>
-    </div>
+    </header>
+    <ol class="cartoes">
+      ${cartoes}
+    </ol>
   </section>`;
-  }).join('\n  ');
 
   /* habilidades */
   const nomeCol = id => projetos.find(p => p.id === id).nome;

@@ -21,7 +21,7 @@
     "cvCurto": "CV",
     "baixarCv": "Descargar CV (PDF)",
     "contato": "Contacto",
-    "verDestaque": "Ver el proyecto destacado",
+    "verDestaque": "Ver los proyectos",
     "verDetalhes": "Ver detalles",
     "demo": "Demo",
     "abrirDemo": "Abrir la demo",
@@ -108,25 +108,25 @@
     "passos": [
       {
         "titulo": "Primero, las hojas de cálculo",
-        "texto": "De {carreira.astcon.inicio} a {carreira.astcon.fim}, en {carreira.astcon.empresa}, llevó todas las rutinas de nómina y recursos humanos de más de {empresasClientesBase} empresas clientes y trabajó también en contabilidad.",
-        "extra": "Coordinaba al equipo, se convirtió en referente técnico interno y formaba a quienes llegaban.",
+        "texto": "De {carreira.astcon.inicio} a {carreira.astcon.fim}, en {carreira.astcon.empresa}, llevé todas las rutinas de nómina y recursos humanos de más de {empresasClientesBase} empresas clientes y trabajé también en contabilidad.",
+        "extra": "Coordinaba al equipo, me convertí en referente técnico interno y formaba a quienes llegaban.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "Un proyecto de campo",
-        "texto": "En {carreira.novomexico.empresa}, dio apoyo administrativo a un proyecto de riego: ayudaba a coordinar equipos internos y empresas contratistas, dirigía reuniones, hacía el seguimiento de las obras y apoyaba al área financiera.",
+        "texto": "En {carreira.novomexico.empresa}, di apoyo administrativo a un proyecto de riego: ayudaba a coordinar equipos internos y empresas contratistas, dirigía reuniones, hacía el seguimiento de las obras y apoyaba al área financiera.",
         "extra": "",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
         "titulo": "El giro de {carreira.zen.ano}",
-        "texto": "En {carreira.zen.empresa}, un grupo con más de {empresasGrupoBase} empresas, entró como {carreira.zen.cargo} y empezó a desarrollar sistemas internos.",
+        "texto": "En {carreira.zen.empresa}, un grupo con más de {empresasGrupoBase} empresas, entré como {carreira.zen.cargo} y empecé a desarrollar sistemas internos.",
         "extra": "",
         "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
       },
       {
         "titulo": "Convertir hojas de cálculo en sistemas",
-        "texto": "Quien pasó cinco años metido en hojas de cálculo sabe dónde fallan: el archivo que no se comunica con otro, la conciliación hecha a mano, el plazo que depende de la memoria de alguien. Eso es lo que él automatiza hoy.",
+        "texto": "Después de cinco años metido en hojas de cálculo, sé dónde fallan: el archivo que no se comunica con otro, la conciliación hecha a mano, el plazo que depende de la memoria de alguien. Eso es lo que automatizo hoy.",
         "extra": "",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
@@ -170,7 +170,7 @@
     "secao": "Proyectos",
     "titulo": "{projetosPublicados} proyectos publicados, {demosAtivas} con demo en línea.",
     "texto": "Todos nacieron de un problema del trabajo o del día a día.",
-    "marca": "Firma sus sistemas como {marca}.",
+    "marca": "Firmo mis sistemas como {marca}.",
     "indice": {
       "rotulo": "Índice de proyectos",
       "testes": "{n} pruebas"
@@ -200,8 +200,8 @@
     },
     "artmaker": {
       "frase": "Folletos de ofertas listos para los Estados de WhatsApp.",
-      "origem": "Una persona le pidió ayuda con las imágenes de promoción de su supermercado. En lugar de hacerlas y dejarla dependiendo de él, creó la herramienta para que ella misma las hiciera.",
-      "origemLonga": "Una persona le pidió ayuda para hacer las imágenes de promoción de los productos de su supermercado. Si él las hacía, ella siempre dependería de él. Por eso creó una herramienta que simplifica el trabajo: ella configura todo como quiere y recibe la imagen lista al final.",
+      "origem": "Una persona me pidió ayuda con las imágenes de promoción de su supermercado. En lugar de hacerlas y dejarla dependiendo de mí, creé la herramienta para que ella misma las hiciera.",
+      "origemLonga": "Una persona me pidió ayuda para hacer las imágenes de promoción de los productos de su supermercado. Si yo las hacía, ella siempre dependería de mí. Por eso creé una herramienta que simplifica el trabajo: ella configura todo como quiere y recibe la imagen lista al final.",
       "problema": "Cada imagen de promoción dependería de alguien que supiera diseñarla.",
       "resumo": "Generador de folletos de ofertas en {formato}, con el formato de los Estados de WhatsApp, en un único archivo HTML con Canvas. Guarda todo en el propio dispositivo.",
       "prova": "node --test en GitHub Actions.",
@@ -228,7 +228,7 @@
     "unifydata": {
       "frase": "Calcula el descuento por nómina de las compras de los empleados.",
       "origem": "Los empleados compran en las empresas del grupo «fiado», con cada compra anotada en un papel, y esas notas quedan registradas en AutoSystem. Para descontarlas por nómina, había que sacar un informe de cada empresa y preparar en Excel la hoja para recursos humanos, que usa Domínio (software de nómina).",
-      "origemLonga": "Se creó para ayudar a un departamento del grupo con las compras internas de los empleados. Compran productos del grupo «fiado», con cada compra anotada en un papel, y esas notas quedan registradas en AutoSystem. Había que sacar un informe de cada empresa y, a partir de él, preparar en Excel la hoja para recursos humanos, que usa Domínio (software de nómina). Era mucho trabajo; UnifyData se creó para facilitarlo.",
+      "origemLonga": "Creé UnifyData para ayudar a un departamento del grupo con las compras internas de los empleados. Compran productos del grupo «fiado», con cada compra anotada en un papel, y esas notas quedan registradas en AutoSystem. Había que sacar un informe de cada empresa y, a partir de él, preparar en Excel la hoja para recursos humanos, que usa Domínio (software de nómina). Era mucho trabajo, y UnifyData lo facilita.",
       "problema": "Un informe por empresa, unido a mano en Excel para recursos humanos.",
       "resumo": "Cierre de las compras a crédito de los empleados en las tiendas del grupo, registradas en AutoSystem: las cruza con la base de recursos humanos, señala lo que no cuadra y genera la hoja de descuento por nómina.",
       "prova": "{web} en la versión web y {python} en la versión Python, en GitHub Actions.",
@@ -254,8 +254,8 @@
     },
     "deepchat": {
       "frase": "DeepSeek responde y ChatGPT comprueba la respuesta.",
-      "origem": "Las respuestas de las IA no siempre son confiables. Él llevaba la misma pregunta de una IA a otra hasta que las dos llegaban a un consenso, y hacer de mensajero cansaba.",
-      "origemLonga": "Desde el comienzo de las IA, sus respuestas no siempre son confiables para tareas, trabajo o estudios. Para comprobarlas, él llevaba la respuesta de una IA a otra, con la misma pregunta, hasta que las dos debatían y llegaban a un consenso. Hacer de mensajero cansaba; DeepChat se convirtió en un «grupo de WhatsApp» con las dos IA que más usaba.",
+      "origem": "Las respuestas de las IA no siempre son confiables. Yo llevaba la misma pregunta de una IA a otra hasta que las dos llegaban a un consenso, y hacer de mensajero cansaba.",
+      "origemLonga": "Desde el comienzo de las IA, sus respuestas no siempre son confiables para tareas, trabajo o estudios. Para comprobarlas, yo llevaba la respuesta de una IA a otra, con la misma pregunta, hasta que las dos debatían y llegaban a un consenso. Hacer de mensajero cansaba; DeepChat se convirtió en un «grupo de WhatsApp» con las dos IA que más usaba.",
       "problema": "Comprobar una respuesta obligaba a copiar y pegar entre dos IA.",
       "resumo": "Chat en el que DeepSeek responde y ChatGPT revisa la respuesta con un veredicto, puntos fuertes, qué mejorar y, cuando hay un error, una versión revisada. Sin servidor: todo se ejecuta en el navegador.",
       "prova": "node --test en GitHub Actions.",
@@ -282,7 +282,7 @@
     "praxis": {
       "frase": "Del pedido al pago, en un solo flujo.",
       "origem": "Organizar las compras del grupo: cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido.",
-      "origemLonga": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido. Praxis se inspiró en las mejores herramientas de gestión y seguimiento de compras del mercado.",
+      "origemLonga": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido. Creé Praxis inspirado en las mejores herramientas de gestión y seguimiento de compras del mercado.",
       "problema": "Pedidos, cotizaciones y aprobaciones difíciles de rastrear.",
       "resumo": "Compras corporativas del pedido al pago, en {etapas} etapas: cotizaciones lado a lado, aprobaciones, cuotas, plazo y tiempo por etapa, con {perfis} perfiles de acceso.",
       "prova": "{unidade} de unidad y {regras} de las reglas de Firestore y Storage, en GitHub Actions.",
@@ -308,8 +308,8 @@
     },
     "flowtrack": {
       "frase": "Finanzas personales que se categorizan solas.",
-      "origem": "Controlar sus propias finanzas siempre le costó: la hoja de cálculo era tediosa de completar y las apps cobraban una mensualidad. Hizo su propio organizador, con lo mejor de las herramientas que conocía.",
-      "origemLonga": "Siempre le costó controlar sus propias finanzas. Completar hojas de cálculo era tedioso y agotador, y las apps cobraban mensualidades que él no quería pagar. Entonces desarrolló su propio organizador de finanzas, pensado para sus necesidades, reuniendo lo mejor de las herramientas que conocía.",
+      "origem": "Controlar mis finanzas siempre me costó: la hoja de cálculo era tediosa de completar y las apps cobraban una mensualidad. Hice mi propio organizador, con lo mejor de las herramientas que conocía.",
+      "origemLonga": "Siempre me costó controlar mis finanzas. Completar hojas de cálculo era tedioso y agotador, y las apps cobraban mensualidades que yo no quería pagar. Entonces desarrollé mi propio organizador de finanzas, pensado para mis necesidades, reuniendo lo mejor de las herramientas que conocía.",
       "problema": "Hoja de cálculo tediosa de completar; aplicación con mensualidad.",
       "resumo": "Finanzas personales con categorización automática en {camadas} capas (reglas, caché y un modelo de lenguaje); importa extractos de {bancos} bancos, OFX y CSV.",
       "prova": "{backend} de backend, {frontend} de frontend y {e2e} de extremo a extremo.",
@@ -332,8 +332,8 @@
     },
     "audistock": {
       "frase": "Recuento de inventario desde el teléfono, comparado con el ERP.",
-      "origem": "Quienes auditaban el inventario de algunas empresas del grupo señalaban problemas con el recuento de AutoSystem. Él hizo AudiStock parecido a AutoSystem e integrado con él, y resolvió las quejas de los operadores.",
-      "origemLonga": "El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Él hizo AudiStock de forma parecida e integrado con AutoSystem, y resolvió los problemas de los que se quejaban los operadores.",
+      "origem": "Quienes auditaban el inventario de algunas empresas del grupo señalaban problemas con el recuento de AutoSystem. Hice AudiStock parecido a AutoSystem e integrado con él, y resolví las quejas de los operadores.",
+      "origemLonga": "El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida e integrado con AutoSystem, y resolví los problemas de los que se quejaban los operadores.",
       "problema": "El recuento de inventario generaba quejas de quienes auditaban.",
       "resumo": "Auditoría de inventario: el equipo cuenta desde el teléfono, en el cierre registra las existencias del ERP y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV, con cola sin conexión para contar sin internet.",
       "prova": "{unidade} de unidad y base de datos y {e2e} de extremo a extremo, en GitHub Actions.",
@@ -356,7 +356,7 @@
     "fuelmind": {
       "frase": "Lee las facturas de combustible (NF-e) y cierra el mes.",
       "origem": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible) y luego se pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Los errores al copiar los datos retrasaban y complicaban las auditorías.",
-      "origemLonga": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible). De esas hojas, los datos pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Placas, nombres de conductores, números de factura y valores mal copiados, además de fórmulas rotas, retrasaban y complicaban las auditorías; él hizo la herramienta para acabar con eso.",
+      "origemLonga": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible). De esas hojas, los datos pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Placas, nombres de conductores, números de factura y valores mal copiados, además de fórmulas rotas, retrasaban y complicaban las auditorías; hice la herramienta para acabar con eso.",
       "problema": "Placas, conductores, facturas y valores copiados a mano, con fórmulas rotas.",
       "resumo": "Control de las entradas de combustible y de los fletes: lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.",
       "prova": "{unidade} de unidad y {regras} de las reglas de Firestore, en GitHub Actions.",
@@ -387,7 +387,7 @@
     "alertsignal": {
       "frase": "Plazos de permisos y licencias con aviso automático.",
       "origem": "El control de vencimientos de permisos, AVCB (certificado de seguridad contra incendios) y otras licencias de las empresas del grupo estaba en hojas de cálculo, y no siempre alguien las abría para revisar. La herramienta avisa a cada responsable cuando se acerca un vencimiento.",
-      "origemLonga": "El control de vencimientos de permisos, AVCB (certificado de seguridad contra incendios) y otras licencias de las empresas del grupo se llevaba en hojas de cálculo, pero no siempre alguien las abría para verificar. Él desarrolló la herramienta para avisar a los responsables de cada licencia cuando se acerca el vencimiento.",
+      "origemLonga": "El control de vencimientos de permisos, AVCB (certificado de seguridad contra incendios) y otras licencias de las empresas del grupo se llevaba en hojas de cálculo, pero no siempre alguien las abría para verificar. Desarrollé la herramienta para avisar a los responsables de cada licencia cuando se acerca el vencimiento.",
       "problema": "Vencimientos que dependían de que alguien abriera la hoja de cálculo.",
       "resumo": "Vencimientos de permisos y licencias de varias empresas, con avisos diarios por correo desde {aviso1} días antes del vencimiento y mayor urgencia a los {aviso2} y a los {aviso3} días.",
       "prova": "unittest en GitHub Actions.",
@@ -413,8 +413,8 @@
     },
     "docke": {
       "frase": "Documentos de varias empresas, con registro de auditoría.",
-      "origem": "El grupo iba a llevar toda su documentación a la nube. Él desarrolló Docke con los puntos clave de ese cambio, adaptado a la rutina de los equipos.",
-      "origemLonga": "El grupo iba a migrar toda su documentación a la nube. Él desarrolló Docke atendiendo los puntos clave de esa migración y adaptado a la rutina de los equipos.",
+      "origem": "El grupo iba a llevar toda su documentación a la nube. Desarrollé Docke con los puntos clave de ese cambio, adaptado a la rutina de los equipos.",
+      "origemLonga": "El grupo iba a migrar toda su documentación a la nube. Desarrollé Docke atendiendo los puntos clave de esa migración y adaptado a la rutina de los equipos.",
       "problema": "Documentos de varias empresas por organizar en la nube, con plazos y conservación legal.",
       "resumo": "Gestión electrónica de documentos para varias empresas: búsqueda en el texto digitalizado (OCR), plazos de obligaciones, conservación legal y registro de auditoría encadenado por hash.",
       "prova": "{backend} de backend y {e2e} de extremo a extremo, en GitHub Actions.",
