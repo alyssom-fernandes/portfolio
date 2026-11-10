@@ -1,28 +1,31 @@
 {
-  "_leia": "Site copy in English (US). Keys must stay identical to textos.pt.json; translate only the values. Markup: *emphasis* · **bold** · ~strikethrough~ · {variable} (comes from fonte/dados.json; never translate what is inside the braces). Keys starting with _ are ignored.",
+  "_leia": "Site copy in international English: readable in Europe and the Americas, US spelling (-ize), no terms tied to one country. Keys must stay identical to textos.pt.json; translate only the values. Markup: *emphasis* · **bold** · ~strikethrough~ · {variable} (comes from fonte/dados.json; never translate what is inside the braces). Keys starting with _ are ignored.",
   "meta": {
     "titulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
-    "descricao": "Developer with a background in accounting, HR & payroll, and controllership. Remote or relocation to Europe. Builds the systems that replace spreadsheets.",
+    "descricao": "Developer with a background in accounting, payroll, HR, and financial control. Remote or relocation to Europe and the Americas. I build systems that replace spreadsheets.",
     "ogTitulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
-    "ogDescricao": "I spent 5 years inside spreadsheets. Now I build the systems that replace them."
+    "ogDescricao": "I spent 5 years inside spreadsheets. Now I build the systems that replace them.",
+    "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
     "titulo": "Developer · Data & Business Intelligence",
     "tese": "I spent 5 years inside ~spreadsheets~. Now I build the *systems* that replace them.",
     "pais": "Brazil",
-    "disponibilidade": "Remote or relocation to Europe",
+    "disponibilidade": "Remote or relocation to Europe and the Americas",
     "rubricaAlt": "Alyssom Fernandes’s signature mark"
   },
   "interface": {
     "pularParaConteudo": "Skip to content",
     "secoes": "Sections",
     "idioma": "Language",
-    "redes": "Social links",
     "cvCurto": "CV",
     "baixarCv": "Download CV (PDF)",
     "contato": "Contact",
-    "verDemo": "View live demo",
-    "abreEmNovaAba": "opens in a new tab",
+    "verDestaque": "See the featured project",
+    "verDetalhes": "See details",
+    "demo": "Demo",
+    "abrirDemo": "Open the demo",
+    "comoRodar": "How to run the demo",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "email": "Email",
@@ -32,10 +35,11 @@
       "codigoWeb": "Web code",
       "codigoPython": "Python code"
     },
-    "status": {
-      "producao": "In production",
-      "demo": "Live demo",
-      "codigo": "Code"
+    "aria": {
+      "detalhes": "{nome} details",
+      "demo": "{nome} demo (opens in a new tab)",
+      "comoRodar": "How to run the {nome} demo, on GitHub (opens in a new tab)",
+      "codigo": "{rotulo} for {nome} on GitHub (opens in a new tab)"
     }
   },
   "formato": {
@@ -69,90 +73,74 @@
     ],
     "mesAno": "{mes} {ano}",
     "mesAnoLongo": "{mes} {ano}",
+    "dataLonga": "{mes} {dia}, {ano}",
+    "dataCurta": "{dia}\u00a0{mesCurto}\u00a0{ano}",
     "periodo": "{inicio} – {fim}",
     "hoje": "present",
     "mes": "month",
     "meses": "months"
   },
   "abertura": {
-    "folio": "Profile · Developer · Data & Business Intelligence",
-    "kicker": "From accounting to code · {anoInicio} → today",
-    "linhaFina": "Developer with a background in accounting, HR & payroll, and controllership. I know the business problem from the inside, and I ship production software that automates month-end closes and reconciliations, from AutoSystem to payroll deductions.",
-    "disponivel": "**Available** for remote work or relocation to Europe · {pais}, {fuso}",
+    "linhaFina": "Developer with a background in accounting, payroll, HR, and financial control. I build software from problems I ran into at work: payroll deductions for employee purchases, fuel invoices typed in by hand, a deadline that depended on someone opening the spreadsheet.",
     "ficha": {
-      "titulo": "By the numbers",
-      "periodo": "{anoInicio} → today",
-      "anosRotulo": "years of experience",
-      "anosNota": "accounting, HR & payroll, and controllership",
-      "empresasRotulo": "client companies in HR & payroll",
-      "empresasNota": "{carreira.astcon.curto} · {carreira.astcon.anos}",
-      "projetosRotulo": "published projects",
-      "projetosNota": "on GitHub · {demosAtivas} with a live demo"
-    },
-    "agora": {
-      "rotulo": "Now",
-      "titulo": "{carreira.zen.cargo} · {carreira.zen.empresa}",
-      "texto": "Technology degree (Tecnólogo) in Systems Analysis and Development, completed in {formacao.conclusao}."
+      "titulo": "Fact sheet",
+      "experienciaRotulo": "Experience",
+      "experiencia": "Now {carreira.zen.cargo} at {carreira.zen.empresa}, since {carreira.zen.inicioLongo}. Before that, payroll, HR, and accounting at {carreira.astcon.curto} ({carreira.astcon.anos}) and administration at {carreira.novomexico.empresa}.",
+      "formacaoRotulo": "Education",
+      "formacao": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}.",
+      "idiomasRotulo": "Languages",
+      "idiomas": "Native Portuguese, B1 English, basic Spanish.",
+      "vagaRotulo": "Looking for",
+      "vaga": "Development, data, or financial systems. Remote or relocation to Europe and the Americas.",
+      "fusoRotulo": "Time zone",
+      "fuso": "{pais}, {fuso}."
     }
   },
   "trajetoria": {
     "secao": "Career",
     "figura": {
-      "rotulo": "Fig. 1",
       "titulo": "One square per month of career",
       "iniciaisMeses": "JFMAMJJASOND",
-      "virada": "{carreira.zen.ano} · spreadsheets → systems",
+      "virada": "{carreira.zen.ano}: from spreadsheets to systems",
       "aspas": "“{texto}”",
       "legendaGrade": "Grid of months from February {anoInicio} to today, colored by company."
     },
     "passos": [
       {
         "titulo": "First, the spreadsheets",
-        "texto": "From {carreira.astcon.inicio} to {carreira.astcon.fim}, at {carreira.astcon.empresa}, he ran the full HR & payroll cycle for **{empresasClientes} client companies**, including Brazilian payroll filings. He also worked on the accounting side and supported the firm’s other departments.",
+        "texto": "From {carreira.astcon.inicio} to {carreira.astcon.fim}, at {carreira.astcon.empresa}, he ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting.",
         "extra": "He coordinated the team, became the in-house go-to person for technical questions, and trained new hires.",
-        "fonte": "{carreira.astcon.cargo} · {carreira.astcon.periodo}",
-        "chips": [
-          "hiring",
-          "terminations",
-          "vacation",
-          "severance",
-          "INSS",
-          "FGTS",
-          "eSocial",
-          "DCTFWeb"
-        ]
+        "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "A field project",
-        "texto": "At {carreira.novomexico.empresa}, he provided general administrative support to a large irrigation project: **he helped coordinate in-house teams and contractors**, ran meetings, monitored the work, and assisted with finance.",
+        "texto": "At {carreira.novomexico.empresa}, he gave administrative support to an irrigation project: he helped coordinate in-house teams and contractors, ran meetings, tracked the progress of the construction work, and supported the finance team.",
         "extra": "",
-        "fonte": "{carreira.novomexico.cargo} · {carreira.novomexico.periodo}",
-        "chips": []
+        "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
-        "titulo": "The *{carreira.zen.ano}* turning point",
-        "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, he built **several internal systems that are now in production**.",
-        "extra": "The ones published on GitHub appear in the projects below, marked “In production.”",
-        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}) · {carreira.zen.periodo}",
-        "chips": []
+        "titulo": "The turning point of {carreira.zen.ano}",
+        "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, he joined as {carreira.zen.cargo} and began developing in-house systems.",
+        "extra": "",
+        "fonte": "{carreira.zen.cargo} ({carreira.zen.cargoFormal}), {carreira.zen.periodo}"
       },
       {
-        "titulo": "From spreadsheets *to systems*",
-        "texto": "Anyone who has spent five years inside spreadsheets knows where they break: disconnected files, manual reconciliations, deadlines that depend on someone’s memory. **He speaks the language of both the finance team and the tech team.**",
+        "titulo": "Turning spreadsheets into systems",
+        "texto": "Anyone who has spent five years inside spreadsheets knows where they break: a file that doesn’t talk to the next one, reconciliation done by hand, a deadline that depends on someone’s memory. That is what he automates today.",
         "extra": "",
-        "fonte": "{formacao.curso} · {formacao.instituicao}, {formacao.conclusao}",
-        "chips": []
+        "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
-    ]
+    ],
+    "fecho": "From here on, the screens."
   },
   "carreira": {
     "astcon": {
-      "area": "HR & payroll, accounting",
+      "area": "Payroll, HR, and accounting",
       "tipo": "accounting firm",
-      "cargo": "Office Assistant (HR/Payroll & Accounting)",
+      "cargo": "Office Assistant (payroll, HR, and accounting)",
       "cargoFormal": "",
       "itens": [
-        "Full HR & payroll cycle for {empresasClientes} client companies: hiring, terminations, vacation, severance, and Brazilian payroll filings (INSS, FGTS, eSocial, DCTFWeb).",
+        "Full payroll and HR routines for more than {empresasClientesBase} client companies: hiring, dismissals, leave, termination settlements, and Brazilian payroll filings (INSS, FGTS, eSocial, DCTFWeb).",
         "Also worked on the accounting side and supported the firm’s other departments.",
         "Coordinated the team; served as the in-house go-to for technical questions and trained new staff."
       ]
@@ -163,127 +151,65 @@
       "cargo": "Administrative Assistant (temporary contract)",
       "cargoFormal": "",
       "itens": [
-        "General administrative support for a large irrigation project.",
-        "Helped coordinate in-house teams and contractors; ran meetings, monitored the work, and assisted with finance."
+        "Administrative support for an irrigation project.",
+        "Helped coordinate in-house teams and contractors; ran meetings, tracked the construction work, and supported the finance team."
       ]
     },
     "zen": {
       "area": "Systems",
       "tipo": "a group of more than {empresasGrupoBase} companies",
       "cargo": "Junior Financial Systems Analyst",
-      "cargoFormal": "formal title: Controllership Assistant",
+      "cargoFormal": "formal title: Financial Control Assistant",
       "itens": [
-        "Built several internal systems that are now in production.",
-        "Controllership and reconciliation, internal controls, and AutoSystem ERP."
+        "In-house systems development.",
+        "Financial control and reconciliation, internal controls, and the AutoSystem ERP."
       ]
     }
   },
   "projetos": {
     "secao": "Projects",
-    "titulo": "What he built, *real screens included*.",
-    "texto": "**Every one of them started with a real problem he faced at work.** Each is shown as a product in its own scene: what it solves, its screens, the numbers with their source, and where to try it. Projects marked “In production” are in use at Grupo Zen.",
-    "marca": "His systems are signed **{marca}**, his own brand.",
-    "publicados": "published projects",
-    "comDemo": "with a live demo",
+    "titulo": "{projetosPublicados} published projects, {demosAtivas} with a live demo.",
+    "texto": "Each one grew out of a problem at work or in daily life.",
+    "marca": "He signs the systems as {marca}.",
     "indice": {
-      "titulo": "Index",
-      "texto": "One project per scene, in this order. Click a name to jump straight to it.",
-      "rotulo": "Project index"
+      "rotulo": "Project index",
+      "testes": "{n} tests"
+    },
+    "rotulos": {
+      "problema": "Problem",
+      "sistema": "System",
+      "prova": "Proof",
+      "testes": "tests",
+      "conferidos": "Checked on {data}"
     },
     "legendas": {
-      "demo": "Screenshots from the public demo · fictional demo data",
-      "repositorio": "Screenshots published in the repository"
+      "demo": "Screens from the public demo, with fictitious data",
+      "repositorio": "Screens published in the repository"
     },
-    "cartoes": {
-      "secao": "Also on GitHub",
-      "titulo": "{n} more projects.",
-      "tituloUm": "One more project.",
-      "texto": "No screenshots published yet: what each one solves, the stack, and the code.",
-      "textoUm": "No screenshots published yet: what it solves, the stack, and the code.",
-      "fichaRotulo": "Repository",
-      "fichaStack": "Stack"
-    },
-    "fuelmind": {
-      "frase": "From the incoming NF-e to the month-end close.",
-      "resumo": "Tracks incoming fuel deliveries and freight, along with vehicle rentals and driver payments.",
-      "prova": "**{testes}** automated tests",
-      "cv": "Tracks incoming fuel deliveries and freight; used daily in a real operation. Imports the NF-e (Brazilian electronic invoice, XML) and closes the month in PDF/Excel. {testes} automated tests; replaced {planilhasSubstituidas} disconnected spreadsheets.",
-      "itens": {
-        "painel": {
-          "titulo": "Deliveries on one dashboard",
-          "texto": "Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard."
-        },
-        "nfe": {
-          "titulo": "Imports the NF-e",
-          "texto": "Reads the NF-e (Brazilian electronic invoice) XML to record each fuel delivery."
-        },
-        "fretes": {
-          "titulo": "Freight and payments",
-          "texto": "Freight month by month, with vehicle rentals and driver payments settled at month-end close."
-        },
-        "fechamento": {
-          "titulo": "Closes the month",
-          "texto": "Monthly close in PDF or Excel."
-        },
-        "producao": {
-          "titulo": "In use every day",
-          "texto": "In production in a real operation, with {testes} automated tests. Replaced {planilhasSubstituidas} disconnected spreadsheets."
-        }
-      }
-    },
-    "unifydata": {
-      "frase": "From store purchases to payroll deductions.",
-      "resumo": "Monthly close of the purchases employees make on credit at the group’s stores (gas station, restaurant, hotel), recorded in AutoSystem: it matches them against HR records and generates the payroll deduction spreadsheet.",
-      "prova": "**{testesWeb}** tests (web) + **{testesPython}** (Python) on GitHub Actions",
-      "cv": "Monthly close of employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against HR records and generates the payroll deduction spreadsheet by company, a CSV, and an A4 report. The web version runs in production; the Python version matches by name. {testesWeb} + {testesPython} tests on GitHub Actions.",
-      "itens": {
-        "entrada": {
-          "titulo": "AutoSystem × HR",
-          "texto": "The stores’ credit purchase reports are loaded alongside the HR employee records."
-        },
-        "pendencias": {
-          "titulo": "Flags what doesn’t match",
-          "texto": "A purchase with no HR record or no company becomes an open item, with amount, employee ID, and store."
-        },
-        "desconto": {
-          "titulo": "Payroll deductions",
-          "texto": "Generates the deduction spreadsheet, one tab per company, plus a CSV and an A4 report."
-        },
-        "versoes": {
-          "titulo": "Web and Python",
-          "texto": "The web version, the one in production, matches by employee ID and also works on a phone; the Python version (Streamlit) matches by name, with human review."
-        }
-      }
-    },
-    "alertsignal": {
-      "frase": "Permit and license deadlines with automatic alerts.",
-      "resumo": "Tracks permit and license expirations for multiple companies, with daily email alerts starting {aviso1} days before each deadline and higher urgency at {aviso2} and {aviso3} days.",
-      "prova": "**{testes}** automated tests on GitHub Actions",
-      "cv": "Tracks permit and license expirations for multiple companies, with daily email alerts starting {aviso1} days ahead and higher urgency at {aviso2} and {aviso3}; reports in PDF, Excel, and CSV. {testes} tests on GitHub Actions.",
-      "itens": {
-        "painel": {
-          "titulo": "Overview",
-          "texto": "Expired, due for renewal, current, and undated, with a chart of the next {meses} months."
-        },
-        "avisos": {
-          "titulo": "Daily email alerts",
-          "texto": "Each company lists its documents by urgency, with the expiration date and the time left. Alerts start {aviso1} days ahead, with higher urgency at {aviso2} and {aviso3}; the thresholds are configurable."
-        },
-        "relatorio": {
-          "titulo": "Expiration report",
-          "texto": "Filters by status and exports to PDF, Excel, and CSV."
-        }
-      }
+    "detalhe": {
+      "origemTitulo": "Why it exists",
+      "fichaTitulo": "Problem, system, and proof",
+      "destaquesTitulo": "Inside",
+      "stackTitulo": "Stack",
+      "linksTitulo": "Links",
+      "voltar": "Back to projects",
+      "anterior": "Previous",
+      "proximo": "Next",
+      "navegacao": "Other projects",
+      "semDemo": "No hosted demo: it runs on your own computer, with fictitious data, following the README."
     },
     "artmaker": {
       "frase": "Deal flyers ready for WhatsApp Status.",
-      "resumo": "Generates {formato} deal flyers sized for WhatsApp Status, in a single HTML file with Canvas; everything is saved on the device itself.",
-      "prova": "**{testes}** automated tests on GitHub Actions",
-      "cv": "Generates {formato} deal flyers for WhatsApp Status, in a single HTML file with Canvas; saves on the device itself. The app’s default is Mercado Vitória, a real client. {testes} tests on GitHub Actions.",
+      "origem": "Someone asked him for help with the promo graphics for her grocery store. Instead of making the graphics and keeping her dependent on him, he built the tool so she could make them herself.",
+      "origemLonga": "Someone asked him for help making promo graphics for the products in her grocery store. If he made the graphics, she would always depend on him. So he built a tool that makes the job simple: she sets everything up the way she wants and gets the finished graphic at the end.",
+      "problema": "Every promo graphic would depend on someone who knew how to put it together.",
+      "resumo": "A {formato} deal flyer generator in WhatsApp Status format, in a single HTML file with Canvas. Everything is saved on the device itself.",
+      "prova": "node --test on GitHub Actions.",
+      "cv": "{formato} deal flyers for WhatsApp Status, in a single HTML file with Canvas; saves on the device itself. {testesTotal} tests on GitHub Actions.",
       "itens": {
         "cliente": {
-          "titulo": "Built for a real client",
-          "texto": "The app’s default is Mercado Vitória."
+          "titulo": "With the store’s brand",
+          "texto": "The app’s default is Mercado Vitória. Store and deal details go into the editor, next to the flyer preview."
         },
         "cores": {
           "titulo": "{paletas} ready-made palettes",
@@ -299,11 +225,41 @@
         }
       }
     },
+    "unifydata": {
+      "frase": "Calculates payroll deductions for employee purchases.",
+      "origem": "Employees buy from the group’s companies “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. For the payroll deduction, someone had to pull a report from each company and build the HR spreadsheet in Excel; HR uses Domínio (payroll software).",
+      "origemLonga": "It was built to help one of the group’s departments with employees’ internal purchases. They buy the group’s products “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. Someone had to pull a report from each company and, from it, build the spreadsheet for HR in Excel; HR uses Domínio (payroll software). It was a lot of work; UnifyData was built to make it easier.",
+      "problema": "One report per company, combined by hand in Excel for HR.",
+      "resumo": "Closes employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
+      "prova": "{web} in the web version and {python} in the Python version, on GitHub Actions.",
+      "cv": "Closes employees’ credit purchases recorded in AutoSystem: matches them against HR and generates the payroll deduction spreadsheet by company, plus CSV and an A4 report. Web and Python versions; {web} + {python} tests on GitHub Actions.",
+      "itens": {
+        "entrada": {
+          "titulo": "AutoSystem and HR side by side",
+          "texto": "The stores’ credit purchase reports are loaded alongside the HR employee records."
+        },
+        "pendencias": {
+          "titulo": "Flags what doesn’t match",
+          "texto": "A purchase with no HR record or no company becomes an open item, with amount, employee ID, and store."
+        },
+        "desconto": {
+          "titulo": "Payroll deduction spreadsheet",
+          "texto": "One tab per company, plus CSV and an A4 report."
+        },
+        "versoes": {
+          "titulo": "Web and Python",
+          "texto": "The web version matches by employee ID and also works on phones; the Python version (Streamlit) matches by name, with human review."
+        }
+      }
+    },
     "deepchat": {
-      "frase": "One AI answers. Another reviews.",
-      "resumo": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there’s an error, a revised version. No server: everything runs in the browser, and API keys, if saved, are stored encrypted.",
-      "prova": "**{testes}** automated tests on GitHub Actions",
-      "cv": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict and, when there’s an error, a revised version; no server, with API keys stored encrypted in the browser. Demo works without an API key; {testes} tests on GitHub Actions.",
+      "frase": "DeepSeek answers and ChatGPT checks the answer.",
+      "origem": "AI answers aren’t always reliable. He used to carry the same question from one AI to another until both reached a consensus, and being the messenger got tiring.",
+      "origemLonga": "Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, he carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs he used most.",
+      "problema": "Checking an answer meant copying and pasting between two AIs.",
+      "resumo": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there is an error, a revised version. No server: everything runs in the browser.",
+      "prova": "node --test on GitHub Actions.",
+      "cv": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict and, when there is an error, a revised version; no server, with API keys stored encrypted in the browser. {testesTotal} tests on GitHub Actions.",
       "itens": {
         "veredito": {
           "titulo": "Verdict up front",
@@ -325,8 +281,12 @@
     },
     "praxis": {
       "frase": "From request to payment, in a single flow.",
-      "resumo": "Corporate purchasing from request to payment, in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage.",
-      "cv": "Corporate purchasing from request to payment, in {etapas} stages: quotes, approvals, installments, deadlines, and time per stage. {perfis} access roles and {eventos} notification events; the workflow covers requester, buyer, approvers, and finance.",
+      "origem": "Organizing the group’s purchasing: the more the group grew, the harder it was to track and control each request.",
+      "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. Praxis was inspired by the best purchasing management and tracking tools on the market.",
+      "problema": "Requests, quotes, and approvals that were hard to track.",
+      "resumo": "Corporate purchasing from request to payment, in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage, with {perfis} access roles.",
+      "prova": "{unidade} unit and {regras} Firestore and Storage rules tests, on GitHub Actions.",
+      "cv": "Corporate purchasing from request to payment, in {etapas} stages: quotes, approvals, installments, and deadlines, with {perfis} access roles and {eventos} notification events. {unidade} unit tests and {regras} Firestore rules tests.",
       "itens": {
         "fluxo": {
           "titulo": "From request to payment",
@@ -338,7 +298,7 @@
         },
         "perfis": {
           "titulo": "{perfis} access roles",
-          "texto": "Each request shows who needs to act now and the savings compared with the most expensive proposal. The workflow covers requester, buyer, approvers, and finance, each with their own permissions."
+          "texto": "The request shows who needs to act now and the savings against the most expensive proposal. Requester, buyer, approvers, and finance, each with their own permissions."
         },
         "app": {
           "titulo": "Installs as an app",
@@ -346,35 +306,19 @@
         }
       }
     },
-    "audistock": {
-      "frase": "From the stock count to the shortage and overage report.",
-      "resumo": "Inventory audits: the team counts on a phone, enters the ERP balance at closing, and gets a shortage and overage report in PDF, Excel, and CSV, with an offline queue for counting without internet.",
-      "prova": "**{testesUnidade}** unit and database tests + **{testesE2e}** end-to-end on GitHub Actions",
-      "cv": "Inventory audits: counting on a phone (keyboard, barcode scanner, or camera) with an offline queue, closing against the ERP balance, and a shortage and overage report in PDF, Excel, and CSV. {testesUnidade} unit and database tests and {testesE2e} end-to-end tests on GitHub Actions.",
-      "itens": {
-        "visao": {
-          "titulo": "Audits in progress",
-          "texto": "The progress of each count, a summary of the latest audit, and the largest shortages and overages relative to the balance."
-        },
-        "contagem": {
-          "titulo": "Counts on a phone",
-          "texto": "Keyboard, barcode scanner, or camera, with an offline queue for counting without internet."
-        },
-        "relatorio": {
-          "titulo": "Shortages and overages against the ERP",
-          "texto": "At closing, the team enters the ERP balance. The report shows the system quantity, the counted quantity, and the difference for each item, and exports to PDF, Excel, and CSV."
-        }
-      }
-    },
     "flowtrack": {
       "frase": "Personal finances that categorize themselves.",
-      "resumo": "Personal finance app with {camadas}-layer AI categorization (rules → cache → Claude Haiku); imports statements from {bancos} banks, plus OFX and CSV.",
-      "prova": "**{testes}** automated tests",
-      "cv": "Personal finance app with {camadas}-layer AI categorization (rules → cache → Claude Haiku); imports statements from {bancos} banks, plus OFX and CSV. {testes} automated tests.",
+      "origem": "Keeping track of his own finances was always hard: spreadsheets were tedious to fill in, and apps charged a monthly fee. He built his own organizer, with the best of the tools he knew.",
+      "origemLonga": "He always found it hard to keep track of his own finances. Filling in spreadsheets was tedious and tiring, and the apps charged monthly fees he didn’t want to pay. So he developed his own finance organizer, built around his needs, combining the best of the tools he knew.",
+      "problema": "A spreadsheet that was tiring to fill in; an app with a monthly fee.",
+      "resumo": "Personal finances with automatic categorization in {camadas} layers (rules, cache, and a language model); imports statements from {bancos} banks, OFX, and CSV.",
+      "prova": "{backend} backend, {frontend} frontend, and {e2e} end-to-end.",
+      "stackModelo": "Language model",
+      "cv": "Personal finances with automatic categorization in {camadas} layers (rules, cache, and a language model); imports statements from {bancos} banks, OFX, and CSV. {backend} backend tests, {frontend} frontend, and {e2e} end-to-end.",
       "itens": {
         "camadas": {
-          "titulo": "{camadas}-layer AI",
-          "texto": "Rules first, then cache; only what is left goes to Claude Haiku."
+          "titulo": "Categorizes in {camadas} layers",
+          "texto": "Rules first, then cache; only what is left goes to a language model."
         },
         "extratos": {
           "titulo": "Statements from {bancos} banks",
@@ -386,37 +330,127 @@
         }
       }
     },
+    "audistock": {
+      "frase": "Stock counts on a phone, checked against the ERP.",
+      "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. He built AudiStock to work like AutoSystem and integrate with it, solving the operators’ complaints.",
+      "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. He built AudiStock to work in a similar way and integrate with AutoSystem, solving the problems the operators complained about.",
+      "problema": "Stock counts drew complaints from the auditors.",
+      "resumo": "Stock audits: the team counts on a phone, enters the ERP balance at closing, and gets a report of shortages and overages in PDF, Excel, and CSV, with an offline queue for counting without internet.",
+      "prova": "{unidade} unit and database tests and {e2e} end-to-end, on GitHub Actions.",
+      "cv": "Stock audits: counting on a phone (keyboard, barcode scanner, or camera) with an offline queue, closing against the ERP balance, and a report of shortages and overages in PDF, Excel, and CSV. {unidade} unit and database tests and {e2e} end-to-end.",
+      "itens": {
+        "visao": {
+          "titulo": "Audits in progress",
+          "texto": "The progress of each count, a summary of the latest audit, and the largest shortages and overages relative to the balance."
+        },
+        "contagem": {
+          "titulo": "Counts on a phone",
+          "texto": "Keyboard, barcode scanner, or camera, with an offline queue for counting without internet."
+        },
+        "relatorio": {
+          "titulo": "Shortages and overages vs. the ERP",
+          "texto": "At closing, the team enters the ERP balance. The report shows the system quantity, the counted quantity, and the difference for each item, and exports to PDF, Excel, and CSV."
+        }
+      }
+    },
+    "fuelmind": {
+      "frase": "Reads fuel invoices (NF-e) and closes the month.",
+      "origem": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor), then carried over to another one that calculated vehicle rental and the drivers’ freight. Typing errors caused delays and made audits harder.",
+      "origemLonga": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; he built the tool to put an end to that.",
+      "problema": "License plates, drivers, invoices, and amounts typed in by hand, with broken formulas.",
+      "resumo": "Tracks fuel deliveries and freight: reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.",
+      "prova": "{unidade} unit and {regras} Firestore rules tests, on GitHub Actions.",
+      "cv": "Tracks fuel deliveries and freight: imports the electronic invoice (NF-e XML), calculates vehicle rental and the drivers’ freight, and closes the month in PDF or Excel. {unidade} unit tests and {regras} Firestore rules tests.",
+      "itens": {
+        "nfe": {
+          "titulo": "Imports the NF-e",
+          "texto": "Reads the XML of the electronic invoice (NF-e) to record each fuel delivery."
+        },
+        "fretes": {
+          "titulo": "Rental and freight",
+          "texto": "Freight month by month, with vehicle rental and driver pay at month-end close."
+        },
+        "fechamento": {
+          "titulo": "Closes the month",
+          "texto": "Monthly close in PDF or Excel."
+        },
+        "painel": {
+          "titulo": "Deliveries on one dashboard",
+          "texto": "Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard."
+        },
+        "celular": {
+          "titulo": "On a phone too",
+          "texto": "The same dashboard, with a layout built for phones."
+        }
+      }
+    },
+    "alertsignal": {
+      "frase": "Permit and license deadlines with automatic alerts.",
+      "origem": "Expiration dates for business permits, AVCB (fire safety certificate), and other licenses of the group’s companies sat in spreadsheets that didn’t always get opened. The tool alerts each person in charge when an expiration date gets close.",
+      "origemLonga": "Expiration dates for business permits, AVCB (fire safety certificate), and other licenses of the group’s companies were tracked in spreadsheets, but they didn’t always get opened for a check. He developed the tool to notify the people responsible for each license when its expiration date gets close.",
+      "problema": "Deadlines that depended on someone opening the spreadsheet.",
+      "resumo": "Tracks permit and license expirations for multiple companies, with daily email alerts starting {aviso1} days before each deadline and higher urgency at {aviso2} and {aviso3} days.",
+      "prova": "unittest on GitHub Actions.",
+      "cv": "Permit and license expirations for multiple companies, with daily email alerts from {aviso1} days before and higher urgency at {aviso2} and {aviso3}; reports in PDF, Excel, and CSV. {testesTotal} tests on GitHub Actions.",
+      "itens": {
+        "painel": {
+          "titulo": "Overview",
+          "texto": "Expired, due for renewal, current, and undated, with a chart of the next {meses} months."
+        },
+        "avisos": {
+          "titulo": "Daily email alerts",
+          "texto": "Each company shows its documents by urgency, with expiration date and time left. Alerts start {aviso1} days before, with higher urgency at {aviso2} and {aviso3}."
+        },
+        "relatorio": {
+          "titulo": "Expiration report",
+          "texto": "Filters by status and exports to PDF, Excel, and CSV."
+        },
+        "celular": {
+          "titulo": "On a phone too",
+          "texto": "Each company’s documents become cards on a phone."
+        }
+      }
+    },
     "docke": {
       "frase": "Documents for multiple companies, with an audit trail.",
-      "resumo": "Multi-company electronic document management: OCR, tax obligations, legal retention, and a hash-chained audit trail.",
-      "cv": "Multi-company electronic document management: OCR, tax obligations, legal retention, and a hash-chained audit trail."
+      "origem": "The group was going to move all its documents to the cloud. He developed Docke around the key points of that move, shaped to the teams’ routine.",
+      "origemLonga": "The group was going to migrate all its documentation to the cloud. He developed Docke to meet the key points of that migration, shaped to the teams’ routine.",
+      "problema": "Documents from multiple companies to organize in the cloud, with deadlines and legal retention.",
+      "resumo": "Electronic document management for multiple companies: search in scanned text (OCR), compliance deadlines, legal retention, and a hash-chained audit trail.",
+      "prova": "{backend} backend and {e2e} end-to-end, on GitHub Actions.",
+      "cv": "Electronic document management for multiple companies: OCR, compliance deadlines, legal retention, and a hash-chained audit trail. {backend} backend tests and {e2e} end-to-end.",
+      "itens": {
+        "painel": {
+          "titulo": "Company dashboard",
+          "texto": "Documents, folders, anchored items, and recent uploads for the selected company, with documents by folder."
+        },
+        "documentos": {
+          "titulo": "Folders with OCR",
+          "texto": "Each folder lists its documents with type, size, and the OCR mark, which lets you search inside the scanned text."
+        },
+        "trilha": {
+          "titulo": "Audit trail",
+          "texto": "Every upload, view, and download is logged in a hash-chained trail."
+        },
+        "celular": {
+          "titulo": "On a phone too",
+          "texto": "The same dashboard, with navigation at the bottom."
+        }
+      }
     }
   },
   "alt": {
-    "fuelmind": {
-      "dashboard": "Fuel Mind: dashboard with invoices for unloaded deliveries, liters, and monthly spending",
-      "lancamentos": "Fuel Mind: entries screen with NF-e XML import",
-      "fretes": "Fuel Mind: freight month by month",
-      "relatorios": "Fuel Mind: reports and month-end close",
-      "celular": "Fuel Mind on a phone: dashboard"
+    "artmaker": {
+      "editor": "ArtMaker: editor with the store and deal details and the flyer preview",
+      "cores": "ArtMaker: color palettes as thumbnails, one of them applied to the flyer",
+      "estilo": "ArtMaker: font, frame, border, corner, and price options, in the light theme",
+      "celular": "ArtMaker on a phone: finished flyer with Share and Download"
     },
     "unifydata": {
       "base": "UnifyData: employee records loaded and store purchase reports ready to process",
       "pendencias": "UnifyData: open items from the matching, with no HR record or no company, showing amount, employee ID, and store",
       "resultado": "UnifyData: close complete, with the total to deduct by company and by store and the Excel, CSV, and PDF outputs",
       "celular": "UnifyData on a phone: close complete"
-    },
-    "alertsignal": {
-      "visao-geral": "AlertSignal: overview with expired, due-for-renewal, current, and undated documents and the expiration chart",
-      "empresa": "AlertSignal: one company’s documents by urgency, with expiration date, time left, and the people responsible",
-      "relatorio": "AlertSignal: expiration report grouped by company, with PDF, Excel, and CSV outputs",
-      "celular": "AlertSignal on a phone: one company’s documents as cards"
-    },
-    "artmaker": {
-      "editor": "ArtMaker: editor with the store and deal details and the flyer preview",
-      "cores": "ArtMaker: color palettes as thumbnails, one of them applied to the flyer",
-      "estilo": "ArtMaker: font, frame, border, corner, and price options, in the light theme",
-      "celular": "ArtMaker on a phone: finished flyer with Share and Download"
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: review of an answer with the verdict Incorrect, strengths, and what to improve",
@@ -430,105 +464,115 @@
       "aprovacao": "Praxis: request pending approval, with the stage tracker, the next step, the recommended proposal, the savings, and the people involved",
       "celular": "Praxis on a phone: purchase request board with the stages as tabs"
     },
+    "flowtrack": {
+      "dashboard": "FlowTrack: dashboard with balance, income, and expenses",
+      "transacoes": "FlowTrack: list of categorized transactions",
+      "relatorios": "FlowTrack: reports with income, expenses, balance, and spending by category"
+    },
     "audistock": {
       "dashboard": "AudiStock: audits in progress, a summary of the latest audit, and the largest shortages and overages relative to the balance",
       "relatorio": "AudiStock: audit report with the system quantity, counted quantity, and difference for each item, plus Excel, PDF, and CSV exports",
       "celular": "AudiStock on a phone: counting by keyboard, scanner, or camera, with the audit’s progress"
     },
-    "flowtrack": {
-      "dashboard": "FlowTrack: dashboard with balance, income, and expenses",
-      "transacoes": "FlowTrack: list of categorized transactions",
-      "relatorios": "FlowTrack: reports with income, expenses, balance, and spending by category"
+    "fuelmind": {
+      "lancamentos": "Fuel Mind: entries screen with NF-e XML import",
+      "fretes": "Fuel Mind: freight month by month",
+      "relatorios": "Fuel Mind: reports and month-end close",
+      "dashboard": "Fuel Mind: dashboard with invoices for unloaded deliveries, liters, and monthly spending",
+      "celular": "Fuel Mind on a phone: dashboard"
+    },
+    "alertsignal": {
+      "visao-geral": "AlertSignal: overview with expired, due-for-renewal, current, and undated documents and the expiration chart",
+      "empresa": "AlertSignal: one company’s documents by urgency, with expiration date, time left, and the people responsible",
+      "relatorio": "AlertSignal: expiration report grouped by company, with PDF, Excel, and CSV outputs",
+      "celular": "AlertSignal on a phone: one company’s documents as cards"
+    },
+    "docke": {
+      "dashboard": "Docke: company dashboard with 14 documents, 4 folders, uploads over the last 14 days, and documents by folder",
+      "documentos": "Docke: the Fiscal (tax) folder with four documents, their type, size, and the OCR mark",
+      "atividade": "Docke: activity log with every upload, view, and download recorded by day",
+      "celular": "Docke on a phone: dashboard with the totals and navigation at the bottom"
     }
   },
   "habilidades": {
     "secao": "Skills",
-    "titulo": "Skills, *with evidence*.",
-    "texto": "No made-up percentage bars: each technology is matched to the project where it was actually used.",
-    "cabecalho": "Technology / capability",
+    "titulo": "Technology × project",
+    "texto": "Each dot is evidence in the code or CI of a published repository. No ratings from 0 to 10.",
+    "cabecalho": "Technology or capability",
     "total": "Total",
-    "porProjeto": "Technologies per project",
-    "nota": "Each dot is evidence in the code or CI of a published repository.",
-    "notaFora": "{foraDaMatriz} are not counted here.",
-    "negocioTitulo": "Business × experience",
+    "porProjeto": "Per project",
+    "negocioTitulo": "Business, by experience",
     "linhas": {
-      "javascript": "JavaScript",
       "testes": "Automated tests",
-      "autenticacao": "Authentication & access roles",
-      "relatorios": "PDF / Excel reports",
-      "dashboards": "Dashboards & KPIs",
       "ci": "CI (GitHub Actions)",
+      "javascript": "JavaScript",
+      "excel": "Excel: reading and generating",
+      "relatorios": "PDF and Excel reports",
+      "autenticacao": "Authentication and access roles",
+      "dashboards": "Dashboards and metrics",
       "python": "Python",
+      "postgres": "SQL (PostgreSQL, Supabase)",
       "jobs": "Scheduled jobs",
-      "postgres": "PostgreSQL / Supabase",
-      "offline": "Offline & sync",
+      "offline": "Offline and sync",
       "tempoReal": "Real time",
-      "iaGenerativa": "Generative AI",
+      "firebase": "Firebase",
+      "iaGenerativa": "Language model APIs",
       "typescript": "TypeScript",
       "react": "React",
       "fastapi": "FastAPI",
-      "firebase": "Firebase",
       "pandas": "pandas",
-      "flask": "Flask + SQLite",
+      "flask": "Flask and SQLite",
       "ocr": "OCR (Tesseract)",
       "nfe": "NF-e (XML)"
     },
     "negocio": {
+      "folha": "Payroll and HR: eSocial, DCTFWeb, FGTS, INSS",
       "contabil": "Accounting routines and support for the firm’s other departments",
+      "controladoria": "Financial control and reconciliation, internal controls, AutoSystem ERP",
       "analiseDados": "Financial and operational data analysis",
-      "folha": "HR & payroll — Brazilian payroll filings (eSocial, DCTFWeb, FGTS, INSS)",
       "treinamento": "Training and team coordination",
-      "controladoria": "Controllership & reconciliation, internal controls, AutoSystem ERP",
-      "coordenacao": "Coordinating in-house teams and contractors, meetings, work oversight, finance support, project administration"
+      "coordenacao": "Coordinating in-house teams and contractors, meetings, tracking construction work, supporting finance"
     }
   },
   "formacao": {
-    "secao": "Education & languages",
-    "superiorRotulo": "Higher education",
     "curso": "Technology degree (Tecnólogo) in Systems Analysis and Development",
     "cursoCurto": "Technology degree in Systems Analysis and Development",
-    "detalhe": "Brazilian higher-education degree · {formacao.instituicao} · completed in {formacao.conclusao}",
-    "idiomasRotulo": "Languages",
+    "detalhe": "undergraduate program, {formacao.instituicao}, completed in {formacao.conclusao}",
     "idiomas": {
       "pt": {
         "nome": "Portuguese",
-        "nivel": "Native",
-        "curto": "Portuguese (native)"
+        "nivel": "native"
       },
       "en": {
         "nome": "English",
-        "nivel": "B1 · intermediate",
-        "curto": "English (B1)"
+        "nivel": "B1"
       },
       "es": {
         "nome": "Spanish",
-        "nivel": "Basic",
-        "curto": "Spanish (basic)"
+        "nivel": "basic"
       }
     }
   },
   "contato": {
     "secao": "Contact",
-    "titulo": "Let’s *talk*.",
-    "texto": "Open to roles in software development, data, and financial systems, either remote or with relocation to Europe.",
-    "quem": "Who",
-    "disponibilidade": "Availability",
-    "contato": "Contact",
-    "formacaoIdiomas": "Education and languages",
-    "cv": "CV (PDF)",
+    "titulo": "Got a spreadsheet that should be a system?",
+    "texto": "I’m looking for a role in development, data, or financial systems, remote or with relocation to Europe and the Americas. Write to {linkEmail}, message me on {linkWhatsapp}, or see the code on {linkGithub}.",
+    "formacao": "{formacao.cursoCurto}, {formacao.instituicao}, {formacao.conclusao}. Native Portuguese, B1 English, basic Spanish. {pais}, {fuso}.",
     "atualizado": "Updated {atualizado}"
   },
   "erro404": {
     "titulo": "Page not found",
     "texto": "This address does not exist or has moved.",
-    "link": "Go to the portfolio in English"
+    "link": "Go to the portfolio in English",
+    "linkProjetos": "See the projects"
   },
   "cv": {
     "site": "Portfolio",
     "resumoTitulo": "Summary",
-    "resumo": "Developer with a background in accounting, HR & payroll, and controllership. From {carreira.astcon.anoInicio} to {carreira.astcon.anoFim}, ran the full HR & payroll cycle for {empresasClientes} client companies and also worked on the accounting side; since {carreira.zen.ano}, have built internal systems at Grupo Zen that are now in production. Every one of my projects grew out of a real problem I ran into at work.",
+    "resumo": "Developer with a background in accounting, payroll, HR, and financial control. From {carreira.astcon.anoInicio} to {carreira.astcon.anoFim} I ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting; since {carreira.zen.ano}, at Grupo Zen, I have been developing in-house systems. I build software from problems I ran into at work.",
     "experienciaTitulo": "Experience",
     "projetosTitulo": "Projects",
+    "projetosNota": "{projetosPublicados} projects published on GitHub, {demosAtivas} with a live demo. Tests checked on {data}.",
     "habilidadesTitulo": "Skills",
     "tecnologias": "Technologies",
     "negocio": "Business",

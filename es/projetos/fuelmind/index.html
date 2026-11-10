@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuel Mind: Lee las facturas de combustible (NF-e) y cierra el mes — Alyssom Fernandes</title>
+<meta name="description" content="Control de las entradas de combustible y de los fletes: lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.">
+<link rel="canonical" href="https://alyssom-fernandes.github.io/portfolio/es/projetos/fuelmind/">
+<link rel="alternate" hreflang="pt-BR" href="https://alyssom-fernandes.github.io/portfolio/projetos/fuelmind/">
+<link rel="alternate" hreflang="en" href="https://alyssom-fernandes.github.io/portfolio/en/projetos/fuelmind/">
+<link rel="alternate" hreflang="es" href="https://alyssom-fernandes.github.io/portfolio/es/projetos/fuelmind/">
+<link rel="alternate" hreflang="x-default" href="https://alyssom-fernandes.github.io/portfolio/projetos/fuelmind/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Alyssom Fernandes">
+<meta property="og:title" content="Fuel Mind: Lee las facturas de combustible (NF-e) y cierra el mes — Alyssom Fernandes">
+<meta property="og:description" content="Control de las entradas de combustible y de los fletes: lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.">
+<meta property="og:url" content="https://alyssom-fernandes.github.io/portfolio/es/projetos/fuelmind/">
+<meta property="og:image" content="https://alyssom-fernandes.github.io/portfolio/assets/img/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pasé 5 años metido en hojas de cálculo. Hoy construyo los sistemas que las sustituyen.">
+<meta property="og:locale" content="es_LA">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15171A">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/css/style.css?v=1f0fa7ab">
+<script>document.documentElement.classList.add('js')</script>
+<script src="../../../assets/js/main.js?v=b3c00942" defer></script>
+</head>
+<body class="detalhe" style="--cor:#B03030">
+<a class="pular" href="#conteudo">Saltar al contenido</a>
+<header class="mast escuro" id="mast">
+  <a class="marca-nome" href="../../"><span class="t0">Alyssom Fernandes</span><span class="t1" aria-hidden="true">Alyssom Fernandes</span></a>
+  <nav class="mast-nav" aria-label="Secciones"><a href="../../#trajetoria"><span class="t0">Trayectoria</span><span class="t1" aria-hidden="true">Trayectoria</span></a><a href="../../#projetos"><span class="t0">Proyectos</span><span class="t1" aria-hidden="true">Proyectos</span></a><a href="../../#habilidades"><span class="t0">Habilidades</span><span class="t1" aria-hidden="true">Habilidades</span></a><a href="../../#contato"><span class="t0">Contacto</span><span class="t1" aria-hidden="true">Contacto</span></a></nav>
+  <details class="mast-menu"><summary><span class="t0">Secciones</span><span class="t1" aria-hidden="true">Secciones</span></summary><nav aria-label="Secciones"><a href="../../#trajetoria">Trayectoria</a><a href="../../#projetos">Proyectos</a><a href="../../#habilidades">Habilidades</a><a href="../../#contato">Contacto</a><span class="menu-idiomas"><a href="../../../projetos/fuelmind/" hreflang="pt-BR" lang="pt-BR">Português</a><a href="../../../en/projetos/fuelmind/" hreflang="en" lang="en">English</a><a href="../../../es/projetos/fuelmind/" hreflang="es" lang="es" aria-current="page">Español</a></span></nav></details>
+  <nav class="idiomas" aria-label="Idioma"><a href="../../../projetos/fuelmind/" hreflang="pt-BR" lang="pt-BR" data-pasta title="Português"><span class="t0">PT</span><span class="t1" aria-hidden="true">PT</span></a><a href="../../../en/projetos/fuelmind/" hreflang="en" lang="en" data-pasta title="English"><span class="t0">EN</span><span class="t1" aria-hidden="true">EN</span></a><a href="../../../es/projetos/fuelmind/" hreflang="es" lang="es" data-pasta aria-current="page" title="Español"><span class="t0">ES</span><span class="t1" aria-hidden="true">ES</span></a></nav>
+  <a class="mast-cv" href="../../../cv/Alyssom-Fernandes-CV-ES.pdf" target="_blank" rel="noopener" aria-label="Descargar CV (PDF)"><span class="t0">CV</span><span class="t1" aria-hidden="true">CV</span></a>
+</header>
+
+<main id="conteudo" tabindex="-1">
+  <article class="d-art">
+    <header class="d-abertura">
+      <a class="d-voltar" href="../../#p-fuelmind">Volver a los proyectos</a>
+      <h1 class="d-nome" style="view-transition-name:nome-fuelmind">Fuel Mind</h1>
+      <p class="d-frase">Lee las facturas de combustible (NF-e) y cierra el mes.</p>
+      <div class="d-palco com-cel">
+        <div class="janela" style="view-transition-name:janela-fuelmind">
+          <div class="j-barra"><span>controle-entradas-posto.web.app</span><span class="j-leg">Pantallas de la demo pública, con datos ficticios</span></div>
+          <div class="j-tela estatica" style="aspect-ratio:1440 / 900"><img src="../../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: pantalla de registros con importación del XML de la NF-e" loading="eager" decoding="async" fetchpriority="high"></div>
+        </div>
+        <div class="celular"><img src="../../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind en el teléfono: panel" loading="eager" decoding="async"></div>
+      </div>
+      <div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app" target="_blank" rel="noopener" aria-label="Demo de Fuel Mind (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Código de Fuel Mind en GitHub (se abre en una pestaña nueva)">Código</a></div>
+    </header>
+
+    <section class="d-origem" aria-labelledby="d-origem-t">
+      <h2 id="d-origem-t">Por qué existe</h2>
+      <p>Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible). De esas hojas, los datos pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Placas, nombres de conductores, números de factura y valores mal copiados, además de fórmulas rotas, retrasaban y complicaban las auditorías; él hizo la herramienta para acabar con eso.</p>
+    </section>
+
+    <section class="d-ficha" aria-labelledby="d-ficha-t">
+      <h2 class="sr" id="d-ficha-t">Problema, sistema y comprobación</h2>
+      <div><p class="fp-rot">Problema</p><p>Placas, conductores, facturas y valores copiados a mano, con fórmulas rotas.</p></div>
+      <div><p class="fp-rot">Sistema</p><p>Control de las entradas de combustible y de los fletes: lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.</p></div>
+      <div><p class="fp-rot">Comprobación</p><div class="d-prova">
+          <p class="prova-n"><b>145</b> <span>pruebas</span></p>
+          <p class="prova-d"><span class="pd-det">120 de unidad y 25 de las reglas de Firestore, en GitHub Actions.</span> <span class="pd-data">Verificadas el 9/11/2026.</span></p>
+        </div></div>
+    </section>
+
+    <section class="d-destaques" aria-labelledby="d-dest-t">
+      <h2 id="d-dest-t">Por dentro</h2>
+      <ol>
+      <li class="d-item">
+        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: pantalla de registros con importación del XML de la NF-e" loading="lazy" decoding="async"></div></div></div>
+        <div class="d-item-txt"><h3>Importa la NF-e</h3><p>Lee el XML de la factura electrónica (NF-e) para registrar cada entrada de combustible.</p></div>
+      </li>
+      <li class="d-item inv">
+        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/fretes.webp" srcset="../../../assets/projetos/fuelmind/fretes-960.webp 960w, ../../../assets/projetos/fuelmind/fretes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: fletes mes a mes" loading="lazy" decoding="async"></div></div></div>
+        <div class="d-item-txt"><h3>Alquiler y flete</h3><p>Fletes mes a mes, con el alquiler de los vehículos y el pago a los conductores en el cierre.</p></div>
+      </li>
+      <li class="d-item">
+        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/relatorios.webp" srcset="../../../assets/projetos/fuelmind/relatorios-960.webp 960w, ../../../assets/projetos/fuelmind/relatorios.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: informes y cierre del mes" loading="lazy" decoding="async"></div></div></div>
+        <div class="d-item-txt"><h3>Cierra el mes</h3><p>Cierre mensual en PDF o Excel.</p></div>
+      </li>
+      <li class="d-item inv">
+        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/dashboard.webp" srcset="../../../assets/projetos/fuelmind/dashboard-960.webp 960w, ../../../assets/projetos/fuelmind/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: panel con las facturas del combustible descargado, los litros y el gasto del mes" loading="lazy" decoding="async"></div></div></div>
+        <div class="d-item-txt"><h3>Entradas en un solo panel</h3><p>Facturas del combustible descargado, litros y gasto del mes en un mismo panel.</p></div>
+      </li>
+      <li class="d-item">
+        <div class="d-fig celular-so"><img src="../../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind en el teléfono: panel" loading="lazy" decoding="async"></div>
+        <div class="d-item-txt"><h3>También en el teléfono</h3><p>El mismo panel, con un diseño propio para teléfono.</p></div>
+      </li>
+      </ol>
+    </section>
+
+    <section class="d-stack" aria-labelledby="d-stack-t">
+      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, Firebase, Chart.js, jsPDF, SheetJS, node:test, GitHub Actions</p></div>
+      <div><h2>Enlaces</h2><div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app" target="_blank" rel="noopener" aria-label="Demo de Fuel Mind (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Código de Fuel Mind en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
+    </section>
+  </article>
+
+  <nav class="d-nav" aria-label="Otros proyectos">
+    <a class="d-ant" href="../audistock/"><span>Anterior</span><b>AudiStock</b></a>
+    <a class="d-todos" href="../../#projetos">Volver a los proyectos</a>
+    <a class="d-prox" href="../alertsignal/"><span>Siguiente</span><b>AlertSignal</b></a>
+  </nav>
+</main>
+
+<footer class="d-rodape">
+  <p class="d-rod-t"><a href="../../#contato">¿Tienes una hoja de cálculo que debería ser un sistema?</a></p>
+  <p><a href="mailto:alyssom1919@gmail.com">alyssom1919@gmail.com</a><a href="https://linkedin.com/in/alyssom-fernandes" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/alyssom-fernandes" target="_blank" rel="noopener">GitHub</a><a href="../../../cv/Alyssom-Fernandes-CV-ES.pdf" target="_blank" rel="noopener">Descargar CV (PDF)</a></p>
+</footer>
+</body>
+</html>

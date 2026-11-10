@@ -12,7 +12,7 @@ em HTML (legível sem JavaScript e pelo Google). O JavaScript só acrescenta os 
 ```
 fonte/
   dados.json            tudo que NÃO é texto: links, datas, números, projetos, matriz de habilidades, baseUrl
-  textos.pt.json        todo o texto do site em português; textos.en.json (inglês) e textos.es.json (espanhol da Espanha)
+  textos.pt.json        todo o texto do site em português; textos.en.json (inglês internacional) e textos.es.json (espanhol neutro)
   capturas.json         roteiro das capturas de tela das demos (usado por scripts/capturar-telas.mjs)
 scripts/
   gerar-site.mjs        gera index.html, en/, es/, robots.txt, sitemap.xml e 404.html a partir de fonte/ → npm run build
@@ -44,8 +44,8 @@ Depois abra http://127.0.0.1:5173. Abrir o `index.html` direto (duplo clique) ta
 
 Para testar uma cena sem rolar a página, use `?cena=<id>&progresso=<0 a 1>`, por exemplo
 `http://127.0.0.1:5173/?cena=fuelmind&progresso=0.5`. Ids: `abertura`, `trajetoria`, `projetos`,
-o id de cada projeto em lançamento (`artmaker`, `unifydata`, `fuelmind`, `praxis`, `deepchat`, `audistock`,
-`alertsignal`, `flowtrack`), `cartoes`, `habilidades`, `formacao`, `contato`.
+o id de cada projeto (`artmaker`, `unifydata`, `deepchat`, `praxis`, `flowtrack`, `audistock`, `fuelmind`,
+`alertsignal`, `docke`), `habilidades`, `contato`.
 
 ## Gerar o site
 
@@ -152,17 +152,14 @@ lançamentos seguidos, o de baixo já vai se montando enquanto o de cima sai.
    código ou no CI** do repositório. Os totais são calculados.
 5. `npm run build -- --idiomas pt`.
 
-## Status e demos
+## Demos
 
-O status de cada projeto é calculado: **Em produção** (`emProducao: true`), senão **Demo ao vivo**
-(`demo.ativa: true`), senão **Código**. Sem demo ativa, o projeto mostra só os botões de código (ex.: AlertSignal, que
-está em produção mas não tem demo publicada; FlowTrack e Docke, cujas demos estão fora do ar).
-
-**Ligar a demo do Docke ou do FlowTrack:** em `fonte/dados.json`, no projeto, troque `"ativa": false` por
-`"ativa": true` em `demo` e rode o build. Aparece o botão "Ver demo ao vivo", o status muda de "Código" para "Demo ao
-vivo", a barra da janela passa a mostrar o endereço da demo e a contagem de demos é recalculada. Enquanto
-`"ativa": false`, a URL da demo continua guardada nos dados. Na barra da janela e no CV o endereço aparece sem o
-`?demo=1`; o link leva ao endereço completo.
+Não há selo de status: cada projeto mostra os botões "Ver detalhes", "Demo" e "Código". Com `demo.ativa: true` em
+`fonte/dados.json`, aparece o botão "Demo", a barra da janela mostra o endereço da demo e o projeto entra na contagem
+de demos. Com `"ativa": false` (ou `demo: null`), o botão some e o projeto sai da contagem; a URL continua guardada nos
+dados. Sem demo hospedada, `comoRodar` (um link por idioma para a seção do README que ensina a rodar a demo local)
+vira o botão "Como rodar a demo" (ex.: AlertSignal). Na barra da janela e no CV o endereço aparece sem o `?demo=1`; o
+link leva ao endereço completo.
 
 ## Imagens
 

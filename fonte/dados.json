@@ -7,9 +7,10 @@
     "idiomas": [
       { "codigo": "pt", "nome": "Português", "lang": "pt-BR", "hreflang": "pt-BR", "ogLocale": "pt_BR", "pasta": "" },
       { "codigo": "en", "nome": "English", "lang": "en", "hreflang": "en", "ogLocale": "en_US", "pasta": "en/" },
-      { "codigo": "es", "nome": "Español", "lang": "es-ES", "hreflang": "es-ES", "ogLocale": "es_ES", "pasta": "es/" }
+      { "codigo": "es", "nome": "Español", "lang": "es", "hreflang": "es", "ogLocale": "es_LA", "pasta": "es/" }
     ],
-    "corTema": "#F3EFE6"
+    "corTema": "#FBFBF8",
+    "corTemaTela": "#15171A"
   },
 
   "identidade": {
@@ -29,239 +30,272 @@
     }
   },
 
+  "_numeros": "Só números contados. empresasClientes e empresasGrupo aparecem nos textos como 'mais de N' ({empresasClientesBase}, {empresasGrupoBase}).",
   "numeros": {
     "empresasClientes": "60+",
-    "planilhasSubstituidas": "6+",
     "empresasGrupo": "20+"
   },
+
+  "_testesConferidos": "Data em que as contagens de testes de cada projeto foram conferidas (logs do CI e execução local). Atualize junto com os números em projetos[].testes.",
+  "testesConferidos": [2026, 11, 9],
 
   "carreira": [
     { "id": "astcon", "empresa": "Astcon Assessoria Contábil", "curto": "Astcon", "inicio": [2021, 2], "fim": [2025, 9], "cor": "#B5A688" },
     { "id": "novomexico", "empresa": "Fazenda Novo México", "curto": "Novo México", "inicio": [2025, 9], "fim": [2026, 1], "cor": "#7A705E" },
-    { "id": "zen", "empresa": "Grupo Zen", "curto": "Grupo Zen", "inicio": [2026, 2], "fim": null, "cor": "#2B3BEA" }
+    { "id": "zen", "empresa": "Grupo Zen", "curto": "Grupo Zen", "inicio": [2026, 2], "fim": null, "cor": "#2445B5" }
   ],
 
   "formacao": { "instituicao": "Uniasselvi", "conclusao": 2026 },
 
   "idiomasFalados": [
-    { "id": "pt", "codigo": "pt", "barra": 1 },
-    { "id": "en", "codigo": "en", "barra": 0.6 },
-    { "id": "es", "codigo": "es", "barra": 0.25 }
+    { "id": "pt", "codigo": "pt" },
+    { "id": "en", "codigo": "en" },
+    { "id": "es", "codigo": "es" }
   ],
 
-  "_projetos": "Ordem na página = campo ordem (do mais forte para o menor). nivel: lancamento (cena de rolagem com telas) ou cartao (sem telas). Cada destaque (itens) mostra uma tela; \"celular\" usa a captura de celular. demo.ativa false esconde o botão da demo e tira o projeto da contagem.",
+  "_projetos": "Ordem na página = campo ordem. Todos têm o mesmo peso: resumo na página inicial e página de detalhe em projetos/<id>/. cor: tinta da cena (8% sobre o escuro). composicao.lado: lado da tela no resumo (dir|esq). composicao.celular: 'sempre' (produto de celular: o telefone fica no palco o tempo todo) ou 'destaque' (o telefone só entra no destaque 'celular'). itens: destaques; vitrine true = aparece no resumo (3 por projeto), todos aparecem na página de detalhe. testes: contagens conferidas em testesConferidos; o total é a soma. demo.ativa false esconde o botão e tira o projeto da contagem. comoRodar: link para a seção do README que ensina a rodar a demo local (quando não há demo hospedada).",
   "projetos": [
     {
       "id": "artmaker",
       "nome": "ArtMaker",
-      "nivel": "lancamento",
       "ordem": 1,
-      "emProducao": false,
+      "cor": "#D9A514",
       "demo": { "url": "https://alyssom-fernandes.github.io/ArtMaker/?demo=1", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/ArtMaker" }],
       "stack": ["JavaScript", "HTML5 Canvas", "localStorage", "IndexedDB", "Web Share API", "node:test", "GitHub Actions"],
-      "numeros": { "formato": "1080×1920", "testes": "17", "paletas": "8" },
+      "numeros": { "formato": "1080×1920", "paletas": "8" },
+      "testes": { "unidade": 33 },
+      "composicao": { "lado": "dir", "celular": "sempre" },
       "telas": ["artmaker/editor", "artmaker/cores", "artmaker/estilo"],
       "celular": "artmaker/celular",
+      "foco": { "artmaker/editor": "62% 30%", "artmaker/cores": "20% 20%", "artmaker/estilo": "15% 30%" },
       "legenda": "demo",
       "itens": [
-        { "id": "cliente", "tela": "artmaker/editor" },
-        { "id": "cores", "tela": "artmaker/cores" },
-        { "id": "estilo", "tela": "artmaker/estilo" },
-        { "id": "status", "tela": "celular" }
+        { "id": "cliente", "tela": "artmaker/editor", "vitrine": true },
+        { "id": "cores", "tela": "artmaker/cores", "vitrine": true },
+        { "id": "estilo", "tela": "artmaker/estilo", "vitrine": false },
+        { "id": "status", "tela": "celular", "vitrine": true }
       ]
     },
     {
       "id": "unifydata",
       "nome": "UnifyData",
-      "nivel": "lancamento",
       "ordem": 2,
-      "emProducao": true,
+      "cor": "#2F8A74",
       "demo": { "url": "https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1", "ativa": true },
       "codigo": [
         { "rotulo": "codigoWeb", "url": "https://github.com/alyssom-fernandes/UnifyData-Web" },
         { "rotulo": "codigoPython", "url": "https://github.com/alyssom-fernandes/UnifyData-Python" }
       ],
       "stack": ["JavaScript", "SheetJS", "PDF.js", "ExcelJS", "Python", "Streamlit", "pandas", "thefuzz", "openpyxl", "GitHub Actions"],
-      "numeros": { "testesWeb": "11", "testesPython": "13" },
+      "numeros": {},
+      "testes": { "web": 17, "python": 23 },
+      "composicao": { "lado": "esq", "celular": "destaque" },
       "telas": ["unifydata/base", "unifydata/pendencias", "unifydata/resultado"],
       "celular": "unifydata/celular",
+      "foco": { "unifydata/base": "0 20%", "unifydata/pendencias": "0 30%", "unifydata/resultado": "0 25%" },
       "legenda": "demo",
       "itens": [
-        { "id": "entrada", "tela": "unifydata/base" },
-        { "id": "pendencias", "tela": "unifydata/pendencias" },
-        { "id": "desconto", "tela": "unifydata/resultado" },
-        { "id": "versoes", "tela": "celular" }
-      ]
-    },
-    {
-      "id": "fuelmind",
-      "nome": "Fuel Mind",
-      "nivel": "lancamento",
-      "ordem": 3,
-      "emProducao": true,
-      "demo": { "url": "https://controle-entradas-posto.web.app", "ativa": true },
-      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Fuel-Mind" }],
-      "stack": ["JavaScript", "Firebase", "Chart.js", "jsPDF", "SheetJS"],
-      "numeros": { "testes": "103" },
-      "telas": ["fuelmind/dashboard", "fuelmind/lancamentos", "fuelmind/fretes", "fuelmind/relatorios"],
-      "celular": "fuelmind/celular",
-      "legenda": "demo",
-      "itens": [
-        { "id": "painel", "tela": "fuelmind/dashboard" },
-        { "id": "nfe", "tela": "fuelmind/lancamentos" },
-        { "id": "fretes", "tela": "fuelmind/fretes" },
-        { "id": "fechamento", "tela": "fuelmind/relatorios" },
-        { "id": "producao", "tela": "celular" }
-      ]
-    },
-    {
-      "id": "praxis",
-      "nome": "Praxis",
-      "nivel": "lancamento",
-      "ordem": 4,
-      "emProducao": false,
-      "demo": { "url": "https://praxis-af618.web.app", "ativa": true },
-      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Praxis" }],
-      "stack": ["JavaScript (ES modules)", "Firebase (Firestore, Auth, Storage, Hosting)", "PWA", "Cloud Functions"],
-      "numeros": { "perfis": "6", "eventos": "14", "etapas": "7" },
-      "telas": ["praxis/kanban", "praxis/cotacoes", "praxis/aprovacao"],
-      "celular": "praxis/celular",
-      "legenda": "demo",
-      "itens": [
-        { "id": "fluxo", "tela": "praxis/kanban" },
-        { "id": "cotacoes", "tela": "praxis/cotacoes" },
-        { "id": "perfis", "tela": "praxis/aprovacao" },
-        { "id": "app", "tela": "celular" }
+        { "id": "entrada", "tela": "unifydata/base", "vitrine": true },
+        { "id": "pendencias", "tela": "unifydata/pendencias", "vitrine": true },
+        { "id": "desconto", "tela": "unifydata/resultado", "vitrine": true },
+        { "id": "versoes", "tela": "celular", "vitrine": false }
       ]
     },
     {
       "id": "deepchat",
       "nome": "DeepChat",
-      "nivel": "lancamento",
-      "ordem": 5,
-      "emProducao": false,
+      "ordem": 3,
+      "cor": "#9A6B2A",
       "demo": { "url": "https://alyssom-fernandes.github.io/DeepChat/?demo=1", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/DeepChat" }],
       "stack": ["JavaScript (ES modules)", "DeepSeek API", "OpenAI API", "marked", "DOMPurify", "Web Crypto", "node:test", "GitHub Actions"],
-      "numeros": { "testes": "26" },
+      "numeros": {},
+      "testes": { "unidade": 65 },
+      "composicao": { "lado": "dir", "celular": "destaque" },
       "telas": ["deepchat/revisao-veredito", "deepchat/revisao-codigo", "deepchat/inicio"],
       "celular": "deepchat/celular",
+      "foco": { "deepchat/revisao-veredito": "50% 60%", "deepchat/revisao-codigo": "50% 60%", "deepchat/inicio": "50% 40%" },
       "legenda": "demo",
       "itens": [
-        { "id": "veredito", "tela": "deepchat/revisao-veredito" },
-        { "id": "revisada", "tela": "deepchat/revisao-codigo" },
-        { "id": "chaves", "tela": "deepchat/inicio" },
-        { "id": "celular", "tela": "celular" }
+        { "id": "veredito", "tela": "deepchat/revisao-veredito", "vitrine": true },
+        { "id": "revisada", "tela": "deepchat/revisao-codigo", "vitrine": true },
+        { "id": "chaves", "tela": "deepchat/inicio", "vitrine": false },
+        { "id": "celular", "tela": "celular", "vitrine": true }
       ]
     },
     {
-      "id": "audistock",
-      "nome": "AudiStock",
-      "nivel": "lancamento",
-      "ordem": 6,
-      "emProducao": false,
-      "demo": { "url": "https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1", "ativa": true },
-      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AudiStock" }],
-      "stack": ["JavaScript", "Supabase (PostgreSQL + Auth)", "IndexedDB", "jsPDF", "ExcelJS", "SheetJS", "BarcodeDetector", "node:test", "PGlite", "Playwright", "GitHub Actions"],
-      "numeros": { "testesUnidade": "70", "testesE2e": "34" },
-      "telas": ["audistock/dashboard", "audistock/relatorio"],
-      "celular": "audistock/celular",
+      "id": "praxis",
+      "nome": "Praxis",
+      "ordem": 4,
+      "cor": "#D2683A",
+      "demo": { "url": "https://praxis-af618.web.app", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Praxis" }],
+      "stack": ["JavaScript (ES modules)", "Firebase (Firestore, Auth, Storage, Hosting)", "PWA", "Cloud Functions", "node:test", "GitHub Actions"],
+      "numeros": { "perfis": "6", "eventos": "14", "etapas": "7" },
+      "testes": { "unidade": 15, "regras": 30 },
+      "composicao": { "lado": "esq", "celular": "sempre" },
+      "telas": ["praxis/kanban", "praxis/cotacoes", "praxis/aprovacao"],
+      "celular": "praxis/celular",
+      "foco": { "praxis/kanban": "0 25%", "praxis/cotacoes": "20% 35%", "praxis/aprovacao": "10% 30%" },
       "legenda": "demo",
       "itens": [
-        { "id": "visao", "tela": "audistock/dashboard" },
-        { "id": "contagem", "tela": "celular" },
-        { "id": "relatorio", "tela": "audistock/relatorio" }
-      ]
-    },
-    {
-      "id": "alertsignal",
-      "nome": "AlertSignal",
-      "nivel": "lancamento",
-      "ordem": 7,
-      "emProducao": true,
-      "demo": null,
-      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AlertSignal" }],
-      "stack": ["Python", "Flask", "SQLite", "APScheduler", "pandas", "openpyxl", "Jinja2", "JavaScript", "unittest", "GitHub Actions"],
-      "numeros": { "aviso1": "90", "aviso2": "30", "aviso3": "7", "meses": "12", "testes": "22" },
-      "telas": ["alertsignal/visao-geral", "alertsignal/empresa", "alertsignal/relatorio"],
-      "celular": "alertsignal/celular",
-      "legenda": "repositorio",
-      "itens": [
-        { "id": "painel", "tela": "alertsignal/visao-geral" },
-        { "id": "avisos", "tela": "alertsignal/empresa" },
-        { "id": "relatorio", "tela": "alertsignal/relatorio" }
+        { "id": "fluxo", "tela": "praxis/kanban", "vitrine": true },
+        { "id": "cotacoes", "tela": "praxis/cotacoes", "vitrine": true },
+        { "id": "perfis", "tela": "praxis/aprovacao", "vitrine": false },
+        { "id": "app", "tela": "celular", "vitrine": true }
       ]
     },
     {
       "id": "flowtrack",
       "nome": "FlowTrack",
-      "nivel": "lancamento",
-      "ordem": 8,
-      "emProducao": false,
-      "demo": { "url": "https://flowtrack-afn.vercel.app", "ativa": false },
+      "ordem": 5,
+      "cor": "#8A2848",
+      "demo": { "url": "https://flowtrack-afn.vercel.app", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/FlowTrack" }],
-      "stack": ["React 19", "TypeScript", "FastAPI", "Supabase/PostgreSQL", "Claude Haiku", "pytest", "Playwright"],
-      "numeros": { "bancos": "4", "testes": "83", "camadas": "3" },
+      "stack": ["React 19", "TypeScript", "FastAPI", "Supabase/PostgreSQL", { "texto": "projetos.flowtrack.stackModelo" }, "pytest", "Playwright"],
+      "numeros": { "bancos": "4", "camadas": "3" },
+      "testes": { "backend": 250, "frontend": 8, "e2e": 40 },
+      "composicao": { "lado": "dir", "celular": null },
       "telas": ["flowtrack/dashboard", "flowtrack/transacoes", "flowtrack/relatorios"],
       "celular": null,
+      "foco": { "flowtrack/dashboard": "10% 20%", "flowtrack/transacoes": "10% 25%", "flowtrack/relatorios": "10% 25%" },
+      "legenda": "demo",
+      "itens": [
+        { "id": "camadas", "tela": "flowtrack/dashboard", "vitrine": true },
+        { "id": "extratos", "tela": "flowtrack/transacoes", "vitrine": true },
+        { "id": "relatorios", "tela": "flowtrack/relatorios", "vitrine": true }
+      ]
+    },
+    {
+      "id": "audistock",
+      "nome": "AudiStock",
+      "ordem": 6,
+      "cor": "#B86848",
+      "demo": { "url": "https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AudiStock" }],
+      "stack": ["JavaScript", "Supabase (PostgreSQL + Auth)", "IndexedDB", "PWA", "jsPDF", "ExcelJS", "SheetJS", "BarcodeDetector", "node:test", "PGlite", "Playwright", "GitHub Actions"],
+      "numeros": {},
+      "testes": { "unidade": 84, "e2e": 46 },
+      "composicao": { "lado": "esq", "celular": "sempre" },
+      "telas": ["audistock/dashboard", "audistock/relatorio"],
+      "celular": "audistock/celular",
+      "foco": { "audistock/dashboard": "10% 20%", "audistock/relatorio": "10% 30%" },
+      "legenda": "demo",
+      "itens": [
+        { "id": "visao", "tela": "audistock/dashboard", "vitrine": true },
+        { "id": "contagem", "tela": "celular", "vitrine": true },
+        { "id": "relatorio", "tela": "audistock/relatorio", "vitrine": true }
+      ]
+    },
+    {
+      "id": "fuelmind",
+      "nome": "Fuel Mind",
+      "ordem": 7,
+      "cor": "#B03030",
+      "demo": { "url": "https://controle-entradas-posto.web.app", "ativa": true },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Fuel-Mind" }],
+      "stack": ["JavaScript", "Firebase", "Chart.js", "jsPDF", "SheetJS", "node:test", "GitHub Actions"],
+      "numeros": {},
+      "testes": { "unidade": 120, "regras": 25 },
+      "composicao": { "lado": "dir", "celular": "destaque" },
+      "telas": ["fuelmind/lancamentos", "fuelmind/fretes", "fuelmind/relatorios", "fuelmind/dashboard"],
+      "celular": "fuelmind/celular",
+      "foco": { "fuelmind/lancamentos": "20% 25%", "fuelmind/fretes": "20% 25%", "fuelmind/relatorios": "20% 25%", "fuelmind/dashboard": "20% 20%" },
+      "legenda": "demo",
+      "itens": [
+        { "id": "nfe", "tela": "fuelmind/lancamentos", "vitrine": true },
+        { "id": "fretes", "tela": "fuelmind/fretes", "vitrine": true },
+        { "id": "fechamento", "tela": "fuelmind/relatorios", "vitrine": true },
+        { "id": "painel", "tela": "fuelmind/dashboard", "vitrine": false },
+        { "id": "celular", "tela": "celular", "vitrine": false }
+      ]
+    },
+    {
+      "id": "alertsignal",
+      "nome": "AlertSignal",
+      "ordem": 8,
+      "cor": "#3A86E0",
+      "demo": null,
+      "comoRodar": {
+        "pt": "https://github.com/alyssom-fernandes/AlertSignal/blob/main/README.pt-br.md#demonstra%C3%A7%C3%A3o-dados-fict%C3%ADcios",
+        "en": "https://github.com/alyssom-fernandes/AlertSignal#demo-fictitious-data",
+        "es": "https://github.com/alyssom-fernandes/AlertSignal#demo-fictitious-data"
+      },
+      "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/AlertSignal" }],
+      "stack": ["Python", "Flask", "SQLite", "APScheduler", "pandas", "openpyxl", "Jinja2", "JavaScript", "unittest", "GitHub Actions"],
+      "numeros": { "aviso1": "90", "aviso2": "30", "aviso3": "7", "meses": "12" },
+      "testes": { "unidade": 62 },
+      "composicao": { "lado": "esq", "celular": "destaque" },
+      "telas": ["alertsignal/visao-geral", "alertsignal/empresa", "alertsignal/relatorio"],
+      "celular": "alertsignal/celular",
+      "foco": { "alertsignal/visao-geral": "15% 25%", "alertsignal/empresa": "15% 30%", "alertsignal/relatorio": "15% 30%" },
       "legenda": "repositorio",
       "itens": [
-        { "id": "camadas", "tela": "flowtrack/dashboard" },
-        { "id": "extratos", "tela": "flowtrack/transacoes" },
-        { "id": "relatorios", "tela": "flowtrack/relatorios" }
+        { "id": "painel", "tela": "alertsignal/visao-geral", "vitrine": true },
+        { "id": "avisos", "tela": "alertsignal/empresa", "vitrine": true },
+        { "id": "relatorio", "tela": "alertsignal/relatorio", "vitrine": true },
+        { "id": "celular", "tela": "celular", "vitrine": false }
       ]
     },
     {
       "id": "docke",
       "nome": "Docke",
-      "nivel": "cartao",
       "ordem": 9,
-      "emProducao": false,
-      "demo": { "url": "https://docke-two.vercel.app", "ativa": false },
+      "cor": "#17A086",
+      "demo": { "url": "https://docke-two.vercel.app", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Docke" }],
-      "stack": ["React", "TypeScript", "FastAPI", "PostgreSQL (RLS)", "Tesseract"],
+      "stack": ["React 19", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "PostgreSQL (RLS)", "Supabase", "Tesseract", "pytest", "Playwright"],
       "numeros": {},
-      "telas": [],
-      "celular": null,
-      "legenda": null,
-      "itens": []
+      "testes": { "backend": 83, "e2e": 6 },
+      "composicao": { "lado": "dir", "celular": "destaque" },
+      "telas": ["docke/dashboard", "docke/documentos", "docke/atividade"],
+      "celular": "docke/celular",
+      "foco": { "docke/dashboard": "0 15%", "docke/documentos": "15% 20%", "docke/atividade": "0 20%" },
+      "legenda": "demo",
+      "itens": [
+        { "id": "painel", "tela": "docke/dashboard", "vitrine": true },
+        { "id": "documentos", "tela": "docke/documentos", "vitrine": true },
+        { "id": "trilha", "tela": "docke/atividade", "vitrine": true },
+        { "id": "celular", "tela": "celular", "vitrine": false }
+      ]
     }
   ],
 
   "matriz": {
-    "_leia": "Uma marca (1) só com evidência no código ou no CI do repositório (conferido em 03/10/2026; testes e CI revistos em 11/10/2026). Cada caractere de marcas segue a ordem de colunas, que é a mesma ordem dos projetos na página.",
-    "colunas": ["artmaker", "unifydata", "fuelmind", "praxis", "deepchat", "audistock", "alertsignal", "flowtrack", "docke"],
+    "_leia": "Uma marca (1) só com evidência no código ou no CI do repositório (conferido em 03/10/2026; testes e CI revistos em 09/11/2026). Cada caractere de marcas segue a ordem de colunas, que é a mesma ordem dos projetos na página.",
+    "colunas": ["artmaker", "unifydata", "deepchat", "praxis", "flowtrack", "audistock", "fuelmind", "alertsignal", "docke"],
     "linhas": [
-      { "id": "testes", "marcas": "111011111" },
-      { "id": "javascript", "marcas": "111111100" },
-      { "id": "ci", "marcas": "110011111" },
-      { "id": "autenticacao", "marcas": "001101111" },
-      { "id": "relatorios", "marcas": "011101110" },
-      { "id": "dashboards", "marcas": "001101111" },
-      { "id": "python", "marcas": "010000111" },
-      { "id": "jobs", "marcas": "000100111" },
-      { "id": "postgres", "marcas": "000001011" },
-      { "id": "offline", "marcas": "001001010" },
-      { "id": "tempoReal", "marcas": "001100000" },
-      { "id": "iaGenerativa", "marcas": "000010010" },
-      { "id": "typescript", "marcas": "000000011" },
-      { "id": "react", "marcas": "000000011" },
-      { "id": "fastapi", "marcas": "000000011" },
-      { "id": "firebase", "marcas": "001100000" },
-      { "id": "pandas", "marcas": "010000100" },
-      { "id": "flask", "marcas": "000000100" },
+      { "id": "testes", "marcas": "111111111" },
+      { "id": "ci", "marcas": "111111111" },
+      { "id": "javascript", "marcas": "111101110" },
+      { "id": "excel", "marcas": "010001110" },
+      { "id": "relatorios", "marcas": "010111110" },
+      { "id": "autenticacao", "marcas": "000111111" },
+      { "id": "dashboards", "marcas": "000111111" },
+      { "id": "python", "marcas": "010010011" },
+      { "id": "postgres", "marcas": "000011001" },
+      { "id": "jobs", "marcas": "000110011" },
+      { "id": "offline", "marcas": "000011100" },
+      { "id": "tempoReal", "marcas": "000100100" },
+      { "id": "firebase", "marcas": "000100100" },
+      { "id": "iaGenerativa", "marcas": "001010000" },
+      { "id": "typescript", "marcas": "000010001" },
+      { "id": "react", "marcas": "000010001" },
+      { "id": "fastapi", "marcas": "000010001" },
+      { "id": "pandas", "marcas": "010000010" },
+      { "id": "flask", "marcas": "000000010" },
       { "id": "ocr", "marcas": "000000001" },
-      { "id": "nfe", "marcas": "001000000" }
+      { "id": "nfe", "marcas": "000000100" }
     ]
   },
 
   "negocio": [
-    { "id": "contabil", "onde": ["astcon"] },
-    { "id": "analiseDados", "onde": ["astcon", "zen"] },
     { "id": "folha", "onde": ["astcon"] },
-    { "id": "treinamento", "onde": ["astcon"] },
+    { "id": "contabil", "onde": ["astcon"] },
     { "id": "controladoria", "onde": ["zen"] },
+    { "id": "analiseDados", "onde": ["astcon", "zen"] },
+    { "id": "treinamento", "onde": ["astcon"] },
     { "id": "coordenacao", "onde": ["novomexico"] }
   ]
 }

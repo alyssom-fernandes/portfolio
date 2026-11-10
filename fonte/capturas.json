@@ -103,10 +103,10 @@
           "exato": false
         },
         {
-          "esperarTexto": "PRX-0004"
+          "esperarTexto": "PRX-00"
         },
         {
-          "clicar": "Pular"
+          "tecla": "Escape"
         },
         {
           "aguardar": 1000
@@ -180,7 +180,7 @@
         {
           "nome": "celular",
           "rota": "?tela=pedidos",
-          "esperarTexto": "PRX-0004",
+          "esperarTexto": "PRX-00",
           "esperaMs": 2500,
           "dispositivo": "celular"
         },
@@ -205,7 +205,7 @@
           "entrarDeNovo": true,
           "passos": [
             {
-              "esperarTexto": "PRX-0004"
+              "esperarTexto": "PRX-00"
             },
             {
               "clicar": "Aprovação",
@@ -567,12 +567,12 @@
     {
       "id": "flowtrack",
       "nome": "FlowTrack",
-      "ativo": false,
+      "ativo": true,
       "url": "https://flowtrack-afn.vercel.app/",
-      "observacao": "Em 30/09/2026 o botão respondia 'Modo demo temporariamente indisponível'. Rotas tiradas do código publicado; conferir quando a demo voltar.",
+      "observacao": "Conferido em 09/11/2026: a versão pública roda sem servidor; o botão \"Ver a demonstração\" abre a conta de exemplo e a sessão vale para as outras rotas.",
       "entrada": [
         {
-          "clicar": "Acessar modo demo"
+          "clicar": "Ver a demonstração"
         },
         {
           "esperarUrlSem": "/login"
@@ -592,6 +592,12 @@
           "dispositivo": "tela"
         },
         {
+          "nome": "relatorios",
+          "rota": "/reports",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
           "nome": "celular",
           "rota": "/dashboard",
           "entrarDeNovo": true,
@@ -603,38 +609,62 @@
     {
       "id": "docke",
       "nome": "Docke",
-      "ativo": false,
+      "ativo": true,
       "url": "https://docke-two.vercel.app/",
-      "observacao": "Em 30/09/2026 a API (docke-api.fly.dev) não respondia e o botão de demo não saía do login. Rotas tiradas do código publicado; conferir quando a demo voltar.",
+      "observacao": "Conferido em 09/11/2026: o botão \"Explorar a demonstração\" abre uma conta de demonstração com empresas fictícias. Se a API estiver em repouso, a primeira entrada demora (o próprio login avisa); por isso o tempo limite maior.",
       "entrada": [
         {
-          "clicar": "Acessar modo demo"
+          "clicar": "Explorar a demonstração"
         },
         {
           "esperarUrlSem": "/login"
+        },
+        {
+          "esperarTexto": "Documentos recentes"
+        },
+        {
+          "aguardar": 1500
         }
       ],
       "telas": [
         {
           "nome": "dashboard",
           "rota": "/dashboard",
+          "esperarTexto": "Documentos por pasta",
           "esperaMs": 3000,
           "dispositivo": "tela"
         },
         {
           "nome": "documentos",
           "rota": "/documents",
+          "passos": [
+            {
+              "esperarTexto": "Contratos"
+            },
+            {
+              "clicar": "Fiscal"
+            }
+          ],
           "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "atividade",
+          "rota": "/activity",
+          "esperarTexto": "Exportar",
+          "esperaMs": 2500,
           "dispositivo": "tela"
         },
         {
           "nome": "celular",
           "rota": "/dashboard",
           "entrarDeNovo": true,
+          "esperarTexto": "Documentos",
           "esperaMs": 3000,
           "dispositivo": "celular"
         }
-      ]
+      ],
+      "tempoLimiteMs": 120000
     }
   ]
 }
