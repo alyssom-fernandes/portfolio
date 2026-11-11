@@ -71,7 +71,8 @@ py -m http.server 5173
 ```
 
 Depois abra http://127.0.0.1:5173. Para ver um estado sem rolar a página, use `?cena=<id>&progresso=<0 a 1>`
-(ids: `abertura`, `trajetoria`, `projetos`, `habilidades`, `contato`).
+(ids: `abertura`, `trajetoria`, `projetos`, `habilidades`, `contato`). A grade de meses é gerada até o mês da
+publicação e o navegador completa os meses seguintes; para simular outro mês, use `?hoje=AAAA-MM`.
 
 ## Gerar o site
 

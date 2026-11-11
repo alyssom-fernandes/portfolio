@@ -722,51 +722,30 @@ ${cabecalho({ C, pref, ancora: home, idiomaHref: i => `${pref}${i.pasta}projetos
 
 /* 9. Modelo da imagem de compartilhamento (1200×630) */
 
+// capa de compartilhamento: minimalista, só a frase, o nome com o título e o endereço do idioma
+// (sem números que envelhecem; decisão do dono em 11/11/2026)
 function gerarOg(idioma) {
   const C = contexto(idioma);
-  const { T } = C;
   const urlArq = rel => pathToFileURL(path.join(raiz, rel)).href;
-  const fases = carreira.map(c => ({ a: mesIdx(...c.inicio), b: c.fim ? mesIdx(...c.fim) : HOJE, cor: c.cor }));
-  let cel = '', total = 0;
-  for (let y = inicioCarreira[0]; y <= Math.floor(HOJE / 12); y++)
-    for (let m = 1; m <= 12; m++) {
-      const i = mesIdx(y, m), fs = fases.filter(f => i >= f.a && i <= f.b);
-      if (fs.length && i <= HOJE) total++;
-      cel += i > HOJE ? '<i class="f"></i>' : fs.length ? `<i style="background:${fs.length > 1 ? `linear-gradient(135deg, ${fs[0].cor} 50%, ${fs[1].cor} 50%)` : fs[0].cor}"></i>` : '<i class="p"></i>';
-    }
   return `<!doctype html>
 <html lang="${idioma.lang}"><head><meta charset="utf-8">
 <style>
 @font-face{font-family:'Fraunces';src:url('${urlArq(FONTES.serif)}') format('woff2');font-weight:100 900}
 @font-face{font-family:'Geist';src:url('${urlArq(FONTES.sans)}') format('woff2');font-weight:100 900}
 html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#FBFBF8;color:#1E1F1A}
-body{position:relative;font-family:'Geist',sans-serif}
-.folha{position:absolute;left:0;top:0;bottom:0;width:780px;padding:56px 60px 0 64px;box-sizing:border-box;
-  background-image:linear-gradient(to right,rgba(30,31,26,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(30,31,26,.05) 1px,transparent 1px);background-size:96px 32px}
-.k{font:500 21px/1.3 'Geist';color:#55564D;margin:0 0 30px}
-h1{margin:0;font:300 104px/.9 'Fraunces';letter-spacing:-.025em;font-variation-settings:'opsz' 144}
-.t{margin:34px 0 0;font:350 40px/1.16 'Fraunces';letter-spacing:-.01em;max-width:15em}
+body{position:relative;font-family:'Geist',sans-serif;
+  background-image:linear-gradient(to right,rgba(30,31,26,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(30,31,26,.045) 1px,transparent 1px);background-size:96px 32px}
+p{margin:0}
+.t{position:absolute;left:84px;right:90px;top:92px;font:350 74px/1.12 'Fraunces';letter-spacing:-.015em}
 .risco{position:relative;color:#55564D}.risco::after{content:'';position:absolute;left:-2px;right:-2px;top:54%;height:3px;background:#B3261E}
 .marca{font-style:normal;background:linear-gradient(transparent 58%,#F4DE6B 58%,#F4DE6B 92%,transparent 92%)}
-.disp{position:absolute;left:64px;bottom:44px;width:660px;font:500 20px/1.3 'Geist';color:#1E1F1A}
-.disp span{display:block;color:#55564D;font-size:17px;margin-top:4px}
-.s{position:absolute;right:0;top:0;bottom:0;width:420px;background:#15171A;color:#ECEBE6;padding:56px 52px;box-sizing:border-box}
-.s p{margin:0;font:400 20px/1.35 'Geist';color:#A6A79F}
-.s b{display:block;font:300 92px/1 'Fraunces';color:#ECEBE6;letter-spacing:-.02em;margin:18px 0 6px;font-variant-numeric:tabular-nums}
-.g{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;margin-top:34px}
-.g i{aspect-ratio:1;border-radius:3px;background:#2A2D32}.g i.f{background:transparent;box-shadow:inset 0 0 0 1px #3A3E44}.g i.p{background:#24272B}
+.quem{position:absolute;left:84px;bottom:104px;font:500 26px 'Geist'}
+.quem span{color:#55564D;font-weight:400}
+.url{position:absolute;left:84px;bottom:64px;font:500 22px 'Geist';color:#55564D}
 </style></head><body>
-<div class="folha">
-  <p class="k">${C.p0('identidade.titulo')}</p>
-  <h1>${esc(dados.identidade.nome)}</h1>
-  <p class="t">${C.h('identidade.tese')}</p>
-</div>
-<p class="disp">${C.p0('identidade.disponibilidade')} <span>${esc(host(dados.site.baseUrl + idioma.pasta))}</span></p>
-<div class="s">
-  <p>${C.p0('trajetoria.figura.titulo')}</p>
-  <b>${total}</b><p>${esc(T.formato.meses)}</p>
-  <div class="g">${cel}</div>
-</div>
+<p class="t">${C.h('identidade.tese')}</p>
+<p class="quem">${esc(dados.identidade.nome)} <span>· ${C.p0('identidade.titulo')}</span></p>
+<p class="url">${esc(host(dados.site.baseUrl + idioma.pasta))}</p>
 </body></html>`;
 }
 
