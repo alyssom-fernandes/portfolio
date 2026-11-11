@@ -1,0 +1,66 @@
+{
+  "id": "alertsignal",
+  "arquitetura": {
+    "texto": "Separé el sistema en módulos Python: `app.py` con las rutas Flask, los permisos y las exportaciones; `database.py` con el esquema SQLite y la conexión; `notificacoes.py` con las reglas de las alertas y el envío por Gmail; e `importar_planilha.py`, que lee la hoja de cálculo antigua con pandas una sola vez. El programador de tareas se ejecuta dentro del mismo proceso del servidor, y la interfaz usa Jinja2, CSS y JavaScript sin framework.",
+    "fluxo": [
+      "Hoja importada una vez",
+      "Base de datos SQLite",
+      "Verificación diaria programada",
+      "Correo por responsable",
+      "Registro del aviso"
+    ],
+    "fontes": [
+      "AlertSignal/README.pt-br.md#L147-L168",
+      "AlertSignal/importar_planilha.py#L95-L174",
+      "AlertSignal/app.py#L1354-L1402",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "SQLite en un solo archivo",
+      "texto": "Elegí SQLite en lugar de PostgreSQL porque el sistema se ejecuta en una máquina local, con pocas escrituras: no requiere configuración, y la copia de seguridad consiste en copiar un archivo. La ruta de la base de datos está en una variable de `database.py`, y el modo demostración cambia esa ruta por un `demo.db` aparte, así que los datos ficticios nunca tocan la base real. Las consultas son SQL directo y parametrizado, sin ORM.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L133-L137",
+        "AlertSignal/database.py#L4-L19",
+        "AlertSignal/app.py#L1375-L1380"
+      ]
+    },
+    {
+      "titulo": "Programador dentro del proceso de Flask",
+      "texto": "Usé APScheduler en lugar de cron porque se ejecuta dentro del proceso de Flask, funciona en Windows y permite cambiar la hora del envío desde la propia pantalla. La verificación diaria es un job con id fijo, creado a la hora guardada en la configuración. Cuando el administrador guarda una nueva hora, la ruta llama a `reschedule_job`, y el envío cambia sin reiniciar el servidor.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L135",
+        "AlertSignal/app.py#L1354-L1363",
+        "AlertSignal/app.py#L1054-L1059"
+      ]
+    },
+    {
+      "titulo": "Seguridad sin paquetes adicionales",
+      "texto": "Hice la seguridad solo con Flask y la biblioteca estándar. Un token CSRF por sesión va en todo formulario y en todo `fetch` que modifica datos, y el servidor lo compara con `hmac.compare_digest`. En cada solicitud, el usuario se vuelve a leer de la base de datos: quien fue eliminado o desactivado pierde la sesión, y quien cambió de contraseña también, porque la columna `sessao_versao` aumenta. En las exportaciones, el texto que empieza por `=` sigue siendo texto, sin convertirse en fórmula.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L141-L143",
+        "AlertSignal/app.py#L69-L91",
+        "AlertSignal/app.py#L163-L205",
+        "AlertSignal/app.py#L1316-L1319"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Avisar una vez, sin perder ninguno",
+    "texto": "Tenía que garantizar que cada hito de aviso saliera una sola vez para cada responsable; después del vencimiento, el recordatorio pasa a ser diario. Creé la tabla `alerta_enviado`, cuya clave única incluye el hito y el vencimiento: ejecutar dos veces el mismo día no repite nada, y un documento renovado empieza de nuevo con la nueva fecha. Si la verificación no se ejecutó algún día, sale solo el hito más reciente. El aviso solo se registra después de enviar el correo; si el envío falla, vuelve al día siguiente.",
+    "fontes": [
+      "AlertSignal/database.py#L80-L92",
+      "AlertSignal/notificacoes.py#L89-L191",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "testes": {
+    "texto": "Son 62 pruebas en `unittest`: 42 de rutas, permisos y seguridad, y 20 de las reglas de las alertas, de la situación y del programador. Se ejecutan en el modo demostración, en una base de datos temporal, y el envío de correo se sustituye por uno falso que solo cuenta las llamadas. Las reglas de las alertas usan una fecha fija, para comprobar cada hito sin depender del día. GitHub Actions lo ejecuta todo en cada push, en Python 3.11 y 3.13.",
+    "fontes": [
+      "AlertSignal/tests/test_rotas.py#L1-L40",
+      "AlertSignal/tests/test_alertas.py#L1-L60",
+      "AlertSignal/.github/workflows/testes.yml#L1-L24"
+    ]
+  }
+}

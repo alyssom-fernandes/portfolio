@@ -1,0 +1,70 @@
+{
+  "id": "unifydata",
+  "arquitetura": {
+    "texto": "Os dois repositórios resolvem o mesmo fechamento com a mesma divisão: as regras que decidem um número ficam num núcleo de funções puras (`js/nucleo.js` e `nucleo.py`), e a tela só chama essas funções. A Web roda inteira no navegador, sem build nem servidor, e guarda a base de funcionários no `localStorage`. A Python roda num Streamlit local e relê as planilhas do RH a cada fechamento, sem guardar nada.",
+    "fluxo": [
+      "Relatórios do AutoSystem",
+      "Planilhas do RH",
+      "Cruzamento no núcleo",
+      "Revisão das pendências",
+      "Planilha por empresa"
+    ],
+    "fontes": [
+      "UnifyData-Web/js/nucleo.js#L1-L11",
+      "UnifyData-Web/js/app.js#L86-L110",
+      "UnifyData-Python/unifydata.py#L1-L17",
+      "UnifyData-Python/README.pt-BR.md#L170-L175",
+      "UnifyData-Python/README.pt-BR.md#L197-L199"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Bibliotecas só quando precisa, com SRI",
+      "texto": "Na Web, abrir a página não baixa nada pesado: SheetJS, ExcelJS e PDF.js têm versão fixa e só são carregados quando o primeiro arquivo daquele tipo é lido, com hash de integridade (SRI). A Content Security Policy não aceita `'unsafe-inline'`, e o PDF.js roda com `eval` desligado. Os arquivos são lidos pelo próprio navegador e não saem do computador.",
+      "fontes": [
+        "UnifyData-Web/js/app.js#L11-L52",
+        "UnifyData-Web/index.html#L6",
+        "UnifyData-Web/js/app.js#L377"
+      ]
+    },
+    {
+      "titulo": "Vínculo automático só sem ambiguidade",
+      "texto": "Na Python, o vínculo sozinho só acontece quando o nome do AutoSystem fica igual a um do RH depois de tirar acentos, maiúsculas e espaços, e o RH tem uma única grafia dele. O resto vira cartão: com `token_sort_ratio` de 85 ou mais, o cartão sugere o nome parecido; abaixo disso, a pessoa aparece como não encontrada e pede CPF e empresa.",
+      "fontes": [
+        "UnifyData-Python/nucleo.py#L23",
+        "UnifyData-Python/nucleo.py#L283-L316",
+        "UnifyData-Python/README.pt-BR.md#L176-L178"
+      ]
+    },
+    {
+      "titulo": "Scripts clássicos, para abrir com dois cliques",
+      "texto": "Na Web, o `nucleo.js` é um script clássico, não um módulo ES: ele se registra em `window.Nucleo` no navegador e em `module.exports` no Node. Assim o `index.html` funciona aberto direto do disco, com dois cliques, e os testes importam as mesmas funções com `require()`, sem bundler nem etapa de build.",
+      "fontes": [
+        "UnifyData-Web/js/nucleo.js#L1-L11",
+        "UnifyData-Web/index.html#L234-L235",
+        "UnifyData-Web/README.pt-BR.md#L187-L188",
+        "UnifyData-Web/tests/nucleo.test.js#L6"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Homônimos sem desconto em dobro",
+    "texto": "Na Python, o cruzamento pelo nome junta o consumo a toda linha do RH com aquele nome; com dois homônimos, o mesmo valor seria descontado das duas pessoas. Por isso o nome repetido vira cartão de revisão, e a escolha grava em cada consumo a linha do RH (`fixar_linha`). O `consolidar` soma esse consumo direto na linha escolhida e usa o nome só para o restante. Um consumo já ligado pelo CPF não volta para o cartão.",
+    "fontes": [
+      "UnifyData-Python/nucleo.py#L246-L280",
+      "UnifyData-Python/nucleo.py#L319-L348",
+      "UnifyData-Python/tests/test_nucleo.py#L148-L176",
+      "UnifyData-Python/README.pt-BR.md#L179-L183"
+    ]
+  },
+  "testes": {
+    "texto": "A Web tem 17 testes com `node --test` que rodam as regras do `nucleo.js`; a leitura do PDF e das planilhas do RH depende do PDF.js e do SheetJS e é conferida na demonstração. A Python tem 23: 21 com `unittest` sobre o `nucleo.py` e 2 com o `AppTest` do Streamlit, que percorrem a tela no modo de exemplo. O GitHub Actions roda tudo a cada push, em Node 22 e 24 e Python 3.10, 3.12 e 3.14.",
+    "fontes": [
+      "UnifyData-Web/tests/nucleo.test.js",
+      "UnifyData-Web/.github/workflows/testes.yml",
+      "UnifyData-Python/tests/test_nucleo.py",
+      "UnifyData-Python/tests/test_tela.py",
+      "UnifyData-Python/.github/workflows/testes.yml"
+    ]
+  }
+}

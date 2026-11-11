@@ -1,0 +1,70 @@
+{
+  "id": "praxis",
+  "arquitetura": {
+    "texto": "Praxis es una SPA en JavaScript puro: `index.html` carga `js/app.js` como ES Module, que sigue el inicio de sesión y elige la pantalla por la query `?tela=`. No hay servidor propio: los datos están en Firestore, los archivos en Storage y la autorización en las reglas de seguridad, que leen el perfil y las empresas grabados en el token. Las Cloud Functions mantienen ese token y envían los avisos de cada cambio de estado.",
+    "fluxo": [
+      "Acción en pantalla",
+      "Reglas de Firestore",
+      "Pedido e historial",
+      "Disparador en Functions",
+      "Aviso en la campana"
+    ],
+    "fontes": [
+      "Praxis/index.html#L126",
+      "Praxis/docs/arquitetura.md#L1-L20",
+      "Praxis/firestore.rules#L271-L305",
+      "Praxis/functions/src/triggers.js#L9-L43"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Permisos en las reglas, no en pantalla",
+      "texto": "Escribí cada paso del pedido como una función de las reglas de Firestore (`assumir`, `aprovar`, `pagar`…), que comprueba el estado de origen y el de destino, el perfil y, con `mudouSo`, qué campos puede cambiar ese paso. El perfil y las empresas vienen del token, grabados por la function `setUserClaims` en cada escritura en `/usuarios`; así las reglas deciden sin leer otro documento.",
+      "fontes": [
+        "Praxis/firestore.rules#L182-L263",
+        "Praxis/firestore.rules#L59-L61",
+        "Praxis/functions/src/triggers.js#L9-L38",
+        "Praxis/docs/arquitetura.md#L27"
+      ]
+    },
+    {
+      "titulo": "Transacción para asumir y decidir",
+      "texto": "Asumir, liberar, aprobar y rechazar se ejecutan en `runTransaction`: la transacción vuelve a leer el pedido y desiste si otra persona ya lo asumió o decidió, así que dos clics al mismo tiempo no se convierten en dos decisiones. `_historicoJunto` graba la entrada del historial en la misma transacción o lote, y las reglas no permiten editar el historial: el pedido no cambia de estado sin registro.",
+      "fontes": [
+        "Praxis/js/pedido-detalhe.js#L1406-L1520",
+        "Praxis/js/pedido-detalhe.js#L2614-L2622",
+        "Praxis/firestore.rules#L361-L366"
+      ]
+    },
+    {
+      "titulo": "Sin framework y sin paso de build",
+      "texto": "El navegador carga los ES Modules directamente, y el SDK de Firebase viene del CDN con la versión fija 13.1.0, adelantado con `modulepreload`. Sin bundler, lo que está en el repositorio es lo que va a Hosting. En `localhost`, `js/firebase.js` conecta la app a los emuladores por sí solo, y la app se ejecuta entera en el equipo sin tocar datos reales. En el CI, cada módulo pasa por `node --check`.",
+      "fontes": [
+        "Praxis/index.html#L43-L47",
+        "Praxis/js/firebase.js#L1-L58",
+        "Praxis/docs/arquitetura.md#L25",
+        "Praxis/.github/workflows/testes.yml#L33-L34"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Una demo pública con la contraseña expuesta",
+    "texto": "La demo necesita inicio de sesión, y la contraseña de la cuenta demo va en el `js/config.js` que el sitio entrega a cualquier visitante. Por eso las reglas reconocen esa cuenta por el correo y le dan el perfil `demo`, que no equivale a ningún otro: solo lee y graba documentos con `isDemo == true` y pedidos con ID `demo-…`. Los ID automáticos de Firestore no tienen guion, y la marca `isDemo` no cambia una vez creada: ningún pedido real entra en esa área.",
+    "fontes": [
+      "Praxis/firestore.rules#L11-L36",
+      "Praxis/firestore.rules#L265-L269",
+      "Praxis/storage.rules#L6-L16",
+      "Praxis/tests/regras.test.mjs#L224-L335",
+      "Praxis/README.pt-br.md#L90"
+    ]
+  },
+  "testes": {
+    "texto": "Son 15 pruebas de unidad con `node --test`, sobre las funciones puras de `js/utils.js` y `js/constants.js` y la regla de acceso a la renovación de la demo en las Functions, y 30 de las reglas de Firestore y Storage, que se ejecutan en el emulador y comprueban, por ejemplo, que quien abrió el pedido no lo aprueba y que el estado y el historial se graban juntos. GitHub Actions ejecuta ambas en cada push a `main` y en los pull requests, además del lint de las Cloud Functions.",
+    "fontes": [
+      "Praxis/tests/unidade.test.mjs",
+      "Praxis/tests/regras.test.mjs",
+      "Praxis/package.json#L7-L11",
+      "Praxis/.github/workflows/testes.yml"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "deepchat",
+  "arquitetura": {
+    "texto": "Escribí DeepChat en módulos ES, sin framework, sin build y sin servidor. `app.js` conduce cada turno: pide la respuesta a una IA y entrega la pregunta y la respuesta a la otra, que revisa. Las llamadas a las API están en `api-client.js`, la lectura de la revisión en `revisao.js` y el dibujo de la pantalla en `ui.js`, sin reglas de negocio. El historial y las preferencias se guardan en el `localStorage` del propio navegador.",
+    "fluxo": [
+      "Pregunta en el navegador",
+      "Respuesta en stream",
+      "Revisión por otra IA",
+      "Veredicto en pantalla",
+      "Historial en el navegador"
+    ],
+    "fontes": [
+      "DeepChat/js/app.js#L436-L475",
+      "DeepChat/js/app.js#L573-L602",
+      "DeepChat/js/ui.js#L1-L7",
+      "DeepChat/README.pt-BR.md#L225-L247"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Revisión en formato fijo, leída por la pantalla",
+      "texto": "El prompt del revisor pide un formato exacto: la línea `Veredito:` y las secciones Precisión, Puntos fuertes, Qué mejorar, Sugerencias y, solo cuando hay un error, Versión revisada. `lerRevisao` separa esas partes para que la pantalla destaque el veredicto y ponga cada sección en su lugar. Si el modelo se sale del formato, la revisión aparece entera como texto normal; el formato antiguo, con emojis, también se lee.",
+      "fontes": [
+        "DeepChat/js/revisao.js#L29-L61",
+        "DeepChat/js/revisao.js#L113-L157",
+        "DeepChat/README.pt-BR.md#L167-L170"
+      ]
+    },
+    {
+      "titulo": "Claves cifradas con una clave no exportable",
+      "texto": "Recordar las claves viene desmarcado. Si se marca, `storage.js` cifra las dos con AES-GCM usando una `CryptoKey` aleatoria, creada como no exportable y guardada en IndexedDB; en `localStorage` queda solo el texto cifrado. Así las claves no quedan legibles en una copia de seguridad ni en una copia del perfil. El README deja constancia del límite: el código que se ejecuta en el mismo origen aún puede pedir al navegador que descifre.",
+      "fontes": [
+        "DeepChat/js/storage.js#L1-L18",
+        "DeepChat/js/storage.js#L93-L105",
+        "DeepChat/js/storage.js#L136-L175",
+        "DeepChat/README.pt-BR.md#L125-L138"
+      ]
+    },
+    {
+      "titulo": "El Markdown de las IA pasa por DOMPurify",
+      "texto": "El texto de las IA se convierte en HTML con `marked` y pasa por DOMPurify con una lista cerrada de etiquetas y atributos. Un hook solo deja `class` en `<code>` con nombre de lenguaje, para que el texto no use las clases de la app, y todo enlace se abre en otra pestaña con `noopener noreferrer`. La CSP no acepta `'unsafe-inline'`, solo permite conexiones a las dos API, y las bibliotecas tienen versión fija con SRI.",
+      "fontes": [
+        "DeepChat/js/ui.js#L59-L100",
+        "DeepChat/index.html#L6-L12",
+        "DeepChat/index.html#L43-L44"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Stream que se corta a mitad de respuesta",
+    "texto": "La respuesta llega por Server-Sent Events, y los fragmentos de la red cortan líneas por la mitad; `criarLeitorSSE` guarda el resto hasta que la línea se cierra. Un nuevo intento, con espera creciente, solo ocurre mientras no ha llegado ningún texto. Si la conexión se cierra sin `[DONE]` ni motivo de parada, la respuesta se trata como cortada: lo que llegó queda en la conversación, marcado, y no pasa a la revisión. Cada fragmento renueva el plazo de 60 s.",
+    "fontes": [
+      "DeepChat/js/api-client.js#L91-L125",
+      "DeepChat/js/api-client.js#L127-L210",
+      "DeepChat/js/api-client.js#L222-L247",
+      "DeepChat/js/app.js#L550-L557"
+    ]
+  },
+  "testes": {
+    "texto": "Son 65 pruebas con `node --test`, sin dependencias. Cubren la lectura de la revisión, la conversación y el contexto enviado a las API, los colores del código y la CSP de las páginas. El stream se prueba sin red, con un `fetch` falso que corta la conexión. El almacén de claves se ejecuta con `localStorage` e IndexedDB falsos y el `crypto.subtle` real. Los ejemplos de la demostración también se comprueban. GitHub Actions lo ejecuta todo en cada push, en Node 24.",
+    "fontes": [
+      "DeepChat/tests/api.test.mjs",
+      "DeepChat/tests/storage.test.mjs#L1-L8",
+      "DeepChat/tests/demo.test.mjs#L36-L58",
+      "DeepChat/tests/csp.test.mjs",
+      "DeepChat/.github/workflows/testes.yml"
+    ]
+  }
+}

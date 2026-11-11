@@ -1,0 +1,69 @@
+{
+  "id": "deepchat",
+  "arquitetura": {
+    "texto": "I wrote DeepChat in ES modules, with no framework, no build, and no server. `app.js` drives each turn: it asks one AI for the answer and hands the question and the answer to the other, which reviews it. API calls live in `api-client.js`, review parsing in `revisao.js`, and screen rendering in `ui.js`, with no business logic. History and preferences stay in the browser's own `localStorage`.",
+    "fluxo": [
+      "Question in the browser",
+      "Streamed answer",
+      "Other AI reviews",
+      "Verdict on screen",
+      "History in the browser"
+    ],
+    "fontes": [
+      "DeepChat/js/app.js#L436-L475",
+      "DeepChat/js/app.js#L573-L602",
+      "DeepChat/js/ui.js#L1-L7",
+      "DeepChat/README.pt-BR.md#L225-L247"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Fixed-format review, parsed by the screen",
+      "texto": "The reviewer prompt asks for an exact format: the `Veredito:` line and the sections \"Accuracy\", \"Strengths\", \"To improve\", \"Suggestions\" and, only when there is an error, \"Revised version\". `lerRevisao` splits these parts so the screen can highlight the verdict and put each section in its place. If the model strays from the format, the whole review appears as plain text; the old format, with emojis, is also parsed.",
+      "fontes": [
+        "DeepChat/js/revisao.js#L29-L61",
+        "DeepChat/js/revisao.js#L113-L157",
+        "DeepChat/README.pt-BR.md#L167-L170"
+      ]
+    },
+    {
+      "titulo": "Keys encrypted with a non-exportable key",
+      "texto": "Remembering the keys is unchecked by default. When it is checked, `storage.js` encrypts both with AES-GCM using a random `CryptoKey`, created as non-exportable and stored in IndexedDB; `localStorage` holds only the ciphertext. That way, the keys aren't readable in a backup or a copy of the browser profile. The README states the limit: code running on the same origin can still ask the browser to decrypt them.",
+      "fontes": [
+        "DeepChat/js/storage.js#L1-L18",
+        "DeepChat/js/storage.js#L93-L105",
+        "DeepChat/js/storage.js#L136-L175",
+        "DeepChat/README.pt-BR.md#L125-L138"
+      ]
+    },
+    {
+      "titulo": "AI Markdown goes through DOMPurify",
+      "texto": "The AIs' text becomes HTML through `marked` and goes through DOMPurify with a closed list of tags and attributes. A hook only keeps `class` on `<code>` with a language name, so the text can't use the app's classes, and every link opens in a new tab with `noopener noreferrer`. The CSP doesn't accept `'unsafe-inline'` and allows connections only to the two APIs, and the libraries have pinned versions with SRI.",
+      "fontes": [
+        "DeepChat/js/ui.js#L59-L100",
+        "DeepChat/index.html#L6-L12",
+        "DeepChat/index.html#L43-L44"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "A stream that drops mid-answer",
+    "texto": "The answer arrives through Server-Sent Events, and network chunks split lines in half; `criarLeitorSSE` keeps the remainder until the line is complete. A retry, with increasing backoff, happens only while no text has arrived. If the connection closes without `[DONE]` or a stop reason, the answer is treated as cut off: what arrived stays in the conversation, marked as such, and is not sent for review. Each chunk renews the 60 s timeout.",
+    "fontes": [
+      "DeepChat/js/api-client.js#L91-L125",
+      "DeepChat/js/api-client.js#L127-L210",
+      "DeepChat/js/api-client.js#L222-L247",
+      "DeepChat/js/app.js#L550-L557"
+    ]
+  },
+  "testes": {
+    "texto": "There are 65 tests with `node --test`, with no dependencies. They cover review parsing, the conversation and the context sent to the APIs, the colors in code, and the pages' CSP. The stream is tested without a network, using a fake `fetch` that cuts the connection. The key vault runs with fake `localStorage` and IndexedDB and the real `crypto.subtle`. The demo examples are checked too. GitHub Actions runs everything on every push, on Node 24.",
+    "fontes": [
+      "DeepChat/tests/api.test.mjs",
+      "DeepChat/tests/storage.test.mjs#L1-L8",
+      "DeepChat/tests/demo.test.mjs#L36-L58",
+      "DeepChat/tests/csp.test.mjs",
+      "DeepChat/.github/workflows/testes.yml"
+    ]
+  }
+}

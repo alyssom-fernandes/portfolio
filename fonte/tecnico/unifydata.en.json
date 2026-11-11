@@ -1,0 +1,70 @@
+{
+  "id": "unifydata",
+  "arquitetura": {
+    "texto": "Both repositories handle the same close with the same split: the rules that decide a number live in a core of pure functions (`js/nucleo.js` and `nucleo.py`), and the screen only calls those functions. The Web version runs entirely in the browser, with no build or server, and keeps the employee base in `localStorage`. The Python version runs on a local Streamlit and rereads the HR spreadsheets at every close, storing nothing.",
+    "fluxo": [
+      "AutoSystem reports",
+      "HR spreadsheets",
+      "Matching in the core",
+      "Reviewing open items",
+      "Spreadsheet per company"
+    ],
+    "fontes": [
+      "UnifyData-Web/js/nucleo.js#L1-L11",
+      "UnifyData-Web/js/app.js#L86-L110",
+      "UnifyData-Python/unifydata.py#L1-L17",
+      "UnifyData-Python/README.pt-BR.md#L170-L175",
+      "UnifyData-Python/README.pt-BR.md#L197-L199"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Libraries only when needed, with SRI",
+      "texto": "In the Web version, opening the page downloads nothing heavy: SheetJS, ExcelJS, and PDF.js have pinned versions and load only when the first file of that type is read, with an integrity hash (SRI). The Content Security Policy doesn't accept `'unsafe-inline'`, and PDF.js runs with `eval` disabled. Files are read by the browser itself and never leave the computer.",
+      "fontes": [
+        "UnifyData-Web/js/app.js#L11-L52",
+        "UnifyData-Web/index.html#L6",
+        "UnifyData-Web/js/app.js#L377"
+      ]
+    },
+    {
+      "titulo": "Automatic matching only without ambiguity",
+      "texto": "In the Python version, a match is made automatically only when the AutoSystem name becomes identical to an HR name after removing accents, capitals, and spaces, and HR has a single spelling of it. Everything else becomes a card: with a `token_sort_ratio` of 85 or more, the card suggests the similar name; below that, the person shows as not found, and the card asks for the CPF (Brazilian taxpayer ID) and the company.",
+      "fontes": [
+        "UnifyData-Python/nucleo.py#L23",
+        "UnifyData-Python/nucleo.py#L283-L316",
+        "UnifyData-Python/README.pt-BR.md#L176-L178"
+      ]
+    },
+    {
+      "titulo": "Classic scripts, to open with a double-click",
+      "texto": "In the Web version, `nucleo.js` is a classic script, not an ES module: it registers itself on `window.Nucleo` in the browser and on `module.exports` in Node. So `index.html` works opened straight from disk, with a double-click, and the tests import the same functions with `require()`, with no bundler or build step.",
+      "fontes": [
+        "UnifyData-Web/js/nucleo.js#L1-L11",
+        "UnifyData-Web/index.html#L234-L235",
+        "UnifyData-Web/README.pt-BR.md#L187-L188",
+        "UnifyData-Web/tests/nucleo.test.js#L6"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Namesakes without a double deduction",
+    "texto": "In the Python version, matching by name attaches a purchase to every HR row with that name; with two namesakes, the same amount would be deducted from both people. So a repeated name becomes a review card, and the choice stores the HR row on each purchase (`fixar_linha`). `consolidar` adds that purchase directly to the chosen row and uses the name only for the rest. A purchase already linked by CPF doesn't go back to the card.",
+    "fontes": [
+      "UnifyData-Python/nucleo.py#L246-L280",
+      "UnifyData-Python/nucleo.py#L319-L348",
+      "UnifyData-Python/tests/test_nucleo.py#L148-L176",
+      "UnifyData-Python/README.pt-BR.md#L179-L183"
+    ]
+  },
+  "testes": {
+    "texto": "The Web version has 17 tests with `node --test` that run the `nucleo.js` rules; reading the PDF and the HR spreadsheets depends on PDF.js and SheetJS and is checked in the demo. The Python version has 23: 21 with `unittest` on `nucleo.py` and 2 with Streamlit's `AppTest`, which walk through the screen in sample mode. GitHub Actions runs everything on every push, on Node 22 and 24 and Python 3.10, 3.12, and 3.14.",
+    "fontes": [
+      "UnifyData-Web/tests/nucleo.test.js",
+      "UnifyData-Web/.github/workflows/testes.yml",
+      "UnifyData-Python/tests/test_nucleo.py",
+      "UnifyData-Python/tests/test_tela.py",
+      "UnifyData-Python/.github/workflows/testes.yml"
+    ]
+  }
+}

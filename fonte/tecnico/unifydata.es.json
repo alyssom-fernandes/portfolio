@@ -1,0 +1,70 @@
+{
+  "id": "unifydata",
+  "arquitetura": {
+    "texto": "Los dos repositorios resuelven el mismo cierre con la misma división: las reglas que deciden un número están en un núcleo de funciones puras (`js/nucleo.js` y `nucleo.py`), y la pantalla solo llama a esas funciones. La versión web se ejecuta entera en el navegador, sin build ni servidor, y guarda la base de empleados en `localStorage`. La versión Python se ejecuta en un Streamlit local y vuelve a leer las hojas de recursos humanos en cada cierre, sin guardar nada.",
+    "fluxo": [
+      "Informes de AutoSystem",
+      "Hojas de RR. HH.",
+      "Cruce en el núcleo",
+      "Revisión de pendientes",
+      "Hoja por empresa"
+    ],
+    "fontes": [
+      "UnifyData-Web/js/nucleo.js#L1-L11",
+      "UnifyData-Web/js/app.js#L86-L110",
+      "UnifyData-Python/unifydata.py#L1-L17",
+      "UnifyData-Python/README.pt-BR.md#L170-L175",
+      "UnifyData-Python/README.pt-BR.md#L197-L199"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Bibliotecas solo cuando hacen falta, con SRI",
+      "texto": "En la versión web, abrir la página no descarga nada pesado: SheetJS, ExcelJS y PDF.js tienen versión fija y solo se cargan cuando se lee el primer archivo de ese tipo, con hash de integridad (SRI). La Content Security Policy no acepta `'unsafe-inline'`, y PDF.js se ejecuta con `eval` desactivado. El propio navegador lee los archivos, que no salen del equipo.",
+      "fontes": [
+        "UnifyData-Web/js/app.js#L11-L52",
+        "UnifyData-Web/index.html#L6",
+        "UnifyData-Web/js/app.js#L377"
+      ]
+    },
+    {
+      "titulo": "Vínculo automático solo sin ambigüedad",
+      "texto": "En la versión Python, el vínculo automático solo ocurre cuando el nombre de AutoSystem queda igual a uno de recursos humanos tras quitar tildes, mayúsculas y espacios, y recursos humanos tiene una sola grafía de ese nombre. El resto se convierte en tarjeta: con `token_sort_ratio` de 85 o más, la tarjeta sugiere el nombre parecido; por debajo, la persona aparece como no encontrada y se piden el CPF (número de contribuyente brasileño) y la empresa.",
+      "fontes": [
+        "UnifyData-Python/nucleo.py#L23",
+        "UnifyData-Python/nucleo.py#L283-L316",
+        "UnifyData-Python/README.pt-BR.md#L176-L178"
+      ]
+    },
+    {
+      "titulo": "Scripts clásicos, para abrir con doble clic",
+      "texto": "En la versión web, `nucleo.js` es un script clásico, no un módulo ES: se registra en `window.Nucleo` en el navegador y en `module.exports` en Node. Así, `index.html` funciona abierto directamente desde el disco, con doble clic, y las pruebas importan las mismas funciones con `require()`, sin bundler ni paso de build.",
+      "fontes": [
+        "UnifyData-Web/js/nucleo.js#L1-L11",
+        "UnifyData-Web/index.html#L234-L235",
+        "UnifyData-Web/README.pt-BR.md#L187-L188",
+        "UnifyData-Web/tests/nucleo.test.js#L6"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Homónimos sin descuento doble",
+    "texto": "En la versión Python, el cruce por nombre une el consumo a toda fila de recursos humanos con ese nombre; con dos homónimos, el mismo valor se descontaría a las dos personas. Por eso el nombre repetido se convierte en tarjeta de revisión, y la elección graba en cada consumo la fila de recursos humanos (`fixar_linha`). `consolidar` suma ese consumo directamente en la fila elegida y usa el nombre solo para el resto. Un consumo ya vinculado por CPF no vuelve a la tarjeta.",
+    "fontes": [
+      "UnifyData-Python/nucleo.py#L246-L280",
+      "UnifyData-Python/nucleo.py#L319-L348",
+      "UnifyData-Python/tests/test_nucleo.py#L148-L176",
+      "UnifyData-Python/README.pt-BR.md#L179-L183"
+    ]
+  },
+  "testes": {
+    "texto": "La versión web tiene 17 pruebas con `node --test` que ejecutan las reglas de `nucleo.js`; la lectura del PDF y de las hojas de recursos humanos depende de PDF.js y SheetJS y se comprueba en la demostración. La versión Python tiene 23: 21 con `unittest` sobre `nucleo.py` y 2 con `AppTest` de Streamlit, que recorren la pantalla en el modo de ejemplo. GitHub Actions lo ejecuta todo en cada push, en Node 22 y 24 y Python 3.10, 3.12 y 3.14.",
+    "fontes": [
+      "UnifyData-Web/tests/nucleo.test.js",
+      "UnifyData-Web/.github/workflows/testes.yml",
+      "UnifyData-Python/tests/test_nucleo.py",
+      "UnifyData-Python/tests/test_tela.py",
+      "UnifyData-Python/.github/workflows/testes.yml"
+    ]
+  }
+}

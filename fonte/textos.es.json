@@ -202,7 +202,16 @@
       "anterior": "Anterior",
       "proximo": "Siguiente",
       "navegacao": "Otros proyectos",
-      "semDemo": "Sin demo alojada: la demostración se ejecuta en tu propio equipo, con datos ficticios, siguiendo el README."
+      "semDemo": "Sin demo alojada: la demostración se ejecuta en tu propio equipo, con datos ficticios, siguiendo el README.",
+      "indice": "En esta página",
+      "tecnicoTitulo": "Cómo se construyó",
+      "arquiteturaTitulo": "Arquitectura",
+      "fluxoTitulo": "Flujo de datos",
+      "decisoesTitulo": "Decisiones técnicas",
+      "desafioTitulo": "Desafío",
+      "testesTitulo": "Pruebas",
+      "verNoCodigo": "Ver en el código",
+      "stackLinksTitulo": "Stack y enlaces"
     },
     "artmaker": {
       "frase": "Folletos de ofertas listos para los Estados de WhatsApp.",

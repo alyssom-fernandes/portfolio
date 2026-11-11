@@ -1,0 +1,69 @@
+{
+  "id": "deepchat",
+  "arquitetura": {
+    "texto": "Escrevi o DeepChat em módulos ES, sem framework, sem build e sem servidor. O `app.js` conduz cada turno: pede a resposta a uma IA e entrega pergunta e resposta à outra, que revisa. As chamadas às APIs ficam no `api-client.js`, a leitura da revisão no `revisao.js` e o desenho da tela no `ui.js`, sem regra de negócio. O histórico e as preferências ficam no `localStorage` do próprio navegador.",
+    "fluxo": [
+      "Pergunta no navegador",
+      "Resposta em stream",
+      "Revisão pela outra IA",
+      "Veredito na tela",
+      "Histórico no navegador"
+    ],
+    "fontes": [
+      "DeepChat/js/app.js#L436-L475",
+      "DeepChat/js/app.js#L573-L602",
+      "DeepChat/js/ui.js#L1-L7",
+      "DeepChat/README.pt-BR.md#L225-L247"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Revisão em formato fixo, lida pela tela",
+      "texto": "O prompt do revisor pede um formato exato: a linha `Veredito:` e as seções Precisão, Pontos fortes, A melhorar, Sugestões e, só quando há erro, Versão revisada. O `lerRevisao` separa essas partes para a tela pôr o veredito em destaque e cada seção no seu lugar. Se o modelo fugir do formato, a revisão aparece inteira como texto comum; o formato antigo, com emojis, também é lido.",
+      "fontes": [
+        "DeepChat/js/revisao.js#L29-L61",
+        "DeepChat/js/revisao.js#L113-L157",
+        "DeepChat/README.pt-BR.md#L167-L170"
+      ]
+    },
+    {
+      "titulo": "Chaves cifradas por uma chave não exportável",
+      "texto": "Lembrar as chaves vem desmarcado. Marcado, o `storage.js` cifra as duas com AES-GCM usando uma `CryptoKey` aleatória, criada como não exportável e guardada no IndexedDB; no `localStorage` fica só o texto cifrado. Assim as chaves não ficam legíveis num backup ou numa cópia do perfil. O README registra o limite: código rodando na mesma origem ainda pode pedir ao navegador que decifre.",
+      "fontes": [
+        "DeepChat/js/storage.js#L1-L18",
+        "DeepChat/js/storage.js#L93-L105",
+        "DeepChat/js/storage.js#L136-L175",
+        "DeepChat/README.pt-BR.md#L125-L138"
+      ]
+    },
+    {
+      "titulo": "Markdown das IAs passa pelo DOMPurify",
+      "texto": "O texto das IAs vira HTML pelo `marked` e passa pelo DOMPurify com uma lista fechada de tags e atributos. Um gancho só deixa `class` em `<code>` com nome de linguagem, para o texto não usar as classes do app, e todo link abre em outra aba com `noopener noreferrer`. A CSP não aceita `'unsafe-inline'`, libera conexão só às duas APIs, e as bibliotecas têm versão fixa com SRI.",
+      "fontes": [
+        "DeepChat/js/ui.js#L59-L100",
+        "DeepChat/index.html#L6-L12",
+        "DeepChat/index.html#L43-L44"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Stream que cai no meio da resposta",
+    "texto": "A resposta chega por Server-Sent Events, e os pedaços da rede cortam linhas ao meio; o `criarLeitorSSE` guarda o resto até a linha fechar. Nova tentativa, com espera crescente, só acontece enquanto nenhum texto chegou. Se a conexão fecha sem `[DONE]` nem motivo de parada, a resposta é tratada como cortada: o que chegou fica na conversa, marcado, e não vai para a revisão. Cada pedaço renova o prazo de 60 s.",
+    "fontes": [
+      "DeepChat/js/api-client.js#L91-L125",
+      "DeepChat/js/api-client.js#L127-L210",
+      "DeepChat/js/api-client.js#L222-L247",
+      "DeepChat/js/app.js#L550-L557"
+    ]
+  },
+  "testes": {
+    "texto": "São 65 testes com `node --test`, sem dependências. Cobrem a leitura da revisão, a conversa e o contexto enviado às APIs, as cores no código e a CSP das páginas. O stream é testado sem rede, com um `fetch` falso que corta a conexão. O cofre roda com `localStorage` e IndexedDB falsos e o `crypto.subtle` de verdade. Os exemplos da demonstração também são conferidos. O GitHub Actions roda tudo a cada push, em Node 24.",
+    "fontes": [
+      "DeepChat/tests/api.test.mjs",
+      "DeepChat/tests/storage.test.mjs#L1-L8",
+      "DeepChat/tests/demo.test.mjs#L36-L58",
+      "DeepChat/tests/csp.test.mjs",
+      "DeepChat/.github/workflows/testes.yml"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "alertsignal",
+  "arquitetura": {
+    "texto": "Separei o sistema em módulos Python: `app.py` com as rotas Flask, as permissões e as exportações; `database.py` com o esquema SQLite e a conexão; `notificacoes.py` com as regras dos alertas e o envio pelo Gmail; e `importar_planilha.py`, que lê a planilha antiga com pandas uma única vez. O agendador roda dentro do mesmo processo do servidor, e a interface usa Jinja2, CSS e JavaScript sem framework.",
+    "fluxo": [
+      "Planilha importada uma vez",
+      "Banco SQLite",
+      "Verificação diária agendada",
+      "E-mail por responsável",
+      "Registro do aviso"
+    ],
+    "fontes": [
+      "AlertSignal/README.pt-br.md#L147-L168",
+      "AlertSignal/importar_planilha.py#L95-L174",
+      "AlertSignal/app.py#L1354-L1402",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "SQLite num arquivo só",
+      "texto": "Escolhi SQLite em vez de PostgreSQL porque o sistema roda numa máquina local, com poucas escritas: não pede configuração, e o backup é copiar um arquivo. O caminho do banco fica numa variável de `database.py`, e o modo demonstração troca esse caminho por um `demo.db` separado, então os dados fictícios nunca tocam o banco real. As consultas são SQL direto e parametrizado, sem ORM.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L133-L137",
+        "AlertSignal/database.py#L4-L19",
+        "AlertSignal/app.py#L1375-L1380"
+      ]
+    },
+    {
+      "titulo": "Agendador dentro do processo do Flask",
+      "texto": "Usei o APScheduler em vez de cron porque ele roda dentro do processo do Flask, funciona no Windows e deixa o horário do envio ser trocado pela própria tela. A verificação diária é um job com id fixo, criado no horário salvo nas configurações. Quando o administrador salva um novo horário, a rota chama `reschedule_job`, e o envio muda sem reiniciar o servidor.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L135",
+        "AlertSignal/app.py#L1354-L1363",
+        "AlertSignal/app.py#L1054-L1059"
+      ]
+    },
+    {
+      "titulo": "Segurança sem pacotes extras",
+      "texto": "Fiz a segurança só com Flask e a biblioteca padrão. Um token CSRF por sessão vai em todo formulário e em todo `fetch` que altera dados, e o servidor compara com `hmac.compare_digest`. A cada pedido, o usuário é relido do banco: quem foi excluído ou desativado perde a sessão, e quem teve a senha trocada também, porque a coluna `sessao_versao` sobe. Nas exportações, texto que começa com `=` continua texto, sem virar fórmula.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L141-L143",
+        "AlertSignal/app.py#L69-L91",
+        "AlertSignal/app.py#L163-L205",
+        "AlertSignal/app.py#L1316-L1319"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Avisar uma vez, sem perder nenhum",
+    "texto": "Precisei garantir que cada marco de aviso saísse uma única vez para cada responsável; depois do vencimento, o lembrete passa a ser diário. Criei a tabela `alerta_enviado`, cuja chave única inclui o marco e o vencimento: rodar duas vezes no mesmo dia não repete nada, e um documento renovado recomeça com a nova data. Se a verificação não rodou num dia, sai só o marco mais recente. O aviso só é registrado depois que o e-mail sai; se o envio falhar, ele volta no dia seguinte.",
+    "fontes": [
+      "AlertSignal/database.py#L80-L92",
+      "AlertSignal/notificacoes.py#L89-L191",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "testes": {
+    "texto": "São 62 testes em `unittest`: 42 de rotas, permissões e segurança, e 20 das regras dos alertas, do status e do agendador. Eles rodam no modo demonstração, num banco temporário, e o envio de e-mail é trocado por um falso que só conta as chamadas. As regras dos alertas usam uma data fixa, para cada marco ser conferido sem depender do dia. O GitHub Actions roda tudo a cada push, no Python 3.11 e no 3.13.",
+    "fontes": [
+      "AlertSignal/tests/test_rotas.py#L1-L40",
+      "AlertSignal/tests/test_alertas.py#L1-L60",
+      "AlertSignal/.github/workflows/testes.yml#L1-L24"
+    ]
+  }
+}

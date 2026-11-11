@@ -1,0 +1,76 @@
+{
+  "id": "audistock",
+  "arquitetura": {
+    "texto": "AudiStock es HTML, CSS y JavaScript en módulos ES, sin framework y sin paso de build, publicado como sitio estático. Los datos y el inicio de sesión están en Supabase, y lo que cambia una cantidad (registrar, corregir, finalizar y eliminar) son funciones de Postgres. El recuento que no logra subirse espera en una cola en el IndexedDB del dispositivo. En la demostración, `js/demo.js` ocupa el lugar del cliente de Supabase y lo guarda todo solo en la pestaña.",
+    "fluxo": [
+      "Lectura en el teléfono",
+      "Cola en IndexedDB",
+      "Función en Postgres",
+      "Cierre con existencias ERP",
+      "Informe de diferencias"
+    ],
+    "fontes": [
+      "AudiStock/README.pt-BR.md#L181-L190",
+      "AudiStock/js/supabaseClient.js#L1-L40",
+      "AudiStock/js/offline.js#L1-L24",
+      "AudiStock/supabase/schema.sql#L324-L392"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "El recuento se suma dentro de la base",
+      "texto": "Toda lectura pasa por la función `registrar_contagem`, que bloquea la fila del artículo (`for update`) y suma en una sola transacción. El README deja constancia de que, antes de ella, 20 lecturas simultáneas del mismo producto quedaban en 2; una prueba lanza 20 a la vez en la base de la demostración y comprueba 20. El cierre también es una sola función: `finalizar_auditoria` graba todas las existencias y cierra a la vez, y se niega si algún artículo se contó o recontó después de abrir la pantalla.",
+      "fontes": [
+        "AudiStock/supabase/schema.sql#L324-L392",
+        "AudiStock/supabase/schema.sql#L428-L488",
+        "AudiStock/README.pt-BR.md#L209-L224",
+        "AudiStock/testes/unidade/contagem.test.mjs#L24-L31"
+      ]
+    },
+    {
+      "titulo": "Permisos en la base, no solo en pantalla",
+      "texto": "Separé cuatro perfiles (administrador general, administrador, auditor y visualizador) y escribí las reglas en 24 políticas de RLS, por perfil y por empresa. Los triggers impiden que alguien se ascienda a sí mismo o altere un recuento ya finalizado. El alta de personas pasa solo por una Edge Function con la clave de servicio, que nunca llega al navegador. `permissoes.sql` entra como cada perfil y comprueba 54 reglas.",
+      "fontes": [
+        "AudiStock/supabase/schema.sql#L706-L818",
+        "AudiStock/supabase/schema.sql#L513-L548",
+        "AudiStock/supabase/schema.sql#L638-L673",
+        "AudiStock/supabase/functions/criar-usuario/index.ts#L1-L30",
+        "AudiStock/supabase/testes/permissoes.sql",
+        "AudiStock/README.pt-BR.md#L142-L152"
+      ]
+    },
+    {
+      "titulo": "Política de seguridad por hash, sin build",
+      "texto": "Cada página trae una Content Security Policy en una meta tag: solo se ejecutan scripts del propio sitio, de las carpetas exactas de las bibliotecas en cdnjs y jsDelivr, con versión fija, y de los scripts incrustados permitidos por su hash. Las bibliotecas de PDF y de hojas de cálculo solo se descargan al exportar o importar, comprobadas por SRI. `csp.test.mjs` revisa todas las páginas, y las pruebas de extremo a extremo fallan si la política bloquea algo.",
+      "fontes": [
+        "AudiStock/contagem.html#L5",
+        "AudiStock/README.pt-BR.md#L193-L204",
+        "AudiStock/testes/unidade/csp.test.mjs",
+        "AudiStock/js/supabaseClient.js#L12-L27"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Cola sin conexión que nunca cuenta dos veces",
+    "texto": "Una respuesta perdida en la red, o la misma cola abierta en dos pestañas, podía sumar la misma lectura dos veces. Cada registro lleva un `id_cliente` generado en el dispositivo, el mismo del intento que falló, y la base anota en `contagens_aplicadas` lo que ya aplicó. Solo una pestaña envía a la vez (Web Locks). Un fallo pasajero, como la red o una sesión vencida, retiene la cola en orden; cualquier otro rechazo pasa a «No enviada» sin bloquear las siguientes.",
+    "fontes": [
+      "AudiStock/js/offline.js#L1-L24",
+      "AudiStock/js/offline.js#L76-L100",
+      "AudiStock/js/offline.js#L168-L207",
+      "AudiStock/js/telas/contagem.js#L495-L527",
+      "AudiStock/supabase/schema.sql#L110-L117",
+      "AudiStock/testes/unidade/fila.test.mjs"
+    ]
+  },
+  "testes": {
+    "texto": "Son 84 pruebas de unidad y de base de datos con `node:test`: el código real de `js/` se ejecuta en Node sobre la base de la demostración, la cola usa un IndexedDB en memoria, y `schema.sql` y `permissoes.sql` se ejecutan en un Postgres en WebAssembly (PGlite), incluso sobre una base de la versión anterior. Playwright hace 46 ejecuciones de extremo a extremo, en pantalla de computadora y de celular. GitHub Actions lo ejecuta todo en cada push a `main` y en cada pull request.",
+    "fontes": [
+      "AudiStock/package.json",
+      "AudiStock/testes/unidade/indexeddb.mjs#L1-L7",
+      "AudiStock/testes/banco/esquema.test.mjs#L1-L40",
+      "AudiStock/playwright.config.mjs#L27-L30",
+      "AudiStock/testes/e2e",
+      "AudiStock/.github/workflows/testes.yml"
+    ]
+  }
+}

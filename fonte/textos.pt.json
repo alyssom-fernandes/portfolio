@@ -202,7 +202,16 @@
       "anterior": "Anterior",
       "proximo": "Próximo",
       "navegacao": "Outros projetos",
-      "semDemo": "Sem demo hospedada: a demonstração roda no computador, com dados fictícios, seguindo o README."
+      "semDemo": "Sem demo hospedada: a demonstração roda no computador, com dados fictícios, seguindo o README.",
+      "indice": "Nesta página",
+      "tecnicoTitulo": "Como foi construído",
+      "arquiteturaTitulo": "Arquitetura",
+      "fluxoTitulo": "Fluxo dos dados",
+      "decisoesTitulo": "Decisões técnicas",
+      "desafioTitulo": "Desafio",
+      "testesTitulo": "Testes",
+      "verNoCodigo": "Ver no código",
+      "stackLinksTitulo": "Stack e links"
     },
     "artmaker": {
       "frase": "Encartes de ofertas prontos para o Status do WhatsApp.",

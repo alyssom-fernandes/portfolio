@@ -28,9 +28,11 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#B03030">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -58,51 +60,97 @@
       <div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Demo do Fuel Mind (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Código do Fuel Mind no GitHub (abre em nova aba)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por que existe</h2>
-      <p>As entradas de combustível eram preenchidas numa planilha por posto e TRR. Dessas planilhas, as informações iam para outra, que calculava o aluguel dos veículos e o frete dos motoristas. Placas, nomes de motoristas, números de notas e valores digitados errado, além de fórmulas quebradas, atrasavam e dificultavam as auditorias; fiz a ferramenta para acabar com isso.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">Nesta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por que existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="Nesta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="Nesta página">
+        <p class="d-ind-t" aria-hidden="true">Nesta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema e prova</h2>
-      <div><p class="fp-rot">Problema</p><p>Placas, motoristas, notas e valores digitados à mão, com fórmulas quebradas.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Controle das entradas de combustível e dos fretes: lê o XML da NF-e, calcula o aluguel dos veículos e o pagamento dos motoristas e fecha o mês em PDF ou Excel.</p></div>
-      <div><p class="fp-rot">Prova</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por que existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">As entradas de combustível eram preenchidas numa planilha por posto e TRR. Dessas planilhas, as informações iam para outra, que calculava o aluguel dos veículos e o frete dos motoristas. Placas, nomes de motoristas, números de notas e valores digitados errado, além de fórmulas quebradas, atrasavam e dificultavam as auditorias; fiz a ferramenta para acabar com isso.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema e prova</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Placas, motoristas, notas e valores digitados à mão, com fórmulas quebradas.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Controle das entradas de combustível e dos fretes: lê o XML da NF-e, calcula o aluguel dos veículos e o pagamento dos motoristas e fecha o mês em PDF ou Excel.</p></div>
+          <div data-revela="2"><p class="fp-rot">Prova</p><div class="d-prova">
           <p class="prova-n"><b>145</b> <span>testes</span></p>
           <p class="prova-d"><span class="pd-det">120 de unidade e 25 das regras do Firestore, no GitHub Actions.</span> <span class="pd-data">Conferidos em 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: tela de lançamentos com importação do XML da NF-e" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Importa a NF-e</h3><p>Lê o XML da NF-e para lançar cada entrada de combustível.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/fretes.webp" srcset="../../assets/projetos/fuelmind/fretes-960.webp 960w, ../../assets/projetos/fuelmind/fretes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: fretes mês a mês" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Aluguel e frete</h3><p>Fretes mês a mês, com o aluguel dos veículos e o pagamento dos motoristas no fechamento.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/relatorios.webp" srcset="../../assets/projetos/fuelmind/relatorios-960.webp 960w, ../../assets/projetos/fuelmind/relatorios.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: relatórios e fechamento do mês" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Fecha o mês</h3><p>Fechamento mensal em PDF ou Excel.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/dashboard.webp" srcset="../../assets/projetos/fuelmind/dashboard-960.webp 960w, ../../assets/projetos/fuelmind/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: painel com notas descarregadas, litros e gastos do mês" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Entradas num painel só</h3><p>Notas descarregadas, litros e gastos do mês acompanhados no mesmo painel.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig celular-so"><img src="../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind no celular: painel" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Compara com o período anterior</h3><p>Notas, litros e gastos vêm um abaixo do outro na tela do celular, cada um com a variação em porcentagem.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: tela de lançamentos com importação do XML da NF-e" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Importa a NF-e</h3><p>Lê o XML da NF-e para lançar cada entrada de combustível.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/fretes.webp" srcset="../../assets/projetos/fuelmind/fretes-960.webp 960w, ../../assets/projetos/fuelmind/fretes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: fretes mês a mês" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Aluguel e frete</h3><p>Fretes mês a mês, com o aluguel dos veículos e o pagamento dos motoristas no fechamento.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/relatorios.webp" srcset="../../assets/projetos/fuelmind/relatorios-960.webp 960w, ../../assets/projetos/fuelmind/relatorios.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: relatórios e fechamento do mês" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Fecha o mês</h3><p>Fechamento mensal em PDF ou Excel.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/fuelmind/dashboard.webp" srcset="../../assets/projetos/fuelmind/dashboard-960.webp 960w, ../../assets/projetos/fuelmind/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: painel com notas descarregadas, litros e gastos do mês" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Entradas num painel só</h3><p>Notas descarregadas, litros e gastos do mês acompanhados no mesmo painel.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig celular-so" data-revela><img src="../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind no celular: painel" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Compara com o período anterior</h3><p>Notas, litros e gastos vêm um abaixo do outro na tela do celular, cada um com a variação em porcentagem.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Como foi construído</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitetura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">O Fuel Mind é JavaScript puro sobre o Firebase, sem framework e sem etapa de build. O código fica em três pastas: <code>src/core</code> (Firebase, sessão, sincronização), <code>src/shared</code> (cálculos e o padrão dos PDFs e das planilhas) e <code>src/screens</code>, uma tela por arquivo. O <code>index.html</code> carrega todos os scripts no mesmo escopo global. Os cadastros ficam em <code>dados/compartilhado</code>, e as notas de cada empresa num documento próprio, <code>dados/lanc__{id}</code>.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/index.html#L1165-L1201" target="_blank" rel="noopener" title="Fuel-Mind/index.html">index.html <small>L1165–1201</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/core/firebase.js#L44-L67" target="_blank" rel="noopener" title="Fuel-Mind/src/core/firebase.js">firebase.js <small>L44–67</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/screens/lancamentos.js#L89-L155" target="_blank" rel="noopener" title="Fuel-Mind/src/screens/lancamentos.js">lancamentos.js <small>L89–155</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L869-L960" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L869–960</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L218-L257" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L218–257</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Fluxo dos dados</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">XML da NF-e</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Formulário da nota</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Documento da empresa</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Cálculo do frete</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Fechamento em PDF/Excel</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisões técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Um documento de notas por empresa</h4><p>A regra do Firestore avalia o documento inteiro: enquanto todas as notas moravam juntas, quem lia as próprias lia as de todas as empresas. Separei as notas em <code>dados/lanc__{id}</code>, com o id da empresa no nome, e a regra recorta esse id e confere contra o <code>empresaIds</code> do perfil. Usar o id, e não o nome, deixa renomear a empresa sem mover o documento nem refazer permissões.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/core/firebase.js#L44-L67" target="_blank" rel="noopener" title="Fuel-Mind/src/core/firebase.js">firebase.js <small>L44–67</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L285-L299" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L285–299</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L99-L104" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L99–104</small></a></p></li>
+          <li data-revela><h4>Taxa de frete com vigência</h4><p>Nenhum valor de frete é gravado: a tela recalcula tudo a cada abertura. Com a taxa como valor único, mudá-la reescrevia em silêncio os meses já pagos. Por isso cada mudança fecha a vigência anterior e abre outra, e <code>calcularFretesDoMes</code> usa a taxa e o percentual do motorista que valiam na data da descarga, além do conjunto que continha a placa naquele dia.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L308-L343" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L308–343</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L850-L869" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L850–869</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/frete.test.js#L39-L55" target="_blank" rel="noopener" title="Fuel-Mind/tests/frete.test.js">frete.test.js <small>L39–55</small></a></p></li>
+          <li data-revela><h4>Números em português sem <code>type=&quot;number&quot;</code></h4><p>No Chrome em português, o <code>&lt;input type=&quot;number&quot;&gt;</code> falha em silêncio: a vírgula esvazia o campo e a roda do mouse altera o valor. Troquei por campos de texto, e quem entende o número é o <code>parseNumeroBR</code>. O <code>numerico.js</code> devolve o teclado numérico no celular e a formatação, com as casas decimais de cada campo; o preço aceita até dez, o limite do <code>vUnCom</code> da NF-e.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/numerico.js#L1-L58" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/numerico.js">numerico.js <small>L1–58</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L613" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L613</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/numerico.test.js" target="_blank" rel="noopener" title="Fuel-Mind/tests/numerico.test.js">numerico.test.js</a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafio</h3>
+          <div class="t-corpo" data-revela="1"><h4>Admin preso às próprias empresas</h4><p>Empresas e fechamentos de mês vivem em listas de um único documento, e a regra do Firestore não percorre lista. Sem um limite, um admin da empresa A mudava pelo console a taxa de frete da empresa B. A saída foi comparar o antes e o depois com <code>removeAll</code>, que deixa só os itens alterados, e conferir cada um contra o perfil. Como a regra não tem laço, ela confere até 8 itens alterados por gravação e recusa a gravação que mudar mais que isso.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L197-L239" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L197–239</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L256-L266" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L256–266</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/regras/firestore-regras.test.js#L197-L230" target="_blank" rel="noopener" title="Fuel-Mind/tests/regras/firestore-regras.test.js">firestore-regras.test.js <small>L197–230</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L185-L189" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L185–189</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testes</h3>
+          <div class="t-corpo" data-revela="1"><p>São 120 testes de unidade com <code>node --test</code>, sem dependência a instalar: eles carregam os arquivos de <code>src/</code> com <code>vm</code>, como o navegador. Cobrem o frete, as vigências, a trava do mês fechado, a identificação da base que emitiu a NF-e, os números e o padrão dos PDFs e das planilhas. As regras de segurança têm 25 testes no emulador do Firestore, com um projeto <code>demo-</code> que não existe na nuvem. O GitHub Actions roda os dois a cada push.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/frete.test.js#L11-L23" target="_blank" rel="noopener" title="Fuel-Mind/tests/frete.test.js">frete.test.js <small>L11–23</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/regras/firestore-regras.test.js" target="_blank" rel="noopener" title="Fuel-Mind/tests/regras/firestore-regras.test.js">firestore-regras.test.js</a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="Fuel-Mind/.github/workflows/testes.yml">testes.yml</a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L163-L170" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L163–170</small></a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, Firebase, Chart.js, jsPDF, SheetJS, node:test, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Demo do Fuel Mind (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Código do Fuel Mind no GitHub (abre em nova aba)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack e links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript, Firebase, Chart.js, jsPDF, SheetJS, node:test, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Demo do Fuel Mind (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Código do Fuel Mind no GitHub (abre em nova aba)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Outros projetos">

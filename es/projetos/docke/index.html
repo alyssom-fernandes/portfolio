@@ -28,9 +28,11 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#17A086">
 <a class="pular" href="#conteudo">Saltar al contenido</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://docke-two.vercel.app" target="_blank" rel="noopener" aria-label="Demo de Docke (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Docke" target="_blank" rel="noopener" aria-label="Código de Docke en GitHub (se abre en una pestaña nueva)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por qué existe</h2>
-      <p>El grupo iba a migrar toda su documentación a la nube. Desarrollé Docke atendiendo los puntos clave de esa migración y adaptado a la rutina de los equipos.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">En esta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por qué existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="En esta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="En esta página">
+        <p class="d-ind-t" aria-hidden="true">En esta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema y comprobación</h2>
-      <div><p class="fp-rot">Problema</p><p>Documentos de varias empresas por organizar en la nube, con plazos y conservación legal.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Gestión electrónica de documentos para varias empresas: búsqueda en el texto digitalizado (OCR), plazos de obligaciones, conservación legal y registro de auditoría encadenado por hash.</p></div>
-      <div><p class="fp-rot">Comprobación</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por qué existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">El grupo iba a migrar toda su documentación a la nube. Desarrollé Docke atendiendo los puntos clave de esa migración y adaptado a la rutina de los equipos.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema y comprobación</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Documentos de varias empresas por organizar en la nube, con plazos y conservación legal.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Gestión electrónica de documentos para varias empresas: búsqueda en el texto digitalizado (OCR), plazos de obligaciones, conservación legal y registro de auditoría encadenado por hash.</p></div>
+          <div data-revela="2"><p class="fp-rot">Comprobación</p><div class="d-prova">
           <p class="prova-n"><b>89</b> <span>pruebas</span></p>
           <p class="prova-d"><span class="pd-det">83 de backend y 6 de extremo a extremo, en GitHub Actions.</span> <span class="pd-data">Verificadas el 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/dashboard.webp" srcset="../../../assets/projetos/docke/dashboard-960.webp 960w, ../../../assets/projetos/docke/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: panel de la empresa con 14 documentos, 4 carpetas, envíos de los últimos 14 días y documentos por carpeta" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Panel de la empresa</h3><p>Documentos, carpetas, anclados y envíos recientes de la empresa elegida, con los documentos por carpeta.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/documentos.webp" srcset="../../../assets/projetos/docke/documentos-960.webp 960w, ../../../assets/projetos/docke/documentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: carpeta Fiscal con cuatro documentos, su tipo, tamaño y la marca del OCR" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Carpetas con OCR</h3><p>Cada carpeta lista los documentos con tipo, tamaño y la marca del OCR, que permite buscar dentro del texto digitalizado.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/atividade.webp" srcset="../../../assets/projetos/docke/atividade-960.webp 960w, ../../../assets/projetos/docke/atividade.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: actividad con cada envío, visualización y descarga registrados por día" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Registro de auditoría</h3><p>Cada envío, visualización y descarga queda anotado en un registro encadenado por hash.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../../assets/projetos/docke/celular.webp" width="780" height="1688" alt="Docke en el teléfono: panel con los totales y la navegación abajo" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Barra de navegación</h3><p>Inicio, documentos, búsqueda y anclados quedan al pie de la pantalla, como en una app de teléfono, con el botón de envío arriba.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/dashboard.webp" srcset="../../../assets/projetos/docke/dashboard-960.webp 960w, ../../../assets/projetos/docke/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: panel de la empresa con 14 documentos, 4 carpetas, envíos de los últimos 14 días y documentos por carpeta" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Panel de la empresa</h3><p>Documentos, carpetas, anclados y envíos recientes de la empresa elegida, con los documentos por carpeta.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/documentos.webp" srcset="../../../assets/projetos/docke/documentos-960.webp 960w, ../../../assets/projetos/docke/documentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: carpeta Fiscal con cuatro documentos, su tipo, tamaño y la marca del OCR" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Carpetas con OCR</h3><p>Cada carpeta lista los documentos con tipo, tamaño y la marca del OCR, que permite buscar dentro del texto digitalizado.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>docke-two.vercel.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/docke/atividade.webp" srcset="../../../assets/projetos/docke/atividade-960.webp 960w, ../../../assets/projetos/docke/atividade.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Docke: actividad con cada envío, visualización y descarga registrados por día" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Registro de auditoría</h3><p>Cada envío, visualización y descarga queda anotado en un registro encadenado por hash.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../../assets/projetos/docke/celular.webp" width="780" height="1688" alt="Docke en el teléfono: panel con los totales y la navegación abajo" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Barra de navegación</h3><p>Inicio, documentos, búsqueda y anclados quedan al pie de la pantalla, como en una app de teléfono, con el botón de envío arriba.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Cómo se construyó</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitectura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">El frontend en React se comunica con una API en FastAPI, que guarda los datos en el PostgreSQL de Supabase y los archivos en Cloudflare R2. El navegador envía el archivo directamente a R2; la API solo confirma el envío y crea un job de OCR. Un worker en segundo plano lee el archivo, extrae el texto con Tesseract y lo graba en el documento, donde la búsqueda de texto completo de Postgres lo encuentra.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/README.md#L37-L51" target="_blank" rel="noopener" title="Docke/README.md">README.md <small>L37–51</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/routers/documents.py#L213-L275" target="_blank" rel="noopener" title="Docke/backend/app/routers/documents.py">documents.py <small>L213–275</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/services/documents_service.py#L166" target="_blank" rel="noopener" title="Docke/backend/app/services/documents_service.py">documents_service.py <small>L166</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/workers/ocr_worker.py#L1-L16" target="_blank" rel="noopener" title="Docke/backend/app/workers/ocr_worker.py">ocr_worker.py <small>L1–16</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/services/search_service.py#L57-L95" target="_blank" rel="noopener" title="Docke/backend/app/services/search_service.py">search_service.py <small>L57–95</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Flujo de datos</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Envío directo a R2</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Confirmación con SHA-256</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Cola de OCR</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Búsqueda en el texto</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Registro encadenado por hash</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisiones técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Aislamiento entre empresas en la propia base</h4><p>Cada solicitud de usuario abre una transacción, pasa las claims del JWT a Postgres con <code>set_config('request.jwt.claims')</code> y cambia el rol con <code>SET LOCAL role authenticated</code>. Así, las políticas de Row Level Security se aplican a toda consulta de esa conexión, y la propia base bloquea el acceso por empresa o por carpeta, no solo la API. <code>SET LOCAL</code> solo dura dentro de una transacción explícita, por eso toda la solicitud va en una. Las operaciones administrativas y el worker usan una conexión aparte, que ignora el RLS y comprueba el permiso en el código.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/dependencies.py#L251-L288" target="_blank" rel="noopener" title="Docke/backend/app/dependencies.py">dependencies.py <small>L251–288</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/README.md#L20" target="_blank" rel="noopener" title="Docke/README.md">README.md <small>L20</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/README.md#L50" target="_blank" rel="noopener" title="Docke/README.md">README.md <small>L50</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/supabase/migrations/20260627000003_rls_policies.sql" target="_blank" rel="noopener" title="Docke/supabase/migrations/20260627000003_rls_policies.sql">20260627000003_rls_policies.sql</a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/dependencies.py#L291-L295" target="_blank" rel="noopener" title="Docke/backend/app/dependencies.py">dependencies.py <small>L291–295</small></a></p></li>
+          <li data-revela><h4>El archivo va directo al storage</h4><p>El navegador envía el archivo a R2 mediante una URL prefirmada, en partes de 10 MB a partir de 20 MB. Después, la API comprueba el tamaño real con un HEAD, porque la URL no impone límite, y calcula el SHA-256. Si la empresa ya tiene un archivo idéntico, responde 409 y borra el objeto y el registro pendiente, para no dejar basura en el bucket.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/README.md#L51" target="_blank" rel="noopener" title="Docke/README.md">README.md <small>L51</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/frontend/src/pages/Documents.tsx#L400-L401" target="_blank" rel="noopener" title="Docke/frontend/src/pages/Documents.tsx">Documents.tsx <small>L400–401</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/frontend/src/pages/Documents.tsx#L462-L463" target="_blank" rel="noopener" title="Docke/frontend/src/pages/Documents.tsx">Documents.tsx <small>L462–463</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/routers/documents.py#L224-L266" target="_blank" rel="noopener" title="Docke/backend/app/routers/documents.py">documents.py <small>L224–266</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/services/storage_service.py#L117-L137" target="_blank" rel="noopener" title="Docke/backend/app/services/storage_service.py">storage_service.py <small>L117–137</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/routers/documents.py#L321" target="_blank" rel="noopener" title="Docke/backend/app/routers/documents.py">documents.py <small>L321</small></a></p></li>
+          <li data-revela><h4>OCR en una cola dentro de Postgres</h4><p>La confirmación del envío graba un job en la tabla <code>ocr_jobs</code>, y un worker toma el más antiguo con <code>FOR UPDATE SKIP LOCKED</code>, de modo que varios workers no se disputan el mismo job. Un job detenido en procesamiento durante más de 10 minutos vuelve a la cola, hasta 3 intentos; después queda <code>failed</code>. Tesseract lee en portugués e inglés; en las imágenes, después de un preprocesamiento con OpenCV.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/workers/ocr_worker.py#L1-L35" target="_blank" rel="noopener" title="Docke/backend/app/workers/ocr_worker.py">ocr_worker.py <small>L1–35</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/workers/ocr_worker.py#L73-L99" target="_blank" rel="noopener" title="Docke/backend/app/workers/ocr_worker.py">ocr_worker.py <small>L73–99</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/services/ocr_service.py#L5" target="_blank" rel="noopener" title="Docke/backend/app/services/ocr_service.py">ocr_service.py <small>L5</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/app/services/ocr_service.py#L76" target="_blank" rel="noopener" title="Docke/backend/app/services/ocr_service.py">ocr_service.py <small>L76</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafío</h3>
+          <div class="t-corpo" data-revela="1"><h4>Verificar el registro por enlaces, no por hora</h4><p>Cada evento guarda un HMAC-SHA256 calculado sobre su contenido y el hash del evento anterior de la empresa. La primera verificación ordenaba los eventos por hora y señalaba una cadena rota sin que hubiera alteración, porque los eventos de una misma transacción tienen la misma hora. Reescribí la verificación para seguir los enlaces a partir del primer evento. Faltaba aún el final: borrar el evento más reciente pasaba inadvertido; ahora el último hash grabado tiene que existir, o el registro aparece como truncado.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80" target="_blank" rel="noopener" title="Docke/supabase/migrations/20260723000015_event_store_activity_log.sql">20260723000015_event_store_activity_log.sql <small>L40–80</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/supabase/migrations/20261017000001_activity_log_verify_chain_by_links.sql#L1-L67" target="_blank" rel="noopener" title="Docke/supabase/migrations/20261017000001_activity_log_verify_chain_by_links.sql">20261017000001_activity_log_verify_chain_by_links.sql <small>L1–67</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L47-L51" target="_blank" rel="noopener" title="Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql">20261026000002_seguranca_rls_trilha_links.sql <small>L47–51</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L122-L135" target="_blank" rel="noopener" title="Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql">20261026000002_seguranca_rls_trilha_links.sql <small>L122–135</small></a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/tests/test_audit_chain.py#L57-L163" target="_blank" rel="noopener" title="Docke/backend/tests/test_audit_chain.py">test_audit_chain.py <small>L57–163</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Pruebas</h3>
+          <div class="t-corpo" data-revela="1"><p>El backend tiene 83 pruebas recopiladas por pytest, que provienen de 30 funciones (una de ellas se ejecuta 50 veces); las de integración se ejecutan contra un Supabase local y cubren el aislamiento entre empresas mediante RLS, los permisos, el OCR, los enlaces para compartir y el registro señalando un evento alterado, borrado o cortado al final. Las 6 pruebas de Playwright inician sesión en la demostración, cambian de identidad, abren un PDF y buscan. GitHub Actions ejecuta ambas en cada push a <code>main</code>.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/tests" target="_blank" rel="noopener" title="Docke/backend/tests">tests</a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/frontend/e2e" target="_blank" rel="noopener" title="Docke/frontend/e2e">e2e</a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/.github/workflows/ci.yml" target="_blank" rel="noopener" title="Docke/.github/workflows/ci.yml">ci.yml</a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/.github/workflows/e2e.yml" target="_blank" rel="noopener" title="Docke/.github/workflows/e2e.yml">e2e.yml</a> <a href="https://github.com/alyssom-fernandes/Docke/blob/HEAD/backend/tests/test_demo_seed_templates.py#L11" target="_blank" rel="noopener" title="Docke/backend/tests/test_demo_seed_templates.py">test_demo_seed_templates.py <small>L11</small></a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>React 19, TypeScript, Vite, Tailwind CSS, FastAPI, PostgreSQL (RLS), Supabase, Tesseract, pytest, Playwright</p></div>
-      <div><h2>Enlaces</h2><div class="d-acoes"><a class="btn linha" href="https://docke-two.vercel.app" target="_blank" rel="noopener" aria-label="Demo de Docke (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Docke" target="_blank" rel="noopener" aria-label="Código de Docke en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack y enlaces</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>React 19, TypeScript, Vite, Tailwind CSS, FastAPI, PostgreSQL (RLS), Supabase, Tesseract, pytest, Playwright</p></div>
+          <div data-revela="1"><h3>Enlaces</h3><div class="d-acoes"><a class="btn linha" href="https://docke-two.vercel.app" target="_blank" rel="noopener" aria-label="Demo de Docke (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Docke" target="_blank" rel="noopener" aria-label="Código de Docke en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Otros proyectos">

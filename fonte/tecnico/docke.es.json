@@ -1,0 +1,76 @@
+{
+  "id": "docke",
+  "arquitetura": {
+    "texto": "El frontend en React se comunica con una API en FastAPI, que guarda los datos en el PostgreSQL de Supabase y los archivos en Cloudflare R2. El navegador envía el archivo directamente a R2; la API solo confirma el envío y crea un job de OCR. Un worker en segundo plano lee el archivo, extrae el texto con Tesseract y lo graba en el documento, donde la búsqueda de texto completo de Postgres lo encuentra.",
+    "fluxo": [
+      "Envío directo a R2",
+      "Confirmación con SHA-256",
+      "Cola de OCR",
+      "Búsqueda en el texto",
+      "Registro encadenado por hash"
+    ],
+    "fontes": [
+      "Docke/README.md#L37-L51",
+      "Docke/backend/app/routers/documents.py#L213-L275",
+      "Docke/backend/app/services/documents_service.py#L166",
+      "Docke/backend/app/workers/ocr_worker.py#L1-L16",
+      "Docke/backend/app/services/search_service.py#L57-L95"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Aislamiento entre empresas en la propia base",
+      "texto": "Cada solicitud de usuario abre una transacción, pasa las claims del JWT a Postgres con `set_config('request.jwt.claims')` y cambia el rol con `SET LOCAL role authenticated`. Así, las políticas de Row Level Security se aplican a toda consulta de esa conexión, y la propia base bloquea el acceso por empresa o por carpeta, no solo la API. `SET LOCAL` solo dura dentro de una transacción explícita, por eso toda la solicitud va en una. Las operaciones administrativas y el worker usan una conexión aparte, que ignora el RLS y comprueba el permiso en el código.",
+      "fontes": [
+        "Docke/backend/app/dependencies.py#L251-L288",
+        "Docke/README.md#L20",
+        "Docke/README.md#L50",
+        "Docke/supabase/migrations/20260627000003_rls_policies.sql",
+        "Docke/backend/app/dependencies.py#L291-L295"
+      ]
+    },
+    {
+      "titulo": "El archivo va directo al storage",
+      "texto": "El navegador envía el archivo a R2 mediante una URL prefirmada, en partes de 10 MB a partir de 20 MB. Después, la API comprueba el tamaño real con un HEAD, porque la URL no impone límite, y calcula el SHA-256. Si la empresa ya tiene un archivo idéntico, responde 409 y borra el objeto y el registro pendiente, para no dejar basura en el bucket.",
+      "fontes": [
+        "Docke/README.md#L51",
+        "Docke/frontend/src/pages/Documents.tsx#L400-L401",
+        "Docke/frontend/src/pages/Documents.tsx#L462-L463",
+        "Docke/backend/app/routers/documents.py#L224-L266",
+        "Docke/backend/app/services/storage_service.py#L117-L137",
+        "Docke/backend/app/routers/documents.py#L321"
+      ]
+    },
+    {
+      "titulo": "OCR en una cola dentro de Postgres",
+      "texto": "La confirmación del envío graba un job en la tabla `ocr_jobs`, y un worker toma el más antiguo con `FOR UPDATE SKIP LOCKED`, de modo que varios workers no se disputan el mismo job. Un job detenido en procesamiento durante más de 10 minutos vuelve a la cola, hasta 3 intentos; después queda `failed`. Tesseract lee en portugués e inglés; en las imágenes, después de un preprocesamiento con OpenCV.",
+      "fontes": [
+        "Docke/backend/app/workers/ocr_worker.py#L1-L35",
+        "Docke/backend/app/workers/ocr_worker.py#L73-L99",
+        "Docke/backend/app/services/ocr_service.py#L5",
+        "Docke/backend/app/services/ocr_service.py#L76"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Verificar el registro por enlaces, no por hora",
+    "texto": "Cada evento guarda un HMAC-SHA256 calculado sobre su contenido y el hash del evento anterior de la empresa. La primera verificación ordenaba los eventos por hora y señalaba una cadena rota sin que hubiera alteración, porque los eventos de una misma transacción tienen la misma hora. Reescribí la verificación para seguir los enlaces a partir del primer evento. Faltaba aún el final: borrar el evento más reciente pasaba inadvertido; ahora el último hash grabado tiene que existir, o el registro aparece como truncado.",
+    "fontes": [
+      "Docke/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80",
+      "Docke/supabase/migrations/20261017000001_activity_log_verify_chain_by_links.sql#L1-L67",
+      "Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L47-L51",
+      "Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L122-L135",
+      "Docke/backend/tests/test_audit_chain.py#L57-L163"
+    ]
+  },
+  "testes": {
+    "texto": "El backend tiene 83 pruebas recopiladas por pytest, que provienen de 30 funciones (una de ellas se ejecuta 50 veces); las de integración se ejecutan contra un Supabase local y cubren el aislamiento entre empresas mediante RLS, los permisos, el OCR, los enlaces para compartir y el registro señalando un evento alterado, borrado o cortado al final. Las 6 pruebas de Playwright inician sesión en la demostración, cambian de identidad, abren un PDF y buscan. GitHub Actions ejecuta ambas en cada push a `main`.",
+    "fontes": [
+      "Docke/backend/tests",
+      "Docke/frontend/e2e",
+      "Docke/.github/workflows/ci.yml",
+      "Docke/.github/workflows/e2e.yml",
+      "Docke/backend/tests/test_demo_seed_templates.py#L11"
+    ]
+  }
+}

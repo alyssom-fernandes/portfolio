@@ -1,0 +1,68 @@
+{
+  "id": "fuelmind",
+  "arquitetura": {
+    "texto": "Fuel Mind es JavaScript puro sobre Firebase, sin framework y sin paso de build. El código está en tres carpetas: `src/core` (Firebase, sesión, sincronización), `src/shared` (cálculos y el formato de los PDF y las hojas de cálculo) y `src/screens`, una pantalla por archivo. `index.html` carga todos los scripts en el mismo ámbito global. Los registros maestros están en `dados/compartilhado`, y las facturas de cada empresa en un documento propio, `dados/lanc__{id}`.",
+    "fluxo": [
+      "XML de la NF-e",
+      "Formulario de la factura",
+      "Documento de la empresa",
+      "Cálculo del flete",
+      "Cierre en PDF/Excel"
+    ],
+    "fontes": [
+      "Fuel-Mind/index.html#L1165-L1201",
+      "Fuel-Mind/src/core/firebase.js#L44-L67",
+      "Fuel-Mind/src/screens/lancamentos.js#L89-L155",
+      "Fuel-Mind/src/shared/utils.js#L869-L960",
+      "Fuel-Mind/README.pt-BR.md#L218-L257"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Un documento de facturas por empresa",
+      "texto": "La regla de Firestore evalúa el documento entero: mientras todas las facturas estaban juntas, quien leía las suyas leía las de todas las empresas. Separé las facturas en `dados/lanc__{id}`, con el id de la empresa en el nombre, y la regla recorta ese id y lo compara con el `empresaIds` del perfil. Usar el id, y no el nombre, permite renombrar la empresa sin mover el documento ni rehacer permisos.",
+      "fontes": [
+        "Fuel-Mind/src/core/firebase.js#L44-L67",
+        "Fuel-Mind/firestore.rules#L285-L299",
+        "Fuel-Mind/firestore.rules#L99-L104"
+      ]
+    },
+    {
+      "titulo": "Tarifa de flete con vigencia",
+      "texto": "No se graba ningún valor de flete: la pantalla lo recalcula todo cada vez que se abre. Con la tarifa como valor único, cambiarla reescribía en silencio los meses ya pagados. Por eso cada cambio cierra la vigencia anterior y abre otra, y `calcularFretesDoMes` usa la tarifa y el porcentaje del conductor vigentes en la fecha de la descarga, además del conjunto que incluía la placa ese día.",
+      "fontes": [
+        "Fuel-Mind/src/shared/utils.js#L308-L343",
+        "Fuel-Mind/src/shared/utils.js#L850-L869",
+        "Fuel-Mind/tests/frete.test.js#L39-L55"
+      ]
+    },
+    {
+      "titulo": "Números en portugués sin `type=\"number\"`",
+      "texto": "En Chrome en portugués, `<input type=\"number\">` falla en silencio: la coma vacía el campo y la rueda del mouse cambia el valor. Lo sustituí por campos de texto, y quien interpreta el número es `parseNumeroBR`. `numerico.js` recupera el teclado numérico en el teléfono y el formato, con los decimales de cada campo; el precio acepta hasta diez, el límite del `vUnCom` de la NF-e (factura electrónica brasileña).",
+      "fontes": [
+        "Fuel-Mind/src/shared/numerico.js#L1-L58",
+        "Fuel-Mind/src/shared/utils.js#L613",
+        "Fuel-Mind/tests/numerico.test.js"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Admin limitado a sus propias empresas",
+    "texto": "Las empresas y los cierres de mes están en listas de un único documento, y la regla de Firestore no recorre listas. Sin un límite, un admin de la empresa A cambiaba desde la consola la tarifa de flete de la empresa B. La solución fue comparar el antes y el después con `removeAll`, que deja solo los elementos modificados, y comprobar cada uno contra el perfil. Como la regla no tiene bucles, comprueba hasta 8 elementos modificados por escritura y rechaza la escritura que cambie más.",
+    "fontes": [
+      "Fuel-Mind/firestore.rules#L197-L239",
+      "Fuel-Mind/firestore.rules#L256-L266",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js#L197-L230",
+      "Fuel-Mind/README.pt-BR.md#L185-L189"
+    ]
+  },
+  "testes": {
+    "texto": "Son 120 pruebas de unidad con `node --test`, sin dependencias que instalar: cargan los archivos de `src/` con `vm`, como el navegador. Cubren el flete, las vigencias, el bloqueo del mes cerrado, la identificación de la base que emitió la NF-e, los números y el formato de los PDF y las hojas de cálculo. Las reglas de seguridad tienen 25 pruebas en el emulador de Firestore, con un proyecto `demo-` que no existe en la nube. GitHub Actions ejecuta ambas en cada push.",
+    "fontes": [
+      "Fuel-Mind/tests/frete.test.js#L11-L23",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js",
+      "Fuel-Mind/.github/workflows/testes.yml",
+      "Fuel-Mind/README.pt-BR.md#L163-L170"
+    ]
+  }
+}

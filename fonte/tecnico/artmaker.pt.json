@@ -1,0 +1,70 @@
+{
+  "id": "artmaker",
+  "arquitetura": {
+    "texto": "O ArtMaker é um `index.html` só, com JavaScript puro, sem framework, build ou servidor. O editor guarda tudo num objeto `estado`; a cada mudança, a função `desenharEncarte` redesenha o encarte num Canvas 2D de 1080 × 1920. As regras sem DOM, como leitura do preço, contraste e validação dos dados, ficam num bloco marcado `PURO`, separado do desenho. Textos e estilo vão para o `localStorage`, e as fotos, para o IndexedDB.",
+    "fluxo": [
+      "Dados no editor",
+      "Estado do encarte",
+      "Desenho no Canvas",
+      "PNG para compartilhar"
+    ],
+    "fontes": [
+      "ArtMaker/index.html#L1206-L1208",
+      "ArtMaker/index.html#L1443-L1447",
+      "ArtMaker/index.html#L2126-L2166",
+      "ArtMaker/index.html#L3255-L3261",
+      "ArtMaker/README.pt-BR.md#L214-L226"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Um arquivo só, de propósito",
+      "texto": "Escolhi entregar o app inteiro num `index.html`, para que baste mandar o arquivo e abrir no navegador. A logo padrão vai embutida em WebP, porque uma imagem externa aberta direto do disco contamina o canvas e o navegador bloqueia o download. A CSP vai por meta, com `default-src 'none'` e cada script inline liberado pelo hash SHA-256; de fora, só o Google Fonts.",
+      "fontes": [
+        "ArtMaker/README.pt-BR.md#L161-L164",
+        "ArtMaker/README.pt-BR.md#L174-L177",
+        "ArtMaker/index.html#L9"
+      ]
+    },
+    {
+      "titulo": "O mesmo código desenha prévia, arquivo e miniaturas",
+      "texto": "O `desenharEncarte` recebe o contexto do canvas e opções: troca de contexto, de cores e de região. Assim, a mesma função desenha a prévia ao vivo, o PNG exportado (sem marcas de edição como \"Informe o preço\"), as miniaturas das 8 paletas e as da aba Estilo, que mostram só um recorte do encarte. Não há um segundo motor de desenho para manter em sincronia.",
+      "fontes": [
+        "ArtMaker/index.html#L1443-L1446",
+        "ArtMaker/index.html#L2126-L2134",
+        "ArtMaker/index.html#L3107",
+        "ArtMaker/index.html#L3203-L3214",
+        "ArtMaker/index.html#L3255-L3259"
+      ]
+    },
+    {
+      "titulo": "Contraste corrigido sem trocar a cor",
+      "texto": "A pessoa escolhe as cores livremente, então uma combinação pode deixar o texto ilegível. O `contraste` segue a fórmula do WCAG, e o `ajustarCor` mantém o matiz escolhido e escurece ou clareia só o necessário até atingir o mínimo: 3:1 no geral e 4,5:1 em texto pequeno. O desenho aplica essa correção ao nome, ao preço, ao título e ao preço riscado, e a aba Cores avisa quando ela entra.",
+      "fontes": [
+        "ArtMaker/index.html#L1287-L1313",
+        "ArtMaker/index.html#L1755", "ArtMaker/index.html#L1989-L1990",
+        "ArtMaker/index.html#L2060",
+        "ArtMaker/README.pt-BR.md#L102-L104"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Salvar sozinho sem perder o trabalho",
+    "texto": "O encarte salva enquanto se edita: o estado sem imagens vai ao `localStorage` meio segundo depois da última mudança, e as fotos vão ao IndexedDB, cada uma com um id próprio, numa fila por chave, para a última mudança sempre vencer. Mover um produto não regrava foto. Se outra aba grava o encarte, o evento `storage` faz esta parar de salvar e avisar. Dados salvos ou abertos passam pelo `normalizarDados` antes de entrar.",
+    "fontes": [
+      "ArtMaker/index.html#L2176-L2213",
+      "ArtMaker/index.html#L2215-L2260",
+      "ArtMaker/index.html#L1419-L1441",
+      "ArtMaker/README.pt-BR.md#L119-L126"
+    ]
+  },
+  "testes": {
+    "texto": "São 33 testes com `node --test`, sem dependências. Como o app é um arquivo só, o teste lê o `index.html`, recorta o bloco `PURO` e o roda num contexto isolado do `node:vm`: são 31 testes de preço, desconto, contraste, datas, nome do arquivo e validação de projetos. Os outros 2 recalculam os hashes da CSP do `index.html` e do `404.html`. O GitHub Actions roda tudo a cada push, em Node 22.",
+    "fontes": [
+      "ArtMaker/tests/puro.test.mjs#L1-L17",
+      "ArtMaker/tests/puro.test.mjs",
+      "ArtMaker/tests/csp.test.mjs",
+      "ArtMaker/.github/workflows/testes.yml"
+    ]
+  }
+}

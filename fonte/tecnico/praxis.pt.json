@@ -1,0 +1,70 @@
+{
+  "id": "praxis",
+  "arquitetura": {
+    "texto": "O Praxis é uma SPA em JavaScript puro: o `index.html` carrega `js/app.js` como ES Module, que acompanha o login e escolhe a tela pela query `?tela=`. Não há servidor próprio: os dados ficam no Firestore, os arquivos no Storage e a autorização nas regras de segurança, que leem o perfil e as empresas gravados no token. As Cloud Functions mantêm esse token e mandam os avisos de cada mudança de status.",
+    "fluxo": [
+      "Ação na tela",
+      "Regras do Firestore",
+      "Pedido e histórico",
+      "Gatilho nas Functions",
+      "Aviso no sino"
+    ],
+    "fontes": [
+      "Praxis/index.html#L126",
+      "Praxis/docs/arquitetura.md#L1-L20",
+      "Praxis/firestore.rules#L271-L305",
+      "Praxis/functions/src/triggers.js#L9-L43"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Permissões nas regras, não na tela",
+      "texto": "Escrevi cada passo do pedido como uma função das regras do Firestore (`assumir`, `aprovar`, `pagar`…), que confere o status de origem e o de destino, o perfil e, com `mudouSo`, quais campos aquele passo pode mudar. O perfil e as empresas vêm do token, gravados pela function `setUserClaims` a cada escrita em `/usuarios`; assim as regras decidem sem ler outro documento.",
+      "fontes": [
+        "Praxis/firestore.rules#L182-L263",
+        "Praxis/firestore.rules#L59-L61",
+        "Praxis/functions/src/triggers.js#L9-L38",
+        "Praxis/docs/arquitetura.md#L27"
+      ]
+    },
+    {
+      "titulo": "Transação para assumir e decidir",
+      "texto": "Assumir, liberar, aprovar e reprovar rodam em `runTransaction`: a transação relê o pedido e desiste se outra pessoa já o assumiu ou decidiu, então dois cliques ao mesmo tempo não viram duas decisões. A `_historicoJunto` grava a entrada do histórico na mesma transação ou lote, e as regras não deixam editar o histórico: o pedido não muda de status sem registro.",
+      "fontes": [
+        "Praxis/js/pedido-detalhe.js#L1406-L1520",
+        "Praxis/js/pedido-detalhe.js#L2614-L2622",
+        "Praxis/firestore.rules#L361-L366"
+      ]
+    },
+    {
+      "titulo": "Sem framework e sem etapa de build",
+      "texto": "O navegador carrega os ES Modules direto, e o SDK do Firebase vem do CDN com a versão fixa 13.1.0, adiantado por `modulepreload`. Sem bundler, o que está no repositório é o que vai para o Hosting. Em `localhost`, o `js/firebase.js` liga o app aos emuladores sozinho, e o app roda inteiro na máquina sem tocar em dados reais. No CI, cada módulo passa por `node --check`.",
+      "fontes": [
+        "Praxis/index.html#L43-L47",
+        "Praxis/js/firebase.js#L1-L58",
+        "Praxis/docs/arquitetura.md#L25",
+        "Praxis/.github/workflows/testes.yml#L33-L34"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Uma demo pública com a senha exposta",
+    "texto": "A demo precisa de login, e a senha da conta demo vai no `js/config.js` que o site entrega a qualquer visitante. Por isso as regras reconhecem essa conta pelo e-mail e dão a ela o perfil `demo`, que não vale como nenhum outro: só lê e grava documentos com `isDemo == true` e pedidos com ID `demo-…`. Os IDs automáticos do Firestore não têm hífen, e a marca `isDemo` não muda depois de criada: nenhum pedido real entra nessa área.",
+    "fontes": [
+      "Praxis/firestore.rules#L11-L36",
+      "Praxis/firestore.rules#L265-L269",
+      "Praxis/storage.rules#L6-L16",
+      "Praxis/tests/regras.test.mjs#L224-L335",
+      "Praxis/README.pt-br.md#L90"
+    ]
+  },
+  "testes": {
+    "texto": "São 15 testes de unidade com `node --test`, sobre as funções puras de `js/utils.js` e `js/constants.js` e a regra de acesso à renovação da demo nas Functions, e 30 das regras do Firestore e do Storage, que rodam no emulador e conferem, por exemplo, que quem abriu o pedido não o aprova e que status e histórico gravam juntos. O GitHub Actions roda os dois a cada push na `main` e em pull request, além do lint das Cloud Functions.",
+    "fontes": [
+      "Praxis/tests/unidade.test.mjs",
+      "Praxis/tests/regras.test.mjs",
+      "Praxis/package.json#L7-L11",
+      "Praxis/.github/workflows/testes.yml"
+    ]
+  }
+}

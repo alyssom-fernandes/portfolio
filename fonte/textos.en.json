@@ -202,7 +202,16 @@
       "anterior": "Previous",
       "proximo": "Next",
       "navegacao": "Other projects",
-      "semDemo": "No hosted demo: it runs on your own computer, with fictitious data, following the README."
+      "semDemo": "No hosted demo: it runs on your own computer, with fictitious data, following the README.",
+      "indice": "On this page",
+      "tecnicoTitulo": "How it was built",
+      "arquiteturaTitulo": "Architecture",
+      "fluxoTitulo": "Data flow",
+      "decisoesTitulo": "Technical decisions",
+      "desafioTitulo": "Challenge",
+      "testesTitulo": "Testing",
+      "verNoCodigo": "View in code",
+      "stackLinksTitulo": "Stack and links"
     },
     "artmaker": {
       "frase": "Deal flyers ready for WhatsApp Status.",

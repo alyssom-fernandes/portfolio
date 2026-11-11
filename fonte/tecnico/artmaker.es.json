@@ -1,0 +1,70 @@
+{
+  "id": "artmaker",
+  "arquitetura": {
+    "texto": "ArtMaker es un solo `index.html`, con JavaScript puro, sin framework, build ni servidor. El editor guarda todo en un objeto `estado`; con cada cambio, la función `desenharEncarte` vuelve a dibujar el folleto en un Canvas 2D de 1080 × 1920. Las reglas sin DOM, como la lectura del precio, el contraste y la validación de los datos, están en un bloque marcado `PURO`, separado del dibujo. Los textos y el estilo van a `localStorage`, y las fotos, a IndexedDB.",
+    "fluxo": [
+      "Datos en el editor",
+      "Estado del folleto",
+      "Dibujo en el Canvas",
+      "PNG para compartir"
+    ],
+    "fontes": [
+      "ArtMaker/index.html#L1206-L1208",
+      "ArtMaker/index.html#L1443-L1447",
+      "ArtMaker/index.html#L2126-L2166",
+      "ArtMaker/index.html#L3255-L3261",
+      "ArtMaker/README.pt-BR.md#L214-L226"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Un solo archivo, a propósito",
+      "texto": "Elegí entregar la app entera en un `index.html`, para que baste con enviar el archivo y abrirlo en el navegador. El logotipo predeterminado va incrustado en WebP, porque una imagen externa abierta directamente desde el disco contamina el canvas y el navegador bloquea la descarga. La CSP va en una meta tag, con `default-src 'none'` y cada script inline permitido por su hash SHA-256; de fuera, solo Google Fonts.",
+      "fontes": [
+        "ArtMaker/README.pt-BR.md#L161-L164",
+        "ArtMaker/README.pt-BR.md#L174-L177",
+        "ArtMaker/index.html#L9"
+      ]
+    },
+    {
+      "titulo": "Mismo código para vista previa, archivo y miniaturas",
+      "texto": "`desenharEncarte` recibe el contexto del canvas y opciones: cambio de contexto, de colores y de región. Así, la misma función dibuja la vista previa en vivo, el PNG exportado (sin marcas de edición como «Indique el precio»), las miniaturas de las 8 paletas y las de la pestaña Estilo, que muestran solo un recorte del folleto. No hay un segundo motor de dibujo que mantener sincronizado.",
+      "fontes": [
+        "ArtMaker/index.html#L1443-L1446",
+        "ArtMaker/index.html#L2126-L2134",
+        "ArtMaker/index.html#L3107",
+        "ArtMaker/index.html#L3203-L3214",
+        "ArtMaker/index.html#L3255-L3259"
+      ]
+    },
+    {
+      "titulo": "Contraste corregido sin cambiar el color",
+      "texto": "La persona elige los colores libremente, así que una combinación puede dejar el texto ilegible. `contraste` sigue la fórmula de las WCAG, y `ajustarCor` mantiene el tono elegido y oscurece o aclara solo lo necesario hasta alcanzar el mínimo: 3:1 en general y 4,5:1 en texto pequeño. El dibujo aplica esa corrección al nombre, al precio, al título y al precio tachado, y la pestaña Colores avisa cuando entra en juego.",
+      "fontes": [
+        "ArtMaker/index.html#L1287-L1313",
+        "ArtMaker/index.html#L1755", "ArtMaker/index.html#L1989-L1990",
+        "ArtMaker/index.html#L2060",
+        "ArtMaker/README.pt-BR.md#L102-L104"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Guardado automático sin perder el trabajo",
+    "texto": "El folleto se guarda mientras se edita: el estado sin imágenes va a `localStorage` medio segundo después del último cambio, y las fotos van a IndexedDB, cada una con su propio id, en una cola por clave, para que siempre gane el último cambio. Mover un producto no vuelve a grabar la foto. Si otra pestaña graba el folleto, el evento `storage` hace que esta deje de guardar y avise. Los datos guardados o abiertos pasan por `normalizarDados` antes de entrar.",
+    "fontes": [
+      "ArtMaker/index.html#L2176-L2213",
+      "ArtMaker/index.html#L2215-L2260",
+      "ArtMaker/index.html#L1419-L1441",
+      "ArtMaker/README.pt-BR.md#L119-L126"
+    ]
+  },
+  "testes": {
+    "texto": "Son 33 pruebas con `node --test`, sin dependencias. Como la app es un solo archivo, la prueba lee `index.html`, recorta el bloque `PURO` y lo ejecuta en un contexto aislado de `node:vm`: son 31 pruebas de precio, descuento, contraste, fechas, nombre del archivo y validación de proyectos. Las otras 2 recalculan los hashes de la CSP de `index.html` y de `404.html`. GitHub Actions lo ejecuta todo en cada push, en Node 22.",
+    "fontes": [
+      "ArtMaker/tests/puro.test.mjs#L1-L17",
+      "ArtMaker/tests/puro.test.mjs",
+      "ArtMaker/tests/csp.test.mjs",
+      "ArtMaker/.github/workflows/testes.yml"
+    ]
+  }
+}

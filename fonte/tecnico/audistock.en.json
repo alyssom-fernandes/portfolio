@@ -1,0 +1,76 @@
+{
+  "id": "audistock",
+  "arquitetura": {
+    "texto": "AudiStock is HTML, CSS, and JavaScript in ES modules, with no framework and no build step, published as a static site. Data and login live in Supabase, and everything that changes a quantity (recording, correcting, closing, and deleting) is a Postgres function. A count that can't be uploaded waits in a queue in the device's IndexedDB. In the demo, `js/demo.js` takes the place of the Supabase client and keeps everything in the browser tab only.",
+    "fluxo": [
+      "Scan on the phone",
+      "IndexedDB queue",
+      "Postgres function",
+      "Close with ERP balance",
+      "Discrepancy report"
+    ],
+    "fontes": [
+      "AudiStock/README.pt-BR.md#L181-L190",
+      "AudiStock/js/supabaseClient.js#L1-L40",
+      "AudiStock/js/offline.js#L1-L24",
+      "AudiStock/supabase/schema.sql#L324-L392"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Counts are added up inside the database",
+      "texto": "Every scan goes through the `registrar_contagem` function, which locks the item's row (`for update`) and adds in a single transaction. The README records that, before it, 20 simultaneous scans of the same product ended up as 2; a test fires 20 at once on the demo database and checks for 20. Closing is also a single function: `finalizar_auditoria` writes all balances and closes the audit together, and refuses if any item was counted or recounted after the screen opened.",
+      "fontes": [
+        "AudiStock/supabase/schema.sql#L324-L392",
+        "AudiStock/supabase/schema.sql#L428-L488",
+        "AudiStock/README.pt-BR.md#L209-L224",
+        "AudiStock/testes/unidade/contagem.test.mjs#L24-L31"
+      ]
+    },
+    {
+      "titulo": "Permissions in the database, not just the screen",
+      "texto": "I defined four roles (general administrator, administrator, auditor, and viewer) and wrote the rules as 24 RLS policies, by role and by company. Triggers prevent anyone from promoting themselves or changing a count that is already closed. Creating users goes only through an Edge Function with the service key, which never reaches the browser. `permissoes.sql` signs in as each role and checks 54 rules.",
+      "fontes": [
+        "AudiStock/supabase/schema.sql#L706-L818",
+        "AudiStock/supabase/schema.sql#L513-L548",
+        "AudiStock/supabase/schema.sql#L638-L673",
+        "AudiStock/supabase/functions/criar-usuario/index.ts#L1-L30",
+        "AudiStock/supabase/testes/permissoes.sql",
+        "AudiStock/README.pt-BR.md#L142-L152"
+      ]
+    },
+    {
+      "titulo": "Hash-based security policy, no build",
+      "texto": "Each page carries a Content Security Policy in a meta tag: scripts run only from the site itself, from the exact library folders on cdnjs and jsDelivr, with pinned versions, and from inline scripts allowed by hash. The PDF and spreadsheet libraries are downloaded only when exporting or importing, verified with SRI. `csp.test.mjs` checks every page, and the end-to-end tests fail if the policy blocks anything.",
+      "fontes": [
+        "AudiStock/contagem.html#L5",
+        "AudiStock/README.pt-BR.md#L193-L204",
+        "AudiStock/testes/unidade/csp.test.mjs",
+        "AudiStock/js/supabaseClient.js#L12-L27"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Offline queue that never counts twice",
+    "texto": "A response lost on the network, or the same queue open in two tabs, could add the same scan twice. Each record carries an `id_cliente` generated on the device, the same one as the failed attempt, and the database notes in `contagens_aplicadas` what it has already applied. Only one tab sends at a time (Web Locks). A transient failure, such as the network or an expired session, holds the queue in order; any other rejection becomes \"Not sent\" without blocking the ones after it.",
+    "fontes": [
+      "AudiStock/js/offline.js#L1-L24",
+      "AudiStock/js/offline.js#L76-L100",
+      "AudiStock/js/offline.js#L168-L207",
+      "AudiStock/js/telas/contagem.js#L495-L527",
+      "AudiStock/supabase/schema.sql#L110-L117",
+      "AudiStock/testes/unidade/fila.test.mjs"
+    ]
+  },
+  "testes": {
+    "texto": "There are 84 unit and database tests with `node:test`: the real code in `js/` runs in Node against the demo database, the queue uses an in-memory IndexedDB, and `schema.sql` and `permissoes.sql` run on Postgres in WebAssembly (PGlite), including on top of a database from the previous version. Playwright performs 46 end-to-end runs, on desktop and phone screens. GitHub Actions runs everything on every push to `main` and on every pull request.",
+    "fontes": [
+      "AudiStock/package.json",
+      "AudiStock/testes/unidade/indexeddb.mjs#L1-L7",
+      "AudiStock/testes/banco/esquema.test.mjs#L1-L40",
+      "AudiStock/playwright.config.mjs#L27-L30",
+      "AudiStock/testes/e2e",
+      "AudiStock/.github/workflows/testes.yml"
+    ]
+  }
+}

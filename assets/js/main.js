@@ -3,13 +3,16 @@
    opacity mudam por quadro, e cada estilo só é escrito quando o valor muda.
 
    Capturar um estado sem rolar: ?cena=<id>&progresso=<0..1>
-   ids: abertura, trajetoria, projetos (a cortina), habilidades, contato. Os projetos ficam numa grade de cartões, sem cena própria. */
+   ids: abertura, trajetoria, projetos (a cortina), habilidades, contato. Os projetos ficam numa grade de cartões, sem cena própria.
+   Fora das cenas fixas, a entrada de cada elemento depende só da posição dele na tela (títulos por linha, textos de apoio,
+   cartões que saem da planilha, matriz): voltar a rolagem desfaz o efeito, e uma âncora já chega no estado final. */
 (() => {
 'use strict';
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+const rampa = (a, b, v) => clamp((v - a) / (b - a));
+const smooth = (a, b, v) => { const t = rampa(a, b, v); return t * t * (3 - 2 * t); };
 const lerp = (a, b, t) => a + (b - a) * t;
 const f3 = v => (+v).toFixed(3);
 const memo = new WeakMap();
@@ -32,9 +35,72 @@ const mast = $('#mast');
 let MH = mast.offsetHeight;
 const cfg = JSON.parse($('#dados-cena').textContent);
 
+/* ---------- títulos que entram por linha: cada palavra numa máscara, a linha sobe inteira ---------- */
+// as palavras ficam em <span class="pm"><span class="pi">; as linhas são medidas no layout real (mudam com a largura)
+function dividir(el) {
+  const ws = [];
+  const anda = no => {
+    for (const n of [...no.childNodes]) {
+      if (n.nodeType === 1) { anda(n); continue; }
+      if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+      const frag = document.createDocumentFragment();
+      // só o espaço comum separa: o espaço fixo (nbsp) mantém as palavras juntas, como no texto original
+      for (const s of n.textContent.split(/([ \n\t]+)/)) {
+        if (!s) continue;
+        if (/^[ \n\t]+$/.test(s)) { frag.append(' '); continue; }
+        const o = document.createElement('span'), i = document.createElement('span');
+        o.className = 'pm'; i.className = 'pi'; i.textContent = s;
+        o.append(i); frag.append(o); ws.push({ o, i });
+      }
+      n.replaceWith(frag);
+    }
+  };
+  anda(el);
+  el.classList.add('dividido');
+  return { el, ws, linhas: [] };
+}
+function agrupar(t) {
+  t.linhas = [];
+  let ult = -1e9;
+  t.ws.forEach(w => {
+    const y = w.o.getBoundingClientRect().top;
+    if (y > ult + 4) { t.linhas.push([]); ult = y; }
+    t.linhas[t.linhas.length - 1].push(w.i);
+  });
+}
+// k = 0 (escondido) a 1 (no lugar); as linhas se seguem com um pequeno atraso, sempre dentro do mesmo k
+function revelar(t, k) {
+  const n = t.linhas.length;
+  if (!n) return;
+  const d = Math.min(.16, .45 / n), w = 1 - d * (n - 1);
+  t.linhas.forEach((ln, j) => {
+    const e = smooth(j * d, j * d + w, k);
+    const v = e > .999 ? 'none' : `translate3d(0, calc(${f3(1 - e)} * (100% + .5em)), 0) rotate(${f3((1 - e) * 3)}deg)`;
+    ln.forEach(i => set(i, 'transform', v));
+  });
+}
+// posição na tela → progresso da entrada (o mesmo ritmo em todas as seções)
+const kTitulo = (top, vh) => rampa(vh * .95, vh * .7, top);
+const kSobe = (top, vh) => rampa(vh * .97, vh * .74, top);
+const titulos = $$('.fecho, .gp-cab h2, .hab-cab h2, .c-titulo, .t-passo h3').map(dividir);
+// textos de apoio: sobem e aparecem logo depois do título
+const sobe = $$('.gp-txt, .hab-cab p, .negocio, .contato .camada.papel .c-corpo');
+function renderSobe(el, k) {
+  const e = smooth(0, 1, k);
+  set(el, 'opacity', f3(e));
+  set(el, 'transform', e > .999 ? 'none' : `translate3d(0, ${(lerp(26, 0, e)).toFixed(1)}px, 0)`);
+}
+
 /* ---------- abertura: a grade de planilha some na primeira metade da rolagem ---------- */
 const hero = $('#topo');
-const renderHero = p => set(hero, '--g', f3(1 - smooth(0, .5, p)));
+const abTxt = $('.ab-txt', hero), fichaAb = $('.ficha', hero);
+function renderHero(p) {
+  set(hero, '--g', f3(1 - smooth(0, .5, p)));
+  // profundidade leve: o texto desce um pouco mais devagar que a página e a ficha sobe um pouco mais depressa
+  const q = mob() ? 0 : smooth(0, 1, p);
+  set(abTxt, 'translate', `0 ${(q * 64).toFixed(1)}px`);
+  set(fichaAb, 'translate', `0 ${(q * -36).toFixed(1)}px`);
+}
 
 /* ---------- trajetória: a grade de meses enche em onda ---------- */
 const traj = $('#trajetoria');
@@ -70,6 +136,9 @@ const cnt = $('#cnt'), cntN = $('#cntN'), virada = $('#virada'), tFig = $('#tFig
 const lgN = Object.fromEntries(FASES.map(f => [f, $(`.legenda [data-ph="${f}"] .lg-n`, traj)]));
 const celHoje = $('.cel.hoje', traj);
 const plural = n => `${n} ${n === 1 ? cfg.mes : cfg.meses}`;
+// título de cada passo: o primeiro entra com a cena; os outros, no começo da sua janela
+const titPasso = passos.map(s => titulos.find(t => t.el.parentNode === s));
+const titSoltos = titulos.filter(t => !titPasso.includes(t));
 let ultimoTotal = -1, posVirada = null;
 function medirVirada() {
   const zc = daFase[ultima][0];
@@ -79,7 +148,8 @@ function medirVirada() {
   const g = tFig.getBoundingClientRect(), r = zc.el.getBoundingClientRect(), gr = $('#gradeM', traj).getBoundingClientRect();
   posVirada = { top: gr.bottom - g.top + 8, left: r.left - g.left };
 }
-function renderTraj(p) {
+function renderTraj(p, k0 = 1) {
+  titPasso.forEach((t, j) => { if (t) revelar(t, j === 0 ? Math.max(k0, rampa(0, .03, p)) : rampa(STEPR[j][0], STEPR[j][0] + .07, p)); });
   let total = 0;
   const cont = Object.fromEntries(FASES.map(f => [f, 0]));
   FASES.forEach((f, j) => {
@@ -165,9 +235,45 @@ function renderMast(ci, cc, vh = innerHeight) {
   set(mast, '--d', f3(smooth(.3, .7, hi) * (1 - smooth(.3, .7, hc))));
 }
 
+/* ---------- vitrine: a planilha vira sistema ----------
+   Cada linha de cartões chega como uma linha de planilha: os cartões encostados (sem o vão da grade), um pouco
+   abaixo, com a área da tela ainda em células vazias. Com a rolagem, eles se separam, sobem e as telas reais
+   aparecem; os botões entram por último. O CSS lê --k (0 = planilha, 1 = cartão) e --dx (quanto falta para fechar o vão). */
+const lista = $('.cartoes');
+const cartoes = $$('.cartao', lista).map(el => ({ el, y: 0 }));
+function medirCartoes() {
+  const gap = parseFloat(getComputedStyle(lista).columnGap) || 0, l0 = lista.offsetTop;
+  const linhas = new Map();
+  cartoes.forEach(c => {
+    c.y = c.el.offsetTop - l0;
+    if (!linhas.has(c.y)) linhas.set(c.y, []);
+    linhas.get(c.y).push(c);
+  });
+  const cols = Math.max(...[...linhas.values()].map(l => l.length));
+  for (const l of linhas.values()) {
+    l.sort((a, b) => a.el.offsetLeft - b.el.offsetLeft);
+    l.forEach((c, i) => set(c.el, '--dx', `${(((cols - 1) / 2 - i) * (gap + 1)).toFixed(1)}px`));
+  }
+}
+const kCartao = (top, vh) => smooth(vh * 1.02, vh * .52, top);
+
+/* ---------- habilidades: a matriz se preenche linha a linha, como a grade de meses ---------- */
+const mx = $('.mx');
+const mxLinhas = mx ? $$('tbody tr:not(.mx-g)', mx).map(el => ({ el, y: 0 })) : [];
+let mxVis = false;
+function medirMx() {
+  mxVis = !!(mx && mx.offsetParent);
+  if (!mxVis) return;
+  const t0 = mx.getBoundingClientRect().top;
+  mxLinhas.forEach(r => { r.y = r.el.getBoundingClientRect().top - t0; });
+}
+
 function medirTudo() {
   MH = mast.offsetHeight;
   ajustarFig();
+  titulos.forEach(agrupar);
+  medirCartoes();
+  medirMx();
 }
 
 /* ---------- modo captura ---------- */
@@ -182,6 +288,7 @@ if (cena) {
   $$('img[loading="lazy"]').forEach(im => { im.loading = 'eager'; });
   const draw = () => {
     medirTudo();
+    // no modo captura os títulos, os cartões e a matriz ficam no estado final; só a cena pedida segue o progresso
     renderHero(cena === 'abertura' ? p : 1);
     renderTraj(cena === 'trajetoria' ? p : idx > pos('trajetoria') ? 1 : 0);
     const ci = cena === 'projetos' ? cortinaIntro(p) : idx > pos('projetos') ? 1 : 0;
@@ -204,9 +311,19 @@ function quadro() {
   const vh = innerHeight;
   // 1) leituras
   const hr = hero.getBoundingClientRect(), tr = traj.getBoundingClientRect(), ir = intro.getBoundingClientRect(), cr = contato.getBoundingClientRect();
+  const topT = titSoltos.map(t => t.el.getBoundingClientRect().top);
+  const top0 = titPasso[0] ? titPasso[0].el.getBoundingClientRect().top : 0;
+  const topS = sobe.map(el => el.getBoundingClientRect().top);
+  const lt = lista.getBoundingClientRect().top;
+  const mt = mxVis ? mx.getBoundingClientRect().top : 0;
   // 2) escritas
+  titSoltos.forEach((t, i) => revelar(t, kTitulo(topT[i], vh)));
+  sobe.forEach((el, i) => renderSobe(el, kSobe(topS[i], vh)));
+  cartoes.forEach(c => set(c.el, '--k', f3(kCartao(lt + c.y, vh))));
+  if (mxVis) mxLinhas.forEach(r => set(r.el, '--k', f3(rampa(vh, vh * .84, mt + r.y))));
+  if (titPasso[0] && (tr.top >= vh || tr.bottom <= 0)) revelar(titPasso[0], kTitulo(top0, vh));
   if (hr.bottom > 0) renderHero(clamp(-hr.top / Math.max(1, hr.height)));
-  if (tr.top < vh && tr.bottom > 0) renderTraj(progFixo(tr));
+  if (tr.top < vh && tr.bottom > 0) renderTraj(progFixo(tr), kTitulo(top0, vh));
   const pI = ir.top < vh ? progFixo(ir) : 0;
   if (ir.top < vh && ir.bottom > 0) renderIntro(pI);
   const pC = cr.top < vh ? progFixo(cr) : 0;
@@ -221,4 +338,6 @@ medirTudo();
 quadro();
 if (document.fonts) document.fonts.ready.then(() => { medirTudo(); pedir(); });
 addEventListener('load', () => { medirTudo(); pedir(); });
+// voltando de uma página de projeto (cache de navegação), a posição pode ter mudado sem evento de rolagem
+addEventListener('pageshow', e => { if (e.persisted) { medirTudo(); pedir(); } });
 })();

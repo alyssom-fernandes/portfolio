@@ -1,0 +1,68 @@
+{
+  "id": "fuelmind",
+  "arquitetura": {
+    "texto": "Fuel Mind is plain JavaScript on Firebase, with no framework and no build step. The code lives in three folders: `src/core` (Firebase, session, sync), `src/shared` (calculations and the PDF and spreadsheet template), and `src/screens`, one screen per file. `index.html` loads all scripts into the same global scope. Master data lives in `dados/compartilhado`, and each company's invoices in a document of their own, `dados/lanc__{id}`.",
+    "fluxo": [
+      "NF-e XML",
+      "Invoice form",
+      "Company document",
+      "Freight calculation",
+      "PDF/Excel monthly close"
+    ],
+    "fontes": [
+      "Fuel-Mind/index.html#L1165-L1201",
+      "Fuel-Mind/src/core/firebase.js#L44-L67",
+      "Fuel-Mind/src/screens/lancamentos.js#L89-L155",
+      "Fuel-Mind/src/shared/utils.js#L869-L960",
+      "Fuel-Mind/README.pt-BR.md#L218-L257"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "One invoice document per company",
+      "texto": "A Firestore rule evaluates the whole document: while all invoices lived together, anyone who could read their own could read every company's. I split the invoices into `dados/lanc__{id}`, with the company id in the name, and the rule extracts that id and checks it against the profile's `empresaIds`. Using the id, not the name, lets a company be renamed without moving the document or redoing permissions.",
+      "fontes": [
+        "Fuel-Mind/src/core/firebase.js#L44-L67",
+        "Fuel-Mind/firestore.rules#L285-L299",
+        "Fuel-Mind/firestore.rules#L99-L104"
+      ]
+    },
+    {
+      "titulo": "Freight rates with effective periods",
+      "texto": "No freight amount is stored: the screen recalculates everything every time it opens. With the rate as a single value, changing it silently rewrote months already paid. So each change closes the previous effective period and opens a new one, and `calcularFretesDoMes` uses the rate and the driver percentage in effect on the unloading date, plus the truck combination that included that license plate on that day.",
+      "fontes": [
+        "Fuel-Mind/src/shared/utils.js#L308-L343",
+        "Fuel-Mind/src/shared/utils.js#L850-L869",
+        "Fuel-Mind/tests/frete.test.js#L39-L55"
+      ]
+    },
+    {
+      "titulo": "Portuguese-format numbers without `type=\"number\"`",
+      "texto": "In Chrome set to Portuguese, `<input type=\"number\">` fails silently: a comma empties the field and the mouse wheel changes the value. I replaced it with text fields, and `parseNumeroBR` interprets the number. `numerico.js` brings back the numeric keyboard on phones and the formatting, with each field's decimal places; the price accepts up to ten, the limit of `vUnCom` in the NF-e (Brazilian electronic invoice).",
+      "fontes": [
+        "Fuel-Mind/src/shared/numerico.js#L1-L58",
+        "Fuel-Mind/src/shared/utils.js#L613",
+        "Fuel-Mind/tests/numerico.test.js"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Admin restricted to their own companies",
+    "texto": "Companies and month-end closes live in lists inside a single document, and Firestore rules can't iterate over a list. Without a limit, an admin of company A could change company B's freight rate through the console. The solution was to compare before and after with `removeAll`, which leaves only the changed items, and check each one against the profile. Since the rules have no loops, they check up to 8 changed items per write and reject any write that changes more than that.",
+    "fontes": [
+      "Fuel-Mind/firestore.rules#L197-L239",
+      "Fuel-Mind/firestore.rules#L256-L266",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js#L197-L230",
+      "Fuel-Mind/README.pt-BR.md#L185-L189"
+    ]
+  },
+  "testes": {
+    "texto": "There are 120 unit tests with `node --test`, with nothing to install: they load the files in `src/` with `vm`, as the browser does. They cover freight, effective periods, the closed-month lock, matching each NF-e to the supply base that issued it, numbers, and the PDF and spreadsheet template. The security rules have 25 tests on the Firestore emulator, with a `demo-` project that doesn't exist in the cloud. GitHub Actions runs both on every push.",
+    "fontes": [
+      "Fuel-Mind/tests/frete.test.js#L11-L23",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js",
+      "Fuel-Mind/.github/workflows/testes.yml",
+      "Fuel-Mind/README.pt-BR.md#L163-L170"
+    ]
+  }
+}

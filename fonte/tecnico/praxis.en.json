@@ -1,0 +1,70 @@
+{
+  "id": "praxis",
+  "arquitetura": {
+    "texto": "Praxis is a plain JavaScript SPA: `index.html` loads `js/app.js` as an ES Module, which tracks the login and picks the screen from the `?tela=` query. There is no server of its own: data lives in Firestore, files in Storage, and authorization in the security rules, which read the role and companies stored in the token. Cloud Functions keep that token up to date and send the notifications for each status change.",
+    "fluxo": [
+      "Action on screen",
+      "Firestore rules",
+      "Request and history",
+      "Functions trigger",
+      "Bell notification"
+    ],
+    "fontes": [
+      "Praxis/index.html#L126",
+      "Praxis/docs/arquitetura.md#L1-L20",
+      "Praxis/firestore.rules#L271-L305",
+      "Praxis/functions/src/triggers.js#L9-L43"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Permissions in the rules, not the screen",
+      "texto": "I wrote each step of a request as a function in the Firestore rules (`assumir`, `aprovar`, `pagar`…), which checks the source and target status, the role and, with `mudouSo`, which fields that step may change. The role and companies come from the token, written by the `setUserClaims` function on every write to `/usuarios`; that way, the rules decide without reading another document.",
+      "fontes": [
+        "Praxis/firestore.rules#L182-L263",
+        "Praxis/firestore.rules#L59-L61",
+        "Praxis/functions/src/triggers.js#L9-L38",
+        "Praxis/docs/arquitetura.md#L27"
+      ]
+    },
+    {
+      "titulo": "Transactions to claim and decide",
+      "texto": "Claiming, releasing, approving, and rejecting run in `runTransaction`: the transaction rereads the request and gives up if someone else has already claimed or decided it, so two simultaneous clicks don't turn into two decisions. `_historicoJunto` writes the history entry in the same transaction or batch, and the rules don't allow editing the history: a request can't change status without a record.",
+      "fontes": [
+        "Praxis/js/pedido-detalhe.js#L1406-L1520",
+        "Praxis/js/pedido-detalhe.js#L2614-L2622",
+        "Praxis/firestore.rules#L361-L366"
+      ]
+    },
+    {
+      "titulo": "No framework and no build step",
+      "texto": "The browser loads the ES Modules directly, and the Firebase SDK comes from the CDN pinned at version 13.1.0, preloaded with `modulepreload`. With no bundler, what is in the repository is what goes to Hosting. On `localhost`, `js/firebase.js` connects the app to the emulators automatically, and the whole app runs on the machine without touching real data. In CI, each module goes through `node --check`.",
+      "fontes": [
+        "Praxis/index.html#L43-L47",
+        "Praxis/js/firebase.js#L1-L58",
+        "Praxis/docs/arquitetura.md#L25",
+        "Praxis/.github/workflows/testes.yml#L33-L34"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "A public demo with an exposed password",
+    "texto": "The demo requires a login, and the demo account's password is in `js/config.js`, which the site serves to any visitor. So the rules recognize that account by its email and give it the `demo` role, which counts as no other role: it only reads and writes documents with `isDemo == true` and requests with a `demo-…` ID. Firestore's automatic IDs have no hyphen, and the `isDemo` flag can't change after creation: no real request gets into that area.",
+    "fontes": [
+      "Praxis/firestore.rules#L11-L36",
+      "Praxis/firestore.rules#L265-L269",
+      "Praxis/storage.rules#L6-L16",
+      "Praxis/tests/regras.test.mjs#L224-L335",
+      "Praxis/README.pt-br.md#L90"
+    ]
+  },
+  "testes": {
+    "texto": "There are 15 unit tests with `node --test`, on the pure functions in `js/utils.js` and `js/constants.js` and the access rule for the demo reset in the Functions, and 30 tests of the Firestore and Storage rules, which run on the emulator and check, for example, that whoever opened a request can't approve it and that status and history are written together. GitHub Actions runs both on every push to `main` and on pull requests, plus the Cloud Functions lint.",
+    "fontes": [
+      "Praxis/tests/unidade.test.mjs",
+      "Praxis/tests/regras.test.mjs",
+      "Praxis/package.json#L7-L11",
+      "Praxis/.github/workflows/testes.yml"
+    ]
+  }
+}

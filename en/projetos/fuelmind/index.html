@@ -28,9 +28,11 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#B03030">
 <a class="pular" href="#conteudo">Skip to content</a>
@@ -58,51 +60,97 @@
       <div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Fuel Mind demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Code for Fuel Mind on GitHub (opens in a new tab)">Code</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Why it exists</h2>
-      <p>Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; I built the tool to put an end to that.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">On this page: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Why it exists</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="On this page"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Why it exists</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problem, system, and proof</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Inside</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">How it was built</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack and links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="On this page">
+        <p class="d-ind-t" aria-hidden="true">On this page</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Why it exists</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problem, system, and proof</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Inside</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">How it was built</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack and links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problem, system, and proof</h2>
-      <div><p class="fp-rot">Problem</p><p>License plates, drivers, invoices, and amounts typed in by hand, with broken formulas.</p></div>
-      <div><p class="fp-rot">System</p><p>Tracks fuel deliveries and freight: reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.</p></div>
-      <div><p class="fp-rot">Proof</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Why it exists</h2></div>
+        <p class="d-origem-txt" data-revela="1">Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; I built the tool to put an end to that.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problem, system, and proof</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problem</p><p>License plates, drivers, invoices, and amounts typed in by hand, with broken formulas.</p></div>
+          <div data-revela="1"><p class="fp-rot">System</p><p>Tracks fuel deliveries and freight: reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.</p></div>
+          <div data-revela="2"><p class="fp-rot">Proof</p><div class="d-prova">
           <p class="prova-n"><b>145</b> <span>tests</span></p>
           <p class="prova-d"><span class="pd-det">120 unit and 25 Firestore rules tests, on GitHub Actions.</span> <span class="pd-data">Checked on 9 Nov 2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Inside</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: entries screen with NF-e XML import" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Imports the NF-e</h3><p>Reads the XML of the electronic invoice (NF-e) to record each fuel delivery.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/fretes.webp" srcset="../../../assets/projetos/fuelmind/fretes-960.webp 960w, ../../../assets/projetos/fuelmind/fretes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: freight month by month" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Rental and freight</h3><p>Freight month by month, with vehicle rental and driver pay at month-end close.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/relatorios.webp" srcset="../../../assets/projetos/fuelmind/relatorios-960.webp 960w, ../../../assets/projetos/fuelmind/relatorios.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: reports and month-end close" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Closes the month</h3><p>Monthly close in PDF or Excel.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/dashboard.webp" srcset="../../../assets/projetos/fuelmind/dashboard-960.webp 960w, ../../../assets/projetos/fuelmind/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: dashboard with invoices for unloaded deliveries, liters, and monthly spending" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Deliveries on one dashboard</h3><p>Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig celular-so"><img src="../../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind on a phone: dashboard" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Compares with the previous period</h3><p>Invoices, liters, and spending stack up on the phone screen, each with its percentage change.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Inside</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/lancamentos.webp" srcset="../../../assets/projetos/fuelmind/lancamentos-960.webp 960w, ../../../assets/projetos/fuelmind/lancamentos.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: entries screen with NF-e XML import" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Imports the NF-e</h3><p>Reads the XML of the electronic invoice (NF-e) to record each fuel delivery.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/fretes.webp" srcset="../../../assets/projetos/fuelmind/fretes-960.webp 960w, ../../../assets/projetos/fuelmind/fretes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: freight month by month" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Rental and freight</h3><p>Freight month by month, with vehicle rental and driver pay at month-end close.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/relatorios.webp" srcset="../../../assets/projetos/fuelmind/relatorios-960.webp 960w, ../../../assets/projetos/fuelmind/relatorios.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: reports and month-end close" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Closes the month</h3><p>Monthly close in PDF or Excel.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>controle-entradas-posto.web.app</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/fuelmind/dashboard.webp" srcset="../../../assets/projetos/fuelmind/dashboard-960.webp 960w, ../../../assets/projetos/fuelmind/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Fuel Mind: dashboard with invoices for unloaded deliveries, liters, and monthly spending" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Deliveries on one dashboard</h3><p>Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig celular-so" data-revela><img src="../../../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind on a phone: dashboard" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Compares with the previous period</h3><p>Invoices, liters, and spending stack up on the phone screen, each with its percentage change.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">How it was built</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Architecture</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">Fuel Mind is plain JavaScript on Firebase, with no framework and no build step. The code lives in three folders: <code>src/core</code> (Firebase, session, sync), <code>src/shared</code> (calculations and the PDF and spreadsheet template), and <code>src/screens</code>, one screen per file. <code>index.html</code> loads all scripts into the same global scope. Master data lives in <code>dados/compartilhado</code>, and each company's invoices in a document of their own, <code>dados/lanc__{id}</code>.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/index.html#L1165-L1201" target="_blank" rel="noopener" title="Fuel-Mind/index.html">index.html <small>L1165–1201</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/core/firebase.js#L44-L67" target="_blank" rel="noopener" title="Fuel-Mind/src/core/firebase.js">firebase.js <small>L44–67</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/screens/lancamentos.js#L89-L155" target="_blank" rel="noopener" title="Fuel-Mind/src/screens/lancamentos.js">lancamentos.js <small>L89–155</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L869-L960" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L869–960</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L218-L257" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L218–257</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Data flow</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">NF-e XML</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Invoice form</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Company document</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Freight calculation</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">PDF/Excel monthly close</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Technical decisions</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>One invoice document per company</h4><p>A Firestore rule evaluates the whole document: while all invoices lived together, anyone who could read their own could read every company's. I split the invoices into <code>dados/lanc__{id}</code>, with the company id in the name, and the rule extracts that id and checks it against the profile's <code>empresaIds</code>. Using the id, not the name, lets a company be renamed without moving the document or redoing permissions.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/core/firebase.js#L44-L67" target="_blank" rel="noopener" title="Fuel-Mind/src/core/firebase.js">firebase.js <small>L44–67</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L285-L299" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L285–299</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L99-L104" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L99–104</small></a></p></li>
+          <li data-revela><h4>Freight rates with effective periods</h4><p>No freight amount is stored: the screen recalculates everything every time it opens. With the rate as a single value, changing it silently rewrote months already paid. So each change closes the previous effective period and opens a new one, and <code>calcularFretesDoMes</code> uses the rate and the driver percentage in effect on the unloading date, plus the truck combination that included that license plate on that day.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L308-L343" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L308–343</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L850-L869" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L850–869</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/frete.test.js#L39-L55" target="_blank" rel="noopener" title="Fuel-Mind/tests/frete.test.js">frete.test.js <small>L39–55</small></a></p></li>
+          <li data-revela><h4>Portuguese-format numbers without <code>type=&quot;number&quot;</code></h4><p>In Chrome set to Portuguese, <code>&lt;input type=&quot;number&quot;&gt;</code> fails silently: a comma empties the field and the mouse wheel changes the value. I replaced it with text fields, and <code>parseNumeroBR</code> interprets the number. <code>numerico.js</code> brings back the numeric keyboard on phones and the formatting, with each field's decimal places; the price accepts up to ten, the limit of <code>vUnCom</code> in the NF-e (Brazilian electronic invoice).</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/numerico.js#L1-L58" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/numerico.js">numerico.js <small>L1–58</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/src/shared/utils.js#L613" target="_blank" rel="noopener" title="Fuel-Mind/src/shared/utils.js">utils.js <small>L613</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/numerico.test.js" target="_blank" rel="noopener" title="Fuel-Mind/tests/numerico.test.js">numerico.test.js</a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Challenge</h3>
+          <div class="t-corpo" data-revela="1"><h4>Admin restricted to their own companies</h4><p>Companies and month-end closes live in lists inside a single document, and Firestore rules can't iterate over a list. Without a limit, an admin of company A could change company B's freight rate through the console. The solution was to compare before and after with <code>removeAll</code>, which leaves only the changed items, and check each one against the profile. Since the rules have no loops, they check up to 8 changed items per write and reject any write that changes more than that.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L197-L239" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L197–239</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/firestore.rules#L256-L266" target="_blank" rel="noopener" title="Fuel-Mind/firestore.rules">firestore.rules <small>L256–266</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/regras/firestore-regras.test.js#L197-L230" target="_blank" rel="noopener" title="Fuel-Mind/tests/regras/firestore-regras.test.js">firestore-regras.test.js <small>L197–230</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L185-L189" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L185–189</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testing</h3>
+          <div class="t-corpo" data-revela="1"><p>There are 120 unit tests with <code>node --test</code>, with nothing to install: they load the files in <code>src/</code> with <code>vm</code>, as the browser does. They cover freight, effective periods, the closed-month lock, matching each NF-e to the supply base that issued it, numbers, and the PDF and spreadsheet template. The security rules have 25 tests on the Firestore emulator, with a <code>demo-</code> project that doesn't exist in the cloud. GitHub Actions runs both on every push.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/frete.test.js#L11-L23" target="_blank" rel="noopener" title="Fuel-Mind/tests/frete.test.js">frete.test.js <small>L11–23</small></a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/tests/regras/firestore-regras.test.js" target="_blank" rel="noopener" title="Fuel-Mind/tests/regras/firestore-regras.test.js">firestore-regras.test.js</a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="Fuel-Mind/.github/workflows/testes.yml">testes.yml</a> <a href="https://github.com/alyssom-fernandes/Fuel-Mind/blob/HEAD/README.pt-BR.md#L163-L170" target="_blank" rel="noopener" title="Fuel-Mind/README.pt-BR.md">README.pt-BR.md <small>L163–170</small></a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, Firebase, Chart.js, jsPDF, SheetJS, node:test, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Fuel Mind demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Code for Fuel Mind on GitHub (opens in a new tab)">Code</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack and links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript, Firebase, Chart.js, jsPDF, SheetJS, node:test, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://controle-entradas-posto.web.app/?demo" target="_blank" rel="noopener" aria-label="Fuel Mind demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Fuel-Mind" target="_blank" rel="noopener" aria-label="Code for Fuel Mind on GitHub (opens in a new tab)">Code</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Other projects">

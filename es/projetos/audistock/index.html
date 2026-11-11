@@ -28,9 +28,11 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#B86848">
 <a class="pular" href="#conteudo">Saltar al contenido</a>
@@ -58,43 +60,89 @@
       <div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1" target="_blank" rel="noopener" aria-label="Demo de AudiStock (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AudiStock" target="_blank" rel="noopener" aria-label="Código de AudiStock en GitHub (se abre en una pestaña nueva)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por qué existe</h2>
-      <p>El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida e integrado con AutoSystem, y resolví los problemas de los que se quejaban los operadores.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">En esta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por qué existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="En esta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="En esta página">
+        <p class="d-ind-t" aria-hidden="true">En esta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema y comprobación</h2>
-      <div><p class="fp-rot">Problema</p><p>El recuento de inventario generaba quejas de quienes auditaban.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Auditoría de inventario: el equipo cuenta desde el teléfono, en el cierre registra las existencias del ERP y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV, con cola sin conexión para contar sin internet.</p></div>
-      <div><p class="fp-rot">Comprobación</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por qué existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida e integrado con AutoSystem, y resolví los problemas de los que se quejaban los operadores.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema y comprobación</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>El recuento de inventario generaba quejas de quienes auditaban.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Auditoría de inventario: el equipo cuenta desde el teléfono, en el cierre registra las existencias del ERP y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV, con cola sin conexión para contar sin internet.</p></div>
+          <div data-revela="2"><p class="fp-rot">Comprobación</p><div class="d-prova">
           <p class="prova-n"><b>130</b> <span>pruebas</span></p>
           <p class="prova-d"><span class="pd-det">84 de unidad y base de datos y 46 de extremo a extremo, en GitHub Actions.</span> <span class="pd-data">Verificadas el 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/AudiStock/app.html</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/audistock/dashboard.webp" srcset="../../../assets/projetos/audistock/dashboard-960.webp 960w, ../../../assets/projetos/audistock/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="AudiStock: auditorías en curso, resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Auditorías en curso</h3><p>El progreso de cada recuento, el resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../../assets/projetos/audistock/celular.webp" width="780" height="1688" alt="AudiStock en el teléfono: recuento con teclado, lector y cámara y el progreso de la auditoría" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Recuento desde el teléfono</h3><p>Teclado, lector de código de barras o cámara, con cola sin conexión para contar sin internet.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/AudiStock/app.html</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/audistock/relatorio.webp" srcset="../../../assets/projetos/audistock/relatorio-960.webp 960w, ../../../assets/projetos/audistock/relatorio.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="AudiStock: informe de una auditoría con las existencias del sistema, lo contado y la diferencia de cada artículo, y salidas en Excel, PDF y CSV" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Faltantes y sobrantes frente al ERP</h3><p>En el cierre, el equipo registra las existencias del ERP. El informe muestra, por artículo, las existencias del sistema, lo contado y la diferencia, y sale en PDF, Excel y CSV.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/AudiStock/app.html</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/audistock/dashboard.webp" srcset="../../../assets/projetos/audistock/dashboard-960.webp 960w, ../../../assets/projetos/audistock/dashboard.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="AudiStock: auditorías en curso, resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Auditorías en curso</h3><p>El progreso de cada recuento, el resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../../assets/projetos/audistock/celular.webp" width="780" height="1688" alt="AudiStock en el teléfono: recuento con teclado, lector y cámara y el progreso de la auditoría" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Recuento desde el teléfono</h3><p>Teclado, lector de código de barras o cámara, con cola sin conexión para contar sin internet.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/AudiStock/app.html</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/audistock/relatorio.webp" srcset="../../../assets/projetos/audistock/relatorio-960.webp 960w, ../../../assets/projetos/audistock/relatorio.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="AudiStock: informe de una auditoría con las existencias del sistema, lo contado y la diferencia de cada artículo, y salidas en Excel, PDF y CSV" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Faltantes y sobrantes frente al ERP</h3><p>En el cierre, el equipo registra las existencias del ERP. El informe muestra, por artículo, las existencias del sistema, lo contado y la diferencia, y sale en PDF, Excel y CSV.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Cómo se construyó</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitectura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">AudiStock es HTML, CSS y JavaScript en módulos ES, sin framework y sin paso de build, publicado como sitio estático. Los datos y el inicio de sesión están en Supabase, y lo que cambia una cantidad (registrar, corregir, finalizar y eliminar) son funciones de Postgres. El recuento que no logra subirse espera en una cola en el IndexedDB del dispositivo. En la demostración, <code>js/demo.js</code> ocupa el lugar del cliente de Supabase y lo guarda todo solo en la pestaña.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/README.pt-BR.md#L181-L190" target="_blank" rel="noopener" title="AudiStock/README.pt-BR.md">README.pt-BR.md <small>L181–190</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/supabaseClient.js#L1-L40" target="_blank" rel="noopener" title="AudiStock/js/supabaseClient.js">supabaseClient.js <small>L1–40</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/offline.js#L1-L24" target="_blank" rel="noopener" title="AudiStock/js/offline.js">offline.js <small>L1–24</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L324-L392" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L324–392</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Flujo de datos</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Lectura en el teléfono</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Cola en IndexedDB</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Función en Postgres</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Cierre con existencias ERP</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Informe de diferencias</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisiones técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>El recuento se suma dentro de la base</h4><p>Toda lectura pasa por la función <code>registrar_contagem</code>, que bloquea la fila del artículo (<code>for update</code>) y suma en una sola transacción. El README deja constancia de que, antes de ella, 20 lecturas simultáneas del mismo producto quedaban en 2; una prueba lanza 20 a la vez en la base de la demostración y comprueba 20. El cierre también es una sola función: <code>finalizar_auditoria</code> graba todas las existencias y cierra a la vez, y se niega si algún artículo se contó o recontó después de abrir la pantalla.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L324-L392" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L324–392</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L428-L488" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L428–488</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/README.pt-BR.md#L209-L224" target="_blank" rel="noopener" title="AudiStock/README.pt-BR.md">README.pt-BR.md <small>L209–224</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/unidade/contagem.test.mjs#L24-L31" target="_blank" rel="noopener" title="AudiStock/testes/unidade/contagem.test.mjs">contagem.test.mjs <small>L24–31</small></a></p></li>
+          <li data-revela><h4>Permisos en la base, no solo en pantalla</h4><p>Separé cuatro perfiles (administrador general, administrador, auditor y visualizador) y escribí las reglas en 24 políticas de RLS, por perfil y por empresa. Los triggers impiden que alguien se ascienda a sí mismo o altere un recuento ya finalizado. El alta de personas pasa solo por una Edge Function con la clave de servicio, que nunca llega al navegador. <code>permissoes.sql</code> entra como cada perfil y comprueba 54 reglas.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L706-L818" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L706–818</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L513-L548" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L513–548</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L638-L673" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L638–673</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/functions/criar-usuario/index.ts#L1-L30" target="_blank" rel="noopener" title="AudiStock/supabase/functions/criar-usuario/index.ts">index.ts <small>L1–30</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/testes/permissoes.sql" target="_blank" rel="noopener" title="AudiStock/supabase/testes/permissoes.sql">permissoes.sql</a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/README.pt-BR.md#L142-L152" target="_blank" rel="noopener" title="AudiStock/README.pt-BR.md">README.pt-BR.md <small>L142–152</small></a></p></li>
+          <li data-revela><h4>Política de seguridad por hash, sin build</h4><p>Cada página trae una Content Security Policy en una meta tag: solo se ejecutan scripts del propio sitio, de las carpetas exactas de las bibliotecas en cdnjs y jsDelivr, con versión fija, y de los scripts incrustados permitidos por su hash. Las bibliotecas de PDF y de hojas de cálculo solo se descargan al exportar o importar, comprobadas por SRI. <code>csp.test.mjs</code> revisa todas las páginas, y las pruebas de extremo a extremo fallan si la política bloquea algo.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/contagem.html#L5" target="_blank" rel="noopener" title="AudiStock/contagem.html">contagem.html <small>L5</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/README.pt-BR.md#L193-L204" target="_blank" rel="noopener" title="AudiStock/README.pt-BR.md">README.pt-BR.md <small>L193–204</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/unidade/csp.test.mjs" target="_blank" rel="noopener" title="AudiStock/testes/unidade/csp.test.mjs">csp.test.mjs</a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/supabaseClient.js#L12-L27" target="_blank" rel="noopener" title="AudiStock/js/supabaseClient.js">supabaseClient.js <small>L12–27</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafío</h3>
+          <div class="t-corpo" data-revela="1"><h4>Cola sin conexión que nunca cuenta dos veces</h4><p>Una respuesta perdida en la red, o la misma cola abierta en dos pestañas, podía sumar la misma lectura dos veces. Cada registro lleva un <code>id_cliente</code> generado en el dispositivo, el mismo del intento que falló, y la base anota en <code>contagens_aplicadas</code> lo que ya aplicó. Solo una pestaña envía a la vez (Web Locks). Un fallo pasajero, como la red o una sesión vencida, retiene la cola en orden; cualquier otro rechazo pasa a «No enviada» sin bloquear las siguientes.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/offline.js#L1-L24" target="_blank" rel="noopener" title="AudiStock/js/offline.js">offline.js <small>L1–24</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/offline.js#L76-L100" target="_blank" rel="noopener" title="AudiStock/js/offline.js">offline.js <small>L76–100</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/offline.js#L168-L207" target="_blank" rel="noopener" title="AudiStock/js/offline.js">offline.js <small>L168–207</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/js/telas/contagem.js#L495-L527" target="_blank" rel="noopener" title="AudiStock/js/telas/contagem.js">contagem.js <small>L495–527</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/supabase/schema.sql#L110-L117" target="_blank" rel="noopener" title="AudiStock/supabase/schema.sql">schema.sql <small>L110–117</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/unidade/fila.test.mjs" target="_blank" rel="noopener" title="AudiStock/testes/unidade/fila.test.mjs">fila.test.mjs</a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Pruebas</h3>
+          <div class="t-corpo" data-revela="1"><p>Son 84 pruebas de unidad y de base de datos con <code>node:test</code>: el código real de <code>js/</code> se ejecuta en Node sobre la base de la demostración, la cola usa un IndexedDB en memoria, y <code>schema.sql</code> y <code>permissoes.sql</code> se ejecutan en un Postgres en WebAssembly (PGlite), incluso sobre una base de la versión anterior. Playwright hace 46 ejecuciones de extremo a extremo, en pantalla de computadora y de celular. GitHub Actions lo ejecuta todo en cada push a <code>main</code> y en cada pull request.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/package.json" target="_blank" rel="noopener" title="AudiStock/package.json">package.json</a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/unidade/indexeddb.mjs#L1-L7" target="_blank" rel="noopener" title="AudiStock/testes/unidade/indexeddb.mjs">indexeddb.mjs <small>L1–7</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/banco/esquema.test.mjs#L1-L40" target="_blank" rel="noopener" title="AudiStock/testes/banco/esquema.test.mjs">esquema.test.mjs <small>L1–40</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/playwright.config.mjs#L27-L30" target="_blank" rel="noopener" title="AudiStock/playwright.config.mjs">playwright.config.mjs <small>L27–30</small></a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/testes/e2e" target="_blank" rel="noopener" title="AudiStock/testes/e2e">e2e</a> <a href="https://github.com/alyssom-fernandes/AudiStock/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="AudiStock/.github/workflows/testes.yml">testes.yml</a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, Supabase (PostgreSQL + Auth), IndexedDB, PWA, jsPDF, ExcelJS, SheetJS, BarcodeDetector, node:test, PGlite, Playwright, GitHub Actions</p></div>
-      <div><h2>Enlaces</h2><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1" target="_blank" rel="noopener" aria-label="Demo de AudiStock (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AudiStock" target="_blank" rel="noopener" aria-label="Código de AudiStock en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack y enlaces</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript, Supabase (PostgreSQL + Auth), IndexedDB, PWA, jsPDF, ExcelJS, SheetJS, BarcodeDetector, node:test, PGlite, Playwright, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Enlaces</h3><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/AudiStock/app.html?demo=1" target="_blank" rel="noopener" aria-label="Demo de AudiStock (se abre en una pestaña nueva)">Abrir la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AudiStock" target="_blank" rel="noopener" aria-label="Código de AudiStock en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Otros proyectos">

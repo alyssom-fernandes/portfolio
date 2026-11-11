@@ -28,9 +28,11 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#9A6B2A">
 <a class="pular" href="#conteudo">Skip to content</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/DeepChat/?demo=1" target="_blank" rel="noopener" aria-label="DeepChat demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/DeepChat" target="_blank" rel="noopener" aria-label="Code for DeepChat on GitHub (opens in a new tab)">Code</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Why it exists</h2>
-      <p>Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, I carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs I used most.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">On this page: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Why it exists</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="On this page"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Why it exists</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problem, system, and proof</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Inside</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">How it was built</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack and links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="On this page">
+        <p class="d-ind-t" aria-hidden="true">On this page</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Why it exists</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problem, system, and proof</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Inside</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">How it was built</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack and links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problem, system, and proof</h2>
-      <div><p class="fp-rot">Problem</p><p>Checking an answer meant copying and pasting between two AIs.</p></div>
-      <div><p class="fp-rot">System</p><p>A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there is an error, a revised version. No server: everything runs in the browser.</p></div>
-      <div><p class="fp-rot">Proof</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Why it exists</h2></div>
+        <p class="d-origem-txt" data-revela="1">Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, I carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs I used most.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problem, system, and proof</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problem</p><p>Checking an answer meant copying and pasting between two AIs.</p></div>
+          <div data-revela="1"><p class="fp-rot">System</p><p>A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there is an error, a revised version. No server: everything runs in the browser.</p></div>
+          <div data-revela="2"><p class="fp-rot">Proof</p><div class="d-prova">
           <p class="prova-n"><b>65</b> <span>tests</span></p>
           <p class="prova-d"><span class="pd-det">node --test on GitHub Actions.</span> <span class="pd-data">Checked on 9 Nov 2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Inside</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/revisao-veredito.webp" srcset="../../../assets/projetos/deepchat/revisao-veredito-960.webp 960w, ../../../assets/projetos/deepchat/revisao-veredito.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: review of an answer with the verdict Incorrect, strengths, and what to improve" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Verdict up front</h3><p>Every answer gets a verdict: correct, partially correct, or incorrect.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/revisao-codigo.webp" srcset="../../../assets/projetos/deepchat/revisao-codigo-960.webp 960w, ../../../assets/projetos/deepchat/revisao-codigo.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: revised version of a CPF validation function, now rejecting repeated sequences such as 111.111.111-11, with the order reversed (ChatGPT answers and DeepSeek reviews)" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Revised version</h3><p>In the demo, a function that validates a CPF (Brazilian taxpayer ID) comes back partially correct because it accepts 111.111.111-11, and the review provides the corrected version. On this screen the order is reversed (ChatGPT answers and DeepSeek reviews): one click swaps who answers and who reviews.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/inicio.webp" srcset="../../../assets/projetos/deepchat/inicio-960.webp 960w, ../../../assets/projetos/deepchat/inicio.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: start screen with the API key fields and access to the demo" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>No server</h3><p>Questions go straight from the browser to the APIs, and API keys, if saved, are stored encrypted. The demo needs no key.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../../assets/projetos/deepchat/celular.webp" width="780" height="1688" alt="DeepChat on a phone: review with strengths, what to improve, and suggestions" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>The review fits on a phone</h3><p>Strengths, what to improve, and suggestions in a single column, with the revised version one tap away.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Inside</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/revisao-veredito.webp" srcset="../../../assets/projetos/deepchat/revisao-veredito-960.webp 960w, ../../../assets/projetos/deepchat/revisao-veredito.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: review of an answer with the verdict Incorrect, strengths, and what to improve" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Verdict up front</h3><p>Every answer gets a verdict: correct, partially correct, or incorrect.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/revisao-codigo.webp" srcset="../../../assets/projetos/deepchat/revisao-codigo-960.webp 960w, ../../../assets/projetos/deepchat/revisao-codigo.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: revised version of a CPF validation function, now rejecting repeated sequences such as 111.111.111-11, with the order reversed (ChatGPT answers and DeepSeek reviews)" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Revised version</h3><p>In the demo, a function that validates a CPF (Brazilian taxpayer ID) comes back partially correct because it accepts 111.111.111-11, and the review provides the corrected version. On this screen the order is reversed (ChatGPT answers and DeepSeek reviews): one click swaps who answers and who reviews.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/DeepChat</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/deepchat/inicio.webp" srcset="../../../assets/projetos/deepchat/inicio-960.webp 960w, ../../../assets/projetos/deepchat/inicio.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="DeepChat: start screen with the API key fields and access to the demo" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>No server</h3><p>Questions go straight from the browser to the APIs, and API keys, if saved, are stored encrypted. The demo needs no key.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../../assets/projetos/deepchat/celular.webp" width="780" height="1688" alt="DeepChat on a phone: review with strengths, what to improve, and suggestions" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>The review fits on a phone</h3><p>Strengths, what to improve, and suggestions in a single column, with the revised version one tap away.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">How it was built</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Architecture</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">I wrote DeepChat in ES modules, with no framework, no build, and no server. <code>app.js</code> drives each turn: it asks one AI for the answer and hands the question and the answer to the other, which reviews it. API calls live in <code>api-client.js</code>, review parsing in <code>revisao.js</code>, and screen rendering in <code>ui.js</code>, with no business logic. History and preferences stay in the browser's own <code>localStorage</code>.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/app.js#L436-L475" target="_blank" rel="noopener" title="DeepChat/js/app.js">app.js <small>L436–475</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/app.js#L573-L602" target="_blank" rel="noopener" title="DeepChat/js/app.js">app.js <small>L573–602</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/ui.js#L1-L7" target="_blank" rel="noopener" title="DeepChat/js/ui.js">ui.js <small>L1–7</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/README.pt-BR.md#L225-L247" target="_blank" rel="noopener" title="DeepChat/README.pt-BR.md">README.pt-BR.md <small>L225–247</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Data flow</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Question in the browser</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Streamed answer</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Other AI reviews</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Verdict on screen</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">History in the browser</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Technical decisions</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Fixed-format review, parsed by the screen</h4><p>The reviewer prompt asks for an exact format: the <code>Veredito:</code> line and the sections &quot;Accuracy&quot;, &quot;Strengths&quot;, &quot;To improve&quot;, &quot;Suggestions&quot; and, only when there is an error, &quot;Revised version&quot;. <code>lerRevisao</code> splits these parts so the screen can highlight the verdict and put each section in its place. If the model strays from the format, the whole review appears as plain text; the old format, with emojis, is also parsed.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/revisao.js#L29-L61" target="_blank" rel="noopener" title="DeepChat/js/revisao.js">revisao.js <small>L29–61</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/revisao.js#L113-L157" target="_blank" rel="noopener" title="DeepChat/js/revisao.js">revisao.js <small>L113–157</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/README.pt-BR.md#L167-L170" target="_blank" rel="noopener" title="DeepChat/README.pt-BR.md">README.pt-BR.md <small>L167–170</small></a></p></li>
+          <li data-revela><h4>Keys encrypted with a non-exportable key</h4><p>Remembering the keys is unchecked by default. When it is checked, <code>storage.js</code> encrypts both with AES-GCM using a random <code>CryptoKey</code>, created as non-exportable and stored in IndexedDB; <code>localStorage</code> holds only the ciphertext. That way, the keys aren't readable in a backup or a copy of the browser profile. The README states the limit: code running on the same origin can still ask the browser to decrypt them.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/storage.js#L1-L18" target="_blank" rel="noopener" title="DeepChat/js/storage.js">storage.js <small>L1–18</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/storage.js#L93-L105" target="_blank" rel="noopener" title="DeepChat/js/storage.js">storage.js <small>L93–105</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/storage.js#L136-L175" target="_blank" rel="noopener" title="DeepChat/js/storage.js">storage.js <small>L136–175</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/README.pt-BR.md#L125-L138" target="_blank" rel="noopener" title="DeepChat/README.pt-BR.md">README.pt-BR.md <small>L125–138</small></a></p></li>
+          <li data-revela><h4>AI Markdown goes through DOMPurify</h4><p>The AIs' text becomes HTML through <code>marked</code> and goes through DOMPurify with a closed list of tags and attributes. A hook only keeps <code>class</code> on <code>&lt;code&gt;</code> with a language name, so the text can't use the app's classes, and every link opens in a new tab with <code>noopener noreferrer</code>. The CSP doesn't accept <code>'unsafe-inline'</code> and allows connections only to the two APIs, and the libraries have pinned versions with SRI.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/ui.js#L59-L100" target="_blank" rel="noopener" title="DeepChat/js/ui.js">ui.js <small>L59–100</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/index.html#L6-L12" target="_blank" rel="noopener" title="DeepChat/index.html">index.html <small>L6–12</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/index.html#L43-L44" target="_blank" rel="noopener" title="DeepChat/index.html">index.html <small>L43–44</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Challenge</h3>
+          <div class="t-corpo" data-revela="1"><h4>A stream that drops mid-answer</h4><p>The answer arrives through Server-Sent Events, and network chunks split lines in half; <code>criarLeitorSSE</code> keeps the remainder until the line is complete. A retry, with increasing backoff, happens only while no text has arrived. If the connection closes without <code>[DONE]</code> or a stop reason, the answer is treated as cut off: what arrived stays in the conversation, marked as such, and is not sent for review. Each chunk renews the 60 s timeout.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/api-client.js#L91-L125" target="_blank" rel="noopener" title="DeepChat/js/api-client.js">api-client.js <small>L91–125</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/api-client.js#L127-L210" target="_blank" rel="noopener" title="DeepChat/js/api-client.js">api-client.js <small>L127–210</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/api-client.js#L222-L247" target="_blank" rel="noopener" title="DeepChat/js/api-client.js">api-client.js <small>L222–247</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/js/app.js#L550-L557" target="_blank" rel="noopener" title="DeepChat/js/app.js">app.js <small>L550–557</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testing</h3>
+          <div class="t-corpo" data-revela="1"><p>There are 65 tests with <code>node --test</code>, with no dependencies. They cover review parsing, the conversation and the context sent to the APIs, the colors in code, and the pages' CSP. The stream is tested without a network, using a fake <code>fetch</code> that cuts the connection. The key vault runs with fake <code>localStorage</code> and IndexedDB and the real <code>crypto.subtle</code>. The demo examples are checked too. GitHub Actions runs everything on every push, on Node 24.</p><p class="t-fontes"><span>View in code:</span> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/tests/api.test.mjs" target="_blank" rel="noopener" title="DeepChat/tests/api.test.mjs">api.test.mjs</a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/tests/storage.test.mjs#L1-L8" target="_blank" rel="noopener" title="DeepChat/tests/storage.test.mjs">storage.test.mjs <small>L1–8</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/tests/demo.test.mjs#L36-L58" target="_blank" rel="noopener" title="DeepChat/tests/demo.test.mjs">demo.test.mjs <small>L36–58</small></a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/tests/csp.test.mjs" target="_blank" rel="noopener" title="DeepChat/tests/csp.test.mjs">csp.test.mjs</a> <a href="https://github.com/alyssom-fernandes/DeepChat/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="DeepChat/.github/workflows/testes.yml">testes.yml</a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript (ES modules), DeepSeek API, OpenAI API, marked, DOMPurify, Web Crypto, node:test, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/DeepChat/?demo=1" target="_blank" rel="noopener" aria-label="DeepChat demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/DeepChat" target="_blank" rel="noopener" aria-label="Code for DeepChat on GitHub (opens in a new tab)">Code</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack and links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript (ES modules), DeepSeek API, OpenAI API, marked, DOMPurify, Web Crypto, node:test, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/DeepChat/?demo=1" target="_blank" rel="noopener" aria-label="DeepChat demo (opens in a new tab)">Open the demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/DeepChat" target="_blank" rel="noopener" aria-label="Code for DeepChat on GitHub (opens in a new tab)">Code</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Other projects">

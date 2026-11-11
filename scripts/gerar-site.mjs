@@ -348,7 +348,7 @@ function gerarPagina(idioma) {
     <div class="ab-wrap">
       <div class="ab-txt">
         <p class="ab-kicker">${p0('identidade.titulo')}</p>
-        <h1 class="ab-nome" id="nome">${I.nome.split(' ').map(w => `<span>${esc(w)}</span>`).join(' ')}</h1>
+        <h1 class="ab-nome" id="nome">${I.nome.split(' ').map(w => `<span class="ln"><span class="ln-i">${esc(w)}</span></span>`).join(' ')}</h1>
         <p class="ab-tese">${h('identidade.tese')}</p>
         <p class="ab-linha">${h('abertura.linhaFina')}</p>
         <div class="ab-acoes">
@@ -633,6 +633,110 @@ ${cv}
 
 /* 8. Página de detalhe de um projeto */
 
+// Seção técnica: fonte/tecnico/<id>.<idioma>.json. É opcional: sem o arquivo do idioma, a seção e a entrada
+// dela no índice não aparecem. Com o arquivo, o formato é conferido aqui, antes de gravar qualquer página.
+// Os textos não aceitam HTML; trechos entre crases viram <code>. Cada fonte é "Repo/caminho" ou "Repo/caminho#L1-L9".
+const REPO_GITHUB = 'https://github.com/alyssom-fernandes/';
+const reFonte = /^([A-Za-z0-9._-]+)\/([^#\s]+?)(?:#L(\d+)(?:-L(\d+))?)?$/;
+function validarTecnico(t, p, rel) {
+  const e = [];
+  const objeto = v => !!v && typeof v === 'object' && !Array.isArray(v);
+  const texto = (v, campo) => {
+    if (typeof v !== 'string' || !v.trim()) { e.push(`${rel}: "${campo}" precisa ser um texto`); return; }
+    // dentro de crases, "<input>" é código citado (sai escapado); fora delas, é HTML e não entra
+    if (/<[a-z/!]/i.test(v.replace(/`[^`]*`/g, ''))) e.push(`${rel}: "${campo}" tem HTML; use só texto, com \`código\` entre crases`);
+    if ((v.match(/`/g) || []).length % 2) e.push(`${rel}: "${campo}" tem uma crase sem par`);
+  };
+  const fontes = (v, campo) => {
+    if (!Array.isArray(v) || !v.length) { e.push(`${rel}: "${campo}" precisa de ao menos uma fonte ("Repo/caminho" ou "Repo/caminho#L1-L9")`); return; }
+    v.forEach((f, i) => { if (typeof f !== 'string' || !reFonte.test(f)) e.push(`${rel}: "${campo}.${i}" (${JSON.stringify(f)}) não está no formato "Repo/caminho" ou "Repo/caminho#L1-L9"`); });
+  };
+  const chaves = (obj, campo, aceitas) => {
+    for (const k of Object.keys(obj)) if (!k.startsWith('_') && !aceitas.includes(k)) e.push(`${rel}: a chave "${campo}${k}" não existe no formato (aceitas: ${aceitas.join(', ')})`);
+  };
+  const bloco = (v, campo, campos) => {
+    if (!objeto(v)) { e.push(`${rel}: falta "${campo}" { ${campos.join(', ')} }`); return false; }
+    chaves(v, campo + '.', campos);
+    for (const c of campos) if (c === 'fontes') fontes(v.fontes, `${campo}.fontes`); else if (c !== 'fluxo') texto(v[c], `${campo}.${c}`);
+    return true;
+  };
+  if (!objeto(t)) return [`${rel}: precisa ser um objeto { id, arquitetura, decisoes, desafio, testes }`];
+  chaves(t, '', ['id', 'arquitetura', 'decisoes', 'desafio', 'testes']);
+  if (t.id !== p.id) e.push(`${rel}: "id" deve ser "${p.id}" (está ${JSON.stringify(t.id)})`);
+  if (bloco(t.arquitetura, 'arquitetura', ['texto', 'fluxo', 'fontes'])) {
+    const f = t.arquitetura.fluxo;
+    if (!Array.isArray(f) || f.length < 3 || f.length > 5) e.push(`${rel}: "arquitetura.fluxo" precisa de 3 a 5 rótulos curtos (tem ${Array.isArray(f) ? f.length : 0})`);
+    else f.forEach((r, i) => texto(r, `arquitetura.fluxo.${i}`));
+  }
+  if (!Array.isArray(t.decisoes) || t.decisoes.length !== 3) e.push(`${rel}: "decisoes" precisa de exatamente 3 itens { titulo, texto, fontes } (tem ${Array.isArray(t.decisoes) ? t.decisoes.length : 0})`);
+  else t.decisoes.forEach((d, i) => bloco(d, `decisoes.${i}`, ['titulo', 'texto', 'fontes']));
+  bloco(t.desafio, 'desafio', ['titulo', 'texto', 'fontes']);
+  bloco(t.testes, 'testes', ['texto', 'fontes']);
+  return e;
+}
+// lido e conferido uma vez, antes da gravação: um arquivo errado para o build sem deixar páginas pela metade
+const TECNICO = (() => {
+  const out = {}, errosT = [];
+  for (const idioma of idiomasAtivos) for (const p of projetos) {
+    const rel = `fonte/tecnico/${p.id}.${idioma.codigo}.json`;
+    if (!existsSync(path.join(raiz, rel))) continue;
+    let t;
+    try { t = JSON.parse(readFileSync(path.join(raiz, rel), 'utf8').replace(/^﻿/, '')); }
+    catch (err) { errosT.push(`${rel}: não é um JSON válido (${err.message})`); continue; }
+    const e = validarTecnico(t, p, rel);
+    if (e.length) errosT.push(...e); else out[`${p.id}.${idioma.codigo}`] = t;
+  }
+  if (errosT.length) falhar(errosT);
+  return out;
+})();
+// texto da seção técnica: tudo escapado; só `crases` viram <code>
+const comCodigo = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+// "Ver no código: nucleo.js L1–11  app.js": o nome do arquivo; o repositório entra quando dois repositórios têm o mesmo nome
+function linksFontes(lista, C) {
+  const fs = lista.map(f => { const [, repo, cam, l1, l2] = f.match(reFonte); return { repo, cam, l1, l2, arq: cam.split('/').pop() }; });
+  const links = fs.map(x => {
+    const ambiguo = fs.some(y => y.arq === x.arq && y.repo !== x.repo);
+    const ancora = x.l1 ? `#L${x.l1}${x.l2 ? `-L${x.l2}` : ''}` : '';
+    const url = `${REPO_GITHUB}${x.repo}/blob/HEAD/${x.cam.split('/').map(encodeURIComponent).join('/')}${ancora}`;
+    const linhas = x.l1 ? ` <small>L${x.l1}${x.l2 ? `–${x.l2}` : ''}</small>` : '';
+    return `<a href="${esc(url)}"${novaAba} title="${esc(`${x.repo}/${x.cam}`)}">${esc(ambiguo ? `${x.repo}/${x.arq}` : x.arq)}${linhas}</a>`;
+  });
+  return `<p class="t-fontes"><span>${C.p0('projetos.detalhe.verNoCodigo')}:</span> ${links.join(' ')}</p>`;
+}
+// cabeçalho numerado de uma seção (o fio de cima se desenha na entrada)
+const cabSecao = (n, id, rotulo) => `<div class="d-cab" data-revela><span class="d-num" aria-hidden="true">${String(n).padStart(2, '0')}</span><h2 id="${id}">${rotulo}</h2></div>`;
+function secaoTecnica(t, n, C) {
+  const { p0 } = C;
+  const A = t.arquitetura;
+  const nos = A.fluxo.map((r, i) => `<li><span class="t-no"><span class="t-no-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><span class="t-no-r">${comCodigo(r)}</span></span></li>`).join('');
+  const decisoes = t.decisoes.map(d => `<li data-revela><h4>${comCodigo(d.titulo)}</h4><p>${comCodigo(d.texto)}</p>${linksFontes(d.fontes, C)}</li>`).join('\n          ');
+  return `<section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        ${cabSecao(n, 'd-tec-t', p0('projetos.detalhe.tecnicoTitulo'))}
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>${p0('projetos.detalhe.arquiteturaTitulo')}</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">${comCodigo(A.texto)}</p>${linksFontes(A.fontes, C)}</div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:${A.fluxo.length}">
+          <figcaption>${p0('projetos.detalhe.fluxoTitulo')}</figcaption>
+          <ol>${nos}</ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>${p0('projetos.detalhe.decisoesTitulo')}</h3>
+          <ol class="t-corpo t-decisoes">
+          ${decisoes}
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>${p0('projetos.detalhe.desafioTitulo')}</h3>
+          <div class="t-corpo" data-revela="1"><h4>${comCodigo(t.desafio.titulo)}</h4><p>${comCodigo(t.desafio.texto)}</p>${linksFontes(t.desafio.fontes, C)}</div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>${p0('projetos.detalhe.testesTitulo')}</h3>
+          <div class="t-corpo" data-revela="1"><p>${comCodigo(t.testes.texto)}</p>${linksFontes(t.testes.fontes, C)}</div>
+        </div>
+      </section>`;
+}
+
 function gerarDetalhe(idioma, p, idx) {
   const C = contexto(idioma);
   const { cod, T, p0, h, varsP, stackDe } = C;
@@ -650,17 +754,31 @@ function gerarDetalhe(idioma, p, idx) {
   const sizesGrande = '(max-width: 760px) 100vw, 1100px';
   const destaques = p.itens.map((it, j) => {
     const fig = it.tela === 'celular'
-      ? `<div class="d-fig celular-so">${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 320px' })}</div>`
-      : `<div class="d-fig"><div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div></div>`;
+      ? `<div class="d-fig celular-so" data-revela>${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 320px' })}</div>`
+      : `<div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div></div>`;
     return `<li class="d-item${j % 2 ? ' inv' : ''}">
-        ${fig}
-        <div class="d-item-txt"><h3>${h(`projetos.${p.id}.itens.${it.id}.titulo`, vp)}</h3><p>${h(`projetos.${p.id}.itens.${it.id}.texto`, vp)}</p></div>
-      </li>`;
-  }).join('\n      ');
+          ${fig}
+          <div class="d-item-txt" data-revela="1"><h3>${h(`projetos.${p.id}.itens.${it.id}.titulo`, vp)}</h3><p>${h(`projetos.${p.id}.itens.${it.id}.texto`, vp)}</p></div>
+        </li>`;
+  }).join('\n        ');
+  const tecnico = TECNICO[`${p.id}.${cod}`];
+  // seções do estudo de caso, na ordem da página; o índice sai desta lista
+  const secoes = [
+    { id: 's-origem', rot: p0('projetos.detalhe.origemTitulo') },
+    { id: 's-ficha', rot: p0('projetos.detalhe.fichaTitulo') },
+    { id: 's-destaques', rot: p0('projetos.detalhe.destaquesTitulo') },
+    ...(tecnico ? [{ id: 's-tecnico', rot: p0('projetos.detalhe.tecnicoTitulo') }] : []),
+    { id: 's-stack', rot: p0('projetos.detalhe.stackLinksTitulo') }
+  ];
+  const num = id => secoes.findIndex(s => s.id === id) + 1;
+  const nn = i => String(i + 1).padStart(2, '0');
+  const itensIndice = secoes.map((s, i) => `<li><a href="#${s.id}" data-alvo="${s.id}"${i === 0 ? ' aria-current="location"' : ''}><span class="d-ind-n">${nn(i)}</span><span class="d-ind-r">${s.rot}</span></a></li>`).join('');
+  const rotIndice = p0('projetos.detalhe.indice');
   const alternativas = [...idiomasLinks.map(i => [i.hreflang, urlDe(i)]), ['x-default', urlDe(dados.site.idiomas.find(i => i.codigo === padrao))]];
   const titulo = p0('meta.tituloProjeto', { nome: p.nome, frase: limpar(C.txt(`projetos.${p.id}.frase`, vp)).replace(/\.$/, '') });
   const descricao = esc(limpar(C.txt(`projetos.${p.id}.resumo`, vp)));
-  const head = cabeca({ C, idioma, pref, titulo, descricao, urlPagina: urlDe(idioma), alternativas, ogTipo: 'article', tema: dados.site.corTemaTela });
+  const extra = `\n<link rel="stylesheet" href="${pref}assets/css/projeto.css?v=${hash('assets/css/projeto.css')}">\n<script src="${pref}assets/js/projeto.js?v=${hash('assets/js/projeto.js')}" defer></script>`;
+  const head = cabeca({ C, idioma, pref, titulo, descricao, urlPagina: urlDe(idioma), alternativas, extra, ogTipo: 'article', tema: dados.site.corTemaTela });
   const links = botoes(p, C, pref, { detalhes: false, codigoTodos: true });
   return `<!doctype html>
 <html lang="${idioma.lang}">
@@ -687,29 +805,47 @@ ${cabecalho({ C, pref, ancora: home, idiomaHref: i => `${pref}${i.pasta}projetos
       <div class="d-acoes">${links}</div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">${p0('projetos.detalhe.origemTitulo')}</h2>
-      <p>${h(`projetos.${p.id}.origemLonga`, vp)}</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">${rotIndice}: </span><span class="d-ind-n" data-atual-n>${nn(0)}</span><span class="d-ind-r" data-atual-r>${secoes[0].rot}</span><span class="d-ind-tot" aria-hidden="true">/${nn(secoes.length - 1)}</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="${rotIndice}"><ol>${itensIndice}</ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="${rotIndice}">
+        <p class="d-ind-t" aria-hidden="true">${rotIndice}</p>
+        <ol>${itensIndice}</ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">${p0('projetos.detalhe.fichaTitulo')}</h2>
-      <div><p class="fp-rot">${p0('projetos.rotulos.problema')}</p><p>${h(`projetos.${p.id}.problema`, vp)}</p></div>
-      <div><p class="fp-rot">${p0('projetos.rotulos.sistema')}</p><p>${h(`projetos.${p.id}.resumo`, vp)}</p></div>
-      <div><p class="fp-rot">${p0('projetos.rotulos.prova')}</p>${prova(p, C, 'd-prova')}${temDemoAtiva(p) ? '' : `<p class="d-semdemo">${p0('projetos.detalhe.semDemo')}</p>`}</div>
-    </section>
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        ${cabSecao(num('s-origem'), 'd-origem-t', p0('projetos.detalhe.origemTitulo'))}
+        <p class="d-origem-txt" data-revela="1">${h(`projetos.${p.id}.origemLonga`, vp)}</p>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">${p0('projetos.detalhe.destaquesTitulo')}</h2>
-      <ol>
-      ${destaques}
-      </ol>
-    </section>
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        ${cabSecao(num('s-ficha'), 'd-ficha-t', p0('projetos.detalhe.fichaTitulo'))}
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">${p0('projetos.rotulos.problema')}</p><p>${h(`projetos.${p.id}.problema`, vp)}</p></div>
+          <div data-revela="1"><p class="fp-rot">${p0('projetos.rotulos.sistema')}</p><p>${h(`projetos.${p.id}.resumo`, vp)}</p></div>
+          <div data-revela="2"><p class="fp-rot">${p0('projetos.rotulos.prova')}</p>${prova(p, C, 'd-prova')}${temDemoAtiva(p) ? '' : `<p class="d-semdemo">${p0('projetos.detalhe.semDemo')}</p>`}</div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">${p0('projetos.detalhe.stackTitulo')}</h2><p>${stackDe(p).map(esc).join(', ')}</p></div>
-      <div><h2>${p0('projetos.detalhe.linksTitulo')}</h2><div class="d-acoes">${links}</div></div>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        ${cabSecao(num('s-destaques'), 'd-dest-t', p0('projetos.detalhe.destaquesTitulo'))}
+        <ol class="d-dest-lista">
+        ${destaques}
+        </ol>
+      </section>
+      ${tecnico ? `\n      ${secaoTecnica(tecnico, num('s-tecnico'), C)}\n` : ''}
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        ${cabSecao(num('s-stack'), 'd-stack-t', p0('projetos.detalhe.stackLinksTitulo'))}
+        <div class="d-stackg">
+          <div data-revela><h3>${p0('projetos.detalhe.stackTitulo')}</h3><p>${stackDe(p).map(esc).join(', ')}</p></div>
+          <div data-revela="1"><h3>${p0('projetos.detalhe.linksTitulo')}</h3><div class="d-acoes">${links}</div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="${p0('projetos.detalhe.navegacao')}">

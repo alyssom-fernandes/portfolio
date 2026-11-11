@@ -1,0 +1,71 @@
+{
+  "id": "artmaker",
+  "arquitetura": {
+    "texto": "ArtMaker is a single `index.html` in plain JavaScript, with no framework, build, or server. The editor keeps everything in an `estado` object; on every change, the `desenharEncarte` function redraws the flyer on a 1080 × 1920 2D Canvas. The DOM-free rules, such as price parsing, contrast, and data validation, live in a block marked `PURO`, separate from the drawing code. Text and style go to `localStorage`, and photos go to IndexedDB.",
+    "fluxo": [
+      "Data in the editor",
+      "Flyer state",
+      "Drawing on Canvas",
+      "PNG to share"
+    ],
+    "fontes": [
+      "ArtMaker/index.html#L1206-L1208",
+      "ArtMaker/index.html#L1443-L1447",
+      "ArtMaker/index.html#L2126-L2166",
+      "ArtMaker/index.html#L3255-L3261",
+      "ArtMaker/README.pt-BR.md#L214-L226"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "A single file, on purpose",
+      "texto": "I chose to ship the whole app in one `index.html`, so sending the file and opening it in a browser is enough. The default logo is embedded as WebP, because an external image opened straight from disk taints the canvas and the browser blocks the download. The CSP is set in a meta tag, with `default-src 'none'` and each inline script allowed by its SHA-256 hash; the only outside source is Google Fonts.",
+      "fontes": [
+        "ArtMaker/README.pt-BR.md#L161-L164",
+        "ArtMaker/README.pt-BR.md#L174-L177",
+        "ArtMaker/index.html#L9"
+      ]
+    },
+    {
+      "titulo": "Same code draws preview, file, and thumbnails",
+      "texto": "`desenharEncarte` takes the canvas context and options: a different context, colors, or region. That way, the same function draws the live preview, the exported PNG (without editing hints such as \"Enter the price\"), the thumbnails of the 8 palettes, and those in the Style tab, which show only a crop of the flyer. There is no second rendering engine to keep in sync.",
+      "fontes": [
+        "ArtMaker/index.html#L1443-L1446",
+        "ArtMaker/index.html#L2126-L2134",
+        "ArtMaker/index.html#L3107",
+        "ArtMaker/index.html#L3203-L3214",
+        "ArtMaker/index.html#L3255-L3259"
+      ]
+    },
+    {
+      "titulo": "Contrast fixed without changing the color",
+      "texto": "People choose colors freely, so a combination can make text unreadable. `contraste` follows the WCAG formula, and `ajustarCor` keeps the chosen hue and darkens or lightens it only as much as needed to reach the minimum: 3:1 in general and 4.5:1 for small text. The drawing applies this correction to the name, the price, the title, and the struck-through price, and the Colors tab warns when it kicks in.",
+      "fontes": [
+        "ArtMaker/index.html#L1287-L1313",
+        "ArtMaker/index.html#L1755",
+        "ArtMaker/index.html#L1989-L1990",
+        "ArtMaker/index.html#L2060",
+        "ArtMaker/README.pt-BR.md#L102-L104"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Autosave without losing work",
+    "texto": "The flyer saves while you edit: the state without images goes to `localStorage` half a second after the last change, and photos go to IndexedDB, each with its own id, in a per-key queue so the latest change always wins. Moving a product doesn't rewrite any photo. If another tab saves the flyer, the `storage` event makes this one stop saving and show a warning. Data that is saved or opened goes through `normalizarDados` before it is loaded.",
+    "fontes": [
+      "ArtMaker/index.html#L2176-L2213",
+      "ArtMaker/index.html#L2215-L2260",
+      "ArtMaker/index.html#L1419-L1441",
+      "ArtMaker/README.pt-BR.md#L119-L126"
+    ]
+  },
+  "testes": {
+    "texto": "There are 33 tests with `node --test`, with no dependencies. Since the app is a single file, the test reads `index.html`, cuts out the `PURO` block, and runs it in an isolated `node:vm` context: 31 tests cover price, discount, contrast, dates, file name, and project validation. The other 2 recompute the CSP hashes of `index.html` and `404.html`. GitHub Actions runs everything on every push, on Node 22.",
+    "fontes": [
+      "ArtMaker/tests/puro.test.mjs#L1-L17",
+      "ArtMaker/tests/puro.test.mjs",
+      "ArtMaker/tests/csp.test.mjs",
+      "ArtMaker/.github/workflows/testes.yml"
+    ]
+  }
+}

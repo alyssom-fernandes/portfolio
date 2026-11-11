@@ -1,0 +1,76 @@
+{
+  "id": "flowtrack",
+  "arquitetura": {
+    "texto": "Separei o FlowTrack em três partes: o frontend em React 19 e TypeScript, uma API REST em FastAPI (`/api/v1`) e o banco PostgreSQL no Supabase, com Row Level Security. A API grava cada transação na hora e, se ela vier sem categoria, coloca um item na tabela `categorization_queue`. Um worker, chamado pela rota interna `/internal/process-queue`, categoriza a fila em lotes de 20. No modo demonstração, o Axios troca a rede por uma API em memória no navegador.",
+    "fluxo": [
+      "Extrato importado",
+      "API em FastAPI",
+      "Fila de categorização",
+      "Regras, cache e Haiku",
+      "Painel e relatórios"
+    ],
+    "fontes": [
+      "FlowTrack/README.pt-br.md#L60-L82",
+      "FlowTrack/backend/app/api/v1/imports.py#L67-L88",
+      "FlowTrack/backend/app/api/v1/internal.py#L15-L19",
+      "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
+      "FlowTrack/frontend/src/services.ts#L25-L34"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Categorização numa fila, fora da importação",
+      "texto": "A importação não espera a IA: cada transação sem categoria vira um item `pending` na `categorization_queue`, e o worker processa a fila de 20 em 20 quando a rota interna é chamada. Na ADR 0004 registrei o motivo: a importação fica imediata, e a categoria chega depois. A consequência visível é que a transação aparece sem categoria até a próxima rodada; se a chamada ao modelo falhar, o item é marcado como `failed` e o lote segue.",
+      "fontes": [
+        "FlowTrack/backend/app/api/v1/transactions.py#L71-L74",
+        "FlowTrack/backend/app/api/v1/imports.py#L84-L88",
+        "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
+        "FlowTrack/backend/app/integrations/claude_api.py#L226-L231",
+        "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
+      ]
+    },
+    {
+      "titulo": "O modelo responde por ferramenta, não texto",
+      "texto": "Na terceira camada, o Claude Haiku não responde em texto livre: o `tool_choice` força a ferramenta `categorize`, cujo esquema limita a categoria às permitidas para aquela pessoa e a confiança a valores de 0 a 1. Mesmo assim, o worker confere a resposta: categoria fora da lista não é gravada, confiança inválida vira 0, abaixo de 0,85 a transação vai para A revisar, e só a resposta a partir desse corte entra no cache.",
+      "fontes": [
+        "FlowTrack/backend/app/integrations/claude_api.py#L30-L64",
+        "FlowTrack/backend/app/integrations/claude_api.py#L178-L219",
+        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L170",
+        "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
+      ]
+    },
+    {
+      "titulo": "Demonstração inteira no navegador",
+      "texto": "A demonstração pública usava uma conta real num projeto gratuito do Supabase; quando o projeto foi pausado por inatividade, ela saiu do ar. Por isso, no modo demonstração, o interceptor do Axios troca o transporte por um adaptador que atende `/api/v1/*` com uma implementação em memória, guardada no `sessionStorage`. As páginas não sabem a diferença. O custo, registrado na ADR 0006, é manter as regras de negócio duas vezes, em Python e em TypeScript.",
+      "fontes": [
+        "FlowTrack/docs/adr/0006-in-browser-demo.md",
+        "FlowTrack/frontend/src/services.ts#L30-L34",
+        "FlowTrack/frontend/src/demo/index.ts#L34-L44"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Chave service_role sem misturar dados de usuários",
+    "texto": "A API acessa o banco com a chave service_role, que ignora o RLS. Então cada rota confere o dono: `_require_account` e `_require_category` devolvem 404 para conta ou categoria de outra pessoa. O worker só lê a transação do dono do item da fila e só oferece ao modelo as categorias padrão e as dele. Para provar isso, escrevi um Supabase em memória (`fake_supabase.py`) cujos filtros filtram de verdade, e testei um usuário tentando alcançar os dados de outro.",
+    "fontes": [
+      "FlowTrack/backend/app/api/v1/_helpers.py#L24-L42",
+      "FlowTrack/backend/app/integrations/claude_api.py#L67-L75",
+      "FlowTrack/backend/app/integrations/claude_api.py#L114-L122",
+      "FlowTrack/backend/tests/fake_supabase.py#L1-L6",
+      "FlowTrack/backend/tests/test_security.py#L1-L5",
+      "FlowTrack/backend/tests/test_security.py#L322-L355"
+    ]
+  },
+  "testes": {
+    "texto": "São 250 testes de backend com pytest, inclusive de autorização entre usuários e do worker com um Claude falso; 8 de frontend com `node --test`, sobre a exportação CSV e a fila offline; e 40 de ponta a ponta com Playwright: 20 cenários rodados no computador e no celular, contra um build local da demonstração. O GitHub Actions roda tudo a cada push no `main` e em pull requests e, depois dos E2E, mede o contraste dos selos.",
+    "fontes": [
+      "FlowTrack/README.pt-br.md#L141-L154",
+      "FlowTrack/backend/tests/test_ai_categorization.py",
+      "FlowTrack/frontend/tests/syncQueue.test.ts",
+      "FlowTrack/frontend/tests/export.test.ts",
+      "FlowTrack/playwright.config.ts#L27-L30",
+      "FlowTrack/.github/workflows/test.yml",
+      "FlowTrack/.github/workflows/e2e.yml"
+    ]
+  }
+}

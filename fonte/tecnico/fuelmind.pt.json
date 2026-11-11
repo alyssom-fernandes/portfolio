@@ -1,0 +1,68 @@
+{
+  "id": "fuelmind",
+  "arquitetura": {
+    "texto": "O Fuel Mind é JavaScript puro sobre o Firebase, sem framework e sem etapa de build. O código fica em três pastas: `src/core` (Firebase, sessão, sincronização), `src/shared` (cálculos e o padrão dos PDFs e das planilhas) e `src/screens`, uma tela por arquivo. O `index.html` carrega todos os scripts no mesmo escopo global. Os cadastros ficam em `dados/compartilhado`, e as notas de cada empresa num documento próprio, `dados/lanc__{id}`.",
+    "fluxo": [
+      "XML da NF-e",
+      "Formulário da nota",
+      "Documento da empresa",
+      "Cálculo do frete",
+      "Fechamento em PDF/Excel"
+    ],
+    "fontes": [
+      "Fuel-Mind/index.html#L1165-L1201",
+      "Fuel-Mind/src/core/firebase.js#L44-L67",
+      "Fuel-Mind/src/screens/lancamentos.js#L89-L155",
+      "Fuel-Mind/src/shared/utils.js#L869-L960",
+      "Fuel-Mind/README.pt-BR.md#L218-L257"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Um documento de notas por empresa",
+      "texto": "A regra do Firestore avalia o documento inteiro: enquanto todas as notas moravam juntas, quem lia as próprias lia as de todas as empresas. Separei as notas em `dados/lanc__{id}`, com o id da empresa no nome, e a regra recorta esse id e confere contra o `empresaIds` do perfil. Usar o id, e não o nome, deixa renomear a empresa sem mover o documento nem refazer permissões.",
+      "fontes": [
+        "Fuel-Mind/src/core/firebase.js#L44-L67",
+        "Fuel-Mind/firestore.rules#L285-L299",
+        "Fuel-Mind/firestore.rules#L99-L104"
+      ]
+    },
+    {
+      "titulo": "Taxa de frete com vigência",
+      "texto": "Nenhum valor de frete é gravado: a tela recalcula tudo a cada abertura. Com a taxa como valor único, mudá-la reescrevia em silêncio os meses já pagos. Por isso cada mudança fecha a vigência anterior e abre outra, e `calcularFretesDoMes` usa a taxa e o percentual do motorista que valiam na data da descarga, além do conjunto que continha a placa naquele dia.",
+      "fontes": [
+        "Fuel-Mind/src/shared/utils.js#L308-L343",
+        "Fuel-Mind/src/shared/utils.js#L850-L869",
+        "Fuel-Mind/tests/frete.test.js#L39-L55"
+      ]
+    },
+    {
+      "titulo": "Números em português sem `type=\"number\"`",
+      "texto": "No Chrome em português, o `<input type=\"number\">` falha em silêncio: a vírgula esvazia o campo e a roda do mouse altera o valor. Troquei por campos de texto, e quem entende o número é o `parseNumeroBR`. O `numerico.js` devolve o teclado numérico no celular e a formatação, com as casas decimais de cada campo; o preço aceita até dez, o limite do `vUnCom` da NF-e.",
+      "fontes": [
+        "Fuel-Mind/src/shared/numerico.js#L1-L58",
+        "Fuel-Mind/src/shared/utils.js#L613",
+        "Fuel-Mind/tests/numerico.test.js"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Admin preso às próprias empresas",
+    "texto": "Empresas e fechamentos de mês vivem em listas de um único documento, e a regra do Firestore não percorre lista. Sem um limite, um admin da empresa A mudava pelo console a taxa de frete da empresa B. A saída foi comparar o antes e o depois com `removeAll`, que deixa só os itens alterados, e conferir cada um contra o perfil. Como a regra não tem laço, ela confere até 8 itens alterados por gravação e recusa a gravação que mudar mais que isso.",
+    "fontes": [
+      "Fuel-Mind/firestore.rules#L197-L239",
+      "Fuel-Mind/firestore.rules#L256-L266",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js#L197-L230",
+      "Fuel-Mind/README.pt-BR.md#L185-L189"
+    ]
+  },
+  "testes": {
+    "texto": "São 120 testes de unidade com `node --test`, sem dependência a instalar: eles carregam os arquivos de `src/` com `vm`, como o navegador. Cobrem o frete, as vigências, a trava do mês fechado, a identificação da base que emitiu a NF-e, os números e o padrão dos PDFs e das planilhas. As regras de segurança têm 25 testes no emulador do Firestore, com um projeto `demo-` que não existe na nuvem. O GitHub Actions roda os dois a cada push.",
+    "fontes": [
+      "Fuel-Mind/tests/frete.test.js#L11-L23",
+      "Fuel-Mind/tests/regras/firestore-regras.test.js",
+      "Fuel-Mind/.github/workflows/testes.yml",
+      "Fuel-Mind/README.pt-BR.md#L163-L170"
+    ]
+  }
+}

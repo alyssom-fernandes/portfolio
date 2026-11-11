@@ -28,9 +28,11 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#D9A514">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/ArtMaker/?demo=1" target="_blank" rel="noopener" aria-label="Demo do ArtMaker (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/ArtMaker" target="_blank" rel="noopener" aria-label="Código do ArtMaker no GitHub (abre em nova aba)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por que existe</h2>
-      <p>Uma pessoa me pediu ajuda para fazer as artes de promoção dos produtos do mercado dela. Se eu fizesse as artes, ela sempre dependeria de mim. Por isso fiz uma ferramenta que simplifica a criação: ela configura tudo como quiser e recebe a arte pronta no final.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">Nesta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por que existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="Nesta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="Nesta página">
+        <p class="d-ind-t" aria-hidden="true">Nesta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema e prova</h2>
-      <div><p class="fp-rot">Problema</p><p>Cada arte de promoção dependeria de alguém que soubesse montar.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Gerador de encartes de ofertas 1080×1920 no formato do Status do WhatsApp, num único arquivo HTML com Canvas. Salva tudo no próprio aparelho.</p></div>
-      <div><p class="fp-rot">Prova</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por que existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">Uma pessoa me pediu ajuda para fazer as artes de promoção dos produtos do mercado dela. Se eu fizesse as artes, ela sempre dependeria de mim. Por isso fiz uma ferramenta que simplifica a criação: ela configura tudo como quiser e recebe a arte pronta no final.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema e prova</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Cada arte de promoção dependeria de alguém que soubesse montar.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Gerador de encartes de ofertas 1080×1920 no formato do Status do WhatsApp, num único arquivo HTML com Canvas. Salva tudo no próprio aparelho.</p></div>
+          <div data-revela="2"><p class="fp-rot">Prova</p><div class="d-prova">
           <p class="prova-n"><b>33</b> <span>testes</span></p>
           <p class="prova-d"><span class="pd-det">node --test no GitHub Actions.</span> <span class="pd-data">Conferidos em 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/editor.webp" srcset="../../assets/projetos/artmaker/editor-960.webp 960w, ../../assets/projetos/artmaker/editor.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: editor com os dados da loja e das ofertas e a prévia do encarte" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Com a marca do mercado</h3><p>O padrão do app é o Mercado Vitória. Os dados da loja e das ofertas entram no editor, ao lado da prévia do encarte.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/cores.webp" srcset="../../assets/projetos/artmaker/cores-960.webp 960w, ../../assets/projetos/artmaker/cores.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: paletas de cores em miniatura, uma delas aplicada ao encarte" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>8 paletas prontas</h3><p>As paletas aparecem em miniatura, desenhadas pelo próprio motor do encarte.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/estilo.webp" srcset="../../assets/projetos/artmaker/estilo-960.webp 960w, ../../assets/projetos/artmaker/estilo.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: opções de fonte, quadro, borda, cantos e preço, em tema claro" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Estilo e tema</h3><p>Fonte, quadro, borda, cantos e formato do preço, com tema claro e escuro.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../assets/projetos/artmaker/celular.webp" width="780" height="1688" alt="ArtMaker no celular: encarte final com Compartilhar e Baixar" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Pronto para o Status</h3><p>O encarte sai em 1080×1920, com Compartilhar e Baixar, e fica salvo no próprio aparelho.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/editor.webp" srcset="../../assets/projetos/artmaker/editor-960.webp 960w, ../../assets/projetos/artmaker/editor.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: editor com os dados da loja e das ofertas e a prévia do encarte" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Com a marca do mercado</h3><p>O padrão do app é o Mercado Vitória. Os dados da loja e das ofertas entram no editor, ao lado da prévia do encarte.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/cores.webp" srcset="../../assets/projetos/artmaker/cores-960.webp 960w, ../../assets/projetos/artmaker/cores.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: paletas de cores em miniatura, uma delas aplicada ao encarte" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>8 paletas prontas</h3><p>As paletas aparecem em miniatura, desenhadas pelo próprio motor do encarte.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/ArtMaker</span></div><div class="j-tela estatica"><img src="../../assets/projetos/artmaker/estilo.webp" srcset="../../assets/projetos/artmaker/estilo-960.webp 960w, ../../assets/projetos/artmaker/estilo.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="ArtMaker: opções de fonte, quadro, borda, cantos e preço, em tema claro" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Estilo e tema</h3><p>Fonte, quadro, borda, cantos e formato do preço, com tema claro e escuro.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../assets/projetos/artmaker/celular.webp" width="780" height="1688" alt="ArtMaker no celular: encarte final com Compartilhar e Baixar" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Pronto para o Status</h3><p>O encarte sai em 1080×1920, com Compartilhar e Baixar, e fica salvo no próprio aparelho.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Como foi construído</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitetura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">O ArtMaker é um <code>index.html</code> só, com JavaScript puro, sem framework, build ou servidor. O editor guarda tudo num objeto <code>estado</code>; a cada mudança, a função <code>desenharEncarte</code> redesenha o encarte num Canvas 2D de 1080 × 1920. As regras sem DOM, como leitura do preço, contraste e validação dos dados, ficam num bloco marcado <code>PURO</code>, separado do desenho. Textos e estilo vão para o <code>localStorage</code>, e as fotos, para o IndexedDB.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1206-L1208" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1206–1208</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1443-L1447" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1443–1447</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L2126-L2166" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L2126–2166</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L3255-L3261" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L3255–3261</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/README.pt-BR.md#L214-L226" target="_blank" rel="noopener" title="ArtMaker/README.pt-BR.md">README.pt-BR.md <small>L214–226</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:4">
+          <figcaption>Fluxo dos dados</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Dados no editor</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Estado do encarte</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Desenho no Canvas</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">PNG para compartilhar</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisões técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Um arquivo só, de propósito</h4><p>Escolhi entregar o app inteiro num <code>index.html</code>, para que baste mandar o arquivo e abrir no navegador. A logo padrão vai embutida em WebP, porque uma imagem externa aberta direto do disco contamina o canvas e o navegador bloqueia o download. A CSP vai por meta, com <code>default-src 'none'</code> e cada script inline liberado pelo hash SHA-256; de fora, só o Google Fonts.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/README.pt-BR.md#L161-L164" target="_blank" rel="noopener" title="ArtMaker/README.pt-BR.md">README.pt-BR.md <small>L161–164</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/README.pt-BR.md#L174-L177" target="_blank" rel="noopener" title="ArtMaker/README.pt-BR.md">README.pt-BR.md <small>L174–177</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L9" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L9</small></a></p></li>
+          <li data-revela><h4>O mesmo código desenha prévia, arquivo e miniaturas</h4><p>O <code>desenharEncarte</code> recebe o contexto do canvas e opções: troca de contexto, de cores e de região. Assim, a mesma função desenha a prévia ao vivo, o PNG exportado (sem marcas de edição como &quot;Informe o preço&quot;), as miniaturas das 8 paletas e as da aba Estilo, que mostram só um recorte do encarte. Não há um segundo motor de desenho para manter em sincronia.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1443-L1446" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1443–1446</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L2126-L2134" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L2126–2134</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L3107" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L3107</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L3203-L3214" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L3203–3214</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L3255-L3259" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L3255–3259</small></a></p></li>
+          <li data-revela><h4>Contraste corrigido sem trocar a cor</h4><p>A pessoa escolhe as cores livremente, então uma combinação pode deixar o texto ilegível. O <code>contraste</code> segue a fórmula do WCAG, e o <code>ajustarCor</code> mantém o matiz escolhido e escurece ou clareia só o necessário até atingir o mínimo: 3:1 no geral e 4,5:1 em texto pequeno. O desenho aplica essa correção ao nome, ao preço, ao título e ao preço riscado, e a aba Cores avisa quando ela entra.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1287-L1313" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1287–1313</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1755" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1755</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1989-L1990" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1989–1990</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L2060" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L2060</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/README.pt-BR.md#L102-L104" target="_blank" rel="noopener" title="ArtMaker/README.pt-BR.md">README.pt-BR.md <small>L102–104</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafio</h3>
+          <div class="t-corpo" data-revela="1"><h4>Salvar sozinho sem perder o trabalho</h4><p>O encarte salva enquanto se edita: o estado sem imagens vai ao <code>localStorage</code> meio segundo depois da última mudança, e as fotos vão ao IndexedDB, cada uma com um id próprio, numa fila por chave, para a última mudança sempre vencer. Mover um produto não regrava foto. Se outra aba grava o encarte, o evento <code>storage</code> faz esta parar de salvar e avisar. Dados salvos ou abertos passam pelo <code>normalizarDados</code> antes de entrar.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L2176-L2213" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L2176–2213</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L2215-L2260" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L2215–2260</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/index.html#L1419-L1441" target="_blank" rel="noopener" title="ArtMaker/index.html">index.html <small>L1419–1441</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/README.pt-BR.md#L119-L126" target="_blank" rel="noopener" title="ArtMaker/README.pt-BR.md">README.pt-BR.md <small>L119–126</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testes</h3>
+          <div class="t-corpo" data-revela="1"><p>São 33 testes com <code>node --test</code>, sem dependências. Como o app é um arquivo só, o teste lê o <code>index.html</code>, recorta o bloco <code>PURO</code> e o roda num contexto isolado do <code>node:vm</code>: são 31 testes de preço, desconto, contraste, datas, nome do arquivo e validação de projetos. Os outros 2 recalculam os hashes da CSP do <code>index.html</code> e do <code>404.html</code>. O GitHub Actions roda tudo a cada push, em Node 22.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/tests/puro.test.mjs#L1-L17" target="_blank" rel="noopener" title="ArtMaker/tests/puro.test.mjs">puro.test.mjs <small>L1–17</small></a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/tests/puro.test.mjs" target="_blank" rel="noopener" title="ArtMaker/tests/puro.test.mjs">puro.test.mjs</a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/tests/csp.test.mjs" target="_blank" rel="noopener" title="ArtMaker/tests/csp.test.mjs">csp.test.mjs</a> <a href="https://github.com/alyssom-fernandes/ArtMaker/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="ArtMaker/.github/workflows/testes.yml">testes.yml</a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, HTML5 Canvas, localStorage, IndexedDB, Web Share API, node:test, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/ArtMaker/?demo=1" target="_blank" rel="noopener" aria-label="Demo do ArtMaker (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/ArtMaker" target="_blank" rel="noopener" aria-label="Código do ArtMaker no GitHub (abre em nova aba)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack e links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript, HTML5 Canvas, localStorage, IndexedDB, Web Share API, node:test, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/ArtMaker/?demo=1" target="_blank" rel="noopener" aria-label="Demo do ArtMaker (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/ArtMaker" target="_blank" rel="noopener" aria-label="Código do ArtMaker no GitHub (abre em nova aba)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Outros projetos">

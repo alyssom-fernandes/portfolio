@@ -28,9 +28,11 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#2F8A74">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1" target="_blank" rel="noopener" aria-label="Demo do UnifyData (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Web" target="_blank" rel="noopener" aria-label="Código web do UnifyData no GitHub (abre em nova aba)">Código web</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Python" target="_blank" rel="noopener" aria-label="Código Python do UnifyData no GitHub (abre em nova aba)">Código Python</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por que existe</h2>
-      <p>Criei o UnifyData para ajudar um departamento do grupo com as compras internas dos funcionários. Eles compram produtos do grupo “na notinha”, e as notinhas ficam no AutoSystem. Era preciso tirar um relatório de cada empresa e, a partir dele, montar no Excel a planilha para o RH, que usa o Domínio. Era muito trabalhoso, e o UnifyData facilita isso.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">Nesta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por que existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="Nesta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="Nesta página">
+        <p class="d-ind-t" aria-hidden="true">Nesta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema e prova</h2>
-      <div><p class="fp-rot">Problema</p><p>Um relatório por empresa, juntado à mão no Excel para o RH.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Fechamento das compras a prazo dos funcionários nas lojas do grupo, registradas no AutoSystem: cruza com a base do RH, aponta o que não bate e gera a planilha de desconto em folha.</p></div>
-      <div><p class="fp-rot">Prova</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por que existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">Criei o UnifyData para ajudar um departamento do grupo com as compras internas dos funcionários. Eles compram produtos do grupo “na notinha”, e as notinhas ficam no AutoSystem. Era preciso tirar um relatório de cada empresa e, a partir dele, montar no Excel a planilha para o RH, que usa o Domínio. Era muito trabalhoso, e o UnifyData facilita isso.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema e prova</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Um relatório por empresa, juntado à mão no Excel para o RH.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Fechamento das compras a prazo dos funcionários nas lojas do grupo, registradas no AutoSystem: cruza com a base do RH, aponta o que não bate e gera a planilha de desconto em folha.</p></div>
+          <div data-revela="2"><p class="fp-rot">Prova</p><div class="d-prova">
           <p class="prova-n"><b>40</b> <span>testes</span></p>
           <p class="prova-d"><span class="pd-det">17 na versão web e 23 na versão Python, no GitHub Actions.</span> <span class="pd-data">Conferidos em 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/base.webp" srcset="../../assets/projetos/unifydata/base-960.webp 960w, ../../assets/projetos/unifydata/base.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: base de funcionários carregada e relatórios de compras das lojas prontos para processar" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>AutoSystem e RH lado a lado</h3><p>Os relatórios de compras a prazo das lojas entram ao lado da base de funcionários do RH.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/pendencias.webp" srcset="../../assets/projetos/unifydata/pendencias-960.webp 960w, ../../assets/projetos/unifydata/pendencias.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: pendências do cruzamento, sem cadastro ou sem empresa, com valor, matrícula e loja" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Aponta o que não bate</h3><p>Compra sem cadastro no RH ou sem empresa vira pendência, com valor, matrícula e loja.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/resultado.webp" srcset="../../assets/projetos/unifydata/resultado-960.webp 960w, ../../assets/projetos/unifydata/resultado.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: fechamento pronto, com o total a descontar por empresa e por loja e as saídas em Excel, CSV e PDF" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Planilha do desconto em folha</h3><p>Uma aba por empresa, além de CSV e relatório A4.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../assets/projetos/unifydata/celular.webp" width="780" height="1688" alt="UnifyData no celular: fechamento pronto" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Web e Python</h3><p>A versão web cruza pela matrícula e funciona também no celular; a Python (Streamlit) cruza pelo nome, com revisão humana.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/base.webp" srcset="../../assets/projetos/unifydata/base-960.webp 960w, ../../assets/projetos/unifydata/base.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: base de funcionários carregada e relatórios de compras das lojas prontos para processar" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>AutoSystem e RH lado a lado</h3><p>Os relatórios de compras a prazo das lojas entram ao lado da base de funcionários do RH.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/pendencias.webp" srcset="../../assets/projetos/unifydata/pendencias-960.webp 960w, ../../assets/projetos/unifydata/pendencias.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: pendências do cruzamento, sem cadastro ou sem empresa, com valor, matrícula e loja" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Aponta o que não bate</h3><p>Compra sem cadastro no RH ou sem empresa vira pendência, com valor, matrícula e loja.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>alyssom-fernandes.github.io/UnifyData-Web</span></div><div class="j-tela estatica"><img src="../../assets/projetos/unifydata/resultado.webp" srcset="../../assets/projetos/unifydata/resultado-960.webp 960w, ../../assets/projetos/unifydata/resultado.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="UnifyData: fechamento pronto, com o total a descontar por empresa e por loja e as saídas em Excel, CSV e PDF" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Planilha do desconto em folha</h3><p>Uma aba por empresa, além de CSV e relatório A4.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../assets/projetos/unifydata/celular.webp" width="780" height="1688" alt="UnifyData no celular: fechamento pronto" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Web e Python</h3><p>A versão web cruza pela matrícula e funciona também no celular; a Python (Streamlit) cruza pelo nome, com revisão humana.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Como foi construído</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitetura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">Os dois repositórios resolvem o mesmo fechamento com a mesma divisão: as regras que decidem um número ficam num núcleo de funções puras (<code>js/nucleo.js</code> e <code>nucleo.py</code>), e a tela só chama essas funções. A Web roda inteira no navegador, sem build nem servidor, e guarda a base de funcionários no <code>localStorage</code>. A Python roda num Streamlit local e relê as planilhas do RH a cada fechamento, sem guardar nada.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/js/nucleo.js#L1-L11" target="_blank" rel="noopener" title="UnifyData-Web/js/nucleo.js">nucleo.js <small>L1–11</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/js/app.js#L86-L110" target="_blank" rel="noopener" title="UnifyData-Web/js/app.js">app.js <small>L86–110</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/unifydata.py#L1-L17" target="_blank" rel="noopener" title="UnifyData-Python/unifydata.py">unifydata.py <small>L1–17</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/README.pt-BR.md#L170-L175" target="_blank" rel="noopener" title="UnifyData-Python/README.pt-BR.md">README.pt-BR.md <small>L170–175</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/README.pt-BR.md#L197-L199" target="_blank" rel="noopener" title="UnifyData-Python/README.pt-BR.md">README.pt-BR.md <small>L197–199</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Fluxo dos dados</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Relatórios do AutoSystem</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Planilhas do RH</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Cruzamento no núcleo</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Revisão das pendências</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Planilha por empresa</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisões técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Bibliotecas só quando precisa, com SRI</h4><p>Na Web, abrir a página não baixa nada pesado: SheetJS, ExcelJS e PDF.js têm versão fixa e só são carregados quando o primeiro arquivo daquele tipo é lido, com hash de integridade (SRI). A Content Security Policy não aceita <code>'unsafe-inline'</code>, e o PDF.js roda com <code>eval</code> desligado. Os arquivos são lidos pelo próprio navegador e não saem do computador.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/js/app.js#L11-L52" target="_blank" rel="noopener" title="UnifyData-Web/js/app.js">app.js <small>L11–52</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/index.html#L6" target="_blank" rel="noopener" title="UnifyData-Web/index.html">index.html <small>L6</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/js/app.js#L377" target="_blank" rel="noopener" title="UnifyData-Web/js/app.js">app.js <small>L377</small></a></p></li>
+          <li data-revela><h4>Vínculo automático só sem ambiguidade</h4><p>Na Python, o vínculo sozinho só acontece quando o nome do AutoSystem fica igual a um do RH depois de tirar acentos, maiúsculas e espaços, e o RH tem uma única grafia dele. O resto vira cartão: com <code>token_sort_ratio</code> de 85 ou mais, o cartão sugere o nome parecido; abaixo disso, a pessoa aparece como não encontrada e pede CPF e empresa.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/nucleo.py#L23" target="_blank" rel="noopener" title="UnifyData-Python/nucleo.py">nucleo.py <small>L23</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/nucleo.py#L283-L316" target="_blank" rel="noopener" title="UnifyData-Python/nucleo.py">nucleo.py <small>L283–316</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/README.pt-BR.md#L176-L178" target="_blank" rel="noopener" title="UnifyData-Python/README.pt-BR.md">README.pt-BR.md <small>L176–178</small></a></p></li>
+          <li data-revela><h4>Scripts clássicos, para abrir com dois cliques</h4><p>Na Web, o <code>nucleo.js</code> é um script clássico, não um módulo ES: ele se registra em <code>window.Nucleo</code> no navegador e em <code>module.exports</code> no Node. Assim o <code>index.html</code> funciona aberto direto do disco, com dois cliques, e os testes importam as mesmas funções com <code>require()</code>, sem bundler nem etapa de build.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/js/nucleo.js#L1-L11" target="_blank" rel="noopener" title="UnifyData-Web/js/nucleo.js">nucleo.js <small>L1–11</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/index.html#L234-L235" target="_blank" rel="noopener" title="UnifyData-Web/index.html">index.html <small>L234–235</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/README.pt-BR.md#L187-L188" target="_blank" rel="noopener" title="UnifyData-Web/README.pt-BR.md">README.pt-BR.md <small>L187–188</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/tests/nucleo.test.js#L6" target="_blank" rel="noopener" title="UnifyData-Web/tests/nucleo.test.js">nucleo.test.js <small>L6</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafio</h3>
+          <div class="t-corpo" data-revela="1"><h4>Homônimos sem desconto em dobro</h4><p>Na Python, o cruzamento pelo nome junta o consumo a toda linha do RH com aquele nome; com dois homônimos, o mesmo valor seria descontado das duas pessoas. Por isso o nome repetido vira cartão de revisão, e a escolha grava em cada consumo a linha do RH (<code>fixar_linha</code>). O <code>consolidar</code> soma esse consumo direto na linha escolhida e usa o nome só para o restante. Um consumo já ligado pelo CPF não volta para o cartão.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/nucleo.py#L246-L280" target="_blank" rel="noopener" title="UnifyData-Python/nucleo.py">nucleo.py <small>L246–280</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/nucleo.py#L319-L348" target="_blank" rel="noopener" title="UnifyData-Python/nucleo.py">nucleo.py <small>L319–348</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/tests/test_nucleo.py#L148-L176" target="_blank" rel="noopener" title="UnifyData-Python/tests/test_nucleo.py">test_nucleo.py <small>L148–176</small></a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/README.pt-BR.md#L179-L183" target="_blank" rel="noopener" title="UnifyData-Python/README.pt-BR.md">README.pt-BR.md <small>L179–183</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testes</h3>
+          <div class="t-corpo" data-revela="1"><p>A Web tem 17 testes com <code>node --test</code> que rodam as regras do <code>nucleo.js</code>; a leitura do PDF e das planilhas do RH depende do PDF.js e do SheetJS e é conferida na demonstração. A Python tem 23: 21 com <code>unittest</code> sobre o <code>nucleo.py</code> e 2 com o <code>AppTest</code> do Streamlit, que percorrem a tela no modo de exemplo. O GitHub Actions roda tudo a cada push, em Node 22 e 24 e Python 3.10, 3.12 e 3.14.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/tests/nucleo.test.js" target="_blank" rel="noopener" title="UnifyData-Web/tests/nucleo.test.js">nucleo.test.js</a> <a href="https://github.com/alyssom-fernandes/UnifyData-Web/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="UnifyData-Web/.github/workflows/testes.yml">UnifyData-Web/testes.yml</a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/tests/test_nucleo.py" target="_blank" rel="noopener" title="UnifyData-Python/tests/test_nucleo.py">test_nucleo.py</a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/tests/test_tela.py" target="_blank" rel="noopener" title="UnifyData-Python/tests/test_tela.py">test_tela.py</a> <a href="https://github.com/alyssom-fernandes/UnifyData-Python/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="UnifyData-Python/.github/workflows/testes.yml">UnifyData-Python/testes.yml</a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript, SheetJS, PDF.js, ExcelJS, Python, Streamlit, pandas, thefuzz, openpyxl, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1" target="_blank" rel="noopener" aria-label="Demo do UnifyData (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Web" target="_blank" rel="noopener" aria-label="Código web do UnifyData no GitHub (abre em nova aba)">Código web</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Python" target="_blank" rel="noopener" aria-label="Código Python do UnifyData no GitHub (abre em nova aba)">Código Python</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack e links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript, SheetJS, PDF.js, ExcelJS, Python, Streamlit, pandas, thefuzz, openpyxl, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1" target="_blank" rel="noopener" aria-label="Demo do UnifyData (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Web" target="_blank" rel="noopener" aria-label="Código web do UnifyData no GitHub (abre em nova aba)">Código web</a><a class="btn linha" href="https://github.com/alyssom-fernandes/UnifyData-Python" target="_blank" rel="noopener" aria-label="Código Python do UnifyData no GitHub (abre em nova aba)">Código Python</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Outros projetos">

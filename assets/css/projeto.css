@@ -1,0 +1,155 @@
+/* Página de projeto como estudo de caso. Carregado só nas páginas de projeto, depois do style.css.
+   Índice fixo ao lado (no celular, uma barra compacta), seções numeradas, seção técnica com o fluxo
+   em blocos e entradas ligadas à rolagem.
+   O movimento vem do projeto.js, que escreve variáveis contínuas (0..1):
+     --e  em cada [data-revela]       entrada do elemento
+     --b  e --a em cada bloco do fluxo   o bloco e a seta que sai dele
+     --p  no índice                     quanto da leitura já passou
+     --py na abertura                   deslocamento do celular
+   Sem JS, todas valem o estado final. Só transform, opacity e clip-path mudam. */
+
+html{ scroll-behavior:smooth }
+.detalhe{ --acento:color-mix(in oklab, var(--cor) 60%, #fff 40%); --fio:#2A2D32 }
+.d-art code{ font:450 .84em/1.2 ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, monospace; padding:.06em .28em; border-radius:3px;
+  background:rgba(236,235,230,.06); box-shadow:inset 0 0 0 1px rgba(236,235,230,.09); overflow-wrap:anywhere; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+
+/* ---------- abertura: o celular sobe um pouco mais rápido que a janela ---------- */
+.d-palco .celular{ transform:translate3d(0, var(--py, 0px), 0) }
+
+/* ---------- corpo: índice à esquerda, seções à direita ---------- */
+.d-corpo{ display:grid; grid-template-columns:minmax(150px, 200px) minmax(0, 1fr); column-gap:clamp(40px, 5.5vw, 104px); align-items:start }
+.d-secoes{ min-width:0 }
+
+/* índice fixo (computador) */
+.d-ind{ position:sticky; top:calc(var(--mh) + 36px); margin-top:clamp(56px, 9vh, 100px); padding-bottom:24px }
+.d-ind-t{ font:500 11.5px/1 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--texto-2); margin-bottom:18px }
+.d-ind ol{ position:relative; list-style:none; margin:0; padding:0 0 0 18px; display:grid }
+.d-ind ol::before, .d-ind ol::after{ content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--moldura) }
+.d-ind ol::after{ background:var(--acento); transform-origin:50% 0; transform:scaleY(var(--p, 0)) }
+.d-ind li{ position:relative }
+.d-ind a{ display:grid; grid-template-columns:2.1em minmax(0, 1fr); align-items:baseline; padding:7px 0; text-decoration:none; font:450 14px/1.35 var(--sans); color:var(--texto) }
+.d-ind a::before{ content:''; position:absolute; left:-21px; top:calc(7px + .68em - 3.5px); width:7px; height:7px; border-radius:50%; background:var(--acento);
+  transform:scale(0); transition:transform .35s var(--ease) }
+.d-ind-n{ font:500 11.5px/1 var(--sans); font-variant-numeric:tabular-nums; color:var(--texto-2) }
+.d-ind .d-ind-r{ opacity:.5; transition:opacity .3s var(--ease) }
+.d-ind a:hover .d-ind-r, .d-ind a[aria-current] .d-ind-r{ opacity:1 }
+.d-ind a[aria-current]::before{ transform:scale(1) }
+
+/* índice compacto (celular e telas médias): uma barra presa sob o cabeçalho, que abre a lista */
+.d-ind-m{ display:none }
+
+/* ---------- seções ---------- */
+.d-sec{ padding:clamp(56px, 9vh, 100px) 0 clamp(24px, 4vh, 40px) }
+.d-sec:last-child{ padding-bottom:clamp(56px, 9vh, 100px) }
+.d-cab{ position:relative; display:flex; align-items:baseline; gap:16px; padding-top:16px; margin-bottom:clamp(28px, 5vh, 52px) }
+.d-cab::before{ content:''; position:absolute; left:0; right:0; top:0; height:1px; background:var(--moldura); transform-origin:0 50%; transform:scaleX(var(--e, 1)) }
+.d-num{ font:500 12px/1 var(--sans); font-variant-numeric:tabular-nums; color:var(--acento); opacity:var(--e, 1) }
+.d-cab h2{ font:500 12.5px/1.3 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--texto-2);
+  opacity:var(--e, 1); transform:translate3d(calc((1 - var(--e, 1)) * -14px), 0, 0) }
+
+/* entrada: sobe e aparece com a rolagem (o cabeçalho tem a sua própria, acima) */
+[data-revela]:not(.d-cab){ opacity:var(--e, 1); transform:translate3d(0, calc((1 - var(--e, 1)) * 34px), 0) }
+
+/* por que existe */
+.d-origem-txt{ font:350 clamp(1.45rem, 2.3vw, 2.2rem)/1.34 var(--serif); letter-spacing:-.01em; max-width:34ch; text-wrap:pretty }
+
+/* problema, sistema e prova */
+.d-fichag{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:32px clamp(28px, 3.6vw, 56px) }
+.d-fichag > div > p:not(.fp-rot):not(.d-semdemo){ font-size:16px; line-height:1.6 }
+
+/* por dentro: a janela aparece e a tela "carrega" de cima para baixo */
+.d-dest-lista{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(56px, 10vh, 112px) }
+.d-sec-destaques .d-item{ grid-template-columns:minmax(0, 7fr) minmax(0, 4fr) }
+.d-sec-destaques .d-item.inv{ grid-template-columns:minmax(0, 4fr) minmax(0, 7fr) }
+.d-fig[data-revela]:not(.celular-so){ transform:translate3d(0, calc((1 - var(--e, 1)) * 48px), 0) scale(calc(.97 + .03 * var(--e, 1))) }
+.d-fig[data-revela] .j-tela img{ clip-path:inset(0 0 calc((1 - var(--e, 1)) * 100%) 0); transform:scale(calc(1 + (1 - var(--e, 1)) * .06)); transform-origin:50% 0 }
+
+/* stack e links */
+.d-stackg{ display:grid; grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); gap:32px clamp(32px, 5vw, 80px) }
+.d-stackg h3{ font:500 13px/1.4 var(--sans); color:var(--texto-2) }
+.d-stackg p{ margin-top:12px; font-size:16.5px; line-height:1.6 }
+.d-stackg .d-acoes{ margin-top:12px }
+
+/* ---------- como foi construído ---------- */
+.t-bloco{ display:grid; grid-template-columns:minmax(0, 3fr) minmax(0, 9fr); gap:14px clamp(28px, 4vw, 64px); padding:clamp(28px, 5vh, 48px) 0; border-top:1px solid var(--fio) }
+.d-cab + .t-bloco{ border-top:0; padding-top:0 }
+.t-rot{ font:400 clamp(1.3rem, 1.7vw, 1.6rem)/1.15 var(--serif); letter-spacing:-.01em }
+.t-corpo{ min-width:0 }
+.t-corpo > p:not(.t-fontes), .t-decisoes p:not(.t-fontes){ font-size:16.5px; line-height:1.66; max-width:66ch }
+.t-corpo > .t-lead{ font:350 clamp(1.15rem, 1.45vw, 1.38rem)/1.55 var(--serif); letter-spacing:-.004em; max-width:52ch }
+.t-corpo h4, .t-decisoes h4{ margin:0 0 10px; font:400 clamp(1.2rem, 1.55vw, 1.45rem)/1.22 var(--serif); letter-spacing:-.008em; text-wrap:balance }
+
+.t-decisoes{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(28px, 4.6vh, 44px); counter-reset:dec }
+.t-decisoes li{ position:relative; padding-left:46px; counter-increment:dec }
+.t-decisoes li::before{ content:counter(dec, decimal-leading-zero); position:absolute; left:0; top:.5em; font:500 12px/1 var(--sans); font-variant-numeric:tabular-nums; color:var(--acento) }
+
+.t-desafio .t-corpo{ position:relative; padding:clamp(22px, 3vw, 36px) clamp(22px, 3vw, 40px); border:1px solid var(--moldura); border-radius:6px; overflow:hidden;
+  background:linear-gradient(135deg, color-mix(in oklab, var(--cor) 16%, var(--tela-2)) 0%, var(--tela-2) 62%) }
+.t-desafio .t-corpo::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--acento); transform-origin:50% 0; transform:scaleY(var(--e, 1)) }
+.t-desafio h4{ font-size:clamp(1.45rem, 2.2vw, 2.05rem); line-height:1.15; margin-bottom:14px }
+
+/* "Ver no código: arquivo.js" */
+.t-fontes{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0 16px; margin-top:14px; font:400 13px/1.5 var(--sans); color:var(--texto-2) }
+.t-fontes a{ padding:5px 0; color:var(--texto-2); text-decoration:underline; text-decoration-color:rgba(166,167,159,.35); text-decoration-thickness:1px; text-underline-offset:4px;
+  transition:color .2s, text-decoration-color .2s; overflow-wrap:anywhere }
+.t-fontes a:hover{ color:var(--texto); text-decoration-color:currentColor }
+.t-fontes small{ font-size:11.5px; font-variant-numeric:tabular-nums; opacity:.75 }
+
+/* fluxo: blocos ligados por setas, desenhados em sequência conforme a rolagem */
+.t-fluxo{ margin:clamp(12px, 2vh, 20px) 0 clamp(36px, 6vh, 64px) }
+.t-fluxo figcaption{ font:500 11.5px/1 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--texto-2); margin-bottom:18px }
+.t-fluxo ol{ --gap:clamp(30px, 3.2vw, 52px); list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(var(--n), minmax(0, 1fr)); gap:var(--gap) }
+.t-fluxo li{ position:relative; display:flex; min-width:0 }
+.t-no{ flex:1; display:grid; align-content:space-between; gap:20px; min-height:124px; padding:14px 16px 16px; border:1px solid var(--moldura); border-radius:5px; background:var(--tela-2);
+  clip-path:inset(-1px calc((1 - var(--b, 1)) * 101%) -1px -1px round 5px); transform:translate3d(calc((1 - var(--b, 1)) * -10px), 0, 0) }
+.t-fluxo li:last-child .t-no{ border-color:color-mix(in oklab, var(--acento) 70%, var(--moldura)); background:color-mix(in oklab, var(--cor) 12%, var(--tela-2)) }
+.t-no-n{ font:500 11.5px/1 var(--sans); font-variant-numeric:tabular-nums; color:var(--acento) }
+.t-no-r{ font:400 15px/1.32 var(--sans); color:var(--texto); overflow-wrap:break-word; hyphens:auto }
+/* seta: o traço cresce e a ponta aparece no fim */
+.t-fluxo li:not(:last-child)::after{ content:''; position:absolute; top:50%; left:calc(100% + 6px); width:calc(var(--gap) - 12px); height:1px; background:var(--texto-2);
+  transform-origin:0 50%; transform:scaleX(var(--a, 1)) }
+.t-fluxo li:not(:last-child)::before{ content:''; position:absolute; top:calc(50% - 4px); left:calc(100% + var(--gap) - 15px); width:8px; height:8px;
+  border-top:1px solid var(--texto-2); border-right:1px solid var(--texto-2); transform:rotate(45deg); opacity:clamp(0, (var(--a, 1) - .75) * 4, 1) }
+
+/* ---------- telas médias e celular: índice compacto, fluxo na vertical ---------- */
+@media (max-width:1100px){
+  .d-corpo{ display:block }
+  .d-ind{ display:none }
+  .d-ind-m{ display:block; position:sticky; top:var(--mh); z-index:40; margin:0 calc(-1 * var(--gx)) }
+  .d-ind-m summary{ position:relative; display:flex; align-items:center; gap:10px; min-height:46px; padding:0 var(--gx); list-style:none; cursor:pointer;
+    font:500 14px/1.2 var(--sans); color:var(--texto); background:rgba(21,23,26,.9); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    box-shadow:inset 0 -1px 0 var(--moldura) }
+  .d-ind-m summary::-webkit-details-marker{ display:none }
+  .d-ind-m summary:focus-visible{ outline-offset:-3px }
+  .d-ind-m summary::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--acento); transform-origin:0 50%; transform:scaleX(var(--p, 0)) }
+  .d-ind-m summary .d-ind-r{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .d-ind-n{ color:var(--acento) }
+  .d-ind-tot{ font:500 11.5px/1 var(--sans); font-variant-numeric:tabular-nums; color:var(--texto-2) }
+  .d-ind-seta{ width:8px; height:8px; margin:0 2px 4px 4px; border-right:1.5px solid var(--texto-2); border-bottom:1.5px solid var(--texto-2); transform:rotate(45deg); transition:transform .25s var(--ease) }
+  .d-ind-m[open] .d-ind-seta{ transform:translateY(4px) rotate(225deg) }
+  .d-ind-m nav{ position:absolute; left:0; right:0; top:100%; background:var(--tela-2); box-shadow:inset 0 -1px 0 var(--moldura), 0 24px 40px -24px rgba(0,0,0,.9) }
+  .d-ind-m ol{ list-style:none; margin:0; padding:6px 0 }
+  .d-ind-m nav a{ display:grid; grid-template-columns:2.4em minmax(0, 1fr); align-items:baseline; min-height:46px; padding:13px var(--gx); text-decoration:none; font:450 15px/1.3 var(--sans); color:var(--texto-2) }
+  .d-ind-m nav a[aria-current]{ color:var(--texto) }
+  .d-ind-m nav a:hover{ background:rgba(236,235,230,.04); color:var(--texto) }
+  .d-ind-m nav a:focus-visible{ outline-offset:-3px }
+  .d-sec{ scroll-margin-top:46px }
+
+  .t-fluxo ol{ --gap:30px; grid-template-columns:minmax(0, 1fr); max-width:560px }
+  .t-no{ min-height:0; grid-template-columns:2.2em minmax(0, 1fr); align-items:baseline; gap:8px; padding:14px 16px;
+    clip-path:inset(-1px -1px calc((1 - var(--b, 1)) * 101%) -1px round 5px); transform:translate3d(0, calc((1 - var(--b, 1)) * -8px), 0) }
+  .t-fluxo li:not(:last-child)::after{ top:calc(100% + 5px); left:32px; width:1px; height:calc(var(--gap) - 10px); transform-origin:50% 0; transform:scaleY(var(--a, 1)) }
+  .t-fluxo li:not(:last-child)::before{ top:calc(100% + var(--gap) - 13px); left:28.5px; transform:rotate(135deg) }
+}
+@media (max-width:760px){
+  .d-sec{ padding:52px 0 16px }
+  .d-sec:last-child{ padding-bottom:56px }
+  .d-cab{ margin-bottom:24px }
+  .d-origem-txt{ font-size:clamp(1.3rem, 5.6vw, 1.6rem) }
+  .d-fichag, .d-stackg, .t-bloco{ grid-template-columns:minmax(0, 1fr) }
+  .d-sec-destaques .d-item, .d-sec-destaques .d-item.inv{ grid-template-columns:minmax(0, 1fr) }
+  .t-bloco{ gap:12px; padding:28px 0 }
+  .t-corpo > p:not(.t-fontes), .t-decisoes p:not(.t-fontes){ font-size:16px; line-height:1.62 }
+  .t-decisoes li{ padding-left:34px }
+  .t-fontes{ gap:0 14px }
+}

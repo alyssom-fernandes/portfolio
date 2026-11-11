@@ -28,9 +28,11 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#D2683A">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://praxis-af618.web.app" target="_blank" rel="noopener" aria-label="Demo do Praxis (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Praxis" target="_blank" rel="noopener" aria-label="Código do Praxis no GitHub (abre em nova aba)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por que existe</h2>
-      <p>O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido. Criei o Praxis inspirado nas melhores ferramentas de gestão e rastreamento de compras do mercado.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">Nesta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por que existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="Nesta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="Nesta página">
+        <p class="d-ind-t" aria-hidden="true">Nesta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por que existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema e prova</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Como foi construído</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack e links</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema e prova</h2>
-      <div><p class="fp-rot">Problema</p><p>Pedidos, cotações e aprovações difíceis de rastrear.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Compras corporativas em 7 etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa, com 6 perfis de acesso.</p></div>
-      <div><p class="fp-rot">Prova</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por que existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido. Criei o Praxis inspirado nas melhores ferramentas de gestão e rastreamento de compras do mercado.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema e prova</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Pedidos, cotações e aprovações difíceis de rastrear.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Compras corporativas em 7 etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa, com 6 perfis de acesso.</p></div>
+          <div data-revela="2"><p class="fp-rot">Prova</p><div class="d-prova">
           <p class="prova-n"><b>45</b> <span>testes</span></p>
           <p class="prova-d"><span class="pd-det">15 de unidade e 30 das regras do Firestore e do Storage, no GitHub Actions.</span> <span class="pd-data">Conferidos em 9/11/2026.</span></p>
         </div></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/kanban.webp" srcset="../../assets/projetos/praxis/kanban-960.webp 960w, ../../assets/projetos/praxis/kanban.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: quadro de pedidos em sete etapas, com o total de cada coluna e cartões com empresa, prazo e valor" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Uma coluna por etapa</h3><p>Cada coluna mostra quantos pedidos estão nela e o total em reais. Cada cartão traz a empresa, o valor e quantos dias faltam para o prazo.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/cotacoes.webp" srcset="../../assets/projetos/praxis/cotacoes-960.webp 960w, ../../assets/projetos/praxis/cotacoes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: três cotações de um pedido lado a lado, com valor, diferença para a menor, prazo de entrega e condições" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Cotações lado a lado</h3><p>Propostas na mesma tela, com valor, diferença para a menor, prazo de entrega e condições. A indicada fica marcada.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/aprovacao.webp" srcset="../../assets/projetos/praxis/aprovacao-960.webp 960w, ../../assets/projetos/praxis/aprovacao.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: pedido em aprovação, com a régua das etapas, o próximo passo, a proposta indicada, a economia e as pessoas envolvidas" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>6 perfis de acesso</h3><p>O pedido mostra quem precisa agir agora e a economia frente à proposta mais cara. Solicitante, comprador, aprovadores e financeiro, cada um com suas permissões.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../assets/projetos/praxis/celular.webp" width="780" height="1688" alt="Praxis no celular: quadro de pedidos com as etapas em abas" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Instala como app</h3><p>PWA: o mesmo fluxo no celular, com as etapas em abas e a navegação embaixo.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/kanban.webp" srcset="../../assets/projetos/praxis/kanban-960.webp 960w, ../../assets/projetos/praxis/kanban.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: quadro de pedidos em sete etapas, com o total de cada coluna e cartões com empresa, prazo e valor" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Uma coluna por etapa</h3><p>Cada coluna mostra quantos pedidos estão nela e o total em reais. Cada cartão traz a empresa, o valor e quantos dias faltam para o prazo.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/cotacoes.webp" srcset="../../assets/projetos/praxis/cotacoes-960.webp 960w, ../../assets/projetos/praxis/cotacoes.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: três cotações de um pedido lado a lado, com valor, diferença para a menor, prazo de entrega e condições" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Cotações lado a lado</h3><p>Propostas na mesma tela, com valor, diferença para a menor, prazo de entrega e condições. A indicada fica marcada.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>praxis-af618.web.app</span></div><div class="j-tela estatica"><img src="../../assets/projetos/praxis/aprovacao.webp" srcset="../../assets/projetos/praxis/aprovacao-960.webp 960w, ../../assets/projetos/praxis/aprovacao.webp 1440w" sizes="(max-width: 760px) 100vw, 1100px" width="1440" height="900" alt="Praxis: pedido em aprovação, com a régua das etapas, o próximo passo, a proposta indicada, a economia e as pessoas envolvidas" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>6 perfis de acesso</h3><p>O pedido mostra quem precisa agir agora e a economia frente à proposta mais cara. Solicitante, comprador, aprovadores e financeiro, cada um com suas permissões.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../assets/projetos/praxis/celular.webp" width="780" height="1688" alt="Praxis no celular: quadro de pedidos com as etapas em abas" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Instala como app</h3><p>PWA: o mesmo fluxo no celular, com as etapas em abas e a navegação embaixo.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Como foi construído</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitetura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">O Praxis é uma SPA em JavaScript puro: o <code>index.html</code> carrega <code>js/app.js</code> como ES Module, que acompanha o login e escolhe a tela pela query <code>?tela=</code>. Não há servidor próprio: os dados ficam no Firestore, os arquivos no Storage e a autorização nas regras de segurança, que leem o perfil e as empresas gravados no token. As Cloud Functions mantêm esse token e mandam os avisos de cada mudança de status.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/index.html#L126" target="_blank" rel="noopener" title="Praxis/index.html">index.html <small>L126</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/docs/arquitetura.md#L1-L20" target="_blank" rel="noopener" title="Praxis/docs/arquitetura.md">arquitetura.md <small>L1–20</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L271-L305" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L271–305</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/functions/src/triggers.js#L9-L43" target="_blank" rel="noopener" title="Praxis/functions/src/triggers.js">triggers.js <small>L9–43</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Fluxo dos dados</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Ação na tela</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Regras do Firestore</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Pedido e histórico</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Gatilho nas Functions</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Aviso no sino</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisões técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>Permissões nas regras, não na tela</h4><p>Escrevi cada passo do pedido como uma função das regras do Firestore (<code>assumir</code>, <code>aprovar</code>, <code>pagar</code>…), que confere o status de origem e o de destino, o perfil e, com <code>mudouSo</code>, quais campos aquele passo pode mudar. O perfil e as empresas vêm do token, gravados pela function <code>setUserClaims</code> a cada escrita em <code>/usuarios</code>; assim as regras decidem sem ler outro documento.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L182-L263" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L182–263</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L59-L61" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L59–61</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/functions/src/triggers.js#L9-L38" target="_blank" rel="noopener" title="Praxis/functions/src/triggers.js">triggers.js <small>L9–38</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/docs/arquitetura.md#L27" target="_blank" rel="noopener" title="Praxis/docs/arquitetura.md">arquitetura.md <small>L27</small></a></p></li>
+          <li data-revela><h4>Transação para assumir e decidir</h4><p>Assumir, liberar, aprovar e reprovar rodam em <code>runTransaction</code>: a transação relê o pedido e desiste se outra pessoa já o assumiu ou decidiu, então dois cliques ao mesmo tempo não viram duas decisões. A <code>_historicoJunto</code> grava a entrada do histórico na mesma transação ou lote, e as regras não deixam editar o histórico: o pedido não muda de status sem registro.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/js/pedido-detalhe.js#L1406-L1520" target="_blank" rel="noopener" title="Praxis/js/pedido-detalhe.js">pedido-detalhe.js <small>L1406–1520</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/js/pedido-detalhe.js#L2614-L2622" target="_blank" rel="noopener" title="Praxis/js/pedido-detalhe.js">pedido-detalhe.js <small>L2614–2622</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L361-L366" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L361–366</small></a></p></li>
+          <li data-revela><h4>Sem framework e sem etapa de build</h4><p>O navegador carrega os ES Modules direto, e o SDK do Firebase vem do CDN com a versão fixa 13.1.0, adiantado por <code>modulepreload</code>. Sem bundler, o que está no repositório é o que vai para o Hosting. Em <code>localhost</code>, o <code>js/firebase.js</code> liga o app aos emuladores sozinho, e o app roda inteiro na máquina sem tocar em dados reais. No CI, cada módulo passa por <code>node --check</code>.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/index.html#L43-L47" target="_blank" rel="noopener" title="Praxis/index.html">index.html <small>L43–47</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/js/firebase.js#L1-L58" target="_blank" rel="noopener" title="Praxis/js/firebase.js">firebase.js <small>L1–58</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/docs/arquitetura.md#L25" target="_blank" rel="noopener" title="Praxis/docs/arquitetura.md">arquitetura.md <small>L25</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/.github/workflows/testes.yml#L33-L34" target="_blank" rel="noopener" title="Praxis/.github/workflows/testes.yml">testes.yml <small>L33–34</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafio</h3>
+          <div class="t-corpo" data-revela="1"><h4>Uma demo pública com a senha exposta</h4><p>A demo precisa de login, e a senha da conta demo vai no <code>js/config.js</code> que o site entrega a qualquer visitante. Por isso as regras reconhecem essa conta pelo e-mail e dão a ela o perfil <code>demo</code>, que não vale como nenhum outro: só lê e grava documentos com <code>isDemo == true</code> e pedidos com ID <code>demo-…</code>. Os IDs automáticos do Firestore não têm hífen, e a marca <code>isDemo</code> não muda depois de criada: nenhum pedido real entra nessa área.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L11-L36" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L11–36</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/firestore.rules#L265-L269" target="_blank" rel="noopener" title="Praxis/firestore.rules">firestore.rules <small>L265–269</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/storage.rules#L6-L16" target="_blank" rel="noopener" title="Praxis/storage.rules">storage.rules <small>L6–16</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/tests/regras.test.mjs#L224-L335" target="_blank" rel="noopener" title="Praxis/tests/regras.test.mjs">regras.test.mjs <small>L224–335</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/README.pt-br.md#L90" target="_blank" rel="noopener" title="Praxis/README.pt-br.md">README.pt-br.md <small>L90</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Testes</h3>
+          <div class="t-corpo" data-revela="1"><p>São 15 testes de unidade com <code>node --test</code>, sobre as funções puras de <code>js/utils.js</code> e <code>js/constants.js</code> e a regra de acesso à renovação da demo nas Functions, e 30 das regras do Firestore e do Storage, que rodam no emulador e conferem, por exemplo, que quem abriu o pedido não o aprova e que status e histórico gravam juntos. O GitHub Actions roda os dois a cada push na <code>main</code> e em pull request, além do lint das Cloud Functions.</p><p class="t-fontes"><span>Ver no código:</span> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/tests/unidade.test.mjs" target="_blank" rel="noopener" title="Praxis/tests/unidade.test.mjs">unidade.test.mjs</a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/tests/regras.test.mjs" target="_blank" rel="noopener" title="Praxis/tests/regras.test.mjs">regras.test.mjs</a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/package.json#L7-L11" target="_blank" rel="noopener" title="Praxis/package.json">package.json <small>L7–11</small></a> <a href="https://github.com/alyssom-fernandes/Praxis/blob/HEAD/.github/workflows/testes.yml" target="_blank" rel="noopener" title="Praxis/.github/workflows/testes.yml">testes.yml</a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>JavaScript (ES modules), Firebase (Firestore, Auth, Storage, Hosting), PWA, Cloud Functions, node:test, GitHub Actions</p></div>
-      <div><h2>Links</h2><div class="d-acoes"><a class="btn linha" href="https://praxis-af618.web.app" target="_blank" rel="noopener" aria-label="Demo do Praxis (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Praxis" target="_blank" rel="noopener" aria-label="Código do Praxis no GitHub (abre em nova aba)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack e links</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>JavaScript (ES modules), Firebase (Firestore, Auth, Storage, Hosting), PWA, Cloud Functions, node:test, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Links</h3><div class="d-acoes"><a class="btn linha" href="https://praxis-af618.web.app" target="_blank" rel="noopener" aria-label="Demo do Praxis (abre em nova aba)">Abrir a demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/Praxis" target="_blank" rel="noopener" aria-label="Código do Praxis no GitHub (abre em nova aba)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Outros projetos">

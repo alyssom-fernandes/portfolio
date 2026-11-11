@@ -1,0 +1,66 @@
+{
+  "id": "alertsignal",
+  "arquitetura": {
+    "texto": "I split the system into Python modules: `app.py` with the Flask routes, permissions, and exports; `database.py` with the SQLite schema and connection; `notificacoes.py` with the alert rules and sending through Gmail; and `importar_planilha.py`, which reads the old spreadsheet with pandas a single time. The scheduler runs inside the same process as the server, and the interface uses Jinja2, CSS, and JavaScript with no framework.",
+    "fluxo": [
+      "Spreadsheet imported once",
+      "SQLite database",
+      "Scheduled daily check",
+      "Email per person responsible",
+      "Alert logged"
+    ],
+    "fontes": [
+      "AlertSignal/README.pt-br.md#L147-L168",
+      "AlertSignal/importar_planilha.py#L95-L174",
+      "AlertSignal/app.py#L1354-L1402",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "SQLite in a single file",
+      "texto": "I chose SQLite over PostgreSQL because the system runs on a local machine with few writes: it needs no setup, and a backup is just copying one file. The database path lives in a variable in `database.py`, and demo mode swaps it for a separate `demo.db`, so the fictitious data never touches the real database. Queries are plain, parameterized SQL, with no ORM.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L133-L137",
+        "AlertSignal/database.py#L4-L19",
+        "AlertSignal/app.py#L1375-L1380"
+      ]
+    },
+    {
+      "titulo": "Scheduler inside the Flask process",
+      "texto": "I used APScheduler instead of cron because it runs inside the Flask process, works on Windows, and lets the send time be changed from the app's own screen. The daily check is a job with a fixed id, created at the time saved in the settings. When the administrator saves a new time, the route calls `reschedule_job`, and the send time changes without restarting the server.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L135",
+        "AlertSignal/app.py#L1354-L1363",
+        "AlertSignal/app.py#L1054-L1059"
+      ]
+    },
+    {
+      "titulo": "Security without extra packages",
+      "texto": "I built the security with Flask and the standard library alone. A per-session CSRF token goes into every form and every `fetch` that changes data, and the server compares it with `hmac.compare_digest`. On every request, the user is reloaded from the database: anyone deleted or deactivated loses the session, and so does anyone whose password was changed, because the `sessao_versao` column goes up. In exports, text starting with `=` stays text instead of becoming a formula.",
+      "fontes": [
+        "AlertSignal/README.pt-br.md#L141-L143",
+        "AlertSignal/app.py#L69-L91",
+        "AlertSignal/app.py#L163-L205",
+        "AlertSignal/app.py#L1316-L1319"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Alert once, without missing any",
+    "texto": "Each alert milestone had to go out exactly once to each person responsible; after expiration, the reminder becomes daily. I created the `alerta_enviado` table, whose unique key includes the milestone and the expiration date: running twice in one day repeats nothing, and a renewed document starts over with its new date. If the check skipped a day, only the latest milestone goes out. An alert is logged only after the email is sent; if sending fails, it comes back the next day.",
+    "fontes": [
+      "AlertSignal/database.py#L80-L92",
+      "AlertSignal/notificacoes.py#L89-L191",
+      "AlertSignal/notificacoes.py#L383-L413"
+    ]
+  },
+  "testes": {
+    "texto": "There are 62 tests in `unittest`: 42 for routes, permissions, and security, and 20 for the alert rules, the status, and the scheduler. They run in demo mode on a temporary database, and email sending is replaced by a fake that only counts the calls. The alert rules use a fixed date, so each milestone is checked without depending on the current day. GitHub Actions runs everything on every push, on Python 3.11 and 3.13.",
+    "fontes": [
+      "AlertSignal/tests/test_rotas.py#L1-L40",
+      "AlertSignal/tests/test_alertas.py#L1-L60",
+      "AlertSignal/.github/workflows/testes.yml#L1-L24"
+    ]
+  }
+}

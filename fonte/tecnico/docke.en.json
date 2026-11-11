@@ -1,0 +1,76 @@
+{
+  "id": "docke",
+  "arquitetura": {
+    "texto": "The React frontend talks to a FastAPI API, which stores data in Supabase's PostgreSQL and files in Cloudflare R2. The browser sends the file straight to R2; the API only confirms the upload and creates an OCR job. A background worker reads the file, extracts the text with Tesseract, and writes it to the document, where Postgres full-text search finds it.",
+    "fluxo": [
+      "Direct upload to R2",
+      "SHA-256 confirmation",
+      "OCR queue",
+      "Text search",
+      "Hash-chained trail"
+    ],
+    "fontes": [
+      "Docke/README.md#L37-L51",
+      "Docke/backend/app/routers/documents.py#L213-L275",
+      "Docke/backend/app/services/documents_service.py#L166",
+      "Docke/backend/app/workers/ocr_worker.py#L1-L16",
+      "Docke/backend/app/services/search_service.py#L57-L95"
+    ]
+  },
+  "decisoes": [
+    {
+      "titulo": "Company isolation in the database itself",
+      "texto": "Each user request opens a transaction, passes the JWT claims to Postgres with `set_config('request.jwt.claims')`, and switches role with `SET LOCAL role authenticated`. So the Row Level Security policies apply to every query on that connection, and access by company or folder is blocked by the database, not just by the API. `SET LOCAL` only lasts inside an explicit transaction, so the whole request runs inside one. Admin operations and the worker use a separate connection that bypasses RLS and checks permissions in code.",
+      "fontes": [
+        "Docke/backend/app/dependencies.py#L251-L288",
+        "Docke/README.md#L20",
+        "Docke/README.md#L50",
+        "Docke/supabase/migrations/20260627000003_rls_policies.sql",
+        "Docke/backend/app/dependencies.py#L291-L295"
+      ]
+    },
+    {
+      "titulo": "Files go straight to storage",
+      "texto": "The browser uploads the file to R2 through a presigned URL, in 10 MB parts from 20 MB up. Then the API checks the real size with a HEAD request, because the URL doesn't enforce a limit, and computes the SHA-256. If the company already has an identical file, the API returns 409 and deletes the object and the pending record, so no garbage is left in the bucket.",
+      "fontes": [
+        "Docke/README.md#L51",
+        "Docke/frontend/src/pages/Documents.tsx#L400-L401",
+        "Docke/frontend/src/pages/Documents.tsx#L462-L463",
+        "Docke/backend/app/routers/documents.py#L224-L266",
+        "Docke/backend/app/services/storage_service.py#L117-L137",
+        "Docke/backend/app/routers/documents.py#L321"
+      ]
+    },
+    {
+      "titulo": "OCR in a queue inside Postgres",
+      "texto": "Confirming the upload writes a job to the `ocr_jobs` table, and a worker takes the oldest one with `FOR UPDATE SKIP LOCKED`, so multiple workers don't compete for the same job. A job stuck in processing for more than 10 minutes goes back to the queue, up to 3 attempts; after that it stays `failed`. Tesseract reads Portuguese and English; for images, after preprocessing with OpenCV.",
+      "fontes": [
+        "Docke/backend/app/workers/ocr_worker.py#L1-L35",
+        "Docke/backend/app/workers/ocr_worker.py#L73-L99",
+        "Docke/backend/app/services/ocr_service.py#L5",
+        "Docke/backend/app/services/ocr_service.py#L76"
+      ]
+    }
+  ],
+  "desafio": {
+    "titulo": "Verifying the trail by links, not timestamps",
+    "texto": "Each event stores an HMAC-SHA256 computed over its content and the hash of the company's previous event. The first verification sorted events by timestamp and reported a broken chain with no tampering, because events in the same transaction share a timestamp. I rewrote the verification to follow the links from the first event. The end was still uncovered: deleting the most recent event went unnoticed; now the last stored hash must exist, or the trail shows as truncated.",
+    "fontes": [
+      "Docke/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80",
+      "Docke/supabase/migrations/20261017000001_activity_log_verify_chain_by_links.sql#L1-L67",
+      "Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L47-L51",
+      "Docke/supabase/migrations/20261026000002_seguranca_rls_trilha_links.sql#L122-L135",
+      "Docke/backend/tests/test_audit_chain.py#L57-L163"
+    ]
+  },
+  "testes": {
+    "texto": "The backend has 83 tests collected by pytest, from 30 functions (one of them runs 50 times); the integration tests run against a local Supabase and cover company isolation through RLS, permissions, OCR, share links, and the trail flagging an event that was altered, deleted, or cut off at the end. The 6 Playwright tests sign in to the demo, switch identities, open a PDF, and search. GitHub Actions runs both on every push to `main`.",
+    "fontes": [
+      "Docke/backend/tests",
+      "Docke/frontend/e2e",
+      "Docke/.github/workflows/ci.yml",
+      "Docke/.github/workflows/e2e.yml",
+      "Docke/backend/tests/test_demo_seed_templates.py#L11"
+    ]
+  }
+}

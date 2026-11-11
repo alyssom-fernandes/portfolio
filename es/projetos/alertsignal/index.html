@@ -28,9 +28,11 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../assets/css/style.css?v=42ac3d2a">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=c8afaa00">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../../../assets/js/main.js?v=5e15c6c1" defer></script>
+<script src="../../../assets/js/main.js?v=b6543d87" defer></script>
+<link rel="stylesheet" href="../../../assets/css/projeto.css?v=d0a3580c">
+<script src="../../../assets/js/projeto.js?v=f4da3df4" defer></script>
 </head>
 <body class="detalhe" style="--cor:#3A86E0">
 <a class="pular" href="#conteudo">Saltar al contenido</a>
@@ -58,47 +60,93 @@
       <div class="d-acoes"><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal#demo-fictitious-data" target="_blank" rel="noopener" aria-label="Cómo ejecutar la demo de AlertSignal, en GitHub (se abre en una pestaña nueva)">Cómo ejecutar la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal" target="_blank" rel="noopener" aria-label="Código de AlertSignal en GitHub (se abre en una pestaña nueva)">Código</a></div>
     </header>
 
-    <section class="d-origem" aria-labelledby="d-origem-t">
-      <h2 id="d-origem-t">Por qué existe</h2>
-      <p>El control de vencimientos de permisos, AVCB (certificado de seguridad contra incendios) y otras licencias de las empresas del grupo se llevaba en hojas de cálculo, pero no siempre alguien las abría para verificar. Desarrollé la herramienta para avisar a los responsables de cada licencia cuando se acerca el vencimiento.</p>
-    </section>
+    <div class="d-corpo">
+      <details class="d-ind-m">
+        <summary><span class="sr">En esta página: </span><span class="d-ind-n" data-atual-n>01</span><span class="d-ind-r" data-atual-r>Por qué existe</span><span class="d-ind-tot" aria-hidden="true">/05</span><span class="d-ind-seta" aria-hidden="true"></span></summary>
+        <nav aria-label="En esta página"><ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol></nav>
+      </details>
+      <nav class="d-ind" aria-label="En esta página">
+        <p class="d-ind-t" aria-hidden="true">En esta página</p>
+        <ol><li><a href="#s-origem" data-alvo="s-origem" aria-current="location"><span class="d-ind-n">01</span><span class="d-ind-r">Por qué existe</span></a></li><li><a href="#s-ficha" data-alvo="s-ficha"><span class="d-ind-n">02</span><span class="d-ind-r">Problema, sistema y comprobación</span></a></li><li><a href="#s-destaques" data-alvo="s-destaques"><span class="d-ind-n">03</span><span class="d-ind-r">Por dentro</span></a></li><li><a href="#s-tecnico" data-alvo="s-tecnico"><span class="d-ind-n">04</span><span class="d-ind-r">Cómo se construyó</span></a></li><li><a href="#s-stack" data-alvo="s-stack"><span class="d-ind-n">05</span><span class="d-ind-r">Stack y enlaces</span></a></li></ol>
+      </nav>
 
-    <section class="d-ficha" aria-labelledby="d-ficha-t">
-      <h2 class="sr" id="d-ficha-t">Problema, sistema y comprobación</h2>
-      <div><p class="fp-rot">Problema</p><p>Vencimientos que dependían de que alguien abriera la hoja de cálculo.</p></div>
-      <div><p class="fp-rot">Sistema</p><p>Vencimientos de permisos y licencias de varias empresas, con avisos diarios por correo desde 90 días antes del vencimiento y mayor urgencia a los 30 y a los 7 días.</p></div>
-      <div><p class="fp-rot">Comprobación</p><div class="d-prova">
+      <div class="d-secoes">
+      <section class="d-sec d-sec-origem" id="s-origem" aria-labelledby="d-origem-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">01</span><h2 id="d-origem-t">Por qué existe</h2></div>
+        <p class="d-origem-txt" data-revela="1">El control de vencimientos de permisos, AVCB (certificado de seguridad contra incendios) y otras licencias de las empresas del grupo se llevaba en hojas de cálculo, pero no siempre alguien las abría para verificar. Desarrollé la herramienta para avisar a los responsables de cada licencia cuando se acerca el vencimiento.</p>
+      </section>
+
+      <section class="d-sec d-sec-ficha" id="s-ficha" aria-labelledby="d-ficha-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">02</span><h2 id="d-ficha-t">Problema, sistema y comprobación</h2></div>
+        <div class="d-fichag">
+          <div data-revela><p class="fp-rot">Problema</p><p>Vencimientos que dependían de que alguien abriera la hoja de cálculo.</p></div>
+          <div data-revela="1"><p class="fp-rot">Sistema</p><p>Vencimientos de permisos y licencias de varias empresas, con avisos diarios por correo desde 90 días antes del vencimiento y mayor urgencia a los 30 y a los 7 días.</p></div>
+          <div data-revela="2"><p class="fp-rot">Comprobación</p><div class="d-prova">
           <p class="prova-n"><b>62</b> <span>pruebas</span></p>
           <p class="prova-d"><span class="pd-det">unittest en GitHub Actions.</span> <span class="pd-data">Verificadas el 9/11/2026.</span></p>
         </div><p class="d-semdemo">Sin demo alojada: la demostración se ejecuta en tu propio equipo, con datos ficticios, siguiendo el README.</p></div>
-    </section>
+        </div>
+      </section>
 
-    <section class="d-destaques" aria-labelledby="d-dest-t">
-      <h2 id="d-dest-t">Por dentro</h2>
-      <ol>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/visao-geral.webp" srcset="../../../assets/projetos/alertsignal/visao-geral-960.webp 960w, ../../../assets/projetos/alertsignal/visao-geral.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: visión general con documentos vencidos, por renovar, al día y sin fecha, y el gráfico de vencimientos" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Visión general</h3><p>Vencidos, por renovar, al día y sin fecha, con el gráfico de los próximos 12 meses.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/empresa.webp" srcset="../../../assets/projetos/alertsignal/empresa-960.webp 960w, ../../../assets/projetos/alertsignal/empresa.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: documentos de una empresa por urgencia, con vencimiento, plazo y responsables" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Avisos diarios por correo</h3><p>Cada empresa muestra sus documentos por urgencia, con vencimiento y plazo. Los avisos empiezan 90 días antes, con mayor urgencia a los 30 y a los 7.</p></div>
-      </li>
-      <li class="d-item">
-        <div class="d-fig"><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/relatorio.webp" srcset="../../../assets/projetos/alertsignal/relatorio-960.webp 960w, ../../../assets/projetos/alertsignal/relatorio.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: informe de vencimientos agrupado por empresa, con salidas en PDF, Excel y CSV" loading="lazy" decoding="async"></div></div></div>
-        <div class="d-item-txt"><h3>Informe de vencimientos</h3><p>Filtra por situación y sale en PDF, Excel y CSV.</p></div>
-      </li>
-      <li class="d-item inv">
-        <div class="d-fig celular-so"><img src="../../../assets/projetos/alertsignal/celular.webp" width="546" height="1182" alt="AlertSignal en el teléfono: documentos de una empresa en tarjetas" loading="lazy" decoding="async"></div>
-        <div class="d-item-txt"><h3>Una tarjeta por documento</h3><p>En el teléfono, cada documento muestra vencimiento, situación y responsables, con los botones de acción abajo.</p></div>
-      </li>
-      </ol>
-    </section>
+      <section class="d-sec d-sec-destaques" id="s-destaques" aria-labelledby="d-dest-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">03</span><h2 id="d-dest-t">Por dentro</h2></div>
+        <ol class="d-dest-lista">
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/visao-geral.webp" srcset="../../../assets/projetos/alertsignal/visao-geral-960.webp 960w, ../../../assets/projetos/alertsignal/visao-geral.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: visión general con documentos vencidos, por renovar, al día y sin fecha, y el gráfico de vencimientos" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Visión general</h3><p>Vencidos, por renovar, al día y sin fecha, con el gráfico de los próximos 12 meses.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/empresa.webp" srcset="../../../assets/projetos/alertsignal/empresa-960.webp 960w, ../../../assets/projetos/alertsignal/empresa.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: documentos de una empresa por urgencia, con vencimiento, plazo y responsables" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Avisos diarios por correo</h3><p>Cada empresa muestra sus documentos por urgencia, con vencimiento y plazo. Los avisos empiezan 90 días antes, con mayor urgencia a los 30 y a los 7.</p></div>
+        </li>
+        <li class="d-item">
+          <div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>github.com/alyssom-fernandes/AlertSignal</span></div><div class="j-tela estatica"><img src="../../../assets/projetos/alertsignal/relatorio.webp" srcset="../../../assets/projetos/alertsignal/relatorio-960.webp 960w, ../../../assets/projetos/alertsignal/relatorio.webp 2016w" sizes="(max-width: 760px) 100vw, 1100px" width="2016" height="1260" alt="AlertSignal: informe de vencimientos agrupado por empresa, con salidas en PDF, Excel y CSV" loading="lazy" decoding="async"></div></div></div>
+          <div class="d-item-txt" data-revela="1"><h3>Informe de vencimientos</h3><p>Filtra por situación y sale en PDF, Excel y CSV.</p></div>
+        </li>
+        <li class="d-item inv">
+          <div class="d-fig celular-so" data-revela><img src="../../../assets/projetos/alertsignal/celular.webp" width="546" height="1182" alt="AlertSignal en el teléfono: documentos de una empresa en tarjetas" loading="lazy" decoding="async"></div>
+          <div class="d-item-txt" data-revela="1"><h3>Una tarjeta por documento</h3><p>En el teléfono, cada documento muestra vencimiento, situación y responsables, con los botones de acción abajo.</p></div>
+        </li>
+        </ol>
+      </section>
+      
+      <section class="d-sec d-tecnico" id="s-tecnico" aria-labelledby="d-tec-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">04</span><h2 id="d-tec-t">Cómo se construyó</h2></div>
+        <div class="t-bloco t-arq">
+          <h3 class="t-rot" data-revela>Arquitectura</h3>
+          <div class="t-corpo" data-revela="1"><p class="t-lead">Separé el sistema en módulos Python: <code>app.py</code> con las rutas Flask, los permisos y las exportaciones; <code>database.py</code> con el esquema SQLite y la conexión; <code>notificacoes.py</code> con las reglas de las alertas y el envío por Gmail; e <code>importar_planilha.py</code>, que lee la hoja de cálculo antigua con pandas una sola vez. El programador de tareas se ejecuta dentro del mismo proceso del servidor, y la interfaz usa Jinja2, CSS y JavaScript sin framework.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/README.pt-br.md#L147-L168" target="_blank" rel="noopener" title="AlertSignal/README.pt-br.md">README.pt-br.md <small>L147–168</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/importar_planilha.py#L95-L174" target="_blank" rel="noopener" title="AlertSignal/importar_planilha.py">importar_planilha.py <small>L95–174</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L1354-L1402" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L1354–1402</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/notificacoes.py#L383-L413" target="_blank" rel="noopener" title="AlertSignal/notificacoes.py">notificacoes.py <small>L383–413</small></a></p></div>
+        </div>
+        <figure class="t-fluxo" data-fluxo style="--n:5">
+          <figcaption>Flujo de datos</figcaption>
+          <ol><li><span class="t-no"><span class="t-no-n" aria-hidden="true">01</span><span class="t-no-r">Hoja importada una vez</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">02</span><span class="t-no-r">Base de datos SQLite</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">03</span><span class="t-no-r">Verificación diaria programada</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">04</span><span class="t-no-r">Correo por responsable</span></span></li><li><span class="t-no"><span class="t-no-n" aria-hidden="true">05</span><span class="t-no-r">Registro del aviso</span></span></li></ol>
+        </figure>
+        <div class="t-bloco">
+          <h3 class="t-rot" data-revela>Decisiones técnicas</h3>
+          <ol class="t-corpo t-decisoes">
+          <li data-revela><h4>SQLite en un solo archivo</h4><p>Elegí SQLite en lugar de PostgreSQL porque el sistema se ejecuta en una máquina local, con pocas escrituras: no requiere configuración, y la copia de seguridad consiste en copiar un archivo. La ruta de la base de datos está en una variable de <code>database.py</code>, y el modo demostración cambia esa ruta por un <code>demo.db</code> aparte, así que los datos ficticios nunca tocan la base real. Las consultas son SQL directo y parametrizado, sin ORM.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/README.pt-br.md#L133-L137" target="_blank" rel="noopener" title="AlertSignal/README.pt-br.md">README.pt-br.md <small>L133–137</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/database.py#L4-L19" target="_blank" rel="noopener" title="AlertSignal/database.py">database.py <small>L4–19</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L1375-L1380" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L1375–1380</small></a></p></li>
+          <li data-revela><h4>Programador dentro del proceso de Flask</h4><p>Usé APScheduler en lugar de cron porque se ejecuta dentro del proceso de Flask, funciona en Windows y permite cambiar la hora del envío desde la propia pantalla. La verificación diaria es un job con id fijo, creado a la hora guardada en la configuración. Cuando el administrador guarda una nueva hora, la ruta llama a <code>reschedule_job</code>, y el envío cambia sin reiniciar el servidor.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/README.pt-br.md#L135" target="_blank" rel="noopener" title="AlertSignal/README.pt-br.md">README.pt-br.md <small>L135</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L1354-L1363" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L1354–1363</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L1054-L1059" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L1054–1059</small></a></p></li>
+          <li data-revela><h4>Seguridad sin paquetes adicionales</h4><p>Hice la seguridad solo con Flask y la biblioteca estándar. Un token CSRF por sesión va en todo formulario y en todo <code>fetch</code> que modifica datos, y el servidor lo compara con <code>hmac.compare_digest</code>. En cada solicitud, el usuario se vuelve a leer de la base de datos: quien fue eliminado o desactivado pierde la sesión, y quien cambió de contraseña también, porque la columna <code>sessao_versao</code> aumenta. En las exportaciones, el texto que empieza por <code>=</code> sigue siendo texto, sin convertirse en fórmula.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/README.pt-br.md#L141-L143" target="_blank" rel="noopener" title="AlertSignal/README.pt-br.md">README.pt-br.md <small>L141–143</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L69-L91" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L69–91</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L163-L205" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L163–205</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/app.py#L1316-L1319" target="_blank" rel="noopener" title="AlertSignal/app.py">app.py <small>L1316–1319</small></a></p></li>
+          </ol>
+        </div>
+        <div class="t-bloco t-desafio">
+          <h3 class="t-rot" data-revela>Desafío</h3>
+          <div class="t-corpo" data-revela="1"><h4>Avisar una vez, sin perder ninguno</h4><p>Tenía que garantizar que cada hito de aviso saliera una sola vez para cada responsable; después del vencimiento, el recordatorio pasa a ser diario. Creé la tabla <code>alerta_enviado</code>, cuya clave única incluye el hito y el vencimiento: ejecutar dos veces el mismo día no repite nada, y un documento renovado empieza de nuevo con la nueva fecha. Si la verificación no se ejecutó algún día, sale solo el hito más reciente. El aviso solo se registra después de enviar el correo; si el envío falla, vuelve al día siguiente.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/database.py#L80-L92" target="_blank" rel="noopener" title="AlertSignal/database.py">database.py <small>L80–92</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/notificacoes.py#L89-L191" target="_blank" rel="noopener" title="AlertSignal/notificacoes.py">notificacoes.py <small>L89–191</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/notificacoes.py#L383-L413" target="_blank" rel="noopener" title="AlertSignal/notificacoes.py">notificacoes.py <small>L383–413</small></a></p></div>
+        </div>
+        <div class="t-bloco t-testes">
+          <h3 class="t-rot" data-revela>Pruebas</h3>
+          <div class="t-corpo" data-revela="1"><p>Son 62 pruebas en <code>unittest</code>: 42 de rutas, permisos y seguridad, y 20 de las reglas de las alertas, de la situación y del programador. Se ejecutan en el modo demostración, en una base de datos temporal, y el envío de correo se sustituye por uno falso que solo cuenta las llamadas. Las reglas de las alertas usan una fecha fija, para comprobar cada hito sin depender del día. GitHub Actions lo ejecuta todo en cada push, en Python 3.11 y 3.13.</p><p class="t-fontes"><span>Ver en el código:</span> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/tests/test_rotas.py#L1-L40" target="_blank" rel="noopener" title="AlertSignal/tests/test_rotas.py">test_rotas.py <small>L1–40</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/tests/test_alertas.py#L1-L60" target="_blank" rel="noopener" title="AlertSignal/tests/test_alertas.py">test_alertas.py <small>L1–60</small></a> <a href="https://github.com/alyssom-fernandes/AlertSignal/blob/HEAD/.github/workflows/testes.yml#L1-L24" target="_blank" rel="noopener" title="AlertSignal/.github/workflows/testes.yml">testes.yml <small>L1–24</small></a></p></div>
+        </div>
+      </section>
 
-    <section class="d-stack" aria-labelledby="d-stack-t">
-      <div><h2 id="d-stack-t">Stack</h2><p>Python, Flask, SQLite, APScheduler, pandas, openpyxl, Jinja2, JavaScript, unittest, GitHub Actions</p></div>
-      <div><h2>Enlaces</h2><div class="d-acoes"><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal#demo-fictitious-data" target="_blank" rel="noopener" aria-label="Cómo ejecutar la demo de AlertSignal, en GitHub (se abre en una pestaña nueva)">Cómo ejecutar la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal" target="_blank" rel="noopener" aria-label="Código de AlertSignal en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
-    </section>
+      <section class="d-sec d-sec-stack" id="s-stack" aria-labelledby="d-stack-t" data-secao>
+        <div class="d-cab" data-revela><span class="d-num" aria-hidden="true">05</span><h2 id="d-stack-t">Stack y enlaces</h2></div>
+        <div class="d-stackg">
+          <div data-revela><h3>Stack</h3><p>Python, Flask, SQLite, APScheduler, pandas, openpyxl, Jinja2, JavaScript, unittest, GitHub Actions</p></div>
+          <div data-revela="1"><h3>Enlaces</h3><div class="d-acoes"><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal#demo-fictitious-data" target="_blank" rel="noopener" aria-label="Cómo ejecutar la demo de AlertSignal, en GitHub (se abre en una pestaña nueva)">Cómo ejecutar la demo</a><a class="btn linha" href="https://github.com/alyssom-fernandes/AlertSignal" target="_blank" rel="noopener" aria-label="Código de AlertSignal en GitHub (se abre en una pestaña nueva)">Código</a></div></div>
+        </div>
+      </section>
+      </div>
+    </div>
   </article>
 
   <nav class="d-nav" aria-label="Otros proyectos">
