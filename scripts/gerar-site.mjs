@@ -566,7 +566,9 @@ function gerarPagina(idioma) {
 </article>`;
 
   /* dados para os efeitos */
-  const dadosJs = { fases: carreira.map(c => c.id), mes: F.mes, meses: F.meses };
+  // hoje = mês em que a página foi gerada; aberta = fase sem fim (o main.js completa no navegador os meses que passaram depois)
+  const aberta = carreira.find(c => c.fim === null);
+  const dadosJs = { fases: carreira.map(c => c.id), mes: F.mes, meses: F.meses, hoje: HOJE, aberta: aberta ? { id: aberta.id, cor: aberta.cor } : null };
 
   /* head */
   const pessoa = {

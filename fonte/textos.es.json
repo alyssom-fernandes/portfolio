@@ -1,14 +1,14 @@
 {
   "_leia": "Textos del sitio en español neutro (internacional): trato de tú, sin vosotros ni voseo, sin términos propios de un solo país. Mismas claves que textos.pt.json; solo cambian los valores. Marcado: *énfasis* · **negrita** · ~tachado~ · {variable} (viene de fonte/dados.json; no se traduce). Las claves que empiezan por _ se ignoran.",
   "meta": {
-    "titulo": "Alyssom Fernandes — Developer · Data & Automation",
+    "titulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
     "descricao": "Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América. Construyo sistemas que sustituyen hojas de cálculo.",
-    "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
+    "ogTitulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
     "ogDescricao": "Pasé 5 años metido en hojas de cálculo. Hoy construyo los sistemas que las sustituyen.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
-    "titulo": "Developer · Data & Automation",
+    "titulo": "Desarrollador · Datos y Automatización",
     "tese": "Pasé 5 años metido en ~hojas\u00a0de\u00a0cálculo~. Hoy construyo los *sistemas* que las sustituyen.",
     "pais": "Goiás, Brasil",
     "disponibilidade": "Remoto o traslado a Europa y América",

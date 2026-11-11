@@ -39,7 +39,29 @@ const renderHero = p => set(hero, '--g', f3(1 - smooth(0, .5, p)));
 /* ---------- trajetória: a grade de meses enche em onda ---------- */
 const traj = $('#trajetoria');
 const FASES = cfg.fases, ultima = FASES[FASES.length - 1];
-const cels = $$('.cel[data-f]', traj).map(el => ({ el, fs: el.dataset.f.split(' '), i: el.firstElementChild }));
+// a grade sai do gerador até o mês da publicação; aqui entram, na fase em andamento, os meses que passaram desde então
+// (para testar outro mês: ?hoje=AAAA-MM)
+(() => {
+  const sim = (new URLSearchParams(location.search).get('hoje') || '').match(/^(\d{4})-(\d{2})$/);
+  const d = new Date(), agora = sim ? +sim[1] * 12 + (+sim[2] - 1) : d.getFullYear() * 12 + d.getMonth();
+  if (!cfg.aberta || !(agora > cfg.hoje)) return;
+  const grade = $('#gradeM', traj), anos = $$('.ano', grade);
+  const y0 = +anos[0].textContent, yN = +anos[anos.length - 1].textContent;
+  for (let y = yN + 1; y <= Math.floor(agora / 12); y++)
+    grade.insertAdjacentHTML('beforeend', `<span class="ax ano">${y}</span>` + '<span class="cel fut"></span>'.repeat(12));
+  const cs = $$('.cel', grade), velha = $('.cel.hoje', grade);
+  if (velha) velha.classList.remove('hoje');
+  for (let i = cfg.hoje + 1; i <= agora; i++) {
+    const c = cs[(Math.floor(i / 12) - y0) * 12 + (i % 12)];
+    if (!c) continue;
+    c.className = 'cel' + (i === agora ? ' hoje' : '');
+    c.dataset.f = cfg.aberta.id;
+    c.innerHTML = `<i style="background:${cfg.aberta.cor}"></i>`;
+  }
+  const n = $('#cntN', traj);
+  if (n) n.textContent = $$('.cel[data-f]', grade).length;
+})();
+const cels =$$('.cel[data-f]', traj).map(el => ({ el, fs: el.dataset.f.split(' '), i: el.firstElementChild }));
 const daFase = Object.fromEntries(FASES.map(f => [f, cels.filter(c => c.fs[c.fs.length - 1] === f)]));
 const WIN = [[.06, .42], [.44, .56], [.60, .74]];
 const passos = $$('.t-passo', traj);
@@ -52,8 +74,10 @@ let ultimoTotal = -1, posVirada = null;
 function medirVirada() {
   const zc = daFase[ultima][0];
   if (!zc) return;
-  const g = tFig.getBoundingClientRect(), r = zc.el.getBoundingClientRect();
-  posVirada = { top: r.bottom - g.top + 8, left: r.left - g.left };
+  // a etiqueta fica logo abaixo da última linha da grade, na coluna do primeiro mês da virada
+  // (quando os meses novos abrem uma linha, ela não cobre os quadrados)
+  const g = tFig.getBoundingClientRect(), r = zc.el.getBoundingClientRect(), gr = $('#gradeM', traj).getBoundingClientRect();
+  posVirada = { top: gr.bottom - g.top + 8, left: r.left - g.left };
 }
 function renderTraj(p) {
   let total = 0;
