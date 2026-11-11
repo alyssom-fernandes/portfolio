@@ -222,6 +222,12 @@ html:not(.js) .ancora, html.cap .ancora{ top:0 }
 .fecho{ position:absolute; left:var(--borda); right:var(--gx); top:50%; transform:translateY(-50%); max-width:11ch;
   font-weight:300; font-size:clamp(52px, 7.6vw, 124px); line-height:.94; letter-spacing:-.025em; font-family:var(--serif) }
 
+/* o marca-texto da abertura volta sob "telas": no papel não aparece; na tela escura se desenha enquanto ela sobe */
+.fecho-m{ position:relative; font-style:normal; white-space:nowrap }
+.fecho-m::after{ content:''; position:absolute; left:-.03em; right:-.03em; top:.93em; height:.075em; border-radius:.04em;
+  background:var(--marcatexto); transform-origin:0 50%; transform:scaleX(0) }
+.intro .fecho.clone .fecho-m::after{ transform:scaleX(clamp(0, calc((var(--c) - .42) * 2.4), 1)) }
+html:not(.js) .fecho-m::after{ display:none }
 .in-lead{ font:350 clamp(1.2rem, 1.6vw, 1.5rem)/1.4 var(--serif); max-width:28ch }
 .in-marca{ margin-top:18px; font-size:15px; color:var(--texto-2) }
 html:not(.js) .intro .camada{ position:relative; inset:auto }

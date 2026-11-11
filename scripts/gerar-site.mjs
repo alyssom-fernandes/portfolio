@@ -293,7 +293,7 @@ ${idiomasLinks.filter(i => i !== idioma).map(i => `<meta property="og:locale:alt
 <link rel="preload" href="${pref}${FONTES.serif}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${pref}${FONTES.sans}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${pref}assets/css/style.css?v=${hash('assets/css/style.css')}">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');['pagereveal','pageswap'].forEach(t=>addEventListener(t,e=>{const v=e.viewTransition;if(v){[v.ready,v.finished,v.updateCallbackDone].forEach(p=>p&&p.catch(()=>{}));}}))</script>
 <script src="${pref}assets/js/main.js?v=${hash('assets/js/main.js')}" defer></script>${extra}`;
 }
 
@@ -417,11 +417,11 @@ function gerarPagina(idioma) {
   const intro = `<section class="cena intro" id="projetos-cena" data-cena="projetos">
     <div class="fixo">
       <div class="camada papel">
-        <div class="camada-in"><p class="fecho">${p0('trajetoria.fecho')}</p></div>
+        <div class="camada-in"><p class="fecho">${h('trajetoria.fecho', {}, { marca: 'fecho-m' })}</p></div>
       </div>
       <div class="camada tela">
         <div class="camada-in">
-          <p class="fecho clone" aria-hidden="true">${p0('trajetoria.fecho')}</p>
+          <p class="fecho clone" aria-hidden="true">${h('trajetoria.fecho', {}, { marca: 'fecho-m' })}</p>
         </div>
       </div>
     </div>
@@ -779,7 +779,21 @@ function gerarDetalhe(idioma, p, idx) {
   const alternativas = [...idiomasLinks.map(i => [i.hreflang, urlDe(i)]), ['x-default', urlDe(dados.site.idiomas.find(i => i.codigo === padrao))]];
   const titulo = p0('meta.tituloProjeto', { nome: p.nome, frase: limpar(C.txt(`projetos.${p.id}.frase`, vp)).replace(/\.$/, '') });
   const descricao = esc(limpar(C.txt(`projetos.${p.id}.resumo`, vp)));
-  const extra = `\n<link rel="stylesheet" href="${pref}assets/css/projeto.css?v=${hash('assets/css/projeto.css')}">\n<script src="${pref}assets/js/projeto.js?v=${hash('assets/js/projeto.js')}" defer></script>`;
+  // dados estruturados do projeto (schema.org), só com o que já está em dados.json e nos textos
+  const codigoLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: p.nome,
+    description: limpar(C.txt(`projetos.${p.id}.resumo`, vp)),
+    url: urlDe(idioma),
+    inLanguage: idioma.lang,
+    codeRepository: p.codigo[0].url,
+    keywords: stackDe(p).join(', '),
+    author: { '@type': 'Person', name: I.nome, url: `${base}${idioma.pasta}` },
+    ...(temDemoAtiva(p) ? { targetProduct: { '@type': 'WebApplication', name: p.nome, url: p.demo.url, applicationCategory: 'BusinessApplication', operatingSystem: 'Web' } } : {}),
+  };
+  const extra = `\n<link rel="stylesheet" href="${pref}assets/css/projeto.css?v=${hash('assets/css/projeto.css')}">\n<script src="${pref}assets/js/projeto.js?v=${hash('assets/js/projeto.js')}" defer></script>` +
+    `\n<script type="application/ld+json">${JSON.stringify(codigoLd).replace(/</g, '\\u003c')}</script>`;
   const head = cabeca({ C, idioma, pref, titulo, descricao, urlPagina: urlDe(idioma), alternativas, extra, ogTipo: 'article', tema: dados.site.corTemaTela });
   const links = botoes(p, C, pref, { detalhes: false, codigoTodos: true });
   return `<!doctype html>

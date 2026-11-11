@@ -132,7 +132,7 @@
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
-    "fecho": "Daqui em diante, as telas."
+    "fecho": "Daqui em diante, as *telas*."
   },
   "carreira": {
     "astcon": {
@@ -482,7 +482,8 @@
     "flowtrack": {
       "dashboard": "FlowTrack: painel com saldo, receitas e gastos",
       "transacoes": "FlowTrack: lista de transações categorizadas",
-      "relatorios": "FlowTrack: relatórios com receitas, gastos, saldo e gastos por categoria"
+      "relatorios": "FlowTrack: relatórios com receitas, gastos, saldo e gastos por categoria",
+      "celular": "FlowTrack no celular: resumo do mês com saldo, receitas, gastos e categorias"
     },
     "audistock": {
       "dashboard": "AudiStock: auditorias em andamento, resumo da última auditoria e maiores faltas e sobras em proporção ao saldo",

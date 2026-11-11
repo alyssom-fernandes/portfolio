@@ -132,7 +132,7 @@
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
-    "fecho": "From here on, the screens."
+    "fecho": "From here on, the *screens*."
   },
   "carreira": {
     "astcon": {
@@ -482,7 +482,8 @@
     "flowtrack": {
       "dashboard": "FlowTrack: dashboard with balance, income, and expenses",
       "transacoes": "FlowTrack: list of categorized transactions",
-      "relatorios": "FlowTrack: reports with income, expenses, balance, and spending by category"
+      "relatorios": "FlowTrack: reports with income, expenses, balance, and spending by category",
+      "celular": "FlowTrack on a phone: monthly summary with balance, income, expenses, and categories"
     },
     "audistock": {
       "dashboard": "AudiStock: audits in progress, a summary of the latest audit, and the largest shortages and overages relative to the balance",

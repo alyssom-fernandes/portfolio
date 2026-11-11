@@ -132,7 +132,7 @@
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
-    "fecho": "De aquí en adelante, las pantallas."
+    "fecho": "De aquí en adelante, las *pantallas*."
   },
   "carreira": {
     "astcon": {
@@ -482,7 +482,8 @@
     "flowtrack": {
       "dashboard": "FlowTrack: panel con saldo, ingresos y gastos",
       "transacoes": "FlowTrack: lista de movimientos categorizados",
-      "relatorios": "FlowTrack: informes con ingresos, gastos, saldo y gastos por categoría"
+      "relatorios": "FlowTrack: informes con ingresos, gastos, saldo y gastos por categoría",
+      "celular": "FlowTrack en el teléfono: resumen del mes con saldo, ingresos, gastos y categorías"
     },
     "audistock": {
       "dashboard": "AudiStock: auditorías en curso, resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias",

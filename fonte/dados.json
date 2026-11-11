@@ -156,9 +156,9 @@
       "stack": ["React 19", "TypeScript", "FastAPI", "Supabase/PostgreSQL", { "texto": "projetos.flowtrack.stackModelo" }, "pytest", "Playwright"],
       "numeros": { "bancos": "4", "camadas": "3" },
       "testes": { "backend": 250, "frontend": 8, "e2e": 40 },
-      "composicao": { "lado": "dir", "celular": null },
+      "composicao": { "lado": "dir", "celular": "destaque" },
       "telas": ["flowtrack/dashboard", "flowtrack/transacoes", "flowtrack/relatorios"],
-      "celular": null,
+      "celular": "flowtrack/celular",
       "foco": { "flowtrack/dashboard": "10% 20%", "flowtrack/transacoes": "10% 25%", "flowtrack/relatorios": "10% 25%" },
       "legenda": "demo",
       "itens": [
