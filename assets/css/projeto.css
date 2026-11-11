@@ -8,7 +8,9 @@
      --py na abertura                   deslocamento do celular
    Sem JS, todas valem o estado final. Só transform, opacity e clip-path mudam. */
 
-html{ scroll-behavior:smooth }
+/* rolagem suave só depois de um clique num link interno (projeto.js): com ela desde o início, o Chrome não
+   rola até o #fragmento de quem chega por um link direto */
+html.rola-suave{ scroll-behavior:smooth }
 .detalhe{ --acento:color-mix(in oklab, var(--cor) 60%, #fff 40%); --fio:#2A2D32 }
 .d-art code{ font:450 .84em/1.2 ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, monospace; padding:.06em .28em; border-radius:3px;
   background:rgba(236,235,230,.06); box-shadow:inset 0 0 0 1px rgba(236,235,230,.09); overflow-wrap:anywhere; -webkit-box-decoration-break:clone; box-decoration-break:clone }
@@ -153,3 +155,9 @@ html{ scroll-behavior:smooth }
   .t-decisoes li{ padding-left:34px }
   .t-fontes{ gap:0 14px }
 }
+
+/* captura dos destaques: abre em tamanho real numa aba nova */
+.d-ampliar{ display:block; cursor:zoom-in; border-radius:8px }
+.d-ampliar .janela{ transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s }
+.d-ampliar:hover .janela{ transform:translateY(-3px); box-shadow:0 28px 50px -26px rgba(0,0,0,.7) }
+.d-ampliar:focus-visible{ outline:2px solid var(--foco); outline-offset:4px }

@@ -28,9 +28,9 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/style.css?v=c8afaa00">
+<link rel="stylesheet" href="../assets/css/style.css?v=6005bdfa">
 <script>document.documentElement.classList.add('js')</script>
-<script src="../assets/js/main.js?v=b6543d87" defer></script>
+<script src="../assets/js/main.js?v=b6d4fd12" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alyssom Fernandes","jobTitle":"Desarrollador · Datos y Automatización","description":"Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América. Construyo sistemas que sustituyen hojas de cálculo.","url":"https://alyssom-fernandes.github.io/portfolio/es/","email":"alyssom1919@gmail.com","sameAs":["https://linkedin.com/in/alyssom-fernandes","https://github.com/alyssom-fernandes"],"address":{"@type":"PostalAddress","addressCountry":"BR"},"worksFor":{"@type":"Organization","name":"Grupo Zen"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Uniasselvi"},"knowsLanguage":[{"@type":"Language","name":"Portugués","alternateName":"pt"},{"@type":"Language","name":"Inglés","alternateName":"en"},{"@type":"Language","name":"Español","alternateName":"es"}]}</script>
 </head>
 <body class="inicio">
@@ -67,7 +67,8 @@
     </div>
   </section>
 
-  <section class="cena traj" id="trajetoria" data-cena="trajetoria" aria-labelledby="traj-t">
+  <section class="cena traj" id="trajetoria-cena" data-cena="trajetoria" aria-labelledby="traj-t">
+    <span class="ancora" id="trajetoria"></span>
     <div class="fixo">
       <div class="t-txt">
         <h2 class="t-secao" id="traj-t">Trayectoria</h2>
@@ -138,7 +139,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/unifydata/celular.webp" width="780" height="1688" alt="UnifyData en el teléfono: cierre listo" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/unifydata/" style="view-transition-name:nome-unifydata">UnifyData</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/unifydata/" tabindex="-1" style="view-transition-name:nome-unifydata">UnifyData</a></h3>
           <p class="ct-frase">Calcula el descuento por nómina de las compras de los empleados.</p>
           <p class="ct-testes"><b>40</b> pruebas</p>
           <p class="ct-stack">JavaScript, SheetJS, PDF.js</p>
@@ -152,7 +153,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/fuelmind/celular.webp" width="780" height="1688" alt="Fuel Mind en el teléfono: panel" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/fuelmind/" style="view-transition-name:nome-fuelmind">Fuel Mind</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/fuelmind/" tabindex="-1" style="view-transition-name:nome-fuelmind">Fuel Mind</a></h3>
           <p class="ct-frase">Lee las facturas de combustible (NF-e) y cierra el mes.</p>
           <p class="ct-testes"><b>145</b> pruebas</p>
           <p class="ct-stack">JavaScript, Firebase, Chart.js</p>
@@ -166,7 +167,7 @@
           
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/flowtrack/" style="view-transition-name:nome-flowtrack">FlowTrack</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/flowtrack/" tabindex="-1" style="view-transition-name:nome-flowtrack">FlowTrack</a></h3>
           <p class="ct-frase">Finanzas personales que se categorizan solas.</p>
           <p class="ct-testes"><b>298</b> pruebas</p>
           <p class="ct-stack">React 19, TypeScript, FastAPI</p>
@@ -180,7 +181,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/docke/celular.webp" width="780" height="1688" alt="Docke en el teléfono: panel con los totales y la navegación abajo" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/docke/" style="view-transition-name:nome-docke">Docke</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/docke/" tabindex="-1" style="view-transition-name:nome-docke">Docke</a></h3>
           <p class="ct-frase">Documentos de varias empresas, con registro de auditoría.</p>
           <p class="ct-testes"><b>89</b> pruebas</p>
           <p class="ct-stack">React 19, TypeScript, Vite</p>
@@ -194,7 +195,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/praxis/celular.webp" width="780" height="1688" alt="Praxis en el teléfono: tablero de pedidos con las etapas en pestañas" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/praxis/" style="view-transition-name:nome-praxis">Praxis</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/praxis/" tabindex="-1" style="view-transition-name:nome-praxis">Praxis</a></h3>
           <p class="ct-frase">Del pedido al pago, en un solo flujo.</p>
           <p class="ct-testes"><b>45</b> pruebas</p>
           <p class="ct-stack">JavaScript, Firebase, PWA</p>
@@ -208,7 +209,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/audistock/celular.webp" width="780" height="1688" alt="AudiStock en el teléfono: recuento con teclado, lector y cámara y el progreso de la auditoría" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/audistock/" style="view-transition-name:nome-audistock">AudiStock</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/audistock/" tabindex="-1" style="view-transition-name:nome-audistock">AudiStock</a></h3>
           <p class="ct-frase">Recuento de inventario desde el teléfono, comparado con el ERP.</p>
           <p class="ct-testes"><b>130</b> pruebas</p>
           <p class="ct-stack">JavaScript, Supabase, IndexedDB</p>
@@ -222,7 +223,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/alertsignal/celular.webp" width="546" height="1182" alt="AlertSignal en el teléfono: documentos de una empresa en tarjetas" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/alertsignal/" style="view-transition-name:nome-alertsignal">AlertSignal</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/alertsignal/" tabindex="-1" style="view-transition-name:nome-alertsignal">AlertSignal</a></h3>
           <p class="ct-frase">Plazos de permisos y licencias con aviso automático.</p>
           <p class="ct-testes"><b>62</b> pruebas</p>
           <p class="ct-stack">Python, Flask, SQLite</p>
@@ -236,7 +237,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/deepchat/celular.webp" width="780" height="1688" alt="DeepChat en el teléfono: revisión con puntos fuertes, qué mejorar y sugerencias" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/deepchat/" style="view-transition-name:nome-deepchat">DeepChat</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/deepchat/" tabindex="-1" style="view-transition-name:nome-deepchat">DeepChat</a></h3>
           <p class="ct-frase">DeepSeek responde y ChatGPT comprueba la respuesta.</p>
           <p class="ct-testes"><b>65</b> pruebas</p>
           <p class="ct-stack">JavaScript, DeepSeek API, OpenAI API</p>
@@ -250,7 +251,7 @@
           <span class="ct-cel-m"><img src="../assets/projetos/artmaker/celular.webp" width="780" height="1688" alt="ArtMaker en el teléfono: folleto final con Compartir y Descargar" loading="lazy" decoding="async"></span>
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="../projetos/artmaker/" style="view-transition-name:nome-artmaker">ArtMaker</a></h3>
+          <h3 class="ct-nome"><a href="../projetos/artmaker/" tabindex="-1" style="view-transition-name:nome-artmaker">ArtMaker</a></h3>
           <p class="ct-frase">Folletos de ofertas listos para los Estados de WhatsApp.</p>
           <p class="ct-testes"><b>33</b> pruebas</p>
           <p class="ct-stack">JavaScript, HTML5 Canvas, localStorage</p>

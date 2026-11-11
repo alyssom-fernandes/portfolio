@@ -27,6 +27,14 @@ const root = document.documentElement;
 
 // aberto direto do disco (file://), o navegador precisa do index.html nos links de pasta
 if (location.protocol === 'file:') $$('a[href$="/"]').forEach(a => { if (!/^https?:/.test(a.getAttribute('href'))) a.href = a.getAttribute('href') + 'index.html'; });
+// menu "Seções" (até 900 px): fecha ao escolher uma seção, com Esc e ao tocar fora, em todas as páginas
+const menu = $('.mast-menu');
+if (menu) {
+  const sum = $('summary', menu);
+  menu.addEventListener('click', e => { if (e.target.closest('a')) menu.open = false; });
+  menu.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.open) { menu.open = false; sum.focus(); } });
+  document.addEventListener('click', e => { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+}
 if (!document.body.classList.contains('inicio')) return;
 
 const mq = matchMedia('(max-width:760px)');
@@ -103,7 +111,7 @@ function renderHero(p) {
 }
 
 /* ---------- trajetória: a grade de meses enche em onda ---------- */
-const traj = $('#trajetoria');
+const traj = $('#trajetoria-cena');
 const FASES = cfg.fases, ultima = FASES[FASES.length - 1];
 // a grade sai do gerador até o mês da publicação; aqui entram, na fase em andamento, os meses que passaram desde então
 // (para testar outro mês: ?hoje=AAAA-MM)
@@ -216,7 +224,13 @@ function ajustarFig() {
 const intro = $('#projetos-cena');
 // a tela escura sobe e a frase inverte de cor; o título e os cartões vêm logo depois, no fluxo normal
 const cortinaIntro = p => smooth(.04, .8, p);
+// as capturas da 1ª e da 2ª linha de cartões são decodificadas durante a cortina, antes de se animarem
+let decodificou = false;
 function renderIntro(p) {
+  if (!decodificou && p > 0) {
+    decodificou = true;
+    $$('.cartao').slice(0, 6).forEach(c => $$('img', c).forEach(im => { im.loading = 'eager'; if (im.decode) im.decode().catch(() => {}); }));
+  }
   set(intro, '--c', f3(cortinaIntro(p)));
 }
 

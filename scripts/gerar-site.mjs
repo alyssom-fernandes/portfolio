@@ -386,7 +386,8 @@ function gerarPagina(idioma) {
   // a soma da legenda passa do total quando um mês de troca pertence a duas empresas: a nota explica a diferença
   const somaFases = carreira.reduce((s, c) => s + contagem[c.id], 0);
   const passos = T.trajetoria.passos;
-  const trajetoria = `<section class="cena traj" id="trajetoria" data-cena="trajetoria" aria-labelledby="traj-t">
+  const trajetoria = `<section class="cena traj" id="trajetoria-cena" data-cena="trajetoria" aria-labelledby="traj-t">
+    <span class="ancora" id="trajetoria"></span>
     <div class="fixo">
       <div class="t-txt">
         <h2 class="t-secao" id="traj-t">${esc(T.trajetoria.secao)}</h2>
@@ -442,7 +443,7 @@ function gerarPagina(idioma) {
           ${p.celular ? `<span class="ct-cel-m">${imgDe(p.celular, pref, C, { sizes: '(max-width: 640px) 56vw, 1px' })}</span>` : ''}
         </a>
         <div class="ct-txt">
-          <h3 class="ct-nome"><a href="${href}" style="view-transition-name:nome-${p.id}">${esc(p.nome)}</a></h3>
+          <h3 class="ct-nome"><a href="${href}" tabindex="-1" style="view-transition-name:nome-${p.id}">${esc(p.nome)}</a></h3>
           <p class="ct-frase">${h(`projetos.${p.id}.frase`, vp)}</p>
           <p class="ct-testes"><b>${esc(vp.testesTotal)}</b> ${p0('projetos.rotulos.testes')}</p>
           <p class="ct-stack">${stackDe(p).slice(0, 3).map(s => esc(s.replace(/\s*\(.*\)$/, ''))).join(', ')}</p>
@@ -755,7 +756,8 @@ function gerarDetalhe(idioma, p, idx) {
   const destaques = p.itens.map((it, j) => {
     const fig = it.tela === 'celular'
       ? `<div class="d-fig celular-so" data-revela>${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 320px' })}</div>`
-      : `<div class="d-fig" data-revela><div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div></div>`;
+      // a captura abre em tamanho real numa aba nova: na coluna da página, o texto da interface fica pequeno demais
+      : `<div class="d-fig" data-revela><a class="d-ampliar" href="${pref}${manifesto[it.tela].src}" target="_blank" rel="noopener"><div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div></a></div>`;
     return `<li class="d-item${j % 2 ? ' inv' : ''}">
           ${fig}
           <div class="d-item-txt" data-revela="1"><h3>${h(`projetos.${p.id}.itens.${it.id}.titulo`, vp)}</h3><p>${h(`projetos.${p.id}.itens.${it.id}.texto`, vp)}</p></div>

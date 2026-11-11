@@ -86,6 +86,8 @@ const pedir = () => { if (!fila) { fila = true; requestAnimationFrame(quadro); }
 addEventListener('scroll', pedir, { passive: true });
 addEventListener('resize', pedir);
 addEventListener('load', pedir);
+// rolagem suave só quando o clique é num link interno (#seção); quem chega por link direto cai na seção na hora
+document.addEventListener('click', e => { if (e.target.closest('a[href^="#"]')) document.documentElement.classList.add('rola-suave'); }, true);
 if (document.fonts) document.fonts.ready.then(pedir);
 quadro();
 
