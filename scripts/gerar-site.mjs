@@ -155,6 +155,10 @@ for (const l of M.linhas) {
   if (l.marcas.length !== M.colunas.length || /[^01]/.test(l.marcas)) erros.push(`matriz: a linha "${l.id}" precisa de ${M.colunas.length} marcas 0/1`);
   for (const cod of Object.keys(textos)) if (!temTexto(cod, `habilidades.linhas.${l.id}`)) erros.push(`textos.${cod}.json: falta "habilidades.linhas.${l.id}"`);
 }
+// cada linha da matriz fica em exatamente um grupo, e os grupos seguem a ordem das linhas
+const nosGrupos = (M.grupos || []).flatMap(g => g.linhas);
+if (nosGrupos.join() !== M.linhas.map(l => l.id).join()) erros.push('matriz: "grupos" precisa listar todas as linhas, uma vez cada, na ordem de "linhas"');
+for (const g of M.grupos || []) for (const cod of Object.keys(textos)) if (!temTexto(cod, `habilidades.grupos.${g.id}`)) erros.push(`textos.${cod}.json: falta "habilidades.grupos.${g.id}"`);
 const idsCarreira = new Set(carreira.map(c => c.id));
 for (const n of dados.negocio) for (const o of n.onde) if (!idsCarreira.has(o)) erros.push(`negocio "${n.id}": "${o}" não está na carreira`);
 carreira.forEach((c, i) => { if (c.fim === null && i !== carreira.length - 1) erros.push(`carreira "${c.id}": só a última fase pode ter fim null`); });
@@ -322,7 +326,9 @@ const barraUrl = p => temDemoAtiva(p) ? host(p.demo.url) : host(p.codigo[0].url)
 
 // no currículo, as linguagens e as ferramentas de dados vêm antes das capacidades
 const PRIMEIRO_NO_CV = ['javascript', 'typescript', 'python', 'postgres', 'excel', 'pandas', 'react', 'fastapi', 'flask', 'firebase'];
-const ordemCv = linhas => [...linhas].sort((a, b) => (PRIMEIRO_NO_CV.indexOf(a.id) + 1 || 99) - (PRIMEIRO_NO_CV.indexOf(b.id) + 1 || 99));
+// no currículo, as habilidades vêm por grupo: primeiro o que se usa, por último a prática
+const GRUPOS_NO_CV = ['linguagens', 'dados', 'plataformas', 'produto', 'pratica'];
+const ordemCv = linhas =>[...linhas].sort((a, b) => (PRIMEIRO_NO_CV.indexOf(a.id) + 1 || 99) - (PRIMEIRO_NO_CV.indexOf(b.id) + 1 || 99));
 
 /* 7. Página inicial de um idioma */
 
@@ -428,16 +434,18 @@ function gerarPagina(idioma) {
     const imgs = telas.map(k => imgDe(k, pref, C, { sizes: sz })).join('');
     const cel = p.composicao.celular === 'sempre' && p.celular;
     const href = `${pref}projetos/${p.id}/`;
-    return `<li class="cartao" id="p-${p.id}" style="--cor:${p.cor}">
+    // no celular, a captura do celular substitui a tela de computador, que ficaria pequena demais para ler
+    return `<li class="cartao${p.celular ? ' tem-cel' : ''}" id="p-${p.id}" style="--cor:${p.cor}">
         <a class="ct-midia" href="${href}" tabindex="-1" aria-hidden="true">
           <span class="ct-tela${telas.length > 1 ? ' duas' : ''}" style="view-transition-name:janela-${p.id}">${imgs}</span>
           ${cel ? `<span class="ct-cel">${imgDe(p.celular, pref, C, { sizes: '120px' })}</span>` : ''}
+          ${p.celular ? `<span class="ct-cel-m">${imgDe(p.celular, pref, C, { sizes: '(max-width: 640px) 56vw, 1px' })}</span>` : ''}
         </a>
         <div class="ct-txt">
           <h3 class="ct-nome"><a href="${href}" style="view-transition-name:nome-${p.id}">${esc(p.nome)}</a></h3>
           <p class="ct-frase">${h(`projetos.${p.id}.frase`, vp)}</p>
           <p class="ct-testes"><b>${esc(vp.testesTotal)}</b> ${p0('projetos.rotulos.testes')}</p>
-          <p class="ct-stack">${stackDe(p).slice(0, 3).map(esc).join(', ')}</p>
+          <p class="ct-stack">${stackDe(p).slice(0, 3).map(s => esc(s.replace(/\s*\(.*\)$/, ''))).join(', ')}</p>
         </div>
         <div class="ct-acoes">${botoes(p, C, pref)}</div>
       </li>`;
@@ -469,10 +477,10 @@ function gerarPagina(idioma) {
         <table class="mx">
           <caption class="sr">${esc(T.habilidades.secao)}</caption>
           <thead><tr><th class="l" scope="col">${p0('habilidades.cabecalho')}</th>${M.colunas.map(c => `<th class="c" scope="col"><span>${esc(nomeCol(c))}</span></th>`).join('')}<th class="t" scope="col">${p0('habilidades.total')}</th></tr></thead>
-          <tbody>${M.linhas.map((l, r) => `<tr><th scope="row">${p0(`habilidades.linhas.${l.id}`)}</th>${[...l.marcas].map((c, k) => `<td>${c === '1' ? `<i role="img" aria-label="${esc(nomeCol(M.colunas[k]))}"></i>` : ''}</td>`).join('')}<td class="t">${totLinha[r]}</td></tr>`).join('')}</tbody>
+          ${M.grupos.map(g => `<tbody><tr class="mx-g"><th scope="rowgroup" colspan="${M.colunas.length + 2}">${p0(`habilidades.grupos.${g.id}`)}</th></tr>${g.linhas.map(id => { const r = M.linhas.findIndex(x => x.id === id), l = M.linhas[r]; return `<tr><th scope="row">${p0(`habilidades.linhas.${l.id}`)}</th>${[...l.marcas].map((c, k) => `<td>${c === '1' ? `<i role="img" aria-label="${esc(nomeCol(M.colunas[k]))}"></i>` : ''}</td>`).join('')}<td class="t">${totLinha[r]}</td></tr>`; }).join('')}</tbody>`).join('')}
           <tfoot><tr><th scope="row">${p0('habilidades.porProjeto')}</th>${totCol.map(t => `<td>${t}</td>`).join('')}<td></td></tr></tfoot>
         </table>
-        <ul class="mx-lista">${M.linhas.map((l, r) => `<li><b>${p0(`habilidades.linhas.${l.id}`)}</b><span>${[...l.marcas].map((c, k) => c === '1' ? esc(nomeCol(M.colunas[k])) : '').filter(Boolean).join(', ')}</span></li>`).join('')}</ul>
+        <ul class="mx-lista">${M.linhas.map(l => `${M.grupos.find(g => g.linhas[0] === l.id) ? `<li class="mx-g">${p0(`habilidades.grupos.${M.grupos.find(g => g.linhas[0] === l.id).id}`)}</li>` : ''}<li><b>${p0(`habilidades.linhas.${l.id}`)}</b><span>${[...l.marcas].map((c, k) => c === '1' ? esc(nomeCol(M.colunas[k])) : '').filter(Boolean).join(', ')}</span></li>`).join('')}</ul>
       </div>
       <div class="negocio">
         <h3>${p0('habilidades.negocioTitulo')}</h3>
@@ -552,7 +560,7 @@ function gerarPagina(idioma) {
   </section>
   <section class="cvp-s">
     <h3>${p0('cv.habilidadesTitulo')}</h3>
-    <p><b>${p0('cv.tecnologias')}:</b> ${ordemCv(M.linhas).map(l => p0(`habilidades.linhas.${l.id}`)).join(', ')}.</p>
+    <p>${GRUPOS_NO_CV.map(gid => M.grupos.find(g => g.id === gid)).map(g => `<b>${p0(`habilidades.grupos.${g.id}`)}:</b> ${ordemCv(g.linhas.map(id => M.linhas.find(l => l.id === id))).map(l => p0(`habilidades.linhas.${l.id}`)).join(', ')}.`).join(' ')}</p>
     <p><b>${p0('cv.negocio')}:</b> ${dados.negocio.map(n => p0(`habilidades.negocio.${n.id}`)).join('; ')}.</p>
   </section>
   <section class="cvp-s">
@@ -560,8 +568,8 @@ function gerarPagina(idioma) {
     <p><b>${p0('formacao.curso')}</b>, ${p0('formacao.detalhe')}.</p>
   </section>
   <footer class="cvp-assina">
-    <img src="${pref}${I.rubrica}" width="220" height="399" alt="${p0('identidade.rubricaAlt')}">
-    <span>${esc(I.marca)}, ${esc(I.nome)}</span>
+    <img src="${pref}${I.rubrica}" width="220" height="399" alt="${p0('identidade.rubricaAlt')}" loading="lazy" decoding="async">
+    <span>${esc(I.marca)},${esc(I.nome)}</span>
   </footer>
 </article>`;
 

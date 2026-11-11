@@ -165,7 +165,7 @@
       "cargo": "Auxiliar de Controladoria",
       "cargoFormal": "",
       "itens": [
-        "Trabalho direto com o controller e atendo demandas dos diretores do grupo. Desenvolvo sistemas internos que reduziram bastante o tempo e, mais ainda, os erros dos processos.",
+        "Trabalho direto com o controller, atendo demandas dos diretores do grupo e desenvolvo sistemas internos.",
         "Confiro notas e boletos de boa parte das empresas antes do pagamento. Já barrei boletos falsos, notas de outras empresas e notas emitidas no CNPJ do grupo sem pedido, com registro de desconhecimento da operação, e acionei fornecedores para corrigir notas incompletas.",
         "Faço o LMC de 3 postos, conciliado com o Veeder-Root (entradas, vendas, evaporação e estoque), e audito as entradas de combustível de um posto e do TRR, base do cálculo que faço do aluguel dos veículos e do frete dos motoristas.",
         "Respondo pelas compras de algumas empresas do grupo (cotação, negociação e escolha do fornecedor) e pelas alterações nos contratos de locação da frota. Concilio no AutoSystem os adiantamentos de combustível e as compras no Mercado Livre."
@@ -508,6 +508,13 @@
     "total": "Total",
     "porProjeto": "Por projeto",
     "negocioTitulo": "Negócio, por experiência",
+    "grupos": {
+      "pratica": "Prática de engenharia",
+      "linguagens": "Linguagens",
+      "dados": "Dados e documentos",
+      "plataformas": "Frameworks e serviços",
+      "produto": "Recursos dos sistemas"
+    },
     "linhas": {
       "testes": "Testes automatizados",
       "ci": "CI (GitHub Actions)",
@@ -538,7 +545,7 @@
       "combustiveis": "Combustíveis: LMC, Veeder-Root, auditoria de entradas, cálculo de aluguéis e fretes",
       "compras": "Compras: cotação, negociação, autorização de compras no Jira, contratos de frota",
       "implantacao": "Implantação de sistema e treinamento de usuários (Onvio)",
-      "analiseDados": "Análise de dados no Excel: tabela dinâmica, PROCV/PROCX, SOMASES, CONT.SES, SE, formatação condicional, validação de dados",
+      "analiseDados": "Análise de dados no Excel: tabela dinâmica, PROCV/PROCX, SOMASES, CONT.SES, formatação condicional, validação de dados",
       "treinamento": "Coordenação de equipe e treinamento"
     }
   },

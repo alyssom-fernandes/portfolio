@@ -110,7 +110,7 @@
       {
         "titulo": "From the file room to payroll and HR",
         "texto": "I started at {carreira.astcon.empresa} in {carreira.astcon.inicioLongo} as a part-time filing clerk, while still in high school. I moved through accounting and on to payroll and HR: full routines for more than {empresasClientesBase} client companies, from hiring to eSocial and DCTFWeb filings.",
-        "extra": "I became the person in charge of payroll and HR and, in practice, of the office: I coordinated the team, trained new hires, and handled the most difficult clients. In Domínio, I automated payroll calculation and submission to eSocial, and I rolled out Onvio with the clients.",
+        "extra": "I became the person in charge of payroll and HR and, in practice, of the office: I coordinated the team, trained new hires, and handled the most difficult clients. In Domínio (payroll software), I automated payroll calculation and submission to eSocial, and I rolled out Onvio, the firm’s online portal for clients.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
@@ -165,7 +165,7 @@
       "cargo": "Financial Control Assistant",
       "cargoFormal": "",
       "itens": [
-        "Work directly with the controller and handle requests from the group’s directors. Develop in-house systems that have cut process time considerably and errors even more.",
+        "Work directly with the controller, handle requests from the group’s directors, and develop in-house systems.",
         "Check invoices and boletos (bank payment slips) for a large share of the companies before payment. Caught fake boletos, invoices for other companies, and invoices issued under the group’s tax ID (CNPJ) with no order, registering them as unrecognized transactions, and contacted suppliers to correct incomplete invoices.",
         "Keep the LMC (mandatory fuel stock ledger) for 3 stations, reconciled with Veeder-Root (deliveries, sales, evaporation, and stock), and audit fuel deliveries at one station and the TRR (fuel distributor), the basis for my calculation of vehicle rental and drivers’ freight.",
         "Handle purchasing for some of the group’s companies (quotes, negotiation, and supplier selection) and changes to the fleet rental contracts. Reconcile fuel advances and Mercado Livre purchases in AutoSystem."
@@ -508,6 +508,13 @@
     "total": "Total",
     "porProjeto": "Per project",
     "negocioTitulo": "Business, by experience",
+    "grupos": {
+      "pratica": "Engineering practice",
+      "linguagens": "Languages",
+      "dados": "Data and documents",
+      "plataformas": "Frameworks and services",
+      "produto": "System features"
+    },
     "linhas": {
       "testes": "Automated tests",
       "ci": "CI (GitHub Actions)",
@@ -538,7 +545,7 @@
       "combustiveis": "Fuel: LMC, Veeder-Root, delivery audits, rental and freight calculation",
       "compras": "Purchasing: quotes, negotiation, purchase approvals in Jira, fleet contracts",
       "implantacao": "System implementation and user training (Onvio)",
-      "analiseDados": "Data analysis in Excel: PivotTables, VLOOKUP/XLOOKUP, SUMIFS, COUNTIFS, IF, conditional formatting, data validation",
+      "analiseDados": "Data analysis in Excel: PivotTables, VLOOKUP/XLOOKUP, SUMIFS, COUNTIFS, conditional formatting, data validation",
       "treinamento": "Team coordination and training"
     }
   },

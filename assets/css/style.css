@@ -124,7 +124,7 @@ html:not(.js) .risco::after, html:not(.js) .marca::before{ animation:none; trans
 html:not(.js) .cena{ height:auto } html:not(.js) .fixo{ position:relative; height:auto; overflow:visible }
 
 /* ---------- trajetória ---------- */
-.traj{ --altura:380vh }
+.traj{ --altura:310vh }
 .traj .fixo{ max-width:var(--col); margin:0 auto; padding:calc(var(--mh) + 28px) var(--gx) 28px; display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(40px, 5vw, 80px); align-items:center }
 .t-txt{ position:relative; align-self:stretch; display:flex; flex-direction:column }
 .t-secao{ font:400 20px var(--serif); color:var(--tinta-2); margin:6px 0 0 }
@@ -166,7 +166,7 @@ html:not(.js) .t-passo{ margin:40px 0 }
 .lg-nota{ margin:14px 0 0 49px; font:400 12.5px/1.4 var(--sans); color:var(--tinta-2) }
 
 /* ---------- introdução dos projetos: a cortina do papel para a tela ---------- */
-.intro{ --altura:150vh; --c:0 }
+.intro{ --altura:135vh; --c:0 }
 /* âncoras dos links do cabeçalho: caem no ponto da cena em que o conteúdo já está visível */
 .ancora{ position:absolute; left:0; top:calc(var(--ancora, 0px) + var(--mh)); width:1px; height:1px }
 html:not(.js) .ancora, html.cap .ancora{ top:0 }
@@ -225,7 +225,15 @@ html:not(.js) .fecho.clone{ display:none }
 .ct-acoes .btn{ flex:1 1 auto; min-height:44px; padding:0 14px; font-size:14px; text-align:center }
 .ct-acoes .btn:first-child{ flex-grow:2 }
 @media (max-width:1100px){ .cartoes{ grid-template-columns:repeat(2, minmax(0, 1fr)) } }
-@media (max-width:640px){ .cartoes{ grid-template-columns:1fr } }
+.ct-cel-m{ display:none }
+@media (max-width:640px){
+  .cartoes{ grid-template-columns:1fr }
+  .cartao.tem-cel .ct-tela, .cartao.tem-cel .ct-cel{ display:none }
+  .cartao.tem-cel .ct-midia{ aspect-ratio:5 / 4 }
+  .ct-cel-m{ display:block; position:absolute; left:50%; top:8%; width:56%; transform:translateX(-50%); aspect-ratio:780 / 1688;
+    border:1px solid var(--moldura); border-radius:9% / 4.2%; overflow:hidden; background:var(--tela-2); box-shadow:0 18px 40px -18px rgba(0,0,0,.9) }
+  .ct-cel-m img{ width:100%; height:100%; object-fit:cover; object-position:50% 0 }
+}
 
 /* ---------- janela e celular (páginas de projeto) ---------- */
 .janela{ position:relative; border:1px solid var(--moldura); border-radius:6px; overflow:hidden; background:var(--tela-2);
@@ -268,6 +276,9 @@ html:not(.js) .fecho.clone{ display:none }
 .mx tfoot th{ text-align:left; font-weight:400; color:var(--texto-2); padding:10px 0; font-size:13px }
 .mx tfoot td{ text-align:center; font-size:13px }
 .mx tbody tr:hover th, .mx tbody tr:hover td{ background:rgba(255,255,255,.03) }
+.mx tr.mx-g th{ padding:26px 0 8px; font:500 11.5px var(--sans); letter-spacing:.09em; text-transform:uppercase; color:var(--texto-2); border-bottom-color:#4A4D52 }
+.mx tbody:first-of-type tr.mx-g th{ padding-top:14px }
+.mx tbody tr.mx-g:hover th{ background:none }
 .mx-lista{ display:none; list-style:none; margin:0; padding:0 }
 .negocio h3{ font:400 24px/1.2 var(--serif); margin-bottom:12px }
 .negocio ul{ list-style:none; margin:0; padding:0 }
@@ -368,7 +379,7 @@ body.detalhe{ background:linear-gradient(to bottom, color-mix(in oklab, var(--te
   .ficha dd{ font-size:15px }
   .abertura::before{ background-size:56px 28px }
 
-  .traj{ --altura:400vh }
+  .traj{ --altura:330vh }
   .traj .fixo{ grid-template-columns:1fr; grid-template-rows:auto minmax(0, 1fr); gap:20px; padding:calc(var(--mh) + 14px) var(--gx) 14px; align-items:start }
   .t-fig{ order:-1; width:100% }
   .t-secao{ display:none }
@@ -386,7 +397,7 @@ body.detalhe{ background:linear-gradient(to bottom, color-mix(in oklab, var(--te
   .lg-nota{ margin:8px 0 0 37px; font-size:11.5px }
   .virada span{ font-size:11px; padding:4px 7px }
 
-  .intro{ --altura:140vh }
+  .intro{ --altura:125vh }
   .fecho{ font-size:clamp(46px, 14vw, 64px) }
   .gp-cab{ grid-template-columns:1fr; gap:12px; padding-top:12px; margin-bottom:28px }
   .gp-cab h2{ font-size:clamp(2rem, 9vw, 2.5rem) }
@@ -404,6 +415,7 @@ body.detalhe{ background:linear-gradient(to bottom, color-mix(in oklab, var(--te
   .mx-lista li{ padding:10px 0; border-bottom:1px solid var(--moldura); font-size:14.5px; line-height:1.45 }
   .mx-lista b{ display:block; font-weight:500 }
   .mx-lista span{ color:var(--texto-2) }
+  .mx-lista li.mx-g{ padding:24px 0 8px; font-size:11.5px; font-weight:500; letter-spacing:.09em; text-transform:uppercase; color:var(--texto-2) }
 
   .contato{ --altura:180vh; --ancora:52vh }
   .c-wrap{ grid-template-columns:1fr; gap:26px; align-content:center; align-items:start; padding:calc(var(--mh) + 20px) var(--gx) 20px }

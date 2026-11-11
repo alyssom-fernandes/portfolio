@@ -110,7 +110,7 @@
       {
         "titulo": "Del archivo a nómina y RR. HH.",
         "texto": "Empecé en {carreira.astcon.empresa} en {carreira.astcon.inicioLongo} como auxiliar de archivo, a tiempo parcial, todavía en la secundaria. Pasé por contabilidad y llegué a nómina y RR. HH.: rutinas completas de más de {empresasClientesBase} empresas clientes, de la contratación al eSocial y la DCTFWeb.",
-        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio con los clientes.",
+        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio (software de nómina) automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio, el portal en línea de la firma para los clientes.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
@@ -165,7 +165,7 @@
       "cargo": "Auxiliar de Control de Gestión",
       "cargoFormal": "",
       "itens": [
-        "Trabajo directamente con el controller y atiendo solicitudes de los directores del grupo. Desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos.",
+        "Trabajo directamente con el controller, atiendo solicitudes de los directores del grupo y desarrollo sistemas internos.",
         "Reviso facturas y boletos (cobros bancarios) de buena parte de las empresas antes del pago. Ya bloqueé boletos falsos, facturas de otras empresas y facturas emitidas con el CNPJ (identificación fiscal) del grupo sin pedido, registradas como operación no reconocida, y contacté a proveedores para corregir facturas incompletas.",
         "Llevo el LMC (libro obligatorio de movimiento de combustibles) de 3 estaciones, conciliado con Veeder-Root (entradas, ventas, evaporación y existencias), y audito las entradas de combustible de una estación y del TRR (distribuidor de combustible), base del cálculo que hago del alquiler de los vehículos y del flete de los conductores.",
         "Me encargo de las compras de algunas empresas del grupo (cotización, negociación y elección del proveedor) y de los cambios en los contratos de alquiler de la flota. Concilio en AutoSystem los anticipos de combustible y las compras en Mercado Livre."
@@ -508,6 +508,13 @@
     "total": "Total",
     "porProjeto": "Por proyecto",
     "negocioTitulo": "Negocio, por experiencia",
+    "grupos": {
+      "pratica": "Práctica de ingeniería",
+      "linguagens": "Lenguajes",
+      "dados": "Datos y documentos",
+      "plataformas": "Frameworks y servicios",
+      "produto": "Funciones de los sistemas"
+    },
     "linhas": {
       "testes": "Pruebas automatizadas",
       "ci": "CI (GitHub Actions)",
@@ -538,7 +545,7 @@
       "combustiveis": "Combustibles: LMC, Veeder-Root, auditoría de entradas, cálculo de alquileres y fletes",
       "compras": "Compras: cotización, negociación, autorización de compras en Jira, contratos de flota",
       "implantacao": "Implementación de sistemas y formación de usuarios (Onvio)",
-      "analiseDados": "Análisis de datos en Excel: tablas dinámicas, BUSCARV/BUSCARX, SUMAR.SI.CONJUNTO, CONTAR.SI.CONJUNTO, SI, formato condicional, validación de datos",
+      "analiseDados": "Análisis de datos en Excel: tablas dinámicas, BUSCARV/BUSCARX, SUMAR.SI.CONJUNTO, CONTAR.SI.CONJUNTO, formato condicional, validación de datos",
       "treinamento": "Coordinación de equipo y formación"
     }
   },

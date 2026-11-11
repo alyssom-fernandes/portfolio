@@ -58,7 +58,7 @@
     {
       "id": "artmaker",
       "nome": "ArtMaker",
-      "ordem": 1,
+      "ordem": 9,
       "cor": "#D9A514",
       "demo": { "url": "https://alyssom-fernandes.github.io/ArtMaker/?demo=1", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/ArtMaker" }],
@@ -80,7 +80,7 @@
     {
       "id": "unifydata",
       "nome": "UnifyData",
-      "ordem": 2,
+      "ordem": 1,
       "cor": "#2F8A74",
       "demo": { "url": "https://alyssom-fernandes.github.io/UnifyData-Web/?demo=1", "ativa": true },
       "codigo": [
@@ -105,7 +105,7 @@
     {
       "id": "deepchat",
       "nome": "DeepChat",
-      "ordem": 3,
+      "ordem": 8,
       "cor": "#9A6B2A",
       "demo": { "url": "https://alyssom-fernandes.github.io/DeepChat/?demo=1", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/DeepChat" }],
@@ -127,7 +127,7 @@
     {
       "id": "praxis",
       "nome": "Praxis",
-      "ordem": 4,
+      "ordem": 5,
       "cor": "#D2683A",
       "demo": { "url": "https://praxis-af618.web.app", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Praxis" }],
@@ -149,7 +149,7 @@
     {
       "id": "flowtrack",
       "nome": "FlowTrack",
-      "ordem": 5,
+      "ordem": 3,
       "cor": "#8A2848",
       "demo": { "url": "https://flowtrack-afn.vercel.app", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/FlowTrack" }],
@@ -191,9 +191,9 @@
     {
       "id": "fuelmind",
       "nome": "Fuel Mind",
-      "ordem": 7,
+      "ordem": 2,
       "cor": "#B03030",
-      "demo": { "url": "https://controle-entradas-posto.web.app", "ativa": true },
+      "demo": { "url": "https://controle-entradas-posto.web.app/?demo", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Fuel-Mind" }],
       "stack": ["JavaScript", "Firebase", "Chart.js", "jsPDF", "SheetJS", "node:test", "GitHub Actions"],
       "numeros": {},
@@ -214,7 +214,7 @@
     {
       "id": "alertsignal",
       "nome": "AlertSignal",
-      "ordem": 8,
+      "ordem": 7,
       "cor": "#3A86E0",
       "demo": null,
       "comoRodar": {
@@ -241,7 +241,7 @@
     {
       "id": "docke",
       "nome": "Docke",
-      "ordem": 9,
+      "ordem": 4,
       "cor": "#17A086",
       "demo": { "url": "https://docke-two.vercel.app", "ativa": true },
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/Docke" }],
@@ -264,29 +264,36 @@
 
   "matriz": {
     "_leia": "Uma marca (1) só com evidência no código ou no CI do repositório (conferido em 03/10/2026; testes e CI revistos em 09/11/2026). Cada caractere de marcas segue a ordem de colunas, que é a mesma ordem dos projetos na página.",
-    "colunas": ["artmaker", "unifydata", "deepchat", "praxis", "flowtrack", "audistock", "fuelmind", "alertsignal", "docke"],
+    "colunas": ["unifydata", "fuelmind", "flowtrack", "docke", "praxis", "audistock", "alertsignal", "deepchat", "artmaker"],
+    "grupos": [
+      { "id": "pratica", "linhas": ["testes", "ci"] },
+      { "id": "linguagens", "linhas": ["javascript", "typescript", "python"] },
+      { "id": "dados", "linhas": ["excel", "relatorios", "postgres", "pandas", "nfe", "ocr"] },
+      { "id": "plataformas", "linhas": ["react", "fastapi", "flask", "firebase", "iaGenerativa"] },
+      { "id": "produto", "linhas": ["autenticacao", "dashboards", "jobs", "offline", "tempoReal"] }
+    ],
     "linhas": [
       { "id": "testes", "marcas": "111111111" },
       { "id": "ci", "marcas": "111111111" },
-      { "id": "javascript", "marcas": "111101110" },
-      { "id": "excel", "marcas": "010001110" },
-      { "id": "relatorios", "marcas": "010111110" },
-      { "id": "autenticacao", "marcas": "000111111" },
-      { "id": "dashboards", "marcas": "000111111" },
-      { "id": "python", "marcas": "010010011" },
-      { "id": "postgres", "marcas": "000011001" },
-      { "id": "jobs", "marcas": "000110011" },
-      { "id": "offline", "marcas": "000011100" },
-      { "id": "tempoReal", "marcas": "000100100" },
-      { "id": "firebase", "marcas": "000100100" },
-      { "id": "iaGenerativa", "marcas": "001010000" },
-      { "id": "typescript", "marcas": "000010001" },
-      { "id": "react", "marcas": "000010001" },
-      { "id": "fastapi", "marcas": "000010001" },
-      { "id": "pandas", "marcas": "010000010" },
-      { "id": "flask", "marcas": "000000010" },
-      { "id": "ocr", "marcas": "000000001" },
-      { "id": "nfe", "marcas": "000000100" }
+      { "id": "javascript", "marcas": "110011111" },
+      { "id": "typescript", "marcas": "001100000" },
+      { "id": "python", "marcas": "101100100" },
+      { "id": "excel", "marcas": "110001100" },
+      { "id": "relatorios", "marcas": "111011100" },
+      { "id": "postgres", "marcas": "001101000" },
+      { "id": "pandas", "marcas": "100000100" },
+      { "id": "nfe", "marcas": "010000000" },
+      { "id": "ocr", "marcas": "000100000" },
+      { "id": "react", "marcas": "001100000" },
+      { "id": "fastapi", "marcas": "001100000" },
+      { "id": "flask", "marcas": "000000100" },
+      { "id": "firebase", "marcas": "010010000" },
+      { "id": "iaGenerativa", "marcas": "001000010" },
+      { "id": "autenticacao", "marcas": "011111100" },
+      { "id": "dashboards", "marcas": "011111100" },
+      { "id": "jobs", "marcas": "001110100" },
+      { "id": "offline", "marcas": "011001000" },
+      { "id": "tempoReal", "marcas": "010010000" }
     ]
   },
 

@@ -155,7 +155,8 @@ const contato = $('#contato-cena');
 const cortinaContato = p => smooth(0, .55, p);
 function renderContato(p) {
   set(contato, '--cc', f3(cortinaContato(p)));
-  set(contato, '--s', f3(smooth(.55, .9, p)));
+  // a assinatura termina antes do ponto em que o link "Contato" para a página
+  set(contato, '--s', f3(smooth(.46, .62, p)));
 }
 /* o cabeçalho escurece quando a cortina passa por ele, e clareia na volta */
 function renderMast(ci, cc, vh = innerHeight) {
