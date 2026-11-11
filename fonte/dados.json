@@ -291,11 +291,13 @@
   },
 
   "negocio": [
-    { "id": "folha", "onde": ["astcon"] },
+    { "id": "folha", "onde": ["astcon", "novomexico"] },
     { "id": "contabil", "onde": ["astcon"] },
     { "id": "controladoria", "onde": ["zen"] },
-    { "id": "analiseDados", "onde": ["astcon", "zen"] },
-    { "id": "treinamento", "onde": ["astcon"] },
-    { "id": "coordenacao", "onde": ["novomexico"] }
+    { "id": "combustiveis", "onde": ["zen"] },
+    { "id": "compras", "onde": ["novomexico", "zen"] },
+    { "id": "implantacao", "onde": ["astcon"] },
+    { "id": "analiseDados", "onde": ["astcon", "novomexico", "zen"] },
+    { "id": "treinamento", "onde": ["astcon", "novomexico"] }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "_leia": "Textos do site em português. Tradução: copie para textos.en.json / textos.es.json e traduza só os valores (as chaves ficam iguais). Marcação: *ênfase* · **negrito** · ~riscado~ · {variavel} (vem de fonte/dados.json; não traduza o que está entre chaves). Chaves que começam com _ são ignoradas. Valores que começam com [PT] ainda estão em português e esperam tradução.",
   "meta": {
-    "titulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "titulo": "Alyssom Fernandes — Developer · Data & Automation",
     "descricao": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Remoto ou relocação para a Europa e as Américas. Construo os sistemas que substituem as planilhas.",
-    "ogTitulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
     "ogDescricao": "Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
-    "titulo": "Developer · Data & Business Intelligence",
+    "titulo": "Developer · Data & Automation",
     "tese": "Passei 5 anos dentro das ~planilhas~. Hoje construo os *sistemas* que as substituem.",
-    "pais": "Brasil",
+    "pais": "Goiás, Brasil",
     "disponibilidade": "Remoto ou relocação para a Europa e as Américas",
     "rubricaAlt": "Rubrica de Alyssom Fernandes"
   },
@@ -85,13 +85,13 @@
     "ficha": {
       "titulo": "Ficha",
       "experienciaRotulo": "Experiência",
-      "experiencia": "Hoje, {carreira.zen.cargo} no {carreira.zen.empresa}, desde {carreira.zen.inicioLongo}. Antes, DP/RH e contábil na {carreira.astcon.curto} ({carreira.astcon.anos}) e administrativo na {carreira.novomexico.empresa}.",
+      "experiencia": "Hoje, {carreira.zen.cargo} no {carreira.zen.empresa}, desde {carreira.zen.inicioLongo}, direto com o controller. Antes, na {carreira.astcon.curto} ({carreira.astcon.anos}), fui de office boy a responsável pelo DP/RH; depois, o administrativo da {carreira.novomexico.empresa}.",
       "formacaoRotulo": "Formação",
       "formacao": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}.",
       "idiomasRotulo": "Idiomas",
       "idiomas": "Português nativo, inglês B1, espanhol básico.",
       "vagaRotulo": "Vaga",
-      "vaga": "Desenvolvimento, dados ou sistemas financeiros. Remoto ou relocação para a Europa e as Américas.",
+      "vaga": "Dados e automação, desenvolvimento ou implantação de sistemas (folha, finanças, ERP). Remoto ou relocação para a Europa e as Américas.",
       "fusoRotulo": "Fuso",
       "fuso": "{pais}, {fuso}."
     }
@@ -103,31 +103,32 @@
       "iniciaisMeses": "JFMAMJJASOND",
       "virada": "{carreira.zen.ano}: das planilhas para os sistemas",
       "aspas": "“{texto}”",
-      "legendaGrade": "Grade de meses de fevereiro de {anoInicio} até hoje, colorida por empresa."
+      "legendaGrade": "Grade de meses de fevereiro de {anoInicio} até hoje, colorida por empresa.",
+      "notaTroca": "O mês de troca de empresa conta para as duas."
     },
     "passos": [
       {
-        "titulo": "Primeiro, as planilhas",
-        "texto": "De {carreira.astcon.inicio} a {carreira.astcon.fim}, na {carreira.astcon.empresa}, fiz as rotinas completas de DP/RH de mais de {empresasClientesBase} empresas clientes e atuei também no contábil.",
-        "extra": "Coordenava a equipe, virei referência técnica interna e treinava quem chegava.",
+        "titulo": "Do arquivo ao DP/RH",
+        "texto": "Comecei na {carreira.astcon.empresa} em {carreira.astcon.inicioLongo}, como office boy, em meio período, ainda no ensino médio. Passei pelo contábil e cheguei ao DP/RH: rotinas completas de mais de {empresasClientesBase} empresas clientes, da admissão ao eSocial e à DCTFWeb.",
+        "extra": "Virei o responsável pelo DP/RH e, na prática, pelo escritório: coordenava a equipe, treinava quem chegava e atendia os clientes mais difíceis. Automatizei no Domínio o cálculo das folhas e o envio ao eSocial e implantei o Onvio com os clientes.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
-        "titulo": "Um projeto de campo",
-        "texto": "Na {carreira.novomexico.empresa}, dei apoio administrativo a um projeto de irrigação: ajudava a coordenar equipes internas e empresas terceirizadas, conduzia reuniões, acompanhava a execução das obras e apoiava o financeiro.",
-        "extra": "",
+        "titulo": "Um convite para gerir",
+        "texto": "Um cliente do escritório me indicou ao dono da {carreira.novomexico.empresa}, que procurava alguém para assumir a gerência administrativa. Em {carreira.novomexico.inicioLongo}, entrei como auxiliar administrativo para suceder a gerente: pagamento da equipe, controle de compras, conferência de notas e boletos e reuniões com as equipes da irrigação.",
+        "extra": "Em {carreira.novomexico.fimLongo}, o grupo levou o administrativo das fazendas para a sede, e encerramos o vínculo. Foi lá que fiz a ferramenta que veio antes de todos os meus projetos: uma calculadora de horas para o pagamento da equipe.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
         "titulo": "A virada de {carreira.zen.ano}",
-        "texto": "No {carreira.zen.empresa}, um grupo com mais de {empresasGrupoBase} empresas, entrei como {carreira.zen.cargo} e passei a desenvolver sistemas internos.",
-        "extra": "",
+        "texto": "Um consultor que conhecia o meu trabalho me indicou ao {carreira.zen.empresa}, um grupo com mais de {empresasGrupoBase} empresas: postos, TRR, hotéis, restaurantes, locadora de veículos, imóveis e holdings. Entrei na controladoria para trabalhar direto com o controller e passei a desenvolver sistemas internos.",
+        "extra": "Faço o LMC de três postos, confiro as notas antes de o grupo pagar, cuido das compras de algumas empresas e atendo demandas diretas dos diretores.",
         "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Das planilhas para os sistemas",
         "texto": "Depois de cinco anos dentro das planilhas, sei onde elas quebram: arquivo que não conversa com outro, conciliação feita à mão, prazo que depende da memória de alguém. É isso que automatizo hoje.",
-        "extra": "",
+        "extra": "Estudo programação por conta própria desde 2022 e me formei em ADS em {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
@@ -137,12 +138,13 @@
     "astcon": {
       "area": "DP/RH e contábil",
       "tipo": "escritório de contabilidade",
-      "cargo": "Auxiliar de Escritório (DP/RH e contábil)",
+      "cargo": "Auxiliar de Escritório",
       "cargoFormal": "",
       "itens": [
-        "Rotinas completas de DP/RH para mais de {empresasClientesBase} empresas clientes: admissões, demissões, férias, rescisões, INSS, FGTS, eSocial e DCTFWeb.",
-        "Atuei também no contábil e auxiliei as demais áreas da contabilidade.",
-        "Coordenação de equipe; fui referência técnica interna e treinava novos colaboradores."
+        "Entrei como office boy, em meio período; passei pelo contábil (lançamentos, conciliação bancária e fechamento) e cheguei a responsável pelo DP/RH.",
+        "Rotinas completas de DP/RH de mais de {empresasClientesBase} empresas clientes no Domínio: admissões, demissões, férias, rescisões, INSS, FGTS, eSocial e DCTFWeb. Atendia os clientes e os funcionários deles.",
+        "Automatizei no Domínio o cálculo e o arquivamento das folhas na pasta de cada cliente e o envio da folha ao eSocial. Implantei o Onvio e treinei os clientes, às vezes nas unidades deles.",
+        "Coordenava a equipe do escritório, treinava quem chegava e respondia pelo escritório na ausência do dono."
       ]
     },
     "novomexico": {
@@ -151,18 +153,22 @@
       "cargo": "Auxiliar Administrativo",
       "cargoFormal": "",
       "itens": [
-        "Apoio administrativo a um projeto de irrigação.",
-        "Ajudava a coordenar equipes internas e empresas terceirizadas; conduzia reuniões, acompanhava a execução das obras e apoiava o financeiro."
+        "Indicado por um cliente da {carreira.astcon.curto}, entrei para assumir a gerência administrativa da fazenda, sucedendo a gerente.",
+        "Pagamento da equipe (horas extras, folgas e faltas), lançamento de notas e boletos de fornecedores no Jira, planilhas de controle e conciliação do serviço acumulado.",
+        "Apoio à gestão das equipes internas e das terceirizadas da implantação da irrigação, com reuniões e acompanhamento das obras.",
+        "Saída quando o grupo centralizou o administrativo das fazendas na sede."
       ]
     },
     "zen": {
       "area": "Sistemas",
-      "tipo": "um grupo com mais de {empresasGrupoBase} empresas",
+      "tipo": "grupo com mais de {empresasGrupoBase} empresas (combustíveis, hotelaria, locação, imóveis)",
       "cargo": "Auxiliar de Controladoria",
       "cargoFormal": "",
       "itens": [
-        "Desenvolvimento de sistemas internos.",
-        "Controladoria e conciliação, controles internos e ERP AutoSystem."
+        "Trabalho direto com o controller e atendo demandas dos diretores do grupo. Desenvolvo sistemas internos que reduziram bastante o tempo e, mais ainda, os erros dos processos.",
+        "Confiro notas e boletos de boa parte das empresas antes do pagamento. Já barrei boletos falsos, notas de outras empresas e notas emitidas no CNPJ do grupo sem pedido, com registro de desconhecimento da operação, e acionei fornecedores para corrigir notas incompletas.",
+        "Faço o LMC de 3 postos, conciliado com o Veeder-Root (entradas, vendas, evaporação e estoque), e audito as entradas de combustível de um posto e do TRR, base do cálculo que faço do aluguel dos veículos e do frete dos motoristas.",
+        "Respondo pelas compras de algumas empresas do grupo (cotação, negociação e escolha do fornecedor) e pelas alterações nos contratos de locação da frota. Concilio no AutoSystem os adiantamentos de combustível e as compras no Mercado Livre."
       ]
     }
   },
@@ -267,7 +273,7 @@
         },
         "revisada": {
           "titulo": "Versão revisada",
-          "texto": "Na demonstração, a função de CPF sai parcialmente correta porque aceita 111.111.111-11, e a revisão traz a versão corrigida."
+          "texto": "Na demonstração, a função de CPF sai parcialmente correta porque aceita 111.111.111-11, e a revisão traz a versão corrigida. Nesta tela a ordem está invertida (o ChatGPT responde e o DeepSeek revisa): um clique troca quem responde e quem revisa."
         },
         "chaves": {
           "titulo": "Sem servidor",
@@ -454,7 +460,7 @@
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: revisão de uma resposta com o veredito Incorreta, pontos fortes e o que melhorar",
-      "revisao-codigo": "DeepChat: versão revisada de uma função que valida CPF, agora recusando sequências repetidas como 111.111.111-11",
+      "revisao-codigo": "DeepChat: versão revisada de uma função que valida CPF, agora recusando sequências repetidas como 111.111.111-11, com a ordem invertida (o ChatGPT responde e o DeepSeek revisa)",
       "inicio": "DeepChat: tela inicial com os campos das chaves de API e o acesso à demonstração",
       "celular": "DeepChat no celular: revisão com pontos fortes, o que melhorar e sugestões"
     },
@@ -526,12 +532,14 @@
       "nfe": "NF-e (XML)"
     },
     "negocio": {
-      "folha": "DP e folha: eSocial, DCTFWeb, FGTS, INSS",
-      "contabil": "Rotinas contábeis e apoio às áreas da contabilidade",
-      "controladoria": "Controladoria e conciliação, controles internos, ERP AutoSystem",
-      "analiseDados": "Análise de dados financeiros e operacionais",
-      "treinamento": "Treinamento e coordenação de equipe",
-      "coordenacao": "Coordenação de equipes internas e terceirizadas, reuniões, acompanhamento de obras, apoio ao financeiro"
+      "folha": "DP e folha: eSocial, DCTFWeb, FGTS, INSS (Domínio e Onvio)",
+      "contabil": "Rotinas contábeis: lançamentos, conciliação bancária e fechamento",
+      "controladoria": "Controladoria: conciliações, conferência de notas e prevenção de golpes (AutoSystem, WebPosto)",
+      "combustiveis": "Combustíveis: LMC, Veeder-Root, auditoria de entradas, cálculo de aluguéis e fretes",
+      "compras": "Compras: cotação, negociação, autorização de compras no Jira, contratos de frota",
+      "implantacao": "Implantação de sistema e treinamento de usuários (Onvio)",
+      "analiseDados": "Análise de dados no Excel: tabela dinâmica, PROCV/PROCX, SOMASES, CONT.SES, SE, formatação condicional, validação de dados",
+      "treinamento": "Coordenação de equipe e treinamento"
     }
   },
   "formacao": {
@@ -556,7 +564,7 @@
   "contato": {
     "secao": "Contato",
     "titulo": "Tem uma planilha que devia ser um sistema?",
-    "texto": "Procuro vaga em desenvolvimento, dados ou sistemas financeiros, remota ou com relocação para a Europa e as Américas. Escreva para {linkEmail}, chame no {linkWhatsapp} ou veja o código no {linkGithub}.",
+    "texto": "Procuro vaga em dados e automação, desenvolvimento ou implantação de sistemas, remota ou com relocação para a Europa e as Américas. Escreva para {linkEmail}, chame no {linkWhatsapp} ou veja o código no {linkGithub}.",
     "formacao": "{formacao.cursoCurto}, {formacao.instituicao}, {formacao.conclusao}. Português nativo, inglês B1, espanhol básico. {pais}, {fuso}.",
     "atualizado": "Atualizado em {atualizado}"
   },
@@ -569,13 +577,13 @@
   "cv": {
     "site": "Portfólio",
     "resumoTitulo": "Resumo",
-    "resumo": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. De {carreira.astcon.anoInicio} a {carreira.astcon.anoFim} fiz as rotinas completas de DP/RH de mais de {empresasClientesBase} empresas clientes e atuei também no contábil; desde {carreira.zen.ano}, no Grupo Zen, desenvolvo sistemas internos. Crio software a partir de dores reais do trabalho.",
+    "resumo": "Desenvolvedor com mais de cinco anos de carreira entre contabilidade, DP/RH, administrativo e controladoria. Na {carreira.astcon.curto}, comecei como office boy e cheguei a responsável pelo DP/RH de mais de {empresasClientesBase} empresas clientes, coordenando a equipe do escritório. Hoje, na controladoria do {carreira.zen.empresa}, confiro notas antes do pagamento, cuido de compras e desenvolvo sistemas internos que reduziram bastante o tempo e, mais ainda, os erros dos processos. Crio software a partir de dores reais do trabalho.",
     "experienciaTitulo": "Experiência",
     "projetosTitulo": "Projetos",
     "projetosNota": "{projetosPublicados} projetos publicados no GitHub, {demosAtivas} com demo no ar. Testes conferidos em {data}.",
     "habilidadesTitulo": "Habilidades",
     "tecnologias": "Tecnologias",
     "negocio": "Negócio",
-    "formacaoTitulo": "Formação e idiomas"
+    "formacaoTitulo": "Formação"
   }
 }

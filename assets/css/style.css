@@ -163,6 +163,7 @@ html:not(.js) .t-passo{ margin:40px 0 }
 .legenda dt i{ width:13px; height:13px; border-radius:3px }
 .legenda dd{ margin:0; font:400 13.5px/1.4 var(--sans); color:var(--tinta-2) }
 .legenda .lg-n{ color:var(--tinta); font-variant-numeric:tabular-nums; min-height:19px }
+.lg-nota{ margin:14px 0 0 49px; font:400 12.5px/1.4 var(--sans); color:var(--tinta-2) }
 
 /* ---------- introdução dos projetos: a cortina do papel para a tela ---------- */
 .intro{ --altura:150vh; --c:0 }
@@ -382,6 +383,7 @@ body.detalhe{ background:linear-gradient(to bottom, color-mix(in oklab, var(--te
   .cel{ border-radius:2px } .cel.hoje::after{ inset:-3px; border-radius:3px }
   .legenda{ margin:38px 0 0 37px; gap:6px 16px; grid-template-columns:repeat(3, minmax(0, auto)) }
   .legenda dt{ font-size:16px } .legenda dt i{ width:10px; height:10px } .legenda dd:not(.lg-n){ display:none } .legenda dd{ font-size:12.5px }
+  .lg-nota{ margin:8px 0 0 37px; font-size:11.5px }
   .virada span{ font-size:11px; padding:4px 7px }
 
   .intro{ --altura:140vh }
@@ -424,6 +426,15 @@ body.detalhe{ background:linear-gradient(to bottom, color-mix(in oklab, var(--te
 html.cap .off{ display:none !important }
 html.cap .cena{ height:100vh !important }
 html.cap .cena > .fixo{ margin-top:calc(-1 * var(--mh)) }
+
+/* celular: quando o passo mais longo da trajetória não cabe abaixo da figura, o main.js liga estas classes em ordem:
+   primeiro o texto fica mais compacto; se ainda não couber, o complemento de cada passo sai (o CV traz tudo);
+   em telas muito baixas, a legenda também sai (as cores da grade continuam) */
+.traj.compacto .t-passo h3{ font-size:1.45rem; margin-bottom:6px }
+.traj.compacto .t-passo p{ font-size:14px; line-height:1.45 }
+.traj.compacto .t-passo .t-fonte{ margin-top:6px; font-size:12.5px }
+.traj.sem-extra .t-extra{ display:none }
+.traj.mini .legenda, .traj.mini .lg-nota{ display:none }
 
 /* ---------- impressão: o currículo em 2 páginas A4 ---------- */
 .cvp{ display:none }

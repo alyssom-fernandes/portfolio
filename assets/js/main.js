@@ -93,8 +93,22 @@ function renderTraj(p) {
 const tFixo = tFig.parentNode;
 function ajustarFig() {
   tFig.style.width = '';
-  const emp = mob(), anos = cels.length ? Math.ceil($$('.ano', traj).length) : 6;
-  const disp = emp ? tFixo.clientHeight * .58 : tFixo.clientHeight - parseFloat(getComputedStyle(tFixo).paddingTop) - 40;
+  traj.classList.remove('compacto', 'sem-extra', 'mini');
+  let disp;
+  if (mob()) {
+    // no celular a figura fica em cima e o texto embaixo. Se o passo mais longo não couber, o texto fica compacto;
+    // se ainda não couber, sai o complemento; por último, a figura encolhe
+    const cs = getComputedStyle(tFixo);
+    const sobra = () => {
+      const topo = tFig.getBoundingClientRect().top - tFixo.getBoundingClientRect().top;
+      return tFixo.clientHeight - parseFloat(cs.paddingBottom) - topo - tFig.offsetHeight - (parseFloat(cs.rowGap) || 20)
+        - Math.max(...passos.map(s => s.offsetHeight));
+    };
+    if (sobra() < 0) traj.classList.add('compacto');
+    if (sobra() < 0) traj.classList.add('sem-extra');
+    if (sobra() < 0) traj.classList.add('mini');
+    disp = Math.min(tFixo.clientHeight * .58, tFig.offsetHeight + Math.min(0, sobra()));
+  } else disp = tFixo.clientHeight - parseFloat(getComputedStyle(tFixo).paddingTop) - 40;
   for (let k = 0; k < 6; k++) {
     const h = tFig.offsetHeight;
     if (h <= disp) break;

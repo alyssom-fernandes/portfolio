@@ -1,16 +1,16 @@
 {
   "_leia": "Site copy in international English: readable in Europe and the Americas, US spelling (-ize), no terms tied to one country. Keys must stay identical to textos.pt.json; translate only the values. Markup: *emphasis* · **bold** · ~strikethrough~ · {variable} (comes from fonte/dados.json; never translate what is inside the braces). Keys starting with _ are ignored.",
   "meta": {
-    "titulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "titulo": "Alyssom Fernandes — Developer · Data & Automation",
     "descricao": "Developer with a background in accounting, payroll, HR, and financial control. Remote or relocation to Europe and the Americas. I build systems that replace spreadsheets.",
-    "ogTitulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
     "ogDescricao": "I spent 5 years inside spreadsheets. Now I build the systems that replace them.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
-    "titulo": "Developer · Data & Business Intelligence",
+    "titulo": "Developer · Data & Automation",
     "tese": "I spent 5 years inside ~spreadsheets~. Now I build the *systems* that replace them.",
-    "pais": "Brazil",
+    "pais": "Goiás, Brazil",
     "disponibilidade": "Remote or relocation to Europe and the Americas",
     "rubricaAlt": "Alyssom Fernandes’s signature mark"
   },
@@ -85,13 +85,13 @@
     "ficha": {
       "titulo": "Fact sheet",
       "experienciaRotulo": "Experience",
-      "experiencia": "Now {carreira.zen.cargo} at {carreira.zen.empresa}, since {carreira.zen.inicioLongo}. Before that, payroll, HR, and accounting at {carreira.astcon.curto} ({carreira.astcon.anos}) and administration at {carreira.novomexico.empresa}.",
+      "experiencia": "Now {carreira.zen.cargo} at {carreira.zen.empresa} since {carreira.zen.inicioLongo}, working directly with the controller. Before that, at {carreira.astcon.curto} ({carreira.astcon.anos}), I went from filing clerk to being in charge of payroll and HR; then, administration at {carreira.novomexico.empresa}.",
       "formacaoRotulo": "Education",
       "formacao": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}.",
       "idiomasRotulo": "Languages",
       "idiomas": "Native Portuguese, B1 English, basic Spanish.",
       "vagaRotulo": "Looking for",
-      "vaga": "Development, data, or financial systems. Remote or relocation to Europe and the Americas.",
+      "vaga": "Data and automation, development, or systems implementation (payroll, finance, ERP). Remote or relocation to Europe and the Americas.",
       "fusoRotulo": "Time zone",
       "fuso": "{pais}, {fuso}."
     }
@@ -103,31 +103,32 @@
       "iniciaisMeses": "JFMAMJJASOND",
       "virada": "{carreira.zen.ano}: from spreadsheets to systems",
       "aspas": "“{texto}”",
-      "legendaGrade": "Grid of months from February {anoInicio} to today, colored by company."
+      "legendaGrade": "Grid of months from February {anoInicio} to today, colored by company.",
+      "notaTroca": "The month I changed companies counts for both."
     },
     "passos": [
       {
-        "titulo": "First, the spreadsheets",
-        "texto": "From {carreira.astcon.inicio} to {carreira.astcon.fim}, at {carreira.astcon.empresa}, I ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting.",
-        "extra": "I coordinated the team, became the in-house go-to person for technical questions, and trained new hires.",
+        "titulo": "From the file room to payroll and HR",
+        "texto": "I started at {carreira.astcon.empresa} in {carreira.astcon.inicioLongo} as a part-time filing clerk, while still in high school. I moved through accounting and on to payroll and HR: full routines for more than {empresasClientesBase} client companies, from hiring to eSocial and DCTFWeb filings.",
+        "extra": "I became the person in charge of payroll and HR and, in practice, of the office: I coordinated the team, trained new hires, and handled the most difficult clients. In Domínio, I automated payroll calculation and submission to eSocial, and I rolled out Onvio with the clients.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
-        "titulo": "A field project",
-        "texto": "At {carreira.novomexico.empresa}, I gave administrative support to an irrigation project: I helped coordinate in-house teams and contractors, ran meetings, tracked the progress of the construction work, and supported the finance team.",
-        "extra": "",
+        "titulo": "An invitation to manage",
+        "texto": "A client of the firm recommended me to the owner of {carreira.novomexico.empresa}, who was looking for someone to take over administrative management. In {carreira.novomexico.inicioLongo}, I joined as an administrative assistant to succeed the manager: staff pay, purchasing control, checking invoices and boletos (bank payment slips), and meetings with the irrigation teams.",
+        "extra": "In {carreira.novomexico.fimLongo}, the group moved the farms’ administration to headquarters, and we parted ways. That is where I made the tool that came before all my projects: an hours calculator for staff pay.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
         "titulo": "The turning point of {carreira.zen.ano}",
-        "texto": "At {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies, I joined as {carreira.zen.cargo} and began developing in-house systems.",
-        "extra": "",
+        "texto": "A consultant who knew my work recommended me to {carreira.zen.empresa}, a group of more than {empresasGrupoBase} companies: fuel stations, a TRR (fuel distributor), hotels, restaurants, a vehicle rental company, real estate, and holding companies. I joined the financial control team to work directly with the controller and began developing in-house systems.",
+        "extra": "I keep the LMC (the mandatory fuel stock ledger) for three fuel stations, check invoices before the group pays, handle purchasing for some of the companies, and take requests directly from the directors.",
         "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Turning spreadsheets into systems",
         "texto": "After five years inside spreadsheets, I know where they break: a file that doesn’t talk to the next one, reconciliation done by hand, a deadline that depends on someone’s memory. That is what I automate today.",
-        "extra": "",
+        "extra": "I have been teaching myself programming since 2022, and I graduated in Systems Analysis and Development in {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
@@ -137,12 +138,13 @@
     "astcon": {
       "area": "Payroll, HR, and accounting",
       "tipo": "accounting firm",
-      "cargo": "Office Assistant (payroll, HR, and accounting)",
+      "cargo": "Office Assistant",
       "cargoFormal": "",
       "itens": [
-        "Full payroll and HR routines for more than {empresasClientesBase} client companies: hiring, dismissals, leave, termination settlements, and Brazilian payroll filings (INSS, FGTS, eSocial, DCTFWeb).",
-        "Also worked on the accounting side and supported the firm’s other departments.",
-        "Coordinated the team; served as the in-house go-to for technical questions and trained new staff."
+        "Started as a part-time filing clerk; moved through accounting (journal entries, bank reconciliation, and month-end close) and became the person in charge of payroll and HR.",
+        "Full payroll and HR routines for more than {empresasClientesBase} client companies in Domínio (payroll software): hiring, dismissals, leave, termination settlements, and Brazilian payroll filings (INSS, FGTS, eSocial, DCTFWeb). Served the clients and their employees.",
+        "In Domínio, automated payroll calculation, filing of each payroll in the client’s folder, and payroll submission to eSocial. Rolled out Onvio and trained the clients, sometimes at their own sites.",
+        "Coordinated the office team, trained new hires, and was in charge of the office when the owner was away."
       ]
     },
     "novomexico": {
@@ -151,18 +153,22 @@
       "cargo": "Administrative Assistant",
       "cargoFormal": "",
       "itens": [
-        "Administrative support for an irrigation project.",
-        "Helped coordinate in-house teams and contractors; ran meetings, tracked the construction work, and supported the finance team."
+        "Recommended by a client of {carreira.astcon.curto}, joined to take over the farm’s administrative management, succeeding the manager.",
+        "Staff pay (overtime, days off, and absences), entering supplier invoices and boletos in Jira, tracking spreadsheets, and reconciling the backlog.",
+        "Supported the management of in-house teams and of the contractors installing the irrigation system, with meetings and tracking of the construction work.",
+        "Left when the group centralized the farms’ administration at headquarters."
       ]
     },
     "zen": {
       "area": "Systems",
-      "tipo": "a group of more than {empresasGrupoBase} companies",
+      "tipo": "group of more than {empresasGrupoBase} companies (fuel, hospitality, vehicle rental, real estate)",
       "cargo": "Financial Control Assistant",
       "cargoFormal": "",
       "itens": [
-        "In-house systems development.",
-        "Financial control and reconciliation, internal controls, and the AutoSystem ERP."
+        "Work directly with the controller and handle requests from the group’s directors. Develop in-house systems that have cut process time considerably and errors even more.",
+        "Check invoices and boletos (bank payment slips) for a large share of the companies before payment. Caught fake boletos, invoices for other companies, and invoices issued under the group’s tax ID (CNPJ) with no order, registering them as unrecognized transactions, and contacted suppliers to correct incomplete invoices.",
+        "Keep the LMC (mandatory fuel stock ledger) for 3 stations, reconciled with Veeder-Root (deliveries, sales, evaporation, and stock), and audit fuel deliveries at one station and the TRR (fuel distributor), the basis for my calculation of vehicle rental and drivers’ freight.",
+        "Handle purchasing for some of the group’s companies (quotes, negotiation, and supplier selection) and changes to the fleet rental contracts. Reconcile fuel advances and Mercado Livre purchases in AutoSystem."
       ]
     }
   },
@@ -267,7 +273,7 @@
         },
         "revisada": {
           "titulo": "Revised version",
-          "texto": "In the demo, a function that validates a CPF (Brazilian taxpayer ID) comes back partially correct because it accepts 111.111.111-11, and the review provides the corrected version."
+          "texto": "In the demo, a function that validates a CPF (Brazilian taxpayer ID) comes back partially correct because it accepts 111.111.111-11, and the review provides the corrected version. On this screen the order is reversed (ChatGPT answers and DeepSeek reviews): one click swaps who answers and who reviews."
         },
         "chaves": {
           "titulo": "No server",
@@ -454,7 +460,7 @@
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: review of an answer with the verdict Incorrect, strengths, and what to improve",
-      "revisao-codigo": "DeepChat: revised version of a CPF validation function, now rejecting repeated sequences such as 111.111.111-11",
+      "revisao-codigo": "DeepChat: revised version of a CPF validation function, now rejecting repeated sequences such as 111.111.111-11, with the order reversed (ChatGPT answers and DeepSeek reviews)",
       "inicio": "DeepChat: start screen with the API key fields and access to the demo",
       "celular": "DeepChat on a phone: review with strengths, what to improve, and suggestions"
     },
@@ -526,12 +532,14 @@
       "nfe": "NF-e (XML)"
     },
     "negocio": {
-      "folha": "Payroll and HR: eSocial, DCTFWeb, FGTS, INSS",
-      "contabil": "Accounting routines and support for the firm’s other departments",
-      "controladoria": "Financial control and reconciliation, internal controls, AutoSystem ERP",
-      "analiseDados": "Financial and operational data analysis",
-      "treinamento": "Training and team coordination",
-      "coordenacao": "Coordinating in-house teams and contractors, meetings, tracking construction work, supporting finance"
+      "folha": "Payroll and HR: eSocial, DCTFWeb, FGTS, INSS (Domínio and Onvio)",
+      "contabil": "Accounting routines: journal entries, bank reconciliation, and month-end close",
+      "controladoria": "Financial control: reconciliations, invoice checks, and fraud prevention (AutoSystem, WebPosto)",
+      "combustiveis": "Fuel: LMC, Veeder-Root, delivery audits, rental and freight calculation",
+      "compras": "Purchasing: quotes, negotiation, purchase approvals in Jira, fleet contracts",
+      "implantacao": "System implementation and user training (Onvio)",
+      "analiseDados": "Data analysis in Excel: PivotTables, VLOOKUP/XLOOKUP, SUMIFS, COUNTIFS, IF, conditional formatting, data validation",
+      "treinamento": "Team coordination and training"
     }
   },
   "formacao": {
@@ -556,7 +564,7 @@
   "contato": {
     "secao": "Contact",
     "titulo": "Got a spreadsheet that should be a system?",
-    "texto": "I’m looking for a role in development, data, or financial systems, remote or with relocation to Europe and the Americas. Write to {linkEmail}, message me on {linkWhatsapp}, or see the code on {linkGithub}.",
+    "texto": "I’m looking for a role in data and automation, development, or systems implementation, remote or with relocation to Europe and the Americas. Write to {linkEmail}, message me on {linkWhatsapp}, or see the code on {linkGithub}.",
     "formacao": "{formacao.cursoCurto}, {formacao.instituicao}, {formacao.conclusao}. Native Portuguese, B1 English, basic Spanish. {pais}, {fuso}.",
     "atualizado": "Updated {atualizado}"
   },
@@ -569,13 +577,13 @@
   "cv": {
     "site": "Portfolio",
     "resumoTitulo": "Summary",
-    "resumo": "Developer with a background in accounting, payroll, HR, and financial control. From {carreira.astcon.anoInicio} to {carreira.astcon.anoFim} I ran the full payroll and HR routines for more than {empresasClientesBase} client companies and also worked in accounting; since {carreira.zen.ano}, at Grupo Zen, I have been developing in-house systems. I build software from problems I ran into at work.",
+    "resumo": "Developer with more than five years of experience across accounting, payroll and HR, administration, and financial control. At {carreira.astcon.curto}, I started as a filing clerk and became the person in charge of payroll and HR for more than {empresasClientesBase} client companies, coordinating the office team. Now, in financial control at {carreira.zen.empresa}, I check invoices before payment, handle purchasing, and develop in-house systems that have cut process time considerably and errors even more. I build software from real pain points at work.",
     "experienciaTitulo": "Experience",
     "projetosTitulo": "Projects",
     "projetosNota": "{projetosPublicados} projects published on GitHub, {demosAtivas} with a live demo. Tests checked on {data}.",
     "habilidadesTitulo": "Skills",
     "tecnologias": "Technologies",
     "negocio": "Business",
-    "formacaoTitulo": "Education and languages"
+    "formacaoTitulo": "Education"
   }
 }

@@ -162,7 +162,7 @@ carreira.forEach((c, i) => { if (c.fim === null && i !== carreira.length - 1) er
 const varsProjetos = new Set(projetos.flatMap(p => [...Object.keys(p.numeros || {}), ...Object.keys(p.testes || {}), 'testesTotal']));
 const varsLocais = new Set(['mes', 'mesCurto', 'ano', 'dia', 'inicio', 'fim', 'texto', 'n', 'total', 'nome', 'frase', 'rotulo', 'data',
   'linkEmail', 'linkWhatsapp', 'linkGithub']);
-const varsCarreira = new Set(carreira.flatMap(c => ['empresa', 'curto', 'cargo', 'cargoFormal', 'inicio', 'inicioLongo', 'fim', 'periodo', 'anos', 'ano', 'anoInicio', 'anoFim'].map(k => `carreira.${c.id}.${k}`)));
+const varsCarreira = new Set(carreira.flatMap(c => ['empresa', 'curto', 'cargo', 'cargoFormal', 'inicio', 'inicioLongo', 'fim', 'fimLongo', 'periodo', 'anos', 'ano', 'anoInicio', 'anoFim'].map(k => `carreira.${c.id}.${k}`)));
 const varsGlobais = new Set([...Object.keys(dados.numeros), ...Object.keys(dados.numeros).map(k => k + 'Base'), ...Object.keys(calc),
   'pais', 'marca', 'formacao.curso', 'formacao.cursoCurto', 'atualizado']);
 for (const [cod, plano] of Object.entries(planos))
@@ -218,6 +218,7 @@ function contexto(idioma) {
       [k + 'empresa']: c.empresa, [k + 'curto']: c.curto, [k + 'cargo']: TC.cargo, [k + 'cargoFormal']: TC.cargoFormal,
       [k + 'inicio']: mesAno(c.inicio), [k + 'fim']: fim, [k + 'periodo']: preencher(F.periodo, { inicio: mesAno(c.inicio), fim }, 'formato.periodo'),
       [k + 'inicioLongo']: preencher(F.mesAnoLongo, { mes: F.mesesLongos[c.inicio[1] - 1], ano: c.inicio[0] }, 'formato.mesAnoLongo'),
+      [k + 'fimLongo']: c.fim ? preencher(F.mesAnoLongo, { mes: F.mesesLongos[c.fim[1] - 1], ano: c.fim[0] }, 'formato.mesAnoLongo') : F.hoje,
       [k + 'ano']: String(c.inicio[0]), [k + 'anoInicio']: String(c.inicio[0]), [k + 'anoFim']: c.fim ? String(c.fim[0]) : F.hoje,
       [k + 'anos']: c.fim ? `${c.inicio[0]}–${c.fim[0]}` : `${c.inicio[0]}–${F.hoje}`
     });
@@ -376,6 +377,8 @@ function gerarPagina(idioma) {
     }
   }
   const meses = n => `${n} ${n === 1 ? F.mes : F.meses}`;
+  // a soma da legenda passa do total quando um mês de troca pertence a duas empresas: a nota explica a diferença
+  const somaFases = carreira.reduce((s, c) => s + contagem[c.id], 0);
   const passos = T.trajetoria.passos;
   const trajetoria = `<section class="cena traj" id="trajetoria" data-cena="trajetoria" aria-labelledby="traj-t">
     <div class="fixo">
@@ -385,7 +388,7 @@ function gerarPagina(idioma) {
         <div class="t-passos">
           ${passos.map((s, j) => `<article class="t-passo">
             <h3>${h(`trajetoria.passos.${j}.titulo`)}</h3>
-            <p>${h(`trajetoria.passos.${j}.texto`)}${s.extra ? ` ${h(`trajetoria.passos.${j}.extra`)}` : ''}</p>
+            <p>${h(`trajetoria.passos.${j}.texto`)}${s.extra ? ` <span class="t-extra">${h(`trajetoria.passos.${j}.extra`)}</span>` : ''}</p>
             <p class="t-fonte">${p0(`trajetoria.passos.${j}.fonte`)}</p>
           </article>`).join('\n          ')}
         </div>
@@ -398,6 +401,7 @@ function gerarPagina(idioma) {
         <div class="grade-m" id="gradeM" role="img" aria-label="${p0('trajetoria.figura.legendaGrade')}">${grade}</div>
         <p class="virada" id="virada"><span>${p0('trajetoria.figura.virada')}</span></p>
         <dl class="legenda">${carreira.map(c => `<div data-ph="${c.id}"><dt><i style="background:${c.cor}"></i>${esc(c.curto)}</dt><dd>${p0(`carreira.${c.id}.area`)}</dd><dd class="lg-n" data-total="${meses(contagem[c.id])}">${meses(contagem[c.id])}</dd></div>`).join('')}</dl>
+        ${somaFases > totalMeses ? `<p class="lg-nota">${p0('trajetoria.figura.notaTroca')}</p>` : ''}
       </figure>
     </div>
   </section>`;
@@ -553,7 +557,7 @@ function gerarPagina(idioma) {
   </section>
   <section class="cvp-s">
     <h3>${p0('cv.formacaoTitulo')}</h3>
-    <p><b>${p0('formacao.curso')}</b>, ${p0('formacao.detalhe')}. ${p0('abertura.ficha.idiomas')}</p>
+    <p><b>${p0('formacao.curso')}</b>, ${p0('formacao.detalhe')}.</p>
   </section>
   <footer class="cvp-assina">
     <img src="${pref}${I.rubrica}" width="220" height="399" alt="${p0('identidade.rubricaAlt')}">

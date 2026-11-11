@@ -1,16 +1,16 @@
 {
   "_leia": "Textos del sitio en español neutro (internacional): trato de tú, sin vosotros ni voseo, sin términos propios de un solo país. Mismas claves que textos.pt.json; solo cambian los valores. Marcado: *énfasis* · **negrita** · ~tachado~ · {variable} (viene de fonte/dados.json; no se traduce). Las claves que empiezan por _ se ignoran.",
   "meta": {
-    "titulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "titulo": "Alyssom Fernandes — Developer · Data & Automation",
     "descricao": "Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América. Construyo sistemas que sustituyen hojas de cálculo.",
-    "ogTitulo": "Alyssom Fernandes — Developer · Data & Business Intelligence",
+    "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
     "ogDescricao": "Pasé 5 años metido en hojas de cálculo. Hoy construyo los sistemas que las sustituyen.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
-    "titulo": "Developer · Data & Business Intelligence",
+    "titulo": "Developer · Data & Automation",
     "tese": "Pasé 5 años metido en ~hojas\u00a0de\u00a0cálculo~. Hoy construyo los *sistemas* que las sustituyen.",
-    "pais": "Brasil",
+    "pais": "Goiás, Brasil",
     "disponibilidade": "Remoto o traslado a Europa y América",
     "rubricaAlt": "Firma de Alyssom Fernandes"
   },
@@ -85,13 +85,13 @@
     "ficha": {
       "titulo": "Ficha",
       "experienciaRotulo": "Experiencia",
-      "experiencia": "Hoy, {carreira.zen.cargo} en {carreira.zen.empresa}, desde {carreira.zen.inicioLongo}. Antes, nómina, recursos humanos y contabilidad en {carreira.astcon.curto} ({carreira.astcon.anos}) y administración en {carreira.novomexico.empresa}.",
+      "experiencia": "Hoy, {carreira.zen.cargo} en {carreira.zen.empresa} desde {carreira.zen.inicioLongo}, directamente con el controller. Antes, en {carreira.astcon.curto} ({carreira.astcon.anos}), pasé de auxiliar de archivo a responsable de nómina y RR. HH.; después, la administración de {carreira.novomexico.empresa}.",
       "formacaoRotulo": "Formación",
       "formacao": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}.",
       "idiomasRotulo": "Idiomas",
       "idiomas": "Portugués nativo, inglés B1, español básico.",
       "vagaRotulo": "Busco",
-      "vaga": "Desarrollo, datos o sistemas financieros. Remoto o traslado a Europa y América.",
+      "vaga": "Datos y automatización, desarrollo o implementación de sistemas (nómina, finanzas, ERP). Remoto o traslado a Europa y América.",
       "fusoRotulo": "Huso horario",
       "fuso": "{pais}, {fuso}."
     }
@@ -103,31 +103,32 @@
       "iniciaisMeses": "EFMAMJJASOND",
       "virada": "{carreira.zen.ano}: de las hojas de cálculo a los sistemas",
       "aspas": "«{texto}»",
-      "legendaGrade": "Cuadrícula de meses desde febrero de {anoInicio} hasta hoy, coloreada por empresa."
+      "legendaGrade": "Cuadrícula de meses desde febrero de {anoInicio} hasta hoy, coloreada por empresa.",
+      "notaTroca": "El mes del cambio de empresa cuenta para las dos."
     },
     "passos": [
       {
-        "titulo": "Primero, las hojas de cálculo",
-        "texto": "De {carreira.astcon.inicio} a {carreira.astcon.fim}, en {carreira.astcon.empresa}, llevé todas las rutinas de nómina y recursos humanos de más de {empresasClientesBase} empresas clientes y trabajé también en contabilidad.",
-        "extra": "Coordinaba al equipo, me convertí en referente técnico interno y formaba a quienes llegaban.",
+        "titulo": "Del archivo a nómina y RR. HH.",
+        "texto": "Empecé en {carreira.astcon.empresa} en {carreira.astcon.inicioLongo} como auxiliar de archivo, a tiempo parcial, todavía en la secundaria. Pasé por contabilidad y llegué a nómina y RR. HH.: rutinas completas de más de {empresasClientesBase} empresas clientes, de la contratación al eSocial y la DCTFWeb.",
+        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio con los clientes.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
-        "titulo": "Un proyecto de campo",
-        "texto": "En {carreira.novomexico.empresa}, di apoyo administrativo a un proyecto de riego: ayudaba a coordinar equipos internos y empresas contratistas, dirigía reuniones, hacía el seguimiento de las obras y apoyaba al área financiera.",
-        "extra": "",
+        "titulo": "Una invitación para gestionar",
+        "texto": "Un cliente de la firma me recomendó al dueño de {carreira.novomexico.empresa}, que buscaba a alguien para asumir la gerencia administrativa. En {carreira.novomexico.inicioLongo} entré como auxiliar administrativo para suceder a la gerente: pago del personal, control de compras, revisión de facturas y boletos (cobros bancarios) y reuniones con los equipos del riego.",
+        "extra": "En {carreira.novomexico.fimLongo}, el grupo llevó la administración de las fincas a la sede y pusimos fin a la relación laboral. Allí hice la herramienta que vino antes de todos mis proyectos: una calculadora de horas para el pago del personal.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
         "titulo": "El giro de {carreira.zen.ano}",
-        "texto": "En {carreira.zen.empresa}, un grupo con más de {empresasGrupoBase} empresas, entré como {carreira.zen.cargo} y empecé a desarrollar sistemas internos.",
-        "extra": "",
+        "texto": "Un consultor que conocía mi trabajo me recomendó a {carreira.zen.empresa}, un grupo con más de {empresasGrupoBase} empresas: estaciones de servicio, TRR (distribuidor de combustible), hoteles, restaurantes, alquiler de vehículos, inmuebles y sociedades holding. Entré en control de gestión para trabajar directamente con el controller y empecé a desarrollar sistemas internos.",
+        "extra": "Llevo el LMC (libro obligatorio de movimiento de combustibles) de tres estaciones de servicio, reviso las facturas antes de que el grupo pague, me encargo de las compras de algunas empresas y atiendo solicitudes directas de los directores.",
         "fonte": "{carreira.zen.cargo}, {carreira.zen.periodo}"
       },
       {
         "titulo": "Convertir hojas de cálculo en sistemas",
         "texto": "Después de cinco años metido en hojas de cálculo, sé dónde fallan: el archivo que no se comunica con otro, la conciliación hecha a mano, el plazo que depende de la memoria de alguien. Eso es lo que automatizo hoy.",
-        "extra": "",
+        "extra": "Estudio programación por mi cuenta desde 2022 y me gradué en Análisis y Desarrollo de Sistemas en {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
     ],
@@ -137,12 +138,13 @@
     "astcon": {
       "area": "Nómina, RR. HH. y contabilidad",
       "tipo": "firma contable",
-      "cargo": "Auxiliar de oficina (nómina, recursos humanos y contabilidad)",
+      "cargo": "Auxiliar de oficina",
       "cargoFormal": "",
       "itens": [
-        "Rutinas completas de nómina y recursos humanos para más de {empresasClientesBase} empresas clientes: contrataciones, despidos, vacaciones, liquidaciones y las obligaciones laborales brasileñas (INSS, FGTS, eSocial, DCTFWeb).",
-        "Trabajé también en la parte contable y di apoyo a las demás áreas de la firma.",
-        "Coordinación de equipo; fui referente técnico interno y formaba a los nuevos compañeros."
+        "Entré como auxiliar de archivo, a tiempo parcial; pasé por contabilidad (asientos, conciliación bancaria y cierre) y llegué a responsable de nómina y RR. HH.",
+        "Rutinas completas de nómina y RR. HH. de más de {empresasClientesBase} empresas clientes en Domínio (software de nómina): contrataciones, despidos, vacaciones, liquidaciones y obligaciones laborales brasileñas (INSS, FGTS, eSocial, DCTFWeb). Atendía a los clientes y a sus empleados.",
+        "En Domínio automaticé el cálculo y el archivo de las nóminas en la carpeta de cada cliente y el envío de la nómina al eSocial. Implementé Onvio y formé a los clientes, a veces en sus propias sedes.",
+        "Coordinaba al equipo de la oficina, formaba a quienes llegaban y quedaba a cargo de la oficina en ausencia del dueño."
       ]
     },
     "novomexico": {
@@ -151,18 +153,22 @@
       "cargo": "Auxiliar administrativo",
       "cargoFormal": "",
       "itens": [
-        "Apoyo administrativo a un proyecto de riego.",
-        "Ayudaba a coordinar equipos internos y empresas contratistas; dirigía reuniones, hacía el seguimiento de las obras y apoyaba al área financiera."
+        "Recomendado por un cliente de {carreira.astcon.curto}, entré para asumir la gerencia administrativa de la finca, sucediendo a la gerente.",
+        "Pago del personal (horas extras, días libres y ausencias), registro en Jira de facturas y boletos de proveedores, hojas de control y conciliación del trabajo acumulado.",
+        "Apoyo a la gestión de los equipos internos y de los contratistas de la instalación del riego, con reuniones y seguimiento de las obras.",
+        "Salida cuando el grupo centralizó en la sede la administración de las fincas."
       ]
     },
     "zen": {
       "area": "Sistemas",
-      "tipo": "un grupo con más de {empresasGrupoBase} empresas",
+      "tipo": "grupo con más de {empresasGrupoBase} empresas (combustibles, hotelería, alquiler de vehículos, inmuebles)",
       "cargo": "Auxiliar de Control de Gestión",
       "cargoFormal": "",
       "itens": [
-        "Desarrollo de sistemas internos.",
-        "Control de gestión y conciliación, controles internos y ERP AutoSystem."
+        "Trabajo directamente con el controller y atiendo solicitudes de los directores del grupo. Desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos.",
+        "Reviso facturas y boletos (cobros bancarios) de buena parte de las empresas antes del pago. Ya bloqueé boletos falsos, facturas de otras empresas y facturas emitidas con el CNPJ (identificación fiscal) del grupo sin pedido, registradas como operación no reconocida, y contacté a proveedores para corregir facturas incompletas.",
+        "Llevo el LMC (libro obligatorio de movimiento de combustibles) de 3 estaciones, conciliado con Veeder-Root (entradas, ventas, evaporación y existencias), y audito las entradas de combustible de una estación y del TRR (distribuidor de combustible), base del cálculo que hago del alquiler de los vehículos y del flete de los conductores.",
+        "Me encargo de las compras de algunas empresas del grupo (cotización, negociación y elección del proveedor) y de los cambios en los contratos de alquiler de la flota. Concilio en AutoSystem los anticipos de combustible y las compras en Mercado Livre."
       ]
     }
   },
@@ -267,7 +273,7 @@
         },
         "revisada": {
           "titulo": "Versión revisada",
-          "texto": "En la demo, la función que valida el CPF (número de contribuyente brasileño) sale parcialmente correcta porque acepta 111.111.111-11, y la revisión trae la versión corregida."
+          "texto": "En la demo, la función que valida el CPF (número de contribuyente brasileño) sale parcialmente correcta porque acepta 111.111.111-11, y la revisión trae la versión corregida. En esta pantalla el orden está invertido (ChatGPT responde y DeepSeek revisa): un clic cambia quién responde y quién revisa."
         },
         "chaves": {
           "titulo": "Sin servidor",
@@ -454,7 +460,7 @@
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: revisión de una respuesta con el veredicto Incorrecta, puntos fuertes y qué mejorar",
-      "revisao-codigo": "DeepChat: versión revisada de una función que valida el CPF y que ahora rechaza secuencias repetidas como 111.111.111-11",
+      "revisao-codigo": "DeepChat: versión revisada de una función que valida el CPF y que ahora rechaza secuencias repetidas como 111.111.111-11, con el orden invertido (ChatGPT responde y DeepSeek revisa)",
       "inicio": "DeepChat: pantalla de inicio con los campos de las claves de API y el acceso a la demo",
       "celular": "DeepChat en el teléfono: revisión con puntos fuertes, qué mejorar y sugerencias"
     },
@@ -526,12 +532,14 @@
       "nfe": "NF-e (XML)"
     },
     "negocio": {
-      "folha": "Nómina y recursos humanos: eSocial, DCTFWeb, FGTS, INSS",
-      "contabil": "Rutinas contables y apoyo a las demás áreas de la firma contable",
-      "controladoria": "Control de gestión y conciliación, controles internos, ERP AutoSystem",
-      "analiseDados": "Análisis de datos financieros y operativos",
-      "treinamento": "Formación y coordinación de equipos",
-      "coordenacao": "Coordinación de equipos internos y contratistas, reuniones, seguimiento de obras, apoyo al área financiera"
+      "folha": "Nómina y RR. HH.: eSocial, DCTFWeb, FGTS, INSS (Domínio y Onvio)",
+      "contabil": "Rutinas contables: asientos, conciliación bancaria y cierre",
+      "controladoria": "Control de gestión: conciliaciones, revisión de facturas y prevención de fraudes (AutoSystem, WebPosto)",
+      "combustiveis": "Combustibles: LMC, Veeder-Root, auditoría de entradas, cálculo de alquileres y fletes",
+      "compras": "Compras: cotización, negociación, autorización de compras en Jira, contratos de flota",
+      "implantacao": "Implementación de sistemas y formación de usuarios (Onvio)",
+      "analiseDados": "Análisis de datos en Excel: tablas dinámicas, BUSCARV/BUSCARX, SUMAR.SI.CONJUNTO, CONTAR.SI.CONJUNTO, SI, formato condicional, validación de datos",
+      "treinamento": "Coordinación de equipo y formación"
     }
   },
   "formacao": {
@@ -556,7 +564,7 @@
   "contato": {
     "secao": "Contacto",
     "titulo": "¿Tienes una hoja de cálculo que debería ser un sistema?",
-    "texto": "Busco un puesto en desarrollo, datos o sistemas financieros, remoto o con traslado a Europa y América. Escríbeme a {linkEmail}, mándame un mensaje por {linkWhatsapp} o mira el código en {linkGithub}.",
+    "texto": "Busco un puesto en datos y automatización, desarrollo o implementación de sistemas, remoto o con traslado a Europa y América. Escríbeme a {linkEmail}, mándame un mensaje por {linkWhatsapp} o mira el código en {linkGithub}.",
     "formacao": "{formacao.cursoCurto}, {formacao.instituicao}, {formacao.conclusao}. Portugués nativo, inglés B1, español básico. {pais}, {fuso}.",
     "atualizado": "Actualizado el {atualizado}"
   },
@@ -569,13 +577,13 @@
   "cv": {
     "site": "Portafolio",
     "resumoTitulo": "Resumen",
-    "resumo": "Desarrollador con base en contabilidad, nómina, recursos humanos y control de gestión. De {carreira.astcon.anoInicio} a {carreira.astcon.anoFim} llevé todas las rutinas de nómina y recursos humanos de más de {empresasClientesBase} empresas clientes y trabajé también en contabilidad; desde {carreira.zen.ano}, en Grupo Zen, desarrollo sistemas internos. Creo software a partir de problemas que viví en el trabajo.",
+    "resumo": "Desarrollador con más de cinco años de carrera entre contabilidad, nómina y RR. HH., administración y control de gestión. En {carreira.astcon.curto} empecé como auxiliar de archivo y llegué a responsable de nómina y RR. HH. de más de {empresasClientesBase} empresas clientes, coordinando al equipo de la oficina. Hoy, en control de gestión de {carreira.zen.empresa}, reviso facturas antes del pago, me encargo de compras y desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos. Creo software a partir de problemas reales del trabajo.",
     "experienciaTitulo": "Experiencia",
     "projetosTitulo": "Proyectos",
     "projetosNota": "{projetosPublicados} proyectos publicados en GitHub, {demosAtivas} con demo en línea. Pruebas verificadas el {data}.",
     "habilidadesTitulo": "Habilidades",
     "tecnologias": "Tecnologías",
     "negocio": "Negocio",
-    "formacaoTitulo": "Formación e idiomas"
+    "formacaoTitulo": "Formación"
   }
 }
