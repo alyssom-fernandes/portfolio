@@ -160,7 +160,7 @@
       ]
     },
     "zen": {
-      "area": "Sistemas",
+      "area": "Control de gestión y sistemas",
       "tipo": "grupo con más de {empresasGrupoBase} empresas (combustibles, hotelería, alquiler de vehículos, inmuebles)",
       "cargo": "Auxiliar de Control de Gestión",
       "cargoFormal": "",
@@ -280,8 +280,8 @@
           "texto": "Las preguntas van directamente del navegador a las API y las claves, si se guardan, quedan cifradas. La demo no necesita clave."
         },
         "celular": {
-          "titulo": "También en el teléfono",
-          "texto": "La misma conversación y la misma revisión, con un diseño propio para teléfono."
+          "titulo": "La revisión cabe en el teléfono",
+          "texto": "Puntos fuertes, qué mejorar y sugerencias en una sola columna, y la versión revisada a un toque de distancia."
         }
       }
     },
@@ -290,13 +290,13 @@
       "origem": "Organizar las compras del grupo: cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido.",
       "origemLonga": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido. Creé Praxis inspirado en las mejores herramientas de gestión y seguimiento de compras del mercado.",
       "problema": "Pedidos, cotizaciones y aprobaciones difíciles de rastrear.",
-      "resumo": "Compras corporativas del pedido al pago, en {etapas} etapas: cotizaciones lado a lado, aprobaciones, cuotas, plazo y tiempo por etapa, con {perfis} perfiles de acceso.",
+      "resumo": "Compras corporativas en {etapas} etapas: cotizaciones lado a lado, aprobaciones, cuotas, plazo y tiempo por etapa, con {perfis} perfiles de acceso.",
       "prova": "{unidade} de unidad y {regras} de las reglas de Firestore y Storage, en GitHub Actions.",
       "cv": "Compras corporativas del pedido al pago, en {etapas} etapas: cotizaciones, aprobaciones, cuotas y plazos, con {perfis} perfiles de acceso y {eventos} eventos de notificación. {unidade} pruebas de unidad y {regras} de las reglas de Firestore.",
       "itens": {
         "fluxo": {
-          "titulo": "Del pedido al pago",
-          "texto": "Las {etapas} etapas en un solo tablero, con el total en reales de cada columna. Cada tarjeta muestra la empresa, el valor y los días que faltan para el plazo."
+          "titulo": "Una columna por etapa",
+          "texto": "Cada columna indica cuántos pedidos tiene y el total en reales. Cada tarjeta muestra la empresa, el valor y los días que faltan para el plazo."
         },
         "cotacoes": {
           "titulo": "Cotizaciones lado a lado",
@@ -385,8 +385,8 @@
           "texto": "Facturas del combustible descargado, litros y gasto del mes en un mismo panel."
         },
         "celular": {
-          "titulo": "También en el teléfono",
-          "texto": "El mismo panel, con un diseño propio para teléfono."
+          "titulo": "Compara con el período anterior",
+          "texto": "Facturas, litros y gasto se apilan en la pantalla del teléfono, cada uno con su variación porcentual."
         }
       }
     },
@@ -412,8 +412,8 @@
           "texto": "Filtra por situación y sale en PDF, Excel y CSV."
         },
         "celular": {
-          "titulo": "También en el teléfono",
-          "texto": "Los documentos de cada empresa se convierten en tarjetas en el teléfono."
+          "titulo": "Una tarjeta por documento",
+          "texto": "En el teléfono, cada documento muestra vencimiento, situación y responsables, con los botones de acción abajo."
         }
       }
     },
@@ -439,8 +439,8 @@
           "texto": "Cada envío, visualización y descarga queda anotado en un registro encadenado por hash."
         },
         "celular": {
-          "titulo": "También en el teléfono",
-          "texto": "El mismo panel, con la navegación abajo."
+          "titulo": "Barra de navegación",
+          "texto": "Inicio, documentos, búsqueda y anclados quedan al pie de la pantalla, como en una app de teléfono, con el botón de envío arriba."
         }
       }
     }

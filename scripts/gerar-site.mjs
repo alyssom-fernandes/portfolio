@@ -781,7 +781,7 @@ ${[...idiomasLinks.map(j => [j.hreflang, url(j)]), ['x-default', url(idiomaPadra
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>404 — ${esc(dados.identidade.nome)}</title>
-<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(readFileSync(path.join(raiz, 'favicon.svg'), 'utf8').trim())}" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(readFileSync(path.join(raiz, 'favicon.svg'), 'utf8').replace(/\r\n?/g, '\n').trim())}" type="image/svg+xml">
 <script>(function(){var b=${JSON.stringify(caminho)};if(location.pathname.indexOf(b)!==0)b='/';var s=document.createElement('style');s.textContent="@font-face{font-family:'Fraunces';src:url('"+b+"${FONTES.serif}') format('woff2');font-weight:100 900;font-display:swap}@font-face{font-family:'Geist';src:url('"+b+"${FONTES.sans}') format('woff2');font-weight:100 900;font-display:swap}";document.head.appendChild(s);document.addEventListener('DOMContentLoaded',function(){[].forEach.call(document.querySelectorAll('[data-r]'),function(a){a.href=b+a.getAttribute('data-r')})})})();</script>
 <style>
 *{box-sizing:border-box}

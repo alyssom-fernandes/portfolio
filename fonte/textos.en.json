@@ -160,7 +160,7 @@
       ]
     },
     "zen": {
-      "area": "Systems",
+      "area": "Financial control and systems",
       "tipo": "group of more than {empresasGrupoBase} companies (fuel, hospitality, vehicle rental, real estate)",
       "cargo": "Financial Control Assistant",
       "cargoFormal": "",
@@ -280,8 +280,8 @@
           "texto": "Questions go straight from the browser to the APIs, and API keys, if saved, are stored encrypted. The demo needs no key."
         },
         "celular": {
-          "titulo": "On a phone too",
-          "texto": "The same chat and the same review, with a layout built for phones."
+          "titulo": "The review fits on a phone",
+          "texto": "Strengths, what to improve, and suggestions in a single column, with the revised version one tap away."
         }
       }
     },
@@ -290,13 +290,13 @@
       "origem": "Organizing the group’s purchasing: the more the group grew, the harder it was to track and control each request.",
       "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. I built Praxis inspired by the best purchasing management and tracking tools on the market.",
       "problema": "Requests, quotes, and approvals that were hard to track.",
-      "resumo": "Corporate purchasing from request to payment, in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage, with {perfis} access roles.",
+      "resumo": "Corporate purchasing in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage, with {perfis} access roles.",
       "prova": "{unidade} unit and {regras} Firestore and Storage rules tests, on GitHub Actions.",
       "cv": "Corporate purchasing from request to payment, in {etapas} stages: quotes, approvals, installments, and deadlines, with {perfis} access roles and {eventos} notification events. {unidade} unit tests and {regras} Firestore rules tests.",
       "itens": {
         "fluxo": {
-          "titulo": "From request to payment",
-          "texto": "All {etapas} stages on a single board, with each column’s total in BRL. Each card shows the company, the amount, and how many days are left until the deadline."
+          "titulo": "One column per stage",
+          "texto": "Each column gives the number of requests in it and their total in BRL. Each card shows the company, the amount, and how many days are left until the deadline."
         },
         "cotacoes": {
           "titulo": "Side-by-side quotes",
@@ -385,8 +385,8 @@
           "texto": "Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard."
         },
         "celular": {
-          "titulo": "On a phone too",
-          "texto": "The same dashboard, with a layout built for phones."
+          "titulo": "Compares with the previous period",
+          "texto": "Invoices, liters, and spending stack up on the phone screen, each with its percentage change."
         }
       }
     },
@@ -412,8 +412,8 @@
           "texto": "Filters by status and exports to PDF, Excel, and CSV."
         },
         "celular": {
-          "titulo": "On a phone too",
-          "texto": "Each company’s documents become cards on a phone."
+          "titulo": "One card per document",
+          "texto": "On a phone, each document shows its expiration date, status, and the people responsible, with the action buttons below."
         }
       }
     },
@@ -439,8 +439,8 @@
           "texto": "Every upload, view, and download is logged in a hash-chained trail."
         },
         "celular": {
-          "titulo": "On a phone too",
-          "texto": "The same dashboard, with navigation at the bottom."
+          "titulo": "Navigation bar",
+          "texto": "Home, documents, search, and anchored items sit at the bottom of the screen, as in a phone app, with the upload button at the top."
         }
       }
     }

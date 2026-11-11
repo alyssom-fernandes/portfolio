@@ -160,7 +160,7 @@
       ]
     },
     "zen": {
-      "area": "Sistemas",
+      "area": "Controladoria e sistemas",
       "tipo": "grupo com mais de {empresasGrupoBase} empresas (combustíveis, hotelaria, locação, imóveis)",
       "cargo": "Auxiliar de Controladoria",
       "cargoFormal": "",
@@ -280,8 +280,8 @@
           "texto": "As perguntas vão direto do navegador às APIs, e as chaves, se guardadas, ficam criptografadas. A demonstração dispensa chave."
         },
         "celular": {
-          "titulo": "Também no celular",
-          "texto": "A mesma conversa e a mesma revisão, com layout próprio para o celular."
+          "titulo": "A revisão cabe no celular",
+          "texto": "Pontos fortes, o que melhorar e sugestões numa coluna só, e a versão revisada a um toque."
         }
       }
     },
@@ -290,13 +290,13 @@
       "origem": "Organizar as compras do grupo: quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido.",
       "origemLonga": "O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido. Criei o Praxis inspirado nas melhores ferramentas de gestão e rastreamento de compras do mercado.",
       "problema": "Pedidos, cotações e aprovações difíceis de rastrear.",
-      "resumo": "Compras corporativas do pedido ao pagamento, em {etapas} etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa, com {perfis} perfis de acesso.",
+      "resumo": "Compras corporativas em {etapas} etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa, com {perfis} perfis de acesso.",
       "prova": "{unidade} de unidade e {regras} das regras do Firestore e do Storage, no GitHub Actions.",
       "cv": "Compras corporativas do pedido ao pagamento, em {etapas} etapas: cotações, aprovações, parcelas e prazos, com {perfis} perfis de acesso e {eventos} eventos de notificação. {unidade} testes de unidade e {regras} das regras do Firestore.",
       "itens": {
         "fluxo": {
-          "titulo": "Do pedido ao pagamento",
-          "texto": "As {etapas} etapas num quadro só, com o total em reais de cada coluna. Cada cartão traz a empresa, o valor e quantos dias faltam para o prazo."
+          "titulo": "Uma coluna por etapa",
+          "texto": "Cada coluna mostra quantos pedidos estão nela e o total em reais. Cada cartão traz a empresa, o valor e quantos dias faltam para o prazo."
         },
         "cotacoes": {
           "titulo": "Cotações lado a lado",
@@ -385,8 +385,8 @@
           "texto": "Notas descarregadas, litros e gastos do mês acompanhados no mesmo painel."
         },
         "celular": {
-          "titulo": "Também no celular",
-          "texto": "O mesmo painel, com layout próprio para o celular."
+          "titulo": "Compara com o período anterior",
+          "texto": "Notas, litros e gastos vêm um abaixo do outro na tela do celular, cada um com a variação em porcentagem."
         }
       }
     },
@@ -412,8 +412,8 @@
           "texto": "Filtra por situação e sai em PDF, Excel e CSV."
         },
         "celular": {
-          "titulo": "Também no celular",
-          "texto": "Os documentos de cada empresa viram cartões no celular."
+          "titulo": "Um cartão por documento",
+          "texto": "No celular, cada documento traz vencimento, situação e responsáveis, com os botões de ação embaixo."
         }
       }
     },
@@ -439,8 +439,8 @@
           "texto": "Cada envio, visualização e download fica registrado, numa trilha encadeada por hash."
         },
         "celular": {
-          "titulo": "Também no celular",
-          "texto": "O mesmo painel, com a navegação embaixo."
+          "titulo": "Barra de navegação",
+          "texto": "Início, documentos, busca e ancorados ficam no pé da tela, como num app de celular, com o botão de envio no topo."
         }
       }
     }
