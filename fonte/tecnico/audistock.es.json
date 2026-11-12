@@ -3,7 +3,7 @@
   "arquitetura": {
     "texto": "AudiStock es HTML, CSS y JavaScript en módulos ES, sin framework y sin paso de build, publicado como sitio estático. Los datos y el inicio de sesión están en Supabase, y lo que cambia una cantidad (registrar, corregir, finalizar y eliminar) son funciones de Postgres. El recuento que no logra subirse espera en una cola en el IndexedDB del dispositivo. En la demostración, `js/demo.js` ocupa el lugar del cliente de Supabase y lo guarda todo solo en la pestaña.",
     "fluxo": [
-      "Lectura en el teléfono",
+      "Lectura en el móvil",
       "Cola en IndexedDB",
       "Función en Postgres",
       "Cierre con existencias ERP",
@@ -63,7 +63,7 @@
     ]
   },
   "testes": {
-    "texto": "Son 84 pruebas de unidad y de base de datos con `node:test`: el código real de `js/` se ejecuta en Node sobre la base de la demostración, la cola usa un IndexedDB en memoria, y `schema.sql` y `permissoes.sql` se ejecutan en un Postgres en WebAssembly (PGlite), incluso sobre una base de la versión anterior. Playwright hace 46 ejecuciones de extremo a extremo, en pantalla de computadora y de celular. GitHub Actions lo ejecuta todo en cada push a `main` y en cada pull request.",
+    "texto": "Son 84 pruebas de unidad y de base de datos con `node:test`: el código real de `js/` se ejecuta en Node sobre la base de la demostración, la cola usa un IndexedDB en memoria, y `schema.sql` y `permissoes.sql` se ejecutan en un Postgres en WebAssembly (PGlite), incluso sobre una base de la versión anterior. Playwright hace 46 ejecuciones de extremo a extremo, en pantalla de ordenador y de móvil. GitHub Actions lo ejecuta todo en cada push a `main` y en cada pull request.",
     "fontes": [
       "AudiStock/package.json",
       "AudiStock/testes/unidade/indexeddb.mjs#L1-L7",

@@ -7,7 +7,7 @@
     "idiomas": [
       { "codigo": "pt", "nome": "Português", "lang": "pt-BR", "hreflang": "pt-BR", "ogLocale": "pt_BR", "pasta": "" },
       { "codigo": "en", "nome": "English", "lang": "en", "hreflang": "en", "ogLocale": "en_US", "pasta": "en/" },
-      { "codigo": "es", "nome": "Español", "lang": "es", "hreflang": "es", "ogLocale": "es_LA", "pasta": "es/" }
+      { "codigo": "es", "nome": "Español", "lang": "es", "hreflang": "es", "ogLocale": "es_ES", "pasta": "es/" }
     ],
     "corTema": "#FBFBF8",
     "corTemaTela": "#15171A"

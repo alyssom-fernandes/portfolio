@@ -38,7 +38,7 @@
     },
     {
       "titulo": "Números en portugués sin `type=\"number\"`",
-      "texto": "En Chrome en portugués, `<input type=\"number\">` falla en silencio: la coma vacía el campo y la rueda del mouse cambia el valor. Lo sustituí por campos de texto, y quien interpreta el número es `parseNumeroBR`. `numerico.js` recupera el teclado numérico en el teléfono y el formato, con los decimales de cada campo; el precio acepta hasta diez, el límite del `vUnCom` de la NF-e (factura electrónica brasileña).",
+      "texto": "En Chrome en portugués, `<input type=\"number\">` falla en silencio: la coma vacía el campo y la rueda del ratón cambia el valor. Lo sustituí por campos de texto, y quien interpreta el número es `parseNumeroBR`. `numerico.js` recupera el teclado numérico en el móvil y el formato, con los decimales de cada campo; el precio acepta hasta diez, el límite del `vUnCom` de la NF-e (factura electrónica brasileña).",
       "fontes": [
         "Fuel-Mind/src/shared/numerico.js#L1-L58",
         "Fuel-Mind/src/shared/utils.js#L613",

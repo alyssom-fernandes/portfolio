@@ -62,7 +62,7 @@
     ]
   },
   "testes": {
-    "texto": "Son 250 pruebas de backend con pytest, incluidas las de autorización entre usuarios y las del worker con un Claude falso; 8 de frontend con `node --test`, sobre la exportación CSV y la cola sin conexión; y 40 de extremo a extremo con Playwright: 20 escenarios ejecutados en la computadora y en el celular, contra un build local de la demostración. GitHub Actions lo ejecuta todo en cada push a `main` y en los pull requests y, después de las E2E, mide el contraste de las etiquetas.",
+    "texto": "Son 250 pruebas de backend con pytest, incluidas las de autorización entre usuarios y las del worker con un Claude falso; 8 de frontend con `node --test`, sobre la exportación CSV y la cola sin conexión; y 40 de extremo a extremo con Playwright: 20 escenarios ejecutados en el ordenador y en el móvil, contra un build local de la demostración. GitHub Actions lo ejecuta todo en cada push a `main` y en los pull requests y, después de las E2E, mide el contraste de las etiquetas.",
     "fontes": [
       "FlowTrack/README.pt-br.md#L141-L154",
       "FlowTrack/backend/tests/test_ai_categorization.py",

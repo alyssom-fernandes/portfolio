@@ -249,7 +249,7 @@
       "origem": "Os funcionários compram nas empresas do grupo “na notinha”, e as notinhas ficam no AutoSystem. Para descontar em folha, era preciso tirar um relatório de cada empresa e montar no Excel a planilha do RH, que usa o Domínio.",
       "origemLonga": "Criei o UnifyData para ajudar um departamento do grupo com as compras internas dos funcionários. Eles compram produtos do grupo “na notinha”, e as notinhas ficam no AutoSystem. Era preciso tirar um relatório de cada empresa e, a partir dele, montar no Excel a planilha para o RH, que usa o Domínio. Era muito trabalhoso, e o UnifyData facilita isso.",
       "problema": "Um relatório por empresa, juntado à mão no Excel para o RH.",
-      "resumo": "Fechamento das compras a prazo dos funcionários nas lojas do grupo, registradas no AutoSystem: cruza com a base do RH, aponta o que não bate e gera a planilha de desconto em folha.",
+      "resumo": "Fecha as compras a prazo dos funcionários nas lojas do grupo, registradas no AutoSystem. Cruza com a base do RH, aponta o que não bate e gera a planilha de desconto em folha.",
       "prova": "{web} na versão web e {python} na versão Python, no GitHub Actions.",
       "cv": "Fechamento das compras a prazo dos funcionários, registradas no AutoSystem: cruza com o RH e gera a planilha de desconto em folha por empresa, CSV e relatório A4. Versões web e Python; {web} + {python} testes no GitHub Actions.",
       "itens": {
@@ -354,7 +354,7 @@
       "origem": "Quem auditava os estoques de algumas empresas do grupo relatava problemas com a contagem do AutoSystem. Fiz o AudiStock semelhante ao AutoSystem, resolvendo as queixas dos operadores.",
       "origemLonga": "O pessoal que fazia a auditoria dos estoques de algumas empresas do grupo relatava muitos problemas com a contagem de estoque do AutoSystem. Fiz o AudiStock de forma semelhante ao AutoSystem, resolvendo os problemas de que os operadores se queixavam. Por enquanto, o saldo do AutoSystem é informado no fechamento; a integração direta fica para uma próxima etapa.",
       "problema": "A contagem de estoque gerava queixas de quem auditava.",
-      "resumo": "Auditoria de estoque: a equipe conta pelo celular, informa o saldo do ERP no fechamento e recebe o relatório de faltas e sobras em PDF, Excel e CSV, com fila offline para contar sem internet.",
+      "resumo": "A equipe conta o estoque pelo celular, informa o saldo do ERP no fechamento e recebe o relatório de faltas e sobras em PDF, Excel e CSV. Uma fila offline deixa contar sem internet.",
       "prova": "{unidade} de unidade e banco e {e2e} de ponta a ponta, no GitHub Actions.",
       "cv": "Auditoria de estoque: contagem pelo celular (teclado, leitor de código de barras ou câmera) com fila offline, fechamento com o saldo do ERP e relatório de faltas e sobras em PDF, Excel e CSV. {unidade} testes de unidade e banco e {e2e} de ponta a ponta.",
       "itens": {
@@ -377,7 +377,7 @@
       "origem": "As entradas de combustível eram lançadas numa planilha por posto e TRR e depois levadas para outra, que calculava o aluguel dos veículos e o frete dos motoristas. Erros de digitação atrasavam e dificultavam as auditorias.",
       "origemLonga": "As entradas de combustível eram preenchidas numa planilha por posto e TRR. Dessas planilhas, as informações iam para outra, que calculava o aluguel dos veículos e o frete dos motoristas. Placas, nomes de motoristas, números de notas e valores digitados errado, além de fórmulas quebradas, atrasavam e dificultavam as auditorias; fiz a ferramenta para acabar com isso.",
       "problema": "Placas, motoristas, notas e valores digitados à mão, com fórmulas quebradas.",
-      "resumo": "Controle das entradas de combustível e dos fretes: lê o XML da NF-e, calcula o aluguel dos veículos e o pagamento dos motoristas e fecha o mês em PDF ou Excel.",
+      "resumo": "Controla as entradas de combustível e os fretes. Lê o XML da NF-e, calcula o aluguel dos veículos e o pagamento dos motoristas e fecha o mês em PDF ou Excel.",
       "prova": "{unidade} de unidade e {regras} das regras do Firestore, no GitHub Actions.",
       "cv": "Controle das entradas de combustível e dos fretes: importa a NF-e (XML), calcula o aluguel dos veículos e o frete dos motoristas e fecha o mês em PDF ou Excel. {unidade} testes de unidade e {regras} das regras do Firestore.",
       "itens": {

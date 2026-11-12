@@ -249,7 +249,7 @@
       "origem": "Employees buy from the group’s companies “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. For the payroll deduction, someone had to pull a report from each company and build the HR spreadsheet in Excel; HR uses Domínio (payroll software).",
       "origemLonga": "I built UnifyData to help one of the group’s departments with employees’ internal purchases. They buy the group’s products “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. Someone had to pull a report from each company and, from it, build the spreadsheet for HR in Excel; HR uses Domínio (payroll software). It was a lot of work, and UnifyData makes it easier.",
       "problema": "One report per company, combined by hand in Excel for HR.",
-      "resumo": "Runs the monthly close of employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
+      "resumo": "Runs the monthly close of employees’ credit purchases at the group’s stores, recorded in AutoSystem. It matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
       "prova": "{web} in the web version and {python} in the Python version, on GitHub Actions.",
       "cv": "Closes employees’ credit purchases recorded in AutoSystem: matches them against HR and generates the payroll deduction spreadsheet by company, plus CSV and an A4 report. Web and Python versions; {web} + {python} tests on GitHub Actions.",
       "itens": {
@@ -354,7 +354,7 @@
       "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. I built AudiStock to work like AutoSystem, solving the operators’ complaints.",
       "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. I built AudiStock to work in a similar way to AutoSystem, solving the problems the operators complained about. For now, the AutoSystem balance is entered at closing; a direct integration is planned for a later stage.",
       "problema": "Stock counts drew complaints from the auditors.",
-      "resumo": "Stock audits: the team counts on a phone, enters the ERP balance at closing, and gets a report of shortages and overages in PDF, Excel, and CSV, with an offline queue for counting without internet.",
+      "resumo": "The team counts stock on a phone, enters the ERP balance at closing, and gets a report of shortages and overages in PDF, Excel, and CSV. An offline queue lets them count without internet.",
       "prova": "{unidade} unit and database tests and {e2e} end-to-end, on GitHub Actions.",
       "cv": "Stock audits: counting on a phone (keyboard, barcode scanner, or camera) with an offline queue, closing against the ERP balance, and a report of shortages and overages in PDF, Excel, and CSV. {unidade} unit and database tests and {e2e} end-to-end.",
       "itens": {
@@ -377,7 +377,7 @@
       "origem": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor), then carried over to another one that calculated vehicle rental and the drivers’ freight. Typing errors caused delays and made audits harder.",
       "origemLonga": "Fuel deliveries were entered in one spreadsheet per fuel station and TRR (fuel distributor). From those spreadsheets, the data went to another one, which calculated vehicle rental and the drivers’ freight. Mistyped license plates, driver names, invoice numbers, and amounts, plus broken formulas, delayed the audits and made them harder; I built the tool to put an end to that.",
       "problema": "License plates, drivers, invoices, and amounts typed in by hand, with broken formulas.",
-      "resumo": "Tracks fuel deliveries and freight: reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.",
+      "resumo": "Tracks fuel deliveries and freight. It reads the NF-e XML, calculates vehicle rental and driver pay, and closes the month in PDF or Excel.",
       "prova": "{unidade} unit and {regras} Firestore rules tests, on GitHub Actions.",
       "cv": "Tracks fuel deliveries and freight: imports the electronic invoice (NF-e XML), calculates vehicle rental and the drivers’ freight, and closes the month in PDF or Excel. {unidade} unit tests and {regras} Firestore rules tests.",
       "itens": {

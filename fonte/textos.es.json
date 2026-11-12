@@ -1,14 +1,14 @@
 {
-  "_leia": "Textos del sitio en español neutro (internacional): trato de tú, sin vosotros ni voseo, sin términos propios de un solo país. Mismas claves que textos.pt.json; solo cambian los valores. Marcado: *énfasis* · **negrita** · ~tachado~ · {variable} (viene de fonte/dados.json; no se traduce). Las claves que empiezan por _ se ignoran.",
+  "_leia": "Textos del sitio en español de España (decisión del 12/11/2026): trato de tú, sin voseo; ordenador, móvil, ratón, asesoría, fiable. Mismas claves que textos.pt.json; solo cambian los valores. Marcado: *énfasis* · **negrita** · ~tachado~ · {variable} (viene de fonte/dados.json; no se traduce). Las claves que empiezan por _ se ignoran.",
   "meta": {
-    "titulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
+    "titulo": "Alyssom Fernandes — Desarrollador · Datos y automatización",
     "descricao": "Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América.",
-    "ogTitulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
+    "ogTitulo": "Alyssom Fernandes — Desarrollador · Datos y automatización",
     "ogDescricao": "Pasé 5 años metido en hojas de cálculo. Hoy construyo los sistemas que las sustituyen.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
   },
   "identidade": {
-    "titulo": "Desarrollador · Datos y Automatización",
+    "titulo": "Desarrollador · Datos y automatización",
     "tese": "Pasé 5 años metido en ~hojas\u00a0de\u00a0cálculo~. Hoy construyo los *sistemas* que las sustituyen.",
     "pais": "Goiás, Brasil",
     "disponibilidade": "Remoto o traslado a Europa y América",
@@ -109,13 +109,13 @@
     "passos": [
       {
         "titulo": "Del archivo a nómina y RR. HH.",
-        "texto": "Empecé en {carreira.astcon.empresa} en {carreira.astcon.inicioLongo} como auxiliar de archivo, a tiempo parcial, todavía en la secundaria. Pasé por contabilidad y llegué a nómina y RR. HH.: rutinas completas de más de {empresasClientesBase} empresas clientes, de la contratación al eSocial y la DCTFWeb.",
-        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio (software de nómina) automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio, un portal en línea para los clientes de la firma.",
+        "texto": "Empecé en {carreira.astcon.empresa} en {carreira.astcon.inicioLongo} como auxiliar de archivo, a media jornada, cuando aún iba al instituto. Pasé por contabilidad y llegué a nómina y RR. HH.: rutinas completas de más de {empresasClientesBase} empresas clientes, de la contratación al eSocial y la DCTFWeb.",
+        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio (software de nómina) automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio, un portal en línea para los clientes de la asesoría.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "Una invitación para gestionar",
-        "texto": "Un cliente de la firma me recomendó al dueño de {carreira.novomexico.empresa}, que buscaba a alguien para asumir la gerencia administrativa. En {carreira.novomexico.inicioLongo} entré como auxiliar administrativo para suceder a la gerente: pago del personal, control de compras, revisión de facturas y boletos (cobros bancarios) y reuniones con los equipos del riego.",
+        "texto": "Un cliente de la asesoría me recomendó al dueño de {carreira.novomexico.empresa}, que buscaba a alguien para asumir la gerencia administrativa. En {carreira.novomexico.inicioLongo} entré como auxiliar administrativo para suceder a la gerente: pago del personal, control de compras, revisión de facturas y boletos (cobros bancarios) y reuniones con los equipos del riego.",
         "extra": "En {carreira.novomexico.fimLongo}, el grupo llevó la administración de las fincas a la sede y pusimos fin a la relación laboral. Allí hice mi primera herramienta, una calculadora de horas para el pago del personal.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
@@ -137,7 +137,7 @@
   "carreira": {
     "astcon": {
       "area": "Nómina, RR. HH. y contabilidad",
-      "tipo": "firma contable",
+      "tipo": "asesoría contable",
       "cargo": "Auxiliar de oficina",
       "cargoFormal": "",
       "itens": [
@@ -162,11 +162,11 @@
     "zen": {
       "area": "Control de gestión y sistemas",
       "tipo": "grupo con más de {empresasGrupoBase} empresas (combustibles, hotelería, alquiler de vehículos, inmuebles)",
-      "cargo": "Auxiliar de Control de Gestión",
+      "cargo": "Auxiliar de control de gestión",
       "cargoFormal": "",
       "itens": [
         "Trabajo directamente con el controller, atiendo solicitudes de los directores del grupo y desarrollo sistemas internos.",
-        "Reviso facturas y boletos (cobros bancarios) de buena parte de las empresas antes del pago. Ya bloqueé boletos falsos, facturas de otras empresas y facturas emitidas con el CNPJ (identificación fiscal) del grupo sin pedido, registradas como operación no reconocida, y contacté a proveedores para corregir facturas incompletas.",
+        "Reviso facturas y boletos (cobros bancarios) de buena parte de las empresas antes del pago. He frenado boletos falsos, facturas de otras empresas y facturas emitidas con el CNPJ (identificación fiscal) del grupo sin pedido, que registré como operación no reconocida, y he contactado con proveedores para corregir facturas incompletas.",
         "Llevo el LMC (libro obligatorio de movimiento de combustibles) de 3 estaciones, conciliado con Veeder-Root (entradas, ventas, evaporación y existencias), y audito las entradas de combustible de una estación y del TRR (distribuidor de combustible), base del cálculo que hago del alquiler de los vehículos y del flete de los conductores.",
         "Me encargo de las compras de algunas empresas del grupo (cotización, negociación y elección del proveedor) y de los cambios en los contratos de alquiler de la flota. Concilio en AutoSystem los anticipos de combustible y las compras en Mercado Livre."
       ]
@@ -249,7 +249,7 @@
       "origem": "Los empleados compran en las empresas del grupo «fiado», con cada compra anotada en un papel, y esas notas quedan registradas en AutoSystem. Para descontarlas por nómina, había que sacar un informe de cada empresa y preparar en Excel la hoja para recursos humanos, que usa Domínio (software de nómina).",
       "origemLonga": "Creé UnifyData para ayudar a un departamento del grupo con las compras internas de los empleados. Compran productos del grupo «fiado», con cada compra anotada en un papel, y esas notas quedan registradas en AutoSystem. Había que sacar un informe de cada empresa y, a partir de él, preparar en Excel la hoja para recursos humanos, que usa Domínio (software de nómina). Era mucho trabajo, y UnifyData lo facilita.",
       "problema": "Un informe por empresa, unido a mano en Excel para recursos humanos.",
-      "resumo": "Cierre de las compras a crédito de los empleados en las tiendas del grupo, registradas en AutoSystem: las cruza con la base de recursos humanos, señala lo que no cuadra y genera la hoja de descuento por nómina.",
+      "resumo": "Cierra las compras a crédito de los empleados en las tiendas del grupo, registradas en AutoSystem. Las cruza con la base de recursos humanos, señala lo que no cuadra y genera la hoja de descuento por nómina.",
       "prova": "{web} en la versión web y {python} en la versión Python, en GitHub Actions.",
       "cv": "Cierre de las compras a crédito de los empleados, registradas en AutoSystem: las cruza con recursos humanos y genera la hoja de descuento por nómina por empresa, CSV e informe A4. Versiones web y Python; {web} + {python} pruebas en GitHub Actions.",
       "itens": {
@@ -267,14 +267,14 @@
         },
         "versoes": {
           "titulo": "Web y Python",
-          "texto": "La versión web cruza por número de empleado y funciona también en el teléfono; la de Python (Streamlit) cruza por nombre, con revisión humana."
+          "texto": "La versión web cruza por número de empleado y funciona también en el móvil; la de Python (Streamlit) cruza por nombre, con revisión humana."
         }
       }
     },
     "deepchat": {
       "frase": "DeepSeek responde y ChatGPT comprueba la respuesta.",
-      "origem": "Las respuestas de las IA no siempre son confiables. Yo llevaba la misma pregunta de una IA a otra hasta que las dos llegaban a un consenso, y hacer de mensajero cansaba.",
-      "origemLonga": "Desde el comienzo de las IA, sus respuestas no siempre son confiables para tareas, trabajo o estudios. Para comprobarlas, yo llevaba la respuesta de una IA a otra, con la misma pregunta, hasta que las dos debatían y llegaban a un consenso. Hacer de mensajero cansaba; DeepChat se convirtió en un «grupo de WhatsApp» con las dos IA que más usaba.",
+      "origem": "Las respuestas de las IA no siempre son fiables. Yo llevaba la misma pregunta de una IA a otra hasta que las dos llegaban a un consenso, y hacer de mensajero cansaba.",
+      "origemLonga": "Desde el comienzo de las IA, sus respuestas no siempre son fiables para tareas, trabajo o estudios. Para comprobarlas, yo llevaba la respuesta de una IA a otra, con la misma pregunta, hasta que las dos debatían y llegaban a un consenso. Hacer de mensajero cansaba; DeepChat se convirtió en un «grupo de WhatsApp» con las dos IA que más usaba.",
       "problema": "Comprobar una respuesta obligaba a copiar y pegar entre dos IA.",
       "resumo": "Chat en el que DeepSeek responde y ChatGPT revisa la respuesta con un veredicto, puntos fuertes, qué mejorar y, cuando hay un error, una versión revisada. Sin servidor: todo se ejecuta en el navegador.",
       "prova": "node --test en GitHub Actions.",
@@ -293,7 +293,7 @@
           "texto": "Las preguntas van directamente del navegador a las API y las claves, si se guardan, quedan cifradas. La demo no necesita clave."
         },
         "celular": {
-          "titulo": "La revisión cabe en el teléfono",
+          "titulo": "La revisión cabe en el móvil",
           "texto": "Puntos fuertes, qué mejorar y sugerencias en una sola columna, y la versión revisada a un toque de distancia."
         }
       }
@@ -321,7 +321,7 @@
         },
         "app": {
           "titulo": "Se instala como app",
-          "texto": "PWA: el mismo flujo en el teléfono, con las etapas en pestañas y la navegación en la parte inferior."
+          "texto": "PWA: el mismo flujo en el móvil, con las etapas en pestañas y la navegación en la parte inferior."
         }
       }
     },
@@ -350,20 +350,20 @@
       }
     },
     "audistock": {
-      "frase": "Recuento de inventario desde el teléfono, comparado con el ERP.",
+      "frase": "Recuento de inventario desde el móvil, comparado con el ERP.",
       "origem": "Quienes auditaban el inventario de algunas empresas del grupo señalaban problemas con el recuento de AutoSystem. Hice AudiStock parecido a AutoSystem y resolví las quejas de los operadores.",
       "origemLonga": "El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida a AutoSystem y resolví los problemas de los que se quejaban los operadores. Por ahora, las existencias de AutoSystem se introducen en el cierre; la integración directa queda para una etapa posterior.",
       "problema": "El recuento de inventario generaba quejas de quienes auditaban.",
-      "resumo": "Auditoría de inventario: el equipo cuenta desde el teléfono, en el cierre registra las existencias del ERP y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV, con cola sin conexión para contar sin internet.",
+      "resumo": "El equipo cuenta el inventario desde el móvil, registra las existencias del ERP en el cierre y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV. Una cola sin conexión permite contar sin internet.",
       "prova": "{unidade} de unidad y base de datos y {e2e} de extremo a extremo, en GitHub Actions.",
-      "cv": "Auditoría de inventario: recuento desde el teléfono (teclado, lector de código de barras o cámara) con cola sin conexión, cierre con las existencias del ERP e informe de faltantes y sobrantes en PDF, Excel y CSV. {unidade} pruebas de unidad y base de datos y {e2e} de extremo a extremo.",
+      "cv": "Auditoría de inventario: recuento desde el móvil (teclado, lector de código de barras o cámara) con cola sin conexión, cierre con las existencias del ERP e informe de faltantes y sobrantes en PDF, Excel y CSV. {unidade} pruebas de unidad y base de datos y {e2e} de extremo a extremo.",
       "itens": {
         "visao": {
           "titulo": "Auditorías en curso",
           "texto": "El progreso de cada recuento, el resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias."
         },
         "contagem": {
-          "titulo": "Recuento desde el teléfono",
+          "titulo": "Recuento desde el móvil",
           "texto": "Teclado, lector de código de barras o cámara, con cola sin conexión para contar sin internet."
         },
         "relatorio": {
@@ -374,10 +374,10 @@
     },
     "fuelmind": {
       "frase": "Lee las facturas de combustible (NF-e) y cierra el mes.",
-      "origem": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible) y luego se pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Los errores al copiar los datos retrasaban y complicaban las auditorías.",
-      "origemLonga": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible). De esas hojas, los datos pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Placas, nombres de conductores, números de factura y valores mal copiados, además de fórmulas rotas, retrasaban y complicaban las auditorías; hice la herramienta para acabar con eso.",
-      "problema": "Placas, conductores, facturas y valores copiados a mano, con fórmulas rotas.",
-      "resumo": "Control de las entradas de combustible y de los fletes: lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.",
+      "origem": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible) y luego se pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Los errores al teclear los datos retrasaban y complicaban las auditorías.",
+      "origemLonga": "Las entradas de combustible se registraban en una hoja de cálculo por estación de servicio y TRR (distribuidor de combustible). De esas hojas, los datos pasaban a otra, que calculaba el alquiler de los vehículos y el flete de los conductores. Placas, nombres de conductores, números de factura y valores mal tecleados, además de fórmulas rotas, retrasaban y complicaban las auditorías; hice la herramienta para acabar con eso.",
+      "problema": "Placas, conductores, facturas y valores tecleados a mano, con fórmulas rotas.",
+      "resumo": "Controla las entradas de combustible y los fletes. Lee el XML de la NF-e, calcula el alquiler de los vehículos y el pago de los conductores y cierra el mes en PDF o Excel.",
       "prova": "{unidade} de unidad y {regras} de las reglas de Firestore, en GitHub Actions.",
       "cv": "Control de las entradas de combustible y de los fletes: importa la factura electrónica (XML de la NF-e), calcula el alquiler de los vehículos y el flete de los conductores y cierra el mes en PDF o Excel. {unidade} pruebas de unidad y {regras} de las reglas de Firestore.",
       "itens": {
@@ -399,7 +399,7 @@
         },
         "celular": {
           "titulo": "Compara con el período anterior",
-          "texto": "Facturas, litros y gasto se apilan en la pantalla del teléfono, cada uno con su variación porcentual."
+          "texto": "Facturas, litros y gasto se apilan en la pantalla del móvil, cada uno con su variación porcentual."
         }
       }
     },
@@ -426,7 +426,7 @@
         },
         "celular": {
           "titulo": "Una tarjeta por documento",
-          "texto": "En el teléfono, cada documento muestra vencimiento, situación y responsables, con los botones de acción abajo."
+          "texto": "En el móvil, cada documento muestra vencimiento, situación y responsables, con los botones de acción abajo."
         }
       }
     },
@@ -453,7 +453,7 @@
         },
         "celular": {
           "titulo": "Barra de navegación",
-          "texto": "Inicio, documentos, búsqueda y anclados quedan al pie de la pantalla, como en una app de teléfono, con el botón de envío arriba."
+          "texto": "Inicio, documentos, búsqueda y anclados quedan al pie de la pantalla, como en una app de móvil, con el botón de envío arriba."
         }
       }
     }
@@ -463,55 +463,55 @@
       "editor": "ArtMaker: editor con los datos de la tienda y de las ofertas y la vista previa del folleto",
       "cores": "ArtMaker: paletas de colores en miniatura, una de ellas aplicada al folleto",
       "estilo": "ArtMaker: opciones de tipo de letra, marco, borde, esquinas y precio, en tema claro",
-      "celular": "ArtMaker en el teléfono: folleto final con Compartir y Descargar"
+      "celular": "ArtMaker en el móvil: folleto final con Compartir y Descargar"
     },
     "unifydata": {
       "base": "UnifyData: base de empleados cargada e informes de compras de las tiendas listos para procesar",
       "pendencias": "UnifyData: pendientes del cruce, sin registro o sin empresa, con valor, número de empleado y tienda",
       "resultado": "UnifyData: cierre listo, con el total a descontar por empresa y por tienda y las salidas en Excel, CSV y PDF",
-      "celular": "UnifyData en el teléfono: cierre listo"
+      "celular": "UnifyData en el móvil: cierre listo"
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: revisión de una respuesta con el veredicto Incorrecta, puntos fuertes y qué mejorar",
       "revisao-codigo": "DeepChat: versión revisada de una función que valida el CPF y que ahora rechaza secuencias repetidas como 111.111.111-11, con el orden invertido (ChatGPT responde y DeepSeek revisa)",
       "inicio": "DeepChat: pantalla de inicio con los campos de las claves de API y el acceso a la demo",
-      "celular": "DeepChat en el teléfono: revisión con puntos fuertes, qué mejorar y sugerencias"
+      "celular": "DeepChat en el móvil: revisión con puntos fuertes, qué mejorar y sugerencias"
     },
     "praxis": {
       "kanban": "Praxis: tablero de pedidos en siete etapas, con el total de cada columna y tarjetas con empresa, plazo y valor",
       "cotacoes": "Praxis: tres cotizaciones de un pedido lado a lado, con valor, diferencia respecto a la más baja, plazo de entrega y condiciones",
       "aprovacao": "Praxis: pedido en aprobación, con la barra de etapas, el siguiente paso, la propuesta recomendada, el ahorro y las personas implicadas",
-      "celular": "Praxis en el teléfono: tablero de pedidos con las etapas en pestañas"
+      "celular": "Praxis en el móvil: tablero de pedidos con las etapas en pestañas"
     },
     "flowtrack": {
       "dashboard": "FlowTrack: panel con saldo, ingresos y gastos",
       "transacoes": "FlowTrack: lista de movimientos categorizados",
       "relatorios": "FlowTrack: informes con ingresos, gastos, saldo y gastos por categoría",
-      "celular": "FlowTrack en el teléfono: resumen del mes con saldo, ingresos, gastos y categorías"
+      "celular": "FlowTrack en el móvil: resumen del mes con saldo, ingresos, gastos y categorías"
     },
     "audistock": {
       "dashboard": "AudiStock: auditorías en curso, resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias",
       "relatorio": "AudiStock: informe de una auditoría con las existencias del sistema, lo contado y la diferencia de cada artículo, y salidas en Excel, PDF y CSV",
-      "celular": "AudiStock en el teléfono: recuento con teclado, lector y cámara y el progreso de la auditoría"
+      "celular": "AudiStock en el móvil: recuento con teclado, lector y cámara y el progreso de la auditoría"
     },
     "fuelmind": {
       "lancamentos": "Fuel Mind: pantalla de registros con importación del XML de la NF-e",
       "fretes": "Fuel Mind: fletes mes a mes",
       "relatorios": "Fuel Mind: informes y cierre del mes",
       "dashboard": "Fuel Mind: panel con las facturas del combustible descargado, los litros y el gasto del mes",
-      "celular": "Fuel Mind en el teléfono: panel"
+      "celular": "Fuel Mind en el móvil: panel"
     },
     "alertsignal": {
       "visao-geral": "AlertSignal: visión general con documentos vencidos, por renovar, al día y sin fecha, y el gráfico de vencimientos",
       "empresa": "AlertSignal: documentos de una empresa por urgencia, con vencimiento, plazo y responsables",
       "relatorio": "AlertSignal: informe de vencimientos agrupado por empresa, con salidas en PDF, Excel y CSV",
-      "celular": "AlertSignal en el teléfono: documentos de una empresa en tarjetas"
+      "celular": "AlertSignal en el móvil: documentos de una empresa en tarjetas"
     },
     "docke": {
       "dashboard": "Docke: panel de la empresa con 14 documentos, 4 carpetas, envíos de los últimos 14 días y documentos por carpeta",
       "documentos": "Docke: carpeta Fiscal con cuatro documentos, su tipo, tamaño y la marca del OCR",
       "atividade": "Docke: actividad con cada envío, visualización y descarga registrados por día",
-      "celular": "Docke en el teléfono: panel con los totales y la navegación abajo"
+      "celular": "Docke en el móvil: panel con los totales y la navegación abajo"
     }
   },
   "habilidades": {
@@ -592,11 +592,11 @@
   "erro404": {
     "titulo": "Página no encontrada",
     "texto": "Esta dirección no existe o cambió de lugar.",
-    "link": "Ir al portafolio en español",
+    "link": "Ir al porfolio en español",
     "linkProjetos": "Ver los proyectos"
   },
   "cv": {
-    "site": "Portafolio",
+    "site": "Porfolio",
     "resumoTitulo": "Resumen",
     "resumo": "Trabajo desde hace más de cinco años en contabilidad, nómina y RR. HH., administración y control de gestión, y también desarrollo sistemas. En {carreira.astcon.curto} empecé como auxiliar de archivo y llegué a responsable de nómina y RR. HH. de más de {empresasClientesBase} empresas clientes, coordinando al equipo de la oficina. Hoy, en control de gestión de {carreira.zen.empresa}, reviso facturas antes del pago, me encargo de compras y desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos.",
     "experienciaTitulo": "Experiencia",
