@@ -2,7 +2,7 @@
   "_leia": "Textos do site em português. Tradução: copie para textos.en.json / textos.es.json e traduza só os valores (as chaves ficam iguais). Marcação: *ênfase* · **negrito** · ~riscado~ · {variavel} (vem de fonte/dados.json; não traduza o que está entre chaves). Chaves que começam com _ são ignoradas. Valores que começam com [PT] ainda estão em português e esperam tradução.",
   "meta": {
     "titulo": "Alyssom Fernandes — Developer · Data & Automation",
-    "descricao": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Remoto ou relocação para a Europa e as Américas. Construo os sistemas que substituem as planilhas.",
+    "descricao": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Remoto ou relocação para a Europa e as Américas.",
     "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
     "ogDescricao": "Passei 5 anos dentro das planilhas. Hoje construo os sistemas que as substituem.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
@@ -25,7 +25,7 @@
     "verDetalhes": "Ver detalhes",
     "demo": "Demo",
     "abrirDemo": "Abrir a demo",
-    "comoRodar": "Como rodar a demo",
+    "comoRodar": "Rodar a demo",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "email": "E-mail",
@@ -81,7 +81,7 @@
     "meses": "meses"
   },
   "abertura": {
-    "linhaFina": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Crio software a partir de dores reais do trabalho: o desconto em folha das compras dos funcionários, a nota de combustível digitada à mão, o prazo que dependia de alguém abrir a planilha.",
+    "linhaFina": "Desenvolvedor com base em contabilidade, DP/RH e controladoria. Faço sistemas para problemas que encontrei no trabalho, como o desconto em folha das compras dos funcionários, as notas de combustível digitadas à mão e os prazos que dependiam de alguém abrir a planilha.",
     "ficha": {
       "titulo": "Ficha",
       "experienciaRotulo": "Experiência",
@@ -110,13 +110,13 @@
       {
         "titulo": "Do arquivo ao DP/RH",
         "texto": "Comecei na {carreira.astcon.empresa} em {carreira.astcon.inicioLongo}, como office boy, em meio período, ainda no ensino médio. Passei pelo contábil e cheguei ao DP/RH: rotinas completas de mais de {empresasClientesBase} empresas clientes, da admissão ao eSocial e à DCTFWeb.",
-        "extra": "Virei o responsável pelo DP/RH e, na prática, pelo escritório: coordenava a equipe, treinava quem chegava e atendia os clientes mais difíceis. Automatizei no Domínio o cálculo das folhas e o envio ao eSocial e implantei o Onvio com os clientes.",
+        "extra": "Virei o responsável pelo DP/RH e, na prática, pelo escritório: coordenava a equipe, treinava quem chegava e atendia os clientes mais difíceis. Automatizei no Domínio o cálculo das folhas e o envio ao eSocial e implantei o Onvio junto aos clientes.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "Um convite para gerir",
         "texto": "Um cliente do escritório me indicou ao dono da {carreira.novomexico.empresa}, que procurava alguém para assumir a gerência administrativa. Em {carreira.novomexico.inicioLongo}, entrei como auxiliar administrativo para suceder a gerente: pagamento da equipe, controle de compras, conferência de notas e boletos e reuniões com as equipes da irrigação.",
-        "extra": "Em {carreira.novomexico.fimLongo}, o grupo levou o administrativo das fazendas para a sede, e encerramos o vínculo. Foi lá que fiz a ferramenta que veio antes de todos os meus projetos: uma calculadora de horas para o pagamento da equipe.",
+        "extra": "Em {carreira.novomexico.fimLongo}, o grupo levou o administrativo das fazendas para a sede, e encerramos o vínculo. Lá fiz a minha primeira ferramenta, uma calculadora de horas para o pagamento da equipe.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
@@ -127,7 +127,7 @@
       },
       {
         "titulo": "Das planilhas para os sistemas",
-        "texto": "Depois de cinco anos dentro das planilhas, sei onde elas quebram: arquivo que não conversa com outro, conciliação feita à mão, prazo que depende da memória de alguém. É isso que automatizo hoje.",
+        "texto": "Trabalhei cinco anos com planilhas e sei onde elas falham. Um arquivo não se liga ao outro, a conciliação é feita à mão e o prazo depende de alguém lembrar. Hoje eu automatizo esse tipo de tarefa.",
         "extra": "Estudo programação por conta própria desde 2022 e me formei em ADS em {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
@@ -174,8 +174,8 @@
   },
   "projetos": {
     "secao": "Projetos",
-    "titulo": "{projetosPublicados} projetos publicados, {demosAtivas} com demo no ar.",
-    "texto": "Todos nasceram de uma dor real do trabalho ou do dia a dia.",
+    "titulo": "{projetosPublicados} projetos publicados, {demosAtivas}\u00a0com demo no ar.",
+    "texto": "Todos começaram com um problema real, no trabalho ou fora dele.",
     "marca": "Assino os sistemas como {marca}.",
     "indice": {
       "rotulo": "Índice dos projetos",
@@ -211,6 +211,10 @@
       "desafioTitulo": "Desafio",
       "testesTitulo": "Testes",
       "verNoCodigo": "Ver no código",
+      "ampliar": "Ampliar",
+      "ampliarAnterior": "Captura anterior",
+      "ampliarProxima": "Próxima captura",
+      "ampliarFechar": "Fechar",
       "stackLinksTitulo": "Stack e links"
     },
     "artmaker": {
@@ -295,9 +299,9 @@
       }
     },
     "praxis": {
-      "frase": "Do pedido ao pagamento, num fluxo só.",
-      "origem": "Organizar as compras do grupo: quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido.",
-      "origemLonga": "O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido. Criei o Praxis inspirado nas melhores ferramentas de gestão e rastreamento de compras do mercado.",
+      "frase": "Pedidos, cotações e aprovações de compra num quadro só.",
+      "origem": "O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido.",
+      "origemLonga": "O objetivo era organizar as compras do grupo. Quanto mais o grupo crescia, mais difícil era rastrear e controlar cada pedido. Para criar o Praxis, me inspirei em ferramentas de gestão e rastreamento de compras que já existem no mercado.",
       "problema": "Pedidos, cotações e aprovações difíceis de rastrear.",
       "resumo": "Compras corporativas em {etapas} etapas: cotações lado a lado, aprovações, parcelas, prazo e tempo por etapa, com {perfis} perfis de acesso.",
       "prova": "{unidade} de unidade e {regras} das regras do Firestore e do Storage, no GitHub Actions.",
@@ -313,7 +317,7 @@
         },
         "perfis": {
           "titulo": "{perfis} perfis de acesso",
-          "texto": "O pedido mostra quem precisa agir agora e a economia frente à proposta mais cara. Solicitante, comprador, aprovadores e financeiro, cada um com suas permissões."
+          "texto": "O pedido mostra quem precisa agir agora e a economia frente à proposta mais cara. Do solicitante ao administrador geral, passando por comprador, aprovador, gestor e financeiro, cada um com suas permissões."
         },
         "app": {
           "titulo": "Instala como app",
@@ -322,7 +326,7 @@
       }
     },
     "flowtrack": {
-      "frase": "Finanças pessoais que se categorizam sozinhas.",
+      "frase": "Finanças pessoais com categorização automática.",
       "origem": "Controlar as minhas finanças sempre foi difícil: a planilha era chata de preencher, e os apps cobravam mensalidade. Fiz o meu próprio organizador, com o melhor das ferramentas que conhecia.",
       "origemLonga": "Sempre tive dificuldade de controlar as minhas finanças. Preencher planilhas era chato e cansativo, e os apps cobravam mensalidades que eu não queria pagar. Então desenvolvi o meu próprio organizador de finanças, voltado para as minhas necessidades, juntando o melhor das ferramentas que conhecia.",
       "problema": "Planilha cansativa de preencher; aplicativo com mensalidade.",
@@ -347,8 +351,8 @@
     },
     "audistock": {
       "frase": "Contagem de estoque pelo celular, conferida com o ERP.",
-      "origem": "Quem auditava os estoques de algumas empresas do grupo relatava problemas com a contagem do AutoSystem. Fiz o AudiStock semelhante ao AutoSystem e integrado a ele, resolvendo as queixas dos operadores.",
-      "origemLonga": "O pessoal que fazia a auditoria dos estoques de algumas empresas do grupo relatava muitos problemas com a contagem de estoque do AutoSystem. Fiz o AudiStock de forma semelhante e integrado ao AutoSystem, resolvendo os problemas de que os operadores se queixavam.",
+      "origem": "Quem auditava os estoques de algumas empresas do grupo relatava problemas com a contagem do AutoSystem. Fiz o AudiStock semelhante ao AutoSystem, resolvendo as queixas dos operadores.",
+      "origemLonga": "O pessoal que fazia a auditoria dos estoques de algumas empresas do grupo relatava muitos problemas com a contagem de estoque do AutoSystem. Fiz o AudiStock de forma semelhante ao AutoSystem, resolvendo os problemas de que os operadores se queixavam. Por enquanto, o saldo do AutoSystem é informado no fechamento; a integração direta fica para uma próxima etapa.",
       "problema": "A contagem de estoque gerava queixas de quem auditava.",
       "resumo": "Auditoria de estoque: a equipe conta pelo celular, informa o saldo do ERP no fechamento e recebe o relatório de faltas e sobras em PDF, Excel e CSV, com fila offline para contar sem internet.",
       "prova": "{unidade} de unidade e banco e {e2e} de ponta a ponta, no GitHub Actions.",
@@ -391,7 +395,7 @@
         },
         "painel": {
           "titulo": "Entradas num painel só",
-          "texto": "Notas descarregadas, litros e gastos do mês acompanhados no mesmo painel."
+          "texto": "Notas do combustível descarregado, litros e gastos do mês acompanhados no mesmo painel."
         },
         "celular": {
           "titulo": "Compara com o período anterior",
@@ -428,8 +432,8 @@
     },
     "docke": {
       "frase": "Documentos de várias empresas, com trilha de auditoria.",
-      "origem": "O grupo ia levar toda a documentação para a nuvem. Desenvolvi o Docke com os pontos-chave dessa mudança, moldado para a rotina das equipes.",
-      "origemLonga": "O grupo ia migrar toda a documentação para a nuvem. Desenvolvi o Docke atendendo aos pontos-chave dessa migração e moldado para a rotina das equipes.",
+      "origem": "O grupo ia levar toda a documentação para a nuvem. Fiz o Docke para essa mudança, pensando na rotina das equipes: documentos separados por empresa, busca no texto digitalizado, prazos, retenção legal e trilha de auditoria.",
+      "origemLonga": "O grupo ia migrar toda a documentação para a nuvem. Desenvolvi o Docke para essa migração, pensando na rotina das equipes: documentos separados por empresa, busca no texto digitalizado, prazos de obrigações, retenção legal e trilha de auditoria.",
       "problema": "Documentos de várias empresas para organizar na nuvem, com prazos e retenção legal.",
       "resumo": "Gestão eletrônica de documentos para várias empresas: busca no texto digitalizado (OCR), prazos de obrigações, retenção legal e trilha de auditoria encadeada por hash.",
       "prova": "{backend} de backend e {e2e} de ponta a ponta, no GitHub Actions.",
@@ -494,7 +498,7 @@
       "lancamentos": "Fuel Mind: tela de lançamentos com importação do XML da NF-e",
       "fretes": "Fuel Mind: fretes mês a mês",
       "relatorios": "Fuel Mind: relatórios e fechamento do mês",
-      "dashboard": "Fuel Mind: painel com notas descarregadas, litros e gastos do mês",
+      "dashboard": "Fuel Mind: painel com notas do combustível descarregado, litros e gastos do mês",
       "celular": "Fuel Mind no celular: painel"
     },
     "alertsignal": {
@@ -513,7 +517,7 @@
   "habilidades": {
     "secao": "Habilidades",
     "titulo": "Tecnologia × projeto",
-    "texto": "Cada ponto é uma evidência no código ou no CI de um repositório publicado. Sem nota de 0 a 10.",
+    "texto": "Cada ponto mostra onde a tecnologia aparece no código ou no CI de um repositório publicado. Não uso notas de 0 a 10.",
     "cabecalho": "Tecnologia ou capacidade",
     "total": "Total",
     "porProjeto": "Por projeto",
@@ -594,7 +598,7 @@
   "cv": {
     "site": "Portfólio",
     "resumoTitulo": "Resumo",
-    "resumo": "Desenvolvedor com mais de cinco anos de carreira entre contabilidade, DP/RH, administrativo e controladoria. Na {carreira.astcon.curto}, comecei como office boy e cheguei a responsável pelo DP/RH de mais de {empresasClientesBase} empresas clientes, coordenando a equipe do escritório. Hoje, na controladoria do {carreira.zen.empresa}, confiro notas antes do pagamento, cuido de compras e desenvolvo sistemas internos que reduziram bastante o tempo e, mais ainda, os erros dos processos. Crio software a partir de dores reais do trabalho.",
+    "resumo": "Trabalho há mais de cinco anos com contabilidade, DP/RH, administrativo e controladoria, e também desenvolvo sistemas. Na {carreira.astcon.curto}, comecei como office boy e cheguei a responsável pelo DP/RH de mais de {empresasClientesBase} empresas clientes, coordenando a equipe do escritório. Hoje, na controladoria do {carreira.zen.empresa}, confiro notas antes do pagamento, cuido de compras e desenvolvo sistemas internos que reduziram bastante o tempo e, mais ainda, os erros dos processos.",
     "experienciaTitulo": "Experiência",
     "projetosTitulo": "Projetos",
     "projetosNota": "{projetosPublicados} projetos publicados no GitHub, {demosAtivas} com demo no ar. Testes conferidos em {data}.",

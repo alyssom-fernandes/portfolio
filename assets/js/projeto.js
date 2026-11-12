@@ -59,8 +59,9 @@ function quadro() {
   });
   fluxos.forEach((f, i) => {
     const r = fr[i], n = f.nos.length, S = 2 * n - 1;
-    // começa quando o topo do diagrama entra; termina quando o fim dele passa de 60% da tela
-    const p = clamp((vh * .92 - r.top) / Math.max(1, vh * .32 + r.height));
+    // começa quando o topo do diagrama entra; termina quando o fim dele chega a 85% da tela,
+    // para quem chega pelo índice ou por link direto ver o diagrama inteiro
+    const p = clamp((vh * .95 - r.top) / Math.max(1, vh * .1 + r.height));
     const P = p * (S + .3);
     const etapa = k => { const t = clamp((P - k) / 1.3); return t * t * (3 - 2 * t); };
     f.nos.forEach((li, j) => {
@@ -90,6 +91,39 @@ addEventListener('load', pedir);
 document.addEventListener('click', e => { if (e.target.closest('a[href^="#"]')) document.documentElement.classList.add('rola-suave'); }, true);
 if (document.fonts) document.fonts.ready.then(pedir);
 quadro();
+
+// janela de ampliar: a captura em tamanho real, sem sair da página; setas passam pelas capturas da página
+const lb = $('.lb'), amps = $$('.d-ampliar');
+if (lb && lb.showModal && amps.length) {
+  // a imagem nasce aqui (sem src no HTML, ela seria uma imagem vazia na página)
+  const img = document.createElement('img'), leg = $('.lb-leg', lb);
+  img.decoding = 'async';
+  $('.lb-fig', lb).prepend(img);
+  let i = 0, origem = null;
+  lb.classList.toggle('so-uma', amps.length < 2);
+  const mostrar = k => {
+    i = (k + amps.length) % amps.length;
+    const a = amps[i], mini = $('img', a);
+    img.removeAttribute('src');
+    img.alt = mini ? mini.alt : '';
+    img.src = a.href;
+    img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
+    leg.textContent = mini ? mini.alt : '';
+  };
+  amps.forEach((a, k) => a.addEventListener('click', e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault(); origem = a; mostrar(k);
+    document.documentElement.classList.add('lb-aberta');
+    lb.showModal();
+  }));
+  $('.lb-ant', lb).addEventListener('click', () => mostrar(i - 1));
+  $('.lb-prox', lb).addEventListener('click', () => mostrar(i + 1));
+  $('.lb-fechar', lb).addEventListener('click', () => lb.close());
+  // clique fora da imagem fecha; setas do teclado navegam (Esc fecha pelo próprio <dialog>)
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-fig')) lb.close(); });
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') mostrar(i - 1); else if (e.key === 'ArrowRight') mostrar(i + 1); });
+  lb.addEventListener('close', () => { document.documentElement.classList.remove('lb-aberta'); if (origem) origem.focus({ preventScroll: true }); });
+}
 
 // índice compacto: fecha ao escolher uma seção, com Esc e ao tocar fora
 if (indM) {

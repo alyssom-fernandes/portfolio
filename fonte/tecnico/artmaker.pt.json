@@ -18,7 +18,7 @@
   },
   "decisoes": [
     {
-      "titulo": "Um arquivo só, de propósito",
+      "titulo": "O app inteiro num `index.html`",
       "texto": "Escolhi entregar o app inteiro num `index.html`, para que baste mandar o arquivo e abrir no navegador. A logo padrão vai embutida em WebP, porque uma imagem externa aberta direto do disco contamina o canvas e o navegador bloqueia o download. A CSP vai por meta, com `default-src 'none'` e cada script inline liberado pelo hash SHA-256; de fora, só o Google Fonts.",
       "fontes": [
         "ArtMaker/README.pt-BR.md#L161-L164",
@@ -59,7 +59,7 @@
     ]
   },
   "testes": {
-    "texto": "São 33 testes com `node --test`, sem dependências. Como o app é um arquivo só, o teste lê o `index.html`, recorta o bloco `PURO` e o roda num contexto isolado do `node:vm`: são 31 testes de preço, desconto, contraste, datas, nome do arquivo e validação de projetos. Os outros 2 recalculam os hashes da CSP do `index.html` e do `404.html`. O GitHub Actions roda tudo a cada push, em Node 22.",
+    "texto": "Os 33 testes rodam com `node --test`, sem dependências. Como o app é um arquivo só, o teste lê o `index.html`, recorta o bloco `PURO` e o roda num contexto isolado do `node:vm`: são 31 testes de preço, desconto, contraste, datas, nome do arquivo e validação de projetos. Os outros 2 recalculam os hashes da CSP do `index.html` e do `404.html`. O GitHub Actions roda tudo a cada push, em Node 22.",
     "fontes": [
       "ArtMaker/tests/puro.test.mjs#L1-L17",
       "ArtMaker/tests/puro.test.mjs",

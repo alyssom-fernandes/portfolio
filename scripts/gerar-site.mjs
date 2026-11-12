@@ -570,7 +570,7 @@ function gerarPagina(idioma) {
   </section>
   <footer class="cvp-assina">
     <img src="${pref}${I.rubrica}" width="220" height="399" alt="${p0('identidade.rubricaAlt')}" loading="lazy" decoding="async">
-    <span>${esc(I.marca)},${esc(I.nome)}</span>
+    <span>${esc(I.marca)}, ${esc(I.nome)}</span>
   </footer>
 </article>`;
 
@@ -638,7 +638,15 @@ ${cv}
 // dela no índice não aparecem. Com o arquivo, o formato é conferido aqui, antes de gravar qualquer página.
 // Os textos não aceitam HTML; trechos entre crases viram <code>. Cada fonte é "Repo/caminho" ou "Repo/caminho#L1-L9".
 const REPO_GITHUB = 'https://github.com/alyssom-fernandes/';
-const reFonte = /^([A-Za-z0-9._-]+)\/([^#\s]+?)(?:#L(\d+)(?:-L(\d+))?)?$/;
+// fonte/tecnico/commits.json: o commit em que as linhas foram conferidas; sem ele, o link usa HEAD
+const COMMITS = (() => {
+  const rel = path.join(raiz, 'fonte/tecnico/commits.json');
+  if (!existsSync(rel)) return {};
+  const j = JSON.parse(readFileSync(rel, 'utf8').replace(/^﻿/, ''));
+  for (const [k, v] of Object.entries(j)) if (!k.startsWith('_') && !/^[0-9a-f]{40}$/.test(v)) falhar([`fonte/tecnico/commits.json: "${k}" precisa de um SHA de 40 caracteres`]);
+  return j;
+})();
+const reFonte =/^([A-Za-z0-9._-]+)\/([^#\s]+?)(?:#L(\d+)(?:-L(\d+))?)?$/;
 function validarTecnico(t, p, rel) {
   const e = [];
   const objeto = v => !!v && typeof v === 'object' && !Array.isArray(v);
@@ -698,7 +706,7 @@ function linksFontes(lista, C) {
   const links = fs.map(x => {
     const ambiguo = fs.some(y => y.arq === x.arq && y.repo !== x.repo);
     const ancora = x.l1 ? `#L${x.l1}${x.l2 ? `-L${x.l2}` : ''}` : '';
-    const url = `${REPO_GITHUB}${x.repo}/blob/HEAD/${x.cam.split('/').map(encodeURIComponent).join('/')}${ancora}`;
+    const url = `${REPO_GITHUB}${x.repo}/blob/${COMMITS[x.repo] || 'HEAD'}/${x.cam.split('/').map(encodeURIComponent).join('/')}${ancora}`;
     const linhas = x.l1 ? ` <small>L${x.l1}${x.l2 ? `–${x.l2}` : ''}</small>` : '';
     return `<a href="${esc(url)}"${novaAba} title="${esc(`${x.repo}/${x.cam}`)}">${esc(ambiguo ? `${x.repo}/${x.arq}` : x.arq)}${linhas}</a>`;
   });
@@ -753,12 +761,13 @@ function gerarDetalhe(idioma, p, idx) {
   const m0 = manifesto[p.telas[0]];
   const cel = p.celular;
   const sizesGrande = '(max-width: 760px) 100vw, 1100px';
+  // cada captura abre em tamanho real na janela de ampliar (projeto.js); sem JS, o link abre a imagem
+  const ampliar = (chave, dentro) => `<a class="d-ampliar" href="${pref}${manifesto[chave].src}" target="_blank" rel="noopener" aria-label="${esc(`${p0('projetos.detalhe.ampliar')}: ${limpar(C.p0('alt.' + chave.replace('/', '.')))}`)}">${dentro}<span class="d-amp-selo" aria-hidden="true">${p0('projetos.detalhe.ampliar')}</span></a>`;
   const destaques = p.itens.map((it, j) => {
     const fig = it.tela === 'celular'
-      ? `<div class="d-fig celular-so" data-revela>${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 320px' })}</div>`
-      // a captura abre em tamanho real numa aba nova: na coluna da página, o texto da interface fica pequeno demais
-      : `<div class="d-fig" data-revela><a class="d-ampliar" href="${pref}${manifesto[it.tela].src}" target="_blank" rel="noopener"><div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div></a></div>`;
-    return `<li class="d-item${j % 2 ? ' inv' : ''}">
+      ? `<div class="d-fig celular-so" data-revela>${ampliar(p.celular, imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 70vw, 320px' }))}</div>`
+      : `<div class="d-fig" data-revela>${ampliar(it.tela, `<div class="janela"><div class="j-barra"><span>${esc(barraUrl(p))}</span></div><div class="j-tela estatica">${imgDe(it.tela, pref, C, { sizes: sizesGrande })}</div></div>`)}</div>`;
+    return `<li class="d-item${it.tela === 'celular' ? ' d-item-cel' : ''}${j % 2 ? ' inv' : ''}">
           ${fig}
           <div class="d-item-txt" data-revela="1"><h3>${h(`projetos.${p.id}.itens.${it.id}.titulo`, vp)}</h3><p>${h(`projetos.${p.id}.itens.${it.id}.texto`, vp)}</p></div>
         </li>`;
@@ -778,7 +787,13 @@ function gerarDetalhe(idioma, p, idx) {
   const rotIndice = p0('projetos.detalhe.indice');
   const alternativas = [...idiomasLinks.map(i => [i.hreflang, urlDe(i)]), ['x-default', urlDe(dados.site.idiomas.find(i => i.codigo === padrao))]];
   const titulo = p0('meta.tituloProjeto', { nome: p.nome, frase: limpar(C.txt(`projetos.${p.id}.frase`, vp)).replace(/\.$/, '') });
-  const descricao = esc(limpar(C.txt(`projetos.${p.id}.resumo`, vp)));
+  // a busca corta a descrição perto de 155 caracteres: o resumo longo termina antes, numa vírgula
+  const curto = s => {
+    if (s.length <= 158) return s;
+    const i = Math.max(s.lastIndexOf(', ', 152), s.lastIndexOf('; ', 152));
+    return (i > 80 ? s.slice(0, i) : s.slice(0, 152).replace(/\s+\S*$/, '')).replace(/[,;:]$/, '') + '…';
+  };
+  const descricao = esc(curto(limpar(C.txt(`projetos.${p.id}.resumo`, vp))));
   // dados estruturados do projeto (schema.org), só com o que já está em dados.json e nos textos
   const codigoLd = {
     '@context': 'https://schema.org',
@@ -870,6 +885,12 @@ ${cabecalho({ C, pref, ancora: home, idiomaHref: i => `${pref}${i.pasta}projetos
     <a class="d-prox" href="../${prox.id}/"><span>${p0('projetos.detalhe.proximo')}</span><b>${esc(prox.nome)}</b></a>
   </nav>
 </main>
+<dialog class="lb" aria-label="${p0('projetos.detalhe.ampliar')}">
+  <figure class="lb-fig"><figcaption class="lb-leg"></figcaption></figure>
+  <button type="button" class="lb-btn lb-ant" aria-label="${p0('projetos.detalhe.ampliarAnterior')}">&larr;</button>
+  <button type="button" class="lb-btn lb-prox" aria-label="${p0('projetos.detalhe.ampliarProxima')}">&rarr;</button>
+  <button type="button" class="lb-btn lb-fechar" autofocus>${p0('projetos.detalhe.ampliarFechar')}</button>
+</dialog>
 
 <footer class="d-rodape">
   <p class="d-rod-t"><a href="${home}#contato">${p0('contato.titulo')}</a></p>

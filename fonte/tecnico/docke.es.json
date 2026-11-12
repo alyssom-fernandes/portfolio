@@ -53,7 +53,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Verificar el registro por enlaces, no por hora",
+    "titulo": "El registro se verifica por sus enlaces",
     "texto": "Cada evento guarda un HMAC-SHA256 calculado sobre su contenido y el hash del evento anterior de la empresa. La primera verificación ordenaba los eventos por hora y señalaba una cadena rota sin que hubiera alteración, porque los eventos de una misma transacción tienen la misma hora. Reescribí la verificación para seguir los enlaces a partir del primer evento. Faltaba aún el final: borrar el evento más reciente pasaba inadvertido; ahora el último hash grabado tiene que existir, o el registro aparece como truncado.",
     "fontes": [
       "Docke/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80",
@@ -64,7 +64,7 @@
     ]
   },
   "testes": {
-    "texto": "El backend tiene 83 pruebas recopiladas por pytest, que provienen de 30 funciones (una de ellas se ejecuta 50 veces); las de integración se ejecutan contra un Supabase local y cubren el aislamiento entre empresas mediante RLS, los permisos, el OCR, los enlaces para compartir y el registro señalando un evento alterado, borrado o cortado al final. Las 6 pruebas de Playwright inician sesión en la demostración, cambian de identidad, abren un PDF y buscan. GitHub Actions ejecuta ambas en cada push a `main`.",
+    "texto": "El backend tiene 83 pruebas recopiladas por pytest, que provienen de 30 funciones (tres están parametrizadas: una se ejecuta 50 veces y dos, 3 veces cada una); las de integración se ejecutan contra un Supabase local y cubren el aislamiento entre empresas mediante RLS, los permisos, el OCR, los enlaces para compartir y el registro señalando un evento alterado, borrado o cortado al final. Las 6 pruebas de Playwright inician sesión en la demostración, cambian de identidad, abren un PDF y buscan. GitHub Actions ejecuta ambas en cada push a `main`.",
     "fontes": [
       "Docke/backend/tests",
       "Docke/frontend/e2e",

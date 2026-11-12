@@ -53,7 +53,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Verifying the trail by links, not timestamps",
+    "titulo": "The trail is verified by its links",
     "texto": "Each event stores an HMAC-SHA256 computed over its content and the hash of the company's previous event. The first verification sorted events by timestamp and reported a broken chain with no tampering, because events in the same transaction share a timestamp. I rewrote the verification to follow the links from the first event. The end was still uncovered: deleting the most recent event went unnoticed; now the last stored hash must exist, or the trail shows as truncated.",
     "fontes": [
       "Docke/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80",
@@ -64,7 +64,7 @@
     ]
   },
   "testes": {
-    "texto": "The backend has 83 tests collected by pytest, from 30 functions (one of them runs 50 times); the integration tests run against a local Supabase and cover company isolation through RLS, permissions, OCR, share links, and the trail flagging an event that was altered, deleted, or cut off at the end. The 6 Playwright tests sign in to the demo, switch identities, open a PDF, and search. GitHub Actions runs both on every push to `main`.",
+    "texto": "The backend has 83 tests collected by pytest, from 30 functions (three are parametrized: one runs 50 times and two run 3 times each); the integration tests run against a local Supabase and cover company isolation through RLS, permissions, OCR, share links, and the trail flagging an event that was altered, deleted, or cut off at the end. The 6 Playwright tests sign in to the demo, switch identities, open a PDF, and search. GitHub Actions runs both on every push to `main`.",
     "fontes": [
       "Docke/backend/tests",
       "Docke/frontend/e2e",

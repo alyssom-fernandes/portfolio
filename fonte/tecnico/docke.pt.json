@@ -53,7 +53,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Verificar a trilha pelos elos, não pelo horário",
+    "titulo": "A trilha é verificada pelos elos",
     "texto": "Cada evento guarda um HMAC-SHA256 calculado sobre o seu conteúdo e o hash do evento anterior da empresa. A primeira verificação ordenava os eventos pelo horário e acusava cadeia quebrada sem adulteração, porque eventos da mesma transação têm o mesmo horário. Reescrevi a verificação para seguir os elos a partir do primeiro evento. Faltava ainda o fim: apagar o evento mais recente passava despercebido; agora o último hash gravado precisa existir, ou a trilha aparece como truncada.",
     "fontes": [
       "Docke/supabase/migrations/20260723000015_event_store_activity_log.sql#L40-L80",
@@ -64,7 +64,7 @@
     ]
   },
   "testes": {
-    "texto": "O backend tem 83 testes coletados pelo pytest, vindos de 30 funções (uma delas roda 50 vezes); os de integração rodam contra um Supabase local e cobrem o isolamento entre empresas pelo RLS, permissões, OCR, links de compartilhamento e a trilha acusando evento alterado, apagado ou cortado no fim. Os 6 testes do Playwright fazem login na demonstração, trocam de identidade, abrem um PDF e buscam. O GitHub Actions roda os dois a cada push na `main`.",
+    "texto": "O backend tem 83 testes coletados pelo pytest, vindos de 30 funções (três são parametrizadas: uma roda 50 vezes e duas, 3 vezes cada); os de integração rodam contra um Supabase local e cobrem o isolamento entre empresas pelo RLS, permissões, OCR, links de compartilhamento e a trilha acusando evento alterado, apagado ou cortado no fim. Os 6 testes do Playwright fazem login na demonstração, trocam de identidade, abrem um PDF e buscam. O GitHub Actions roda os dois a cada push na `main`.",
     "fontes": [
       "Docke/backend/tests",
       "Docke/frontend/e2e",

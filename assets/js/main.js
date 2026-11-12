@@ -157,7 +157,7 @@ function medirVirada() {
   posVirada = { top: gr.bottom - g.top + 8, left: r.left - g.left };
 }
 function renderTraj(p, k0 = 1) {
-  titPasso.forEach((t, j) => { if (t) revelar(t, j === 0 ? Math.max(k0, rampa(0, .03, p)) : rampa(STEPR[j][0], STEPR[j][0] + .07, p)); });
+  titPasso.forEach((t, j) => { if (t) revelar(t, j === 0 ? Math.max(k0, rampa(0, .03, p)) : rampa(STEPR[j][0] - .015, STEPR[j][0] + .03, p)); });
   let total = 0;
   const cont = Object.fromEntries(FASES.map(f => [f, 0]));
   FASES.forEach((f, j) => {
@@ -177,17 +177,21 @@ function renderTraj(p, k0 = 1) {
     FASES.forEach(f => { lgN[f].textContent = cont[f] ? plural(cont[f]) : ''; });
   }
   // o contador só aparece quando o primeiro mês enche: nunca fica em 0 na tela
-  set(cnt, 'opacity', f3(smooth(.05, .09, p)));
+  set(cnt, 'opacity', f3(smooth(.075, .1, p)));
   if (posVirada) {
     const k = smooth(.66, .76, p);
     set(virada, 'transform', `translate3d(${posVirada.left.toFixed(1)}px, ${(posVirada.top + lerp(10, 0, k)).toFixed(1)}px, 0)`);
     set(virada, 'opacity', f3(k));
   }
   set(traco, '--tp', f3(p));
+  if (p > .5) prepararCartoes();
   passos.forEach((s, j) => {
     const [a, b] = STEPR[j];
-    const v = (j === 0 ? 1 : smooth(a, a + .04, p)) * (j === passos.length - 1 ? 1 : 1 - smooth(b - .04, b, p));
+    // os passos se cruzam (um sai enquanto o outro entra), sem quadro vazio entre eles
+    const v = (j === 0 ? 1 : smooth(a - .015, a + .015, p)) * (j === passos.length - 1 ? 1 : 1 - smooth(b - .015, b + .015, p));
     set(s, 'opacity', f3(v));
+    // o texto do passo vem logo depois do título
+    set(s, '--pv', f3(j === 0 ? 1 : smooth(a + .012, a + .045, p)));
     set(s, 'visibility', v < .02 ? 'hidden' : 'visible');
   });
 }
@@ -223,14 +227,17 @@ function ajustarFig() {
 /* ---------- introdução dos projetos: a cortina escura sobe ---------- */
 const intro = $('#projetos-cena');
 // a tela escura sobe e a frase inverte de cor; o título e os cartões vêm logo depois, no fluxo normal
-const cortinaIntro = p => smooth(.04, .8, p);
-// as capturas da 1ª e da 2ª linha de cartões são decodificadas durante a cortina, antes de se animarem
+const cortinaIntro = p => smooth(.04, .86, p);
+// as capturas da 1ª e da 2ª linha de cartões são decodificadas num momento ocioso depois da carga
+// (ou, no mais tardar, quando a trajetória passa da metade), e não durante a cortina
 let decodificou = false;
+function prepararCartoes() {
+  if (decodificou) return;
+  decodificou = true;
+  $$('.cartao').slice(0, 6).forEach(c => $$('img', c).forEach(im => { im.loading = 'eager'; if (im.decode) im.decode().catch(() => {}); }));
+}
 function renderIntro(p) {
-  if (!decodificou && p > 0) {
-    decodificou = true;
-    $$('.cartao').slice(0, 6).forEach(c => $$('img', c).forEach(im => { im.loading = 'eager'; if (im.decode) im.decode().catch(() => {}); }));
-  }
+  if (p > 0) prepararCartoes();
   set(intro, '--c', f3(cortinaIntro(p)));
 }
 
@@ -350,8 +357,10 @@ addEventListener('resize', () => { medirTudo(); pedir(); });
 mq.addEventListener('change', () => { medirTudo(); pedir(); });
 medirTudo();
 quadro();
-if (document.fonts) document.fonts.ready.then(() => { medirTudo(); pedir(); });
-addEventListener('load', () => { medirTudo(); pedir(); });
+Promise.all([document.fonts ? document.fonts.ready : null, new Promise(r => addEventListener('load', r, { once: true }))]).then(() => {
+  medirTudo(); pedir();
+  (window.requestIdleCallback || (f => setTimeout(f, 1200)))(prepararCartoes, { timeout: 4000 });
+});
 // voltando de uma página de projeto (cache de navegação), a posição pode ter mudado sem evento de rolagem
 addEventListener('pageshow', e => { if (e.persisted) { medirTudo(); pedir(); } });
 })();

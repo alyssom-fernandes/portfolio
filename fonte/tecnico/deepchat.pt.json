@@ -57,7 +57,7 @@
     ]
   },
   "testes": {
-    "texto": "São 65 testes com `node --test`, sem dependências. Cobrem a leitura da revisão, a conversa e o contexto enviado às APIs, as cores no código e a CSP das páginas. O stream é testado sem rede, com um `fetch` falso que corta a conexão. O cofre roda com `localStorage` e IndexedDB falsos e o `crypto.subtle` de verdade. Os exemplos da demonstração também são conferidos. O GitHub Actions roda tudo a cada push, em Node 24.",
+    "texto": "O `node --test` roda 65 testes, sem dependências. Cobrem a leitura da revisão, a conversa e o contexto enviado às APIs, as cores no código e a CSP das páginas. O stream é testado sem rede, com um `fetch` falso que corta a conexão. O cofre roda com `localStorage` e IndexedDB falsos e o `crypto.subtle` de verdade. Os exemplos da demonstração também são conferidos. O GitHub Actions roda tudo a cada push, em Node 24.",
     "fontes": [
       "DeepChat/tests/api.test.mjs",
       "DeepChat/tests/storage.test.mjs#L1-L8",

@@ -2,7 +2,7 @@
   "_leia": "Site copy in international English: readable in Europe and the Americas, US spelling (-ize), no terms tied to one country. Keys must stay identical to textos.pt.json; translate only the values. Markup: *emphasis* · **bold** · ~strikethrough~ · {variable} (comes from fonte/dados.json; never translate what is inside the braces). Keys starting with _ are ignored.",
   "meta": {
     "titulo": "Alyssom Fernandes — Developer · Data & Automation",
-    "descricao": "Developer with a background in accounting, payroll, HR, and financial control. Remote or relocation to Europe and the Americas. I build systems that replace spreadsheets.",
+    "descricao": "Developer with a background in accounting, payroll, HR, and financial control. Remote or relocation to Europe and the Americas.",
     "ogTitulo": "Alyssom Fernandes — Developer · Data & Automation",
     "ogDescricao": "I spent 5 years inside spreadsheets. Now I build the systems that replace them.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
@@ -25,7 +25,7 @@
     "verDetalhes": "See details",
     "demo": "Demo",
     "abrirDemo": "Open the demo",
-    "comoRodar": "How to run the demo",
+    "comoRodar": "Run the demo",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "email": "Email",
@@ -81,11 +81,11 @@
     "meses": "months"
   },
   "abertura": {
-    "linhaFina": "Developer with a background in accounting, payroll, HR, and financial control. I build software from problems I ran into at work: payroll deductions for employee purchases, fuel invoices typed in by hand, a deadline that depended on someone opening the spreadsheet.",
+    "linhaFina": "Developer with a background in accounting, payroll, HR, and financial control. I build software for problems I ran into at work, such as payroll deductions for employee purchases, fuel invoices typed in by hand, and deadlines that depended on someone opening a spreadsheet.",
     "ficha": {
-      "titulo": "Fact sheet",
+      "titulo": "At a glance",
       "experienciaRotulo": "Experience",
-      "experiencia": "Now {carreira.zen.cargo} at {carreira.zen.empresa} since {carreira.zen.inicioLongo}, working directly with the controller. Before that, at {carreira.astcon.curto} ({carreira.astcon.anos}), I went from filing clerk to being in charge of payroll and HR; then, administration at {carreira.novomexico.empresa}.",
+      "experiencia": "{carreira.zen.cargo} at {carreira.zen.empresa} since {carreira.zen.inicioLongo}, working directly with the controller. Before that, at {carreira.astcon.curto} ({carreira.astcon.anos}), I went from filing clerk to being in charge of payroll and HR; then, administration at {carreira.novomexico.empresa}.",
       "formacaoRotulo": "Education",
       "formacao": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}.",
       "idiomasRotulo": "Languages",
@@ -99,7 +99,7 @@
   "trajetoria": {
     "secao": "Career",
     "figura": {
-      "titulo": "One square per month of career",
+      "titulo": "Each square is one month of my career",
       "iniciaisMeses": "JFMAMJJASOND",
       "virada": "{carreira.zen.ano}: from spreadsheets to systems",
       "aspas": "“{texto}”",
@@ -110,13 +110,13 @@
       {
         "titulo": "From the file room to payroll and HR",
         "texto": "I started at {carreira.astcon.empresa} in {carreira.astcon.inicioLongo} as a part-time filing clerk, while still in high school. I moved through accounting and on to payroll and HR: full routines for more than {empresasClientesBase} client companies, from hiring to eSocial and DCTFWeb filings.",
-        "extra": "I became the person in charge of payroll and HR and, in practice, of the office: I coordinated the team, trained new hires, and handled the most difficult clients. In Domínio (payroll software), I automated payroll calculation and submission to eSocial, and I rolled out Onvio, the firm’s online portal for clients.",
+        "extra": "I became the person in charge of payroll and HR and, in practice, of the office: I coordinated the team, trained new hires, and handled the most difficult clients. In Domínio (payroll software), I automated payroll calculation and submission to eSocial, and I rolled out Onvio, an online portal for the firm’s clients.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "An invitation to manage",
         "texto": "A client of the firm recommended me to the owner of {carreira.novomexico.empresa}, who was looking for someone to take over administrative management. In {carreira.novomexico.inicioLongo}, I joined as an administrative assistant to succeed the manager: staff pay, purchasing control, checking invoices and boletos (bank payment slips), and meetings with the irrigation teams.",
-        "extra": "In {carreira.novomexico.fimLongo}, the group moved the farms’ administration to headquarters, and we parted ways. That is where I made the tool that came before all my projects: an hours calculator for staff pay.",
+        "extra": "In {carreira.novomexico.fimLongo}, the group moved the farms’ administration to headquarters, and we parted ways. That is where I made my first tool, an hours calculator for staff pay.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
@@ -127,7 +127,7 @@
       },
       {
         "titulo": "Turning spreadsheets into systems",
-        "texto": "After five years inside spreadsheets, I know where they break: a file that doesn’t talk to the next one, reconciliation done by hand, a deadline that depends on someone’s memory. That is what I automate today.",
+        "texto": "I worked with spreadsheets for five years, and I know where they fail. One file doesn’t connect to the next, reconciliation is done by hand, and deadlines depend on someone remembering. Today I automate that kind of work.",
         "extra": "I have been teaching myself programming since 2022, and I graduated in Systems Analysis and Development in {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
@@ -174,9 +174,9 @@
   },
   "projetos": {
     "secao": "Projects",
-    "titulo": "{projetosPublicados} published projects, {demosAtivas} with a live demo.",
+    "titulo": "{projetosPublicados} published projects, {demosAtivas}\u00a0with a live demo.",
     "texto": "Each one grew out of a problem at work or in daily life.",
-    "marca": "I sign my systems as {marca}.",
+    "marca": "I publish my systems under the name {marca}.",
     "indice": {
       "rotulo": "Project index",
       "testes": "{n} tests"
@@ -189,13 +189,13 @@
       "conferidos": "Checked on {data}"
     },
     "legendas": {
-      "demo": "Screens from the public demo, with fictitious data",
+      "demo": "Screens from the public demo, with sample data; interface in Brazilian Portuguese",
       "repositorio": "Screens published in the repository"
     },
     "detalhe": {
       "origemTitulo": "Why it exists",
       "fichaTitulo": "Problem, system, and proof",
-      "destaquesTitulo": "Inside",
+      "destaquesTitulo": "A closer look",
       "stackTitulo": "Stack",
       "linksTitulo": "Links",
       "voltar": "Back to projects",
@@ -211,6 +211,10 @@
       "desafioTitulo": "Challenge",
       "testesTitulo": "Testing",
       "verNoCodigo": "View in code",
+      "ampliar": "Enlarge",
+      "ampliarAnterior": "Previous screenshot",
+      "ampliarProxima": "Next screenshot",
+      "ampliarFechar": "Close",
       "stackLinksTitulo": "Stack and links"
     },
     "artmaker": {
@@ -245,7 +249,7 @@
       "origem": "Employees buy from the group’s companies “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. For the payroll deduction, someone had to pull a report from each company and build the HR spreadsheet in Excel; HR uses Domínio (payroll software).",
       "origemLonga": "I built UnifyData to help one of the group’s departments with employees’ internal purchases. They buy the group’s products “on a tab”, with each purchase noted on a paper slip, and the slips are recorded in AutoSystem. Someone had to pull a report from each company and, from it, build the spreadsheet for HR in Excel; HR uses Domínio (payroll software). It was a lot of work, and UnifyData makes it easier.",
       "problema": "One report per company, combined by hand in Excel for HR.",
-      "resumo": "Closes employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
+      "resumo": "Runs the monthly close of employees’ credit purchases at the group’s stores, recorded in AutoSystem: matches them against the HR records, flags what doesn’t match, and generates the payroll deduction spreadsheet.",
       "prova": "{web} in the web version and {python} in the Python version, on GitHub Actions.",
       "cv": "Closes employees’ credit purchases recorded in AutoSystem: matches them against HR and generates the payroll deduction spreadsheet by company, plus CSV and an A4 report. Web and Python versions; {web} + {python} tests on GitHub Actions.",
       "itens": {
@@ -270,7 +274,7 @@
     "deepchat": {
       "frase": "DeepSeek answers and ChatGPT checks the answer.",
       "origem": "AI answers aren’t always reliable. I used to carry the same question from one AI to another until both reached a consensus, and being the messenger got tiring.",
-      "origemLonga": "Ever since AI chatbots appeared, their answers haven’t always been reliable for assignments, work, or school. To check, I carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs I used most.",
+      "origemLonga": "Ever since AI chatbots appeared, their answers haven’t always been reliable for schoolwork or work. To check, I carried one AI’s answer to another, with the same question, until the two debated it and reached a consensus. Being the messenger got tiring; DeepChat became a “WhatsApp group” with the two AIs I used most.",
       "problema": "Checking an answer meant copying and pasting between two AIs.",
       "resumo": "A chat where DeepSeek answers and ChatGPT reviews the answer with a verdict, strengths, what to improve, and, when there is an error, a revised version. No server: everything runs in the browser.",
       "prova": "node --test on GitHub Actions.",
@@ -295,9 +299,9 @@
       }
     },
     "praxis": {
-      "frase": "From request to payment, in a single flow.",
-      "origem": "Organizing the group’s purchasing: the more the group grew, the harder it was to track and control each request.",
-      "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. I built Praxis inspired by the best purchasing management and tracking tools on the market.",
+      "frase": "Purchase requests, quotes, and approvals on one board.",
+      "origem": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request.",
+      "origemLonga": "The goal was to organize the group’s purchasing. The more the group grew, the harder it was to track and control each request. To build Praxis, I took ideas from existing purchasing management and tracking tools.",
       "problema": "Requests, quotes, and approvals that were hard to track.",
       "resumo": "Corporate purchasing in {etapas} stages: side-by-side quotes, approvals, installments, deadlines, and time per stage, with {perfis} access roles.",
       "prova": "{unidade} unit and {regras} Firestore and Storage rules tests, on GitHub Actions.",
@@ -313,7 +317,7 @@
         },
         "perfis": {
           "titulo": "{perfis} access roles",
-          "texto": "The request shows who needs to act now and the savings against the most expensive proposal. Requester, buyer, approvers, and finance, each with their own permissions."
+          "texto": "The request shows who needs to act now and the savings against the most expensive proposal. From requester to general administrator, with buyer, approver, manager, and finance in between, each with its own permissions."
         },
         "app": {
           "titulo": "Installs as an app",
@@ -322,7 +326,7 @@
       }
     },
     "flowtrack": {
-      "frase": "Personal finances that categorize themselves.",
+      "frase": "Personal finances with automatic categorization.",
       "origem": "Keeping track of my own finances was always hard: spreadsheets were tedious to fill in, and apps charged a monthly fee. I built my own organizer, with the best of the tools I knew.",
       "origemLonga": "I always found it hard to keep track of my own finances. Filling in spreadsheets was tedious and tiring, and the apps charged monthly fees I didn’t want to pay. So I developed my own finance organizer, built around my needs, combining the best of the tools I knew.",
       "problema": "A spreadsheet that was tiring to fill in; an app with a monthly fee.",
@@ -347,8 +351,8 @@
     },
     "audistock": {
       "frase": "Stock counts on a phone, checked against the ERP.",
-      "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. I built AudiStock to work like AutoSystem and integrate with it, solving the operators’ complaints.",
-      "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. I built AudiStock to work in a similar way and integrate with AutoSystem, solving the problems the operators complained about.",
+      "origem": "The people auditing stock at some of the group’s companies reported problems with AutoSystem’s counting. I built AudiStock to work like AutoSystem, solving the operators’ complaints.",
+      "origemLonga": "The team that audited stock at some of the group’s companies reported many problems with AutoSystem’s stock count. I built AudiStock to work in a similar way to AutoSystem, solving the problems the operators complained about. For now, the AutoSystem balance is entered at closing; a direct integration is planned for a later stage.",
       "problema": "Stock counts drew complaints from the auditors.",
       "resumo": "Stock audits: the team counts on a phone, enters the ERP balance at closing, and gets a report of shortages and overages in PDF, Excel, and CSV, with an offline queue for counting without internet.",
       "prova": "{unidade} unit and database tests and {e2e} end-to-end, on GitHub Actions.",
@@ -391,7 +395,7 @@
         },
         "painel": {
           "titulo": "Deliveries on one dashboard",
-          "texto": "Invoices for unloaded deliveries, liters, and monthly spending, all on one dashboard."
+          "texto": "Invoices for delivered fuel, liters, and monthly spending, all on one dashboard."
         },
         "celular": {
           "titulo": "Compares with the previous period",
@@ -428,8 +432,8 @@
     },
     "docke": {
       "frase": "Documents for multiple companies, with an audit trail.",
-      "origem": "The group was going to move all its documents to the cloud. I developed Docke around the key points of that move, shaped to the teams’ routine.",
-      "origemLonga": "The group was going to migrate all its documentation to the cloud. I developed Docke to meet the key points of that migration, shaped to the teams’ routine.",
+      "origem": "The group was going to move all its documents to the cloud. I built Docke for that move, around the teams’ routine: documents kept separate by company, search in scanned text, deadlines, legal retention, and an audit trail.",
+      "origemLonga": "The group was going to migrate all its documentation to the cloud. I developed Docke for that migration, around the teams’ routine: documents kept separate by company, search in scanned text, filing deadlines, legal retention, and an audit trail.",
       "problema": "Documents from multiple companies to organize in the cloud, with deadlines and legal retention.",
       "resumo": "Electronic document management for multiple companies: search in scanned text (OCR), compliance deadlines, legal retention, and a hash-chained audit trail.",
       "prova": "{backend} backend and {e2e} end-to-end, on GitHub Actions.",
@@ -494,7 +498,7 @@
       "lancamentos": "Fuel Mind: entries screen with NF-e XML import",
       "fretes": "Fuel Mind: freight month by month",
       "relatorios": "Fuel Mind: reports and month-end close",
-      "dashboard": "Fuel Mind: dashboard with invoices for unloaded deliveries, liters, and monthly spending",
+      "dashboard": "Fuel Mind: dashboard with invoices for delivered fuel, liters, and monthly spending",
       "celular": "Fuel Mind on a phone: dashboard"
     },
     "alertsignal": {
@@ -513,7 +517,7 @@
   "habilidades": {
     "secao": "Skills",
     "titulo": "Technology × project",
-    "texto": "Each dot is evidence in the code or CI of a published repository. No ratings from 0 to 10.",
+    "texto": "Each dot is backed by code or CI in a published repository. I don’t rate myself from 0 to 10.",
     "cabecalho": "Technology or capability",
     "total": "Total",
     "porProjeto": "Per project",
@@ -594,7 +598,7 @@
   "cv": {
     "site": "Portfolio",
     "resumoTitulo": "Summary",
-    "resumo": "Developer with more than five years of experience across accounting, payroll and HR, administration, and financial control. At {carreira.astcon.curto}, I started as a filing clerk and became the person in charge of payroll and HR for more than {empresasClientesBase} client companies, coordinating the office team. Now, in financial control at {carreira.zen.empresa}, I check invoices before payment, handle purchasing, and develop in-house systems that have cut process time considerably and errors even more. I build software from real pain points at work.",
+    "resumo": "I have worked for more than five years in accounting, payroll and HR, administration, and financial control, and I also build software. At {carreira.astcon.curto}, I started as a filing clerk and became the person in charge of payroll and HR for more than {empresasClientesBase} client companies, coordinating the office team. Now, in financial control at {carreira.zen.empresa}, I check invoices before payment, handle purchasing, and develop in-house systems that have cut process time considerably and errors even more.",
     "experienciaTitulo": "Experience",
     "projetosTitulo": "Projects",
     "projetosNota": "{projetosPublicados} projects published on GitHub, {demosAtivas} with a live demo. Tests checked on {data}.",

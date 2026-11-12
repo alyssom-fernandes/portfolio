@@ -1,0 +1,13 @@
+{
+  "_sobre": "Commit de cada repositório em que as linhas citadas na seção técnica foram conferidas. Os links \"Ver no código\" apontam para esse commit, e não para o HEAD, para as faixas de linha não desalinharem quando o repositório mudar. Ao atualizar um repositório: confira de novo as linhas das fontes dele em fonte/tecnico e só então troque o SHA aqui (gh api repos/alyssom-fernandes/<Repo>/commits/HEAD --jq .sha). Repositório sem SHA aqui usa HEAD.",
+  "AlertSignal": "64c5c0434f597468f6e602b4610f2bbb9c85b8ac",
+  "ArtMaker": "ea6c0ada57f0ed6a302432c9e7132ac82ba602b7",
+  "AudiStock": "a6252de3f6fb5cf3c4de183d0932ad2f2886c6c9",
+  "DeepChat": "b80dfbda43af2ef7193efa06cf6c8f6415c2ebea",
+  "Docke": "ac7891e19d6d607d977eb7e4d56bd41a4459dfcd",
+  "FlowTrack": "e9332c519528ac1d2f66c91e837d0deb53f523b7",
+  "Fuel-Mind": "23c7fa8bf6af9c7596bdc9b539a479c041c5b0bb",
+  "Praxis": "542bd5bfcfe990f011ea7b572705519b4c58877e",
+  "UnifyData-Web": "968caf9554ecb63087eb69c1e6ed227b5b71123c",
+  "UnifyData-Python": "6f65d2814da5ebf488633181c2f177b8e447c266"
+}

@@ -18,7 +18,7 @@
   },
   "decisoes": [
     {
-      "titulo": "Permissions in the rules, not the screen",
+      "titulo": "Each order step validated in the rules",
       "texto": "I wrote each step of a request as a function in the Firestore rules (`assumir`, `aprovar`, `pagar`…), which checks the source and target status, the role and, with `mudouSo`, which fields that step may change. The role and companies come from the token, written by the `setUserClaims` function on every write to `/usuarios`; that way, the rules decide without reading another document.",
       "fontes": [
         "Praxis/firestore.rules#L182-L263",

@@ -28,7 +28,7 @@
     },
     {
       "titulo": "Agendador dentro do processo do Flask",
-      "texto": "Usei o APScheduler em vez de cron porque ele roda dentro do processo do Flask, funciona no Windows e deixa o horário do envio ser trocado pela própria tela. A verificação diária é um job com id fixo, criado no horário salvo nas configurações. Quando o administrador salva um novo horário, a rota chama `reschedule_job`, e o envio muda sem reiniciar o servidor.",
+      "texto": "Usei o APScheduler em vez de cron porque ele roda dentro do processo do Flask, funciona no Windows e permite trocar o horário do envio na própria tela. A verificação diária é um job com id fixo, criado no horário salvo nas configurações. Quando o administrador salva um novo horário, a rota chama `reschedule_job`, e o envio muda sem reiniciar o servidor.",
       "fontes": [
         "AlertSignal/README.pt-br.md#L135",
         "AlertSignal/app.py#L1354-L1363",
@@ -56,7 +56,7 @@
     ]
   },
   "testes": {
-    "texto": "São 62 testes em `unittest`: 42 de rotas, permissões e segurança, e 20 das regras dos alertas, do status e do agendador. Eles rodam no modo demonstração, num banco temporário, e o envio de e-mail é trocado por um falso que só conta as chamadas. As regras dos alertas usam uma data fixa, para cada marco ser conferido sem depender do dia. O GitHub Actions roda tudo a cada push, no Python 3.11 e no 3.13.",
+    "texto": "O app tem 62 testes em `unittest`: 42 de rotas, permissões e segurança, e 20 das regras dos alertas, do status e do agendador. Eles rodam no modo demonstração, num banco temporário, e o envio de e-mail é trocado por um falso que só conta as chamadas. As regras dos alertas usam uma data fixa, para cada marco ser conferido sem depender do dia. O GitHub Actions roda tudo a cada push, no Python 3.11 e no 3.13.",
     "fontes": [
       "AlertSignal/tests/test_rotas.py#L1-L40",
       "AlertSignal/tests/test_alertas.py#L1-L60",

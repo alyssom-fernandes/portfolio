@@ -28,7 +28,7 @@
       ]
     },
     {
-      "titulo": "Permissões no banco, não só na tela",
+      "titulo": "Permissões conferidas no banco",
       "texto": "Separei quatro perfis (administrador geral, administrador, auditor e visualizador) e escrevi as regras em 24 políticas de RLS, por perfil e por empresa. Gatilhos impedem que alguém promova a si mesmo ou altere uma contagem já finalizada. O cadastro de pessoas passa só por uma Edge Function com a chave de serviço, que nunca chega ao navegador. O `permissoes.sql` entra como cada perfil e confere 54 regras.",
       "fontes": [
         "AudiStock/supabase/schema.sql#L706-L818",
@@ -51,7 +51,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Fila offline que nunca conta duas vezes",
+    "titulo": "Fila offline sem contagem em dobro",
     "texto": "Uma resposta perdida na rede, ou a mesma fila aberta em duas abas, podia somar a mesma leitura duas vezes. Cada registro leva um `id_cliente` gerado no aparelho, o mesmo da tentativa que falhou, e o banco anota em `contagens_aplicadas` o que já aplicou. Só uma aba envia por vez (Web Locks). Falha passageira, como rede ou sessão vencida, segura a fila na ordem; outra recusa vira \"Não enviada\" sem travar as seguintes.",
     "fontes": [
       "AudiStock/js/offline.js#L1-L24",

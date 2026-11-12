@@ -57,7 +57,7 @@
     ]
   },
   "testes": {
-    "texto": "Son 65 pruebas con `node --test`, sin dependencias. Cubren la lectura de la revisión, la conversación y el contexto enviado a las API, los colores del código y la CSP de las páginas. El stream se prueba sin red, con un `fetch` falso que corta la conexión. El almacén de claves se ejecuta con `localStorage` e IndexedDB falsos y el `crypto.subtle` real. Los ejemplos de la demostración también se comprueban. GitHub Actions lo ejecuta todo en cada push, en Node 24.",
+    "texto": "`node --test` ejecuta 65 pruebas, sin dependencias. Cubren la lectura de la revisión, la conversación y el contexto enviado a las API, los colores del código y la CSP de las páginas. El stream se prueba sin red, con un `fetch` falso que corta la conexión. El almacén de claves se ejecuta con `localStorage` e IndexedDB falsos y el `crypto.subtle` real. Los ejemplos de la demostración también se comprueban. GitHub Actions lo ejecuta todo en cada push, en Node 24.",
     "fontes": [
       "DeepChat/tests/api.test.mjs",
       "DeepChat/tests/storage.test.mjs#L1-L8",

@@ -28,7 +28,7 @@
       ]
     },
     {
-      "titulo": "Permissions in the database, not just the screen",
+      "titulo": "Permissions enforced in the database",
       "texto": "I defined four roles (general administrator, administrator, auditor, and viewer) and wrote the rules as 24 RLS policies, by role and by company. Triggers prevent anyone from promoting themselves or changing a count that is already closed. Creating users goes only through an Edge Function with the service key, which never reaches the browser. `permissoes.sql` signs in as each role and checks 54 rules.",
       "fontes": [
         "AudiStock/supabase/schema.sql#L706-L818",
@@ -51,7 +51,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Offline queue that never counts twice",
+    "titulo": "An offline queue without double counts",
     "texto": "A response lost on the network, or the same queue open in two tabs, could add the same scan twice. Each record carries an `id_cliente` generated on the device, the same one as the failed attempt, and the database notes in `contagens_aplicadas` what it has already applied. Only one tab sends at a time (Web Locks). A transient failure, such as the network or an expired session, holds the queue in order; any other rejection becomes \"Not sent\" without blocking the ones after it.",
     "fontes": [
       "AudiStock/js/offline.js#L1-L24",

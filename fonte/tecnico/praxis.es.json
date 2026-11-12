@@ -18,7 +18,7 @@
   },
   "decisoes": [
     {
-      "titulo": "Permisos en las reglas, no en pantalla",
+      "titulo": "Cada paso del pedido validado en las reglas",
       "texto": "Escribí cada paso del pedido como una función de las reglas de Firestore (`assumir`, `aprovar`, `pagar`…), que comprueba el estado de origen y el de destino, el perfil y, con `mudouSo`, qué campos puede cambiar ese paso. El perfil y las empresas vienen del token, grabados por la function `setUserClaims` en cada escritura en `/usuarios`; así las reglas deciden sin leer otro documento.",
       "fontes": [
         "Praxis/firestore.rules#L182-L263",

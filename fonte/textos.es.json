@@ -2,7 +2,7 @@
   "_leia": "Textos del sitio en español neutro (internacional): trato de tú, sin vosotros ni voseo, sin términos propios de un solo país. Mismas claves que textos.pt.json; solo cambian los valores. Marcado: *énfasis* · **negrita** · ~tachado~ · {variable} (viene de fonte/dados.json; no se traduce). Las claves que empiezan por _ se ignoran.",
   "meta": {
     "titulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
-    "descricao": "Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América. Construyo sistemas que sustituyen hojas de cálculo.",
+    "descricao": "Desarrollador con base en contabilidad, nómina, RR. HH. y control de gestión. Remoto o traslado a Europa y América.",
     "ogTitulo": "Alyssom Fernandes — Desarrollador · Datos y Automatización",
     "ogDescricao": "Pasé 5 años metido en hojas de cálculo. Hoy construyo los sistemas que las sustituyen.",
     "tituloProjeto": "{nome}: {frase} — Alyssom Fernandes"
@@ -25,7 +25,7 @@
     "verDetalhes": "Ver detalles",
     "demo": "Demo",
     "abrirDemo": "Abrir la demo",
-    "comoRodar": "Cómo ejecutar la demo",
+    "comoRodar": "Ejecutar la demo",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "email": "Correo electrónico",
@@ -81,7 +81,7 @@
     "meses": "meses"
   },
   "abertura": {
-    "linhaFina": "Desarrollador con base en contabilidad, nómina, recursos humanos y control de gestión. Creo software a partir de problemas que viví en el trabajo: el descuento por nómina de las compras de los empleados, la factura de combustible copiada a mano, el plazo que dependía de que alguien abriera la hoja de cálculo.",
+    "linhaFina": "Desarrollador con base en contabilidad, nómina, recursos humanos y control de gestión. Hago sistemas para problemas que encontré en el trabajo, como el descuento por nómina de las compras de los empleados, las facturas de combustible tecleadas a mano y los plazos que dependían de que alguien abriera la hoja de cálculo.",
     "ficha": {
       "titulo": "Ficha",
       "experienciaRotulo": "Experiencia",
@@ -110,13 +110,13 @@
       {
         "titulo": "Del archivo a nómina y RR. HH.",
         "texto": "Empecé en {carreira.astcon.empresa} en {carreira.astcon.inicioLongo} como auxiliar de archivo, a tiempo parcial, todavía en la secundaria. Pasé por contabilidad y llegué a nómina y RR. HH.: rutinas completas de más de {empresasClientesBase} empresas clientes, de la contratación al eSocial y la DCTFWeb.",
-        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio (software de nómina) automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio, el portal en línea de la firma para los clientes.",
+        "extra": "Me convertí en el responsable de nómina y RR. HH. y, en la práctica, de la oficina: coordinaba al equipo, formaba a quienes llegaban y atendía a los clientes más difíciles. En Domínio (software de nómina) automaticé el cálculo de las nóminas y el envío al eSocial, e implementé Onvio, un portal en línea para los clientes de la firma.",
         "fonte": "{carreira.astcon.cargo}, {carreira.astcon.periodo}"
       },
       {
         "titulo": "Una invitación para gestionar",
         "texto": "Un cliente de la firma me recomendó al dueño de {carreira.novomexico.empresa}, que buscaba a alguien para asumir la gerencia administrativa. En {carreira.novomexico.inicioLongo} entré como auxiliar administrativo para suceder a la gerente: pago del personal, control de compras, revisión de facturas y boletos (cobros bancarios) y reuniones con los equipos del riego.",
-        "extra": "En {carreira.novomexico.fimLongo}, el grupo llevó la administración de las fincas a la sede y pusimos fin a la relación laboral. Allí hice la herramienta que vino antes de todos mis proyectos: una calculadora de horas para el pago del personal.",
+        "extra": "En {carreira.novomexico.fimLongo}, el grupo llevó la administración de las fincas a la sede y pusimos fin a la relación laboral. Allí hice mi primera herramienta, una calculadora de horas para el pago del personal.",
         "fonte": "{carreira.novomexico.cargo}, {carreira.novomexico.periodo}"
       },
       {
@@ -127,7 +127,7 @@
       },
       {
         "titulo": "Convertir hojas de cálculo en sistemas",
-        "texto": "Después de cinco años metido en hojas de cálculo, sé dónde fallan: el archivo que no se comunica con otro, la conciliación hecha a mano, el plazo que depende de la memoria de alguien. Eso es lo que automatizo hoy.",
+        "texto": "Trabajé cinco años con hojas de cálculo y sé dónde fallan. Un archivo no se conecta con el otro, la conciliación se hace a mano y el plazo depende de que alguien se acuerde. Hoy automatizo ese tipo de trabajo.",
         "extra": "Estudio programación por mi cuenta desde 2022 y me gradué en Análisis y Desarrollo de Sistemas en {formacao.conclusao}.",
         "fonte": "{formacao.curso}, {formacao.instituicao}, {formacao.conclusao}"
       }
@@ -174,7 +174,7 @@
   },
   "projetos": {
     "secao": "Proyectos",
-    "titulo": "{projetosPublicados} proyectos publicados, {demosAtivas} con demo en línea.",
+    "titulo": "{projetosPublicados} proyectos publicados, {demosAtivas}\u00a0con demo en línea.",
     "texto": "Todos nacieron de un problema del trabajo o del día a día.",
     "marca": "Firmo mis sistemas como {marca}.",
     "indice": {
@@ -189,7 +189,7 @@
       "conferidos": "Verificadas el {data}"
     },
     "legendas": {
-      "demo": "Pantallas de la demo pública, con datos ficticios",
+      "demo": "Pantallas de la demo pública, con datos ficticios; interfaz en portugués de Brasil",
       "repositorio": "Pantallas publicadas en el repositorio"
     },
     "detalhe": {
@@ -211,6 +211,10 @@
       "desafioTitulo": "Desafío",
       "testesTitulo": "Pruebas",
       "verNoCodigo": "Ver en el código",
+      "ampliar": "Ampliar",
+      "ampliarAnterior": "Captura anterior",
+      "ampliarProxima": "Captura siguiente",
+      "ampliarFechar": "Cerrar",
       "stackLinksTitulo": "Stack y enlaces"
     },
     "artmaker": {
@@ -295,9 +299,9 @@
       }
     },
     "praxis": {
-      "frase": "Del pedido al pago, en un solo flujo.",
-      "origem": "Organizar las compras del grupo: cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido.",
-      "origemLonga": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido. Creé Praxis inspirado en las mejores herramientas de gestión y seguimiento de compras del mercado.",
+      "frase": "Pedidos, cotizaciones y aprobaciones de compra en un solo tablero.",
+      "origem": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido.",
+      "origemLonga": "El objetivo era organizar las compras del grupo. Cuanto más crecía el grupo, más difícil era rastrear y controlar cada pedido. Para crear Praxis me inspiré en herramientas de gestión y seguimiento de compras que ya existen en el mercado.",
       "problema": "Pedidos, cotizaciones y aprobaciones difíciles de rastrear.",
       "resumo": "Compras corporativas en {etapas} etapas: cotizaciones lado a lado, aprobaciones, cuotas, plazo y tiempo por etapa, con {perfis} perfiles de acceso.",
       "prova": "{unidade} de unidad y {regras} de las reglas de Firestore y Storage, en GitHub Actions.",
@@ -313,7 +317,7 @@
         },
         "perfis": {
           "titulo": "{perfis} perfiles de acceso",
-          "texto": "El pedido muestra quién debe actuar ahora y el ahorro frente a la propuesta más cara. Solicitante, comprador, aprobadores y finanzas, cada uno con sus permisos."
+          "texto": "El pedido muestra quién debe actuar ahora y el ahorro frente a la propuesta más cara. Del solicitante al administrador general, pasando por comprador, aprobador, gestor y finanzas, cada uno con sus permisos."
         },
         "app": {
           "titulo": "Se instala como app",
@@ -322,7 +326,7 @@
       }
     },
     "flowtrack": {
-      "frase": "Finanzas personales que se categorizan solas.",
+      "frase": "Finanzas personales con categorización automática.",
       "origem": "Controlar mis finanzas siempre me costó: la hoja de cálculo era tediosa de completar y las apps cobraban una mensualidad. Hice mi propio organizador, con lo mejor de las herramientas que conocía.",
       "origemLonga": "Siempre me costó controlar mis finanzas. Completar hojas de cálculo era tedioso y agotador, y las apps cobraban mensualidades que yo no quería pagar. Entonces desarrollé mi propio organizador de finanzas, pensado para mis necesidades, reuniendo lo mejor de las herramientas que conocía.",
       "problema": "Hoja de cálculo tediosa de completar; aplicación con mensualidad.",
@@ -347,8 +351,8 @@
     },
     "audistock": {
       "frase": "Recuento de inventario desde el teléfono, comparado con el ERP.",
-      "origem": "Quienes auditaban el inventario de algunas empresas del grupo señalaban problemas con el recuento de AutoSystem. Hice AudiStock parecido a AutoSystem e integrado con él, y resolví las quejas de los operadores.",
-      "origemLonga": "El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida e integrado con AutoSystem, y resolví los problemas de los que se quejaban los operadores.",
+      "origem": "Quienes auditaban el inventario de algunas empresas del grupo señalaban problemas con el recuento de AutoSystem. Hice AudiStock parecido a AutoSystem y resolví las quejas de los operadores.",
+      "origemLonga": "El equipo que auditaba el inventario de algunas empresas del grupo señalaba muchos problemas con el recuento de inventario de AutoSystem. Hice AudiStock de forma parecida a AutoSystem y resolví los problemas de los que se quejaban los operadores. Por ahora, las existencias de AutoSystem se introducen en el cierre; la integración directa queda para una etapa posterior.",
       "problema": "El recuento de inventario generaba quejas de quienes auditaban.",
       "resumo": "Auditoría de inventario: el equipo cuenta desde el teléfono, en el cierre registra las existencias del ERP y recibe el informe de faltantes y sobrantes en PDF, Excel y CSV, con cola sin conexión para contar sin internet.",
       "prova": "{unidade} de unidad y base de datos y {e2e} de extremo a extremo, en GitHub Actions.",
@@ -428,8 +432,8 @@
     },
     "docke": {
       "frase": "Documentos de varias empresas, con registro de auditoría.",
-      "origem": "El grupo iba a llevar toda su documentación a la nube. Desarrollé Docke con los puntos clave de ese cambio, adaptado a la rutina de los equipos.",
-      "origemLonga": "El grupo iba a migrar toda su documentación a la nube. Desarrollé Docke atendiendo los puntos clave de esa migración y adaptado a la rutina de los equipos.",
+      "origem": "El grupo iba a llevar toda su documentación a la nube. Hice Docke para ese cambio, pensando en la rutina de los equipos: documentos separados por empresa, búsqueda en el texto digitalizado, plazos, conservación legal y registro de auditoría.",
+      "origemLonga": "El grupo iba a migrar toda su documentación a la nube. Desarrollé Docke para esa migración, pensando en la rutina de los equipos: documentos separados por empresa, búsqueda en el texto digitalizado, plazos de obligaciones, conservación legal y registro de auditoría.",
       "problema": "Documentos de varias empresas por organizar en la nube, con plazos y conservación legal.",
       "resumo": "Gestión electrónica de documentos para varias empresas: búsqueda en el texto digitalizado (OCR), plazos de obligaciones, conservación legal y registro de auditoría encadenado por hash.",
       "prova": "{backend} de backend y {e2e} de extremo a extremo, en GitHub Actions.",
@@ -513,7 +517,7 @@
   "habilidades": {
     "secao": "Habilidades",
     "titulo": "Tecnología × proyecto",
-    "texto": "Cada punto tiene respaldo en el código o en el CI de un repositorio publicado. Sin notas del 0 al 10.",
+    "texto": "Cada punto tiene respaldo en el código o en el CI de un repositorio publicado. No me pongo notas del 0 al 10.",
     "cabecalho": "Tecnología o capacidad",
     "total": "Total",
     "porProjeto": "Por proyecto",
@@ -594,7 +598,7 @@
   "cv": {
     "site": "Portafolio",
     "resumoTitulo": "Resumen",
-    "resumo": "Desarrollador con más de cinco años de carrera entre contabilidad, nómina y RR. HH., administración y control de gestión. En {carreira.astcon.curto} empecé como auxiliar de archivo y llegué a responsable de nómina y RR. HH. de más de {empresasClientesBase} empresas clientes, coordinando al equipo de la oficina. Hoy, en control de gestión de {carreira.zen.empresa}, reviso facturas antes del pago, me encargo de compras y desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos. Creo software a partir de problemas reales del trabajo.",
+    "resumo": "Trabajo desde hace más de cinco años en contabilidad, nómina y RR. HH., administración y control de gestión, y también desarrollo sistemas. En {carreira.astcon.curto} empecé como auxiliar de archivo y llegué a responsable de nómina y RR. HH. de más de {empresasClientesBase} empresas clientes, coordinando al equipo de la oficina. Hoy, en control de gestión de {carreira.zen.empresa}, reviso facturas antes del pago, me encargo de compras y desarrollo sistemas internos que redujeron bastante el tiempo y, aún más, los errores de los procesos.",
     "experienciaTitulo": "Experiencia",
     "projetosTitulo": "Proyectos",
     "projetosNota": "{projetosPublicados} proyectos publicados en GitHub, {demosAtivas} con demo en línea. Pruebas verificadas el {data}.",

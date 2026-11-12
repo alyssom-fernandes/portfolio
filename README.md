@@ -47,6 +47,8 @@ fonte/
   textos.pt.json        todo o texto do site; textos.en.json e textos.es.json com as mesmas chaves
   tecnico/<id>.<idioma>.json  seção técnica de cada projeto (arquitetura, fluxo, decisões, desafio, testes, fontes);
                         sem o arquivo do idioma, a seção não aparece naquele idioma
+  tecnico/commits.json  o commit de cada repositório em que as linhas citadas foram conferidas: os links "Ver no código"
+                        apontam para ele, e não para o HEAD (ao mudar um repositório, confira as linhas e troque o SHA)
   capturas.json         roteiro das capturas de tela das demos (usado por scripts/capturar-telas.mjs)
 scripts/
   gerar-site.mjs        gera index.html, en/, es/, as páginas de projeto, robots.txt, sitemap.xml e 404.html → npm run build
@@ -123,6 +125,7 @@ duas); o total conta cada mês de calendário uma vez.
    cada tela.
 4. Opcional: escreva `fonte/tecnico/<id>.pt.json` (e `.en.json`, `.es.json`) no formato dos existentes; o gerador
    valida o formato e para com uma mensagem clara se algo estiver errado.
+   Ponha também o SHA do commit conferido em `fonte/tecnico/commits.json` (`gh api repos/alyssom-fernandes/<Repo>/commits/HEAD --jq .sha`).
 5. Na matriz de habilidades, acrescente o id em `matriz.colunas` e uma marca (0/1) em cada linha, só com evidência no
    código ou no CI do repositório.
 6. `npm run build`.

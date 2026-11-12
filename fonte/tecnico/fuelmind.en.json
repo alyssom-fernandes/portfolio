@@ -57,7 +57,7 @@
     ]
   },
   "testes": {
-    "texto": "There are 120 unit tests with `node --test`, with nothing to install: they load the files in `src/` with `vm`, as the browser does. They cover freight, effective periods, the closed-month lock, matching each NF-e to the supply base that issued it, numbers, and the PDF and spreadsheet template. The security rules have 25 tests on the Firestore emulator, with a `demo-` project that doesn't exist in the cloud. GitHub Actions runs both on every push.",
+    "texto": "The project has 120 unit tests with `node --test`, with nothing to install: they load the files in `src/` with `vm`, as the browser does. They cover freight, effective periods, the closed-month lock, matching each NF-e to the supply base that issued it, numbers, and the PDF and spreadsheet template. The security rules have 25 tests on the Firestore emulator, with a `demo-` project that doesn't exist in the cloud. GitHub Actions runs both on every push.",
     "fontes": [
       "Fuel-Mind/tests/frete.test.js#L11-L23",
       "Fuel-Mind/tests/regras/firestore-regras.test.js",

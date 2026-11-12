@@ -56,7 +56,7 @@
     ]
   },
   "testes": {
-    "texto": "Son 62 pruebas en `unittest`: 42 de rutas, permisos y seguridad, y 20 de las reglas de las alertas, de la situación y del programador. Se ejecutan en el modo demostración, en una base de datos temporal, y el envío de correo se sustituye por uno falso que solo cuenta las llamadas. Las reglas de las alertas usan una fecha fija, para comprobar cada hito sin depender del día. GitHub Actions lo ejecuta todo en cada push, en Python 3.11 y 3.13.",
+    "texto": "La app tiene 62 pruebas en `unittest`: 42 de rutas, permisos y seguridad, y 20 de las reglas de las alertas, de la situación y del programador. Se ejecutan en el modo demostración, en una base de datos temporal, y el envío de correo se sustituye por uno falso que solo cuenta las llamadas. Las reglas de las alertas usan una fecha fija, para comprobar cada hito sin depender del día. GitHub Actions lo ejecuta todo en cada push, en Python 3.11 y 3.13.",
     "fontes": [
       "AlertSignal/tests/test_rotas.py#L1-L40",
       "AlertSignal/tests/test_alertas.py#L1-L60",

@@ -30,7 +30,7 @@
       ]
     },
     {
-      "titulo": "O modelo responde por ferramenta, não texto",
+      "titulo": "O modelo responde por uma ferramenta (tool use)",
       "texto": "Na terceira camada, o Claude Haiku não responde em texto livre: o `tool_choice` força a ferramenta `categorize`, cujo esquema limita a categoria às permitidas para aquela pessoa e a confiança a valores de 0 a 1. Mesmo assim, o worker confere a resposta: categoria fora da lista não é gravada, confiança inválida vira 0, abaixo de 0,85 a transação vai para A revisar, e só a resposta a partir desse corte entra no cache.",
       "fontes": [
         "FlowTrack/backend/app/integrations/claude_api.py#L30-L64",

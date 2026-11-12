@@ -57,7 +57,7 @@
     ]
   },
   "testes": {
-    "texto": "Son 120 pruebas de unidad con `node --test`, sin dependencias que instalar: cargan los archivos de `src/` con `vm`, como el navegador. Cubren el flete, las vigencias, el bloqueo del mes cerrado, la identificación de la base que emitió la NF-e, los números y el formato de los PDF y las hojas de cálculo. Las reglas de seguridad tienen 25 pruebas en el emulador de Firestore, con un proyecto `demo-` que no existe en la nube. GitHub Actions ejecuta ambas en cada push.",
+    "texto": "Hay 120 pruebas de unidad con `node --test`, sin dependencias que instalar: cargan los archivos de `src/` con `vm`, como el navegador. Cubren el flete, las vigencias, el bloqueo del mes cerrado, la identificación de la base que emitió la NF-e, los números y el formato de los PDF y las hojas de cálculo. Las reglas de seguridad tienen 25 pruebas en el emulador de Firestore, con un proyecto `demo-` que no existe en la nube. GitHub Actions ejecuta ambas en cada push.",
     "fontes": [
       "Fuel-Mind/tests/frete.test.js#L11-L23",
       "Fuel-Mind/tests/regras/firestore-regras.test.js",

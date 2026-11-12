@@ -28,7 +28,7 @@
       ]
     },
     {
-      "titulo": "Permisos en la base, no solo en pantalla",
+      "titulo": "Permisos comprobados en la base",
       "texto": "Separé cuatro perfiles (administrador general, administrador, auditor y visualizador) y escribí las reglas en 24 políticas de RLS, por perfil y por empresa. Los triggers impiden que alguien se ascienda a sí mismo o altere un recuento ya finalizado. El alta de personas pasa solo por una Edge Function con la clave de servicio, que nunca llega al navegador. `permissoes.sql` entra como cada perfil y comprueba 54 reglas.",
       "fontes": [
         "AudiStock/supabase/schema.sql#L706-L818",
@@ -51,7 +51,7 @@
     }
   ],
   "desafio": {
-    "titulo": "Cola sin conexión que nunca cuenta dos veces",
+    "titulo": "Cola sin conexión sin recuentos dobles",
     "texto": "Una respuesta perdida en la red, o la misma cola abierta en dos pestañas, podía sumar la misma lectura dos veces. Cada registro lleva un `id_cliente` generado en el dispositivo, el mismo del intento que falló, y la base anota en `contagens_aplicadas` lo que ya aplicó. Solo una pestaña envía a la vez (Web Locks). Un fallo pasajero, como la red o una sesión vencida, retiene la cola en orden; cualquier otro rechazo pasa a «No enviada» sin bloquear las siguientes.",
     "fontes": [
       "AudiStock/js/offline.js#L1-L24",

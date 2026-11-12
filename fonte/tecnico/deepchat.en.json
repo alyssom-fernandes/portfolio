@@ -57,7 +57,7 @@
     ]
   },
   "testes": {
-    "texto": "There are 65 tests with `node --test`, with no dependencies. They cover review parsing, the conversation and the context sent to the APIs, the colors in code, and the pages' CSP. The stream is tested without a network, using a fake `fetch` that cuts the connection. The key vault runs with fake `localStorage` and IndexedDB and the real `crypto.subtle`. The demo examples are checked too. GitHub Actions runs everything on every push, on Node 24.",
+    "texto": "`node --test` runs 65 tests, with no dependencies. They cover review parsing, the conversation and the context sent to the APIs, the colors in code, and the pages' CSP. The stream is tested without a network, using a fake `fetch` that cuts the connection. The key vault runs with fake `localStorage` and IndexedDB and the real `crypto.subtle`. The demo examples are checked too. GitHub Actions runs everything on every push, on Node 24.",
     "fontes": [
       "DeepChat/tests/api.test.mjs",
       "DeepChat/tests/storage.test.mjs#L1-L8",
