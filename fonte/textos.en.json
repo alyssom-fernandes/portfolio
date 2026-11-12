@@ -346,6 +346,10 @@
         "relatorios": {
           "titulo": "Reports",
           "texto": "Income, expenses, and balance, spending by category, and the largest expenses."
+        },
+        "celular": {
+          "titulo": "The month on a phone",
+          "texto": "On a phone, the monthly summary shows balance, income, expenses, and categories on a single screen."
         }
       }
     },
@@ -461,41 +465,48 @@
   "alt": {
     "artmaker": {
       "editor": "ArtMaker: editor with the store and deal details and the flyer preview",
+      "layout": "ArtMaker: layout tab with grid and style options next to the flyer preview",
       "cores": "ArtMaker: color palettes as thumbnails, one of them applied to the flyer",
       "estilo": "ArtMaker: font, frame, border, corner, and price options, in the light theme",
       "celular": "ArtMaker on a phone: finished flyer with Share and Download"
     },
     "unifydata": {
       "base": "UnifyData: employee records loaded and store purchase reports ready to process",
+      "relatorio": "UnifyData: A4 report of the purchase close, with each employee’s deduction by company",
       "pendencias": "UnifyData: open items from the matching, with no HR record or no company, showing amount, employee ID, and store",
       "resultado": "UnifyData: close complete, with the total to deduct by company and by store and the Excel, CSV, and PDF outputs",
       "celular": "UnifyData on a phone: close complete"
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: review of an answer with the verdict Incorrect, strengths, and what to improve",
+      "revisao-correta": "DeepChat: an answer about simple and compound interest, with ChatGPT’s review marking it as correct",
       "revisao-codigo": "DeepChat: revised version of a CPF validation function, now rejecting repeated sequences such as 111.111.111-11, with the order reversed (ChatGPT answers and DeepSeek reviews)",
       "inicio": "DeepChat: start screen with the API key fields and access to the demo",
       "celular": "DeepChat on a phone: review with strengths, what to improve, and suggestions"
     },
     "praxis": {
       "kanban": "Praxis: purchase request board with seven stages, showing each column’s total and cards with the company, deadline, and amount",
+      "relatorios": "Praxis: reports with spending for the period, requests, savings, and a monthly spending chart",
       "cotacoes": "Praxis: three quotes for one request side by side, with price, difference from the lowest, delivery time, and terms",
       "aprovacao": "Praxis: request pending approval, with the stage tracker, the next step, the recommended proposal, the savings, and the people involved",
       "celular": "Praxis on a phone: purchase request board with the stages as tabs"
     },
     "flowtrack": {
       "dashboard": "FlowTrack: dashboard with balance, income, and expenses",
+      "metas": "FlowTrack: yearly spending limits and a savings goal, with the progress of each one",
       "transacoes": "FlowTrack: list of categorized transactions",
       "relatorios": "FlowTrack: reports with income, expenses, balance, and spending by category",
       "celular": "FlowTrack on a phone: monthly summary with balance, income, expenses, and categories"
     },
     "audistock": {
       "dashboard": "AudiStock: audits in progress, a summary of the latest audit, and the largest shortages and overages relative to the balance",
+      "contagem": "AudiStock: counting on a computer, with the product field and the list of items already counted",
       "relatorio": "AudiStock: audit report with the system quantity, counted quantity, and difference for each item, plus Excel, PDF, and CSV exports",
       "celular": "AudiStock on a phone: counting by keyboard, scanner, or camera, with the audit’s progress"
     },
     "fuelmind": {
       "lancamentos": "Fuel Mind: entries screen with NF-e XML import",
+      "grupo": "Fuel Mind: group view with liters delivered, purchase spending, and freight by company, as a chart and a table",
       "fretes": "Fuel Mind: freight month by month",
       "relatorios": "Fuel Mind: reports and month-end close",
       "dashboard": "Fuel Mind: dashboard with invoices for delivered fuel, liters, and monthly spending",
@@ -509,6 +520,7 @@
     },
     "docke": {
       "dashboard": "Docke: company dashboard with 14 documents, 4 folders, uploads over the last 14 days, and documents by folder",
+      "documento": "Docke: Fiscal folder with a selected document and the details panel, showing OCR done, versions, retention, and activity",
       "documentos": "Docke: the Fiscal (tax) folder with four documents, their type, size, and the OCR mark",
       "atividade": "Docke: activity log with every upload, view, and download recorded by day",
       "celular": "Docke on a phone: dashboard with the totals and navigation at the bottom"

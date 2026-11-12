@@ -10,22 +10,25 @@
       "Panel e informes"
     ],
     "fontes": [
-      "FlowTrack/README.pt-br.md#L60-L82",
-      "FlowTrack/backend/app/api/v1/imports.py#L67-L88",
+      "FlowTrack/README.pt-br.md#L62-L83",
+      "FlowTrack/backend/app/api/v1/imports.py#L74-L95",
       "FlowTrack/backend/app/api/v1/internal.py#L15-L19",
-      "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
+      "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
       "FlowTrack/frontend/src/services.ts#L25-L34"
     ]
   },
   "decisoes": [
     {
       "titulo": "Categorización en una cola, fuera de la importación",
-      "texto": "La importación no espera a la IA: cada transacción sin categoría se convierte en un elemento `pending` en `categorization_queue`, y el worker procesa la cola de 20 en 20 cuando se llama a la ruta interna. En el ADR 0004 dejé el motivo: la importación es inmediata, y la categoría llega después. La consecuencia visible es que la transacción aparece sin categoría hasta la siguiente ronda; si la llamada al modelo falla, el elemento se marca como `failed` y el lote sigue.",
+      "texto": "La importación no espera a la IA: cada transacción sin categoría se convierte en un elemento `pending` en `categorization_queue`, y el worker procesa la cola de 20 en 20 cuando se llama a la ruta interna. Toma el lote con una función SQL que usa `FOR UPDATE SKIP LOCKED` y marca los elementos como `processing`, así que dos llamadas a la vez nunca toman el mismo elemento. En el ADR 0004 dejé el motivo de la cola: la importación es inmediata, y la categoría llega después. La consecuencia visible es que la transacción aparece sin categoría hasta la siguiente ronda. Si la llamada al modelo falla, el elemento vuelve a la cola y tiene hasta 3 intentos más; después, se queda en `failed`.",
       "fontes": [
-        "FlowTrack/backend/app/api/v1/transactions.py#L71-L74",
-        "FlowTrack/backend/app/api/v1/imports.py#L84-L88",
-        "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
-        "FlowTrack/backend/app/integrations/claude_api.py#L226-L231",
+        "FlowTrack/backend/app/api/v1/transactions.py#L84-L87",
+        "FlowTrack/backend/app/api/v1/imports.py#L92-L95",
+        "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
+        "FlowTrack/backend/app/integrations/claude_api.py#L223-L228",
+        "FlowTrack/backend/app/integrations/claude_api.py#L253-L264",
+        "FlowTrack/docs/migrations.sql#L96-L115",
+        "FlowTrack/backend/tests/test_internal_jobs.py#L70-L103",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -33,9 +36,9 @@
       "titulo": "El modelo responde con una herramienta (tool use)",
       "texto": "En la tercera capa, Claude Haiku no responde en texto libre: `tool_choice` obliga a usar la herramienta `categorize`, cuyo esquema limita la categoría a las permitidas para esa persona y la confianza a valores de 0 a 1. Aun así, el worker comprueba la respuesta: una categoría fuera de la lista no se graba, una confianza inválida pasa a 0, por debajo de 0,85 la transacción va a «Por revisar», y solo la respuesta a partir de ese umbral entra en la caché.",
       "fontes": [
-        "FlowTrack/backend/app/integrations/claude_api.py#L30-L64",
-        "FlowTrack/backend/app/integrations/claude_api.py#L178-L219",
-        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L170",
+        "FlowTrack/backend/app/integrations/claude_api.py#L33-L67",
+        "FlowTrack/backend/app/integrations/claude_api.py#L175-L216",
+        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L169",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -53,18 +56,18 @@
     "titulo": "Clave service_role sin mezclar datos de usuarios",
     "texto": "La API accede a la base de datos con la clave service_role, que ignora el RLS. Por eso cada ruta comprueba el dueño: `_require_account` y `_require_category` devuelven 404 para la cuenta o la categoría de otra persona. El worker solo lee la transacción del dueño del elemento de la cola y solo ofrece al modelo las categorías predeterminadas y las suyas. Para demostrarlo, escribí un Supabase en memoria (`fake_supabase.py`) cuyos filtros filtran de verdad, y probé a un usuario intentando llegar a los datos de otro.",
     "fontes": [
-      "FlowTrack/backend/app/api/v1/_helpers.py#L24-L42",
-      "FlowTrack/backend/app/integrations/claude_api.py#L67-L75",
-      "FlowTrack/backend/app/integrations/claude_api.py#L114-L122",
+      "FlowTrack/backend/app/api/v1/_helpers.py#L23-L40",
+      "FlowTrack/backend/app/integrations/claude_api.py#L70-L78",
+      "FlowTrack/backend/app/integrations/claude_api.py#L111-L119",
       "FlowTrack/backend/tests/fake_supabase.py#L1-L6",
       "FlowTrack/backend/tests/test_security.py#L1-L5",
-      "FlowTrack/backend/tests/test_security.py#L322-L355"
+      "FlowTrack/backend/tests/test_security.py#L322-L354"
     ]
   },
   "testes": {
-    "texto": "Son 250 pruebas de backend con pytest, incluidas las de autorización entre usuarios y las del worker con un Claude falso; 8 de frontend con `node --test`, sobre la exportación CSV y la cola sin conexión; y 40 de extremo a extremo con Playwright: 20 escenarios ejecutados en el ordenador y en el móvil, contra un build local de la demostración. GitHub Actions lo ejecuta todo en cada push a `main` y en los pull requests y, después de las E2E, mide el contraste de las etiquetas.",
+    "texto": "Son 255 pruebas de backend con pytest, incluidas las de autorización entre usuarios y las del worker con un Claude falso; 8 de frontend con `node --test`, sobre la exportación CSV y la cola sin conexión; y 40 de extremo a extremo con Playwright: 20 escenarios ejecutados en el ordenador y en el móvil, contra un build local de la demostración. GitHub Actions lo ejecuta todo en cada push a `main` y en los pull requests: en el backend, ruff revisa el código antes de pytest y, después de las E2E, un script mide el contraste de las etiquetas.",
     "fontes": [
-      "FlowTrack/README.pt-br.md#L141-L154",
+      "FlowTrack/README.pt-br.md#L143-L156",
       "FlowTrack/backend/tests/test_ai_categorization.py",
       "FlowTrack/frontend/tests/syncQueue.test.ts",
       "FlowTrack/frontend/tests/export.test.ts",

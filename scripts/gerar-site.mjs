@@ -130,6 +130,7 @@ for (const p of projetos) {
   const telas = Array.isArray(p.telas) ? p.telas : [];
   if (!telas.length) erros.push(`${onde}: precisa de ao menos uma tela`);
   for (const k of telas) if (!manifesto[k]) erros.push(`${onde}: a tela "${k}" não existe em assets/projetos/manifesto.json`);
+  if (p.abertura && !manifesto[p.abertura]) erros.push(`${onde}: a abertura "${p.abertura}" não existe em assets/projetos/manifesto.json`);
   if (p.celular && !manifesto[p.celular]) erros.push(`${onde}: o celular "${p.celular}" não existe em assets/projetos/manifesto.json`);
   if (!p.legenda) erros.push(`${onde}: precisa de "legenda" ("demo" ou "repositorio")`);
   for (const it of p.itens || [])
@@ -141,7 +142,7 @@ for (const p of projetos) {
   for (const cod of Object.keys(textos)) {
     const req = ['frase', 'origem', 'origemLonga', 'problema', 'resumo', 'prova', 'cv'].map(k => `projetos.${p.id}.${k}`);
     for (const it of p.itens || []) req.push(`projetos.${p.id}.itens.${it.id}.titulo`, `projetos.${p.id}.itens.${it.id}.texto`);
-    for (const k of [...telas, ...(p.celular ? [p.celular] : [])]) req.push(`alt.${k.replace('/', '.')}`);
+    for (const k of [...telas, ...(p.abertura ? [p.abertura] : []), ...(p.celular ? [p.celular] : [])]) req.push(`alt.${k.replace('/', '.')}`);
     req.push(`projetos.legendas.${p.legenda}`);
     for (const c of p.codigo || []) req.push(`interface.rotulosCodigo.${c.rotulo}`);
     for (const s of p.stack || []) if (typeof s === 'object') req.push(s.texto);
@@ -758,7 +759,9 @@ function gerarDetalhe(idioma, p, idx) {
   const I = dados.identidade;
   const ant = projetos[(idx - 1 + projetos.length) % projetos.length];
   const prox = projetos[(idx + 1) % projetos.length];
-  const m0 = manifesto[p.telas[0]];
+  // a abertura usa uma tela que não se repete nos destaques; sem "abertura", a primeira das telas
+  const t0 = p.abertura || p.telas[0];
+  const m0 = manifesto[t0];
   const cel = p.celular;
   const sizesGrande = '(max-width: 760px) 100vw, 1100px';
   // cada captura abre em tamanho real na janela de ampliar (projeto.js); sem JS, o link abre a imagem
@@ -829,7 +832,7 @@ ${cabecalho({ C, pref, ancora: home, idiomaHref: i => `${pref}${i.pasta}projetos
       <div class="d-palco${cel ? ' com-cel' : ''}">
         <div class="janela" style="view-transition-name:janela-${p.id}">
           <div class="j-barra"><span>${esc(barraUrl(p))}</span><span class="j-leg">${p0(`projetos.legendas.${p.legenda}`)}</span></div>
-          <div class="j-tela estatica" style="aspect-ratio:${m0.w} / ${m0.h}">${imgDe(p.telas[0], pref, C, { sizes: sizesGrande, carregar: 'eager', attrs: ' fetchpriority="high"' })}</div>
+          <div class="j-tela estatica" style="aspect-ratio:${m0.w} / ${m0.h}">${imgDe(t0, pref, C, { sizes: sizesGrande, carregar: 'eager', attrs: ' fetchpriority="high"' })}</div>
         </div>
         ${cel ? `<div class="celular">${imgDe(p.celular, pref, C, { sizes: '(max-width: 760px) 40vw, 240px', carregar: 'eager' })}</div>` : ''}
       </div>

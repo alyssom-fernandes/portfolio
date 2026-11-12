@@ -10,7 +10,7 @@
       "Alert logged"
     ],
     "fontes": [
-      "AlertSignal/README.pt-br.md#L147-L168",
+      "AlertSignal/README.md#L148-L169",
       "AlertSignal/importar_planilha.py#L95-L174",
       "AlertSignal/app.py#L1354-L1402",
       "AlertSignal/notificacoes.py#L383-L413"
@@ -21,7 +21,7 @@
       "titulo": "SQLite in a single file",
       "texto": "I chose SQLite over PostgreSQL because the system runs on a local machine with few writes: it needs no setup, and a backup is just copying one file. The database path lives in a variable in `database.py`, and demo mode swaps it for a separate `demo.db`, so the fictitious data never touches the real database. Queries are plain, parameterized SQL, with no ORM.",
       "fontes": [
-        "AlertSignal/README.pt-br.md#L133-L137",
+        "AlertSignal/README.md#L134-L138",
         "AlertSignal/database.py#L4-L19",
         "AlertSignal/app.py#L1375-L1380"
       ]
@@ -30,7 +30,7 @@
       "titulo": "Scheduler inside the Flask process",
       "texto": "I used APScheduler instead of cron because it runs inside the Flask process, works on Windows, and lets you change the send time from the app itself. The daily check is a job with a fixed id, created at the time saved in the settings. When the administrator saves a new time, the route calls `reschedule_job`, and the send time changes without restarting the server.",
       "fontes": [
-        "AlertSignal/README.pt-br.md#L135",
+        "AlertSignal/README.md#L136",
         "AlertSignal/app.py#L1354-L1363",
         "AlertSignal/app.py#L1054-L1059"
       ]
@@ -39,7 +39,7 @@
       "titulo": "Security without extra packages",
       "texto": "I built the security with Flask and the standard library alone. A per-session CSRF token goes into every form and every `fetch` that changes data, and the server compares it with `hmac.compare_digest`. On every request, the user is reloaded from the database: anyone deleted or deactivated loses the session, and so does anyone whose password was changed, because the `sessao_versao` column goes up. In exports, text starting with `=` stays text instead of becoming a formula.",
       "fontes": [
-        "AlertSignal/README.pt-br.md#L141-L143",
+        "AlertSignal/README.md#L142-L144",
         "AlertSignal/app.py#L69-L91",
         "AlertSignal/app.py#L163-L205",
         "AlertSignal/app.py#L1316-L1319"

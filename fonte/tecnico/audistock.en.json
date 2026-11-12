@@ -10,7 +10,7 @@
       "Discrepancy report"
     ],
     "fontes": [
-      "AudiStock/README.pt-BR.md#L181-L190",
+      "AudiStock/README.md#L176-L185",
       "AudiStock/js/supabaseClient.js#L1-L40",
       "AudiStock/js/offline.js#L1-L24",
       "AudiStock/supabase/schema.sql#L324-L392"
@@ -23,7 +23,7 @@
       "fontes": [
         "AudiStock/supabase/schema.sql#L324-L392",
         "AudiStock/supabase/schema.sql#L428-L488",
-        "AudiStock/README.pt-BR.md#L209-L224",
+        "AudiStock/README.md#L202-L217",
         "AudiStock/testes/unidade/contagem.test.mjs#L24-L31"
       ]
     },
@@ -36,7 +36,7 @@
         "AudiStock/supabase/schema.sql#L638-L673",
         "AudiStock/supabase/functions/criar-usuario/index.ts#L1-L30",
         "AudiStock/supabase/testes/permissoes.sql",
-        "AudiStock/README.pt-BR.md#L142-L152"
+        "AudiStock/README.md#L139-L149"
       ]
     },
     {
@@ -44,7 +44,7 @@
       "texto": "Each page carries a Content Security Policy in a meta tag: scripts run only from the site itself, from the exact library folders on cdnjs and jsDelivr, with pinned versions, and from inline scripts allowed by hash. The PDF and spreadsheet libraries are downloaded only when exporting or importing, verified with SRI. `csp.test.mjs` checks every page, and the end-to-end tests fail if the policy blocks anything.",
       "fontes": [
         "AudiStock/contagem.html#L5",
-        "AudiStock/README.pt-BR.md#L193-L204",
+        "AudiStock/README.md#L188-L198",
         "AudiStock/testes/unidade/csp.test.mjs",
         "AudiStock/js/supabaseClient.js#L12-L27"
       ]

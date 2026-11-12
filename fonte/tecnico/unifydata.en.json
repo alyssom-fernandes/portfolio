@@ -13,8 +13,8 @@
       "UnifyData-Web/js/nucleo.js#L1-L11",
       "UnifyData-Web/js/app.js#L86-L110",
       "UnifyData-Python/unifydata.py#L1-L17",
-      "UnifyData-Python/README.pt-BR.md#L170-L175",
-      "UnifyData-Python/README.pt-BR.md#L197-L199"
+      "UnifyData-Python/README.md#L171-L176",
+      "UnifyData-Python/README.md#L199-L201"
     ]
   },
   "decisoes": [
@@ -33,7 +33,7 @@
       "fontes": [
         "UnifyData-Python/nucleo.py#L23",
         "UnifyData-Python/nucleo.py#L283-L316",
-        "UnifyData-Python/README.pt-BR.md#L176-L178"
+        "UnifyData-Python/README.md#L177-L180"
       ]
     },
     {
@@ -42,7 +42,7 @@
       "fontes": [
         "UnifyData-Web/js/nucleo.js#L1-L11",
         "UnifyData-Web/index.html#L234-L235",
-        "UnifyData-Web/README.pt-BR.md#L187-L188",
+        "UnifyData-Web/README.md#L190-L191",
         "UnifyData-Web/tests/nucleo.test.js#L6"
       ]
     }
@@ -54,7 +54,7 @@
       "UnifyData-Python/nucleo.py#L246-L280",
       "UnifyData-Python/nucleo.py#L319-L348",
       "UnifyData-Python/tests/test_nucleo.py#L148-L176",
-      "UnifyData-Python/README.pt-BR.md#L179-L183"
+      "UnifyData-Python/README.md#L181-L185"
     ]
   },
   "testes": {

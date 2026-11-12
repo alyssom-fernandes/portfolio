@@ -13,7 +13,7 @@
       "DeepChat/js/app.js#L436-L475",
       "DeepChat/js/app.js#L573-L602",
       "DeepChat/js/ui.js#L1-L7",
-      "DeepChat/README.pt-BR.md#L225-L247"
+      "DeepChat/README.md#L232-L254"
     ]
   },
   "decisoes": [
@@ -23,7 +23,7 @@
       "fontes": [
         "DeepChat/js/revisao.js#L29-L61",
         "DeepChat/js/revisao.js#L113-L157",
-        "DeepChat/README.pt-BR.md#L167-L170"
+        "DeepChat/README.md#L172-L175"
       ]
     },
     {
@@ -33,7 +33,7 @@
         "DeepChat/js/storage.js#L1-L18",
         "DeepChat/js/storage.js#L93-L105",
         "DeepChat/js/storage.js#L136-L175",
-        "DeepChat/README.pt-BR.md#L125-L138"
+        "DeepChat/README.md#L129-L143"
       ]
     },
     {

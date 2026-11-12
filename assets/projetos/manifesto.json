@@ -281,6 +281,18 @@
       }
     ]
   },
+  "docke/documento": {
+    "src": "assets/projetos/docke/documento.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/docke/documento-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
   "docke/documentos": {
     "src": "assets/projetos/docke/documentos.webp",
     "w": 1440,
@@ -306,6 +318,18 @@
     "variantes": [
       {
         "src": "assets/projetos/flowtrack/dashboard-960.webp",
+        "w": 960,
+        "h": 600
+      }
+    ]
+  },
+  "flowtrack/metas": {
+    "src": "assets/projetos/flowtrack/metas.webp",
+    "w": 1440,
+    "h": 900,
+    "variantes": [
+      {
+        "src": "assets/projetos/flowtrack/metas-960.webp",
         "w": 960,
         "h": 600
       }

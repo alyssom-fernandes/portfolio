@@ -346,6 +346,10 @@
         "relatorios": {
           "titulo": "Informes",
           "texto": "Ingresos, gastos y saldo, gastos por categoría y los mayores gastos."
+        },
+        "celular": {
+          "titulo": "El mes en el móvil",
+          "texto": "En el móvil, el resumen del mes muestra saldo, ingresos, gastos y categorías en una sola pantalla."
         }
       }
     },
@@ -461,41 +465,48 @@
   "alt": {
     "artmaker": {
       "editor": "ArtMaker: editor con los datos de la tienda y de las ofertas y la vista previa del folleto",
+      "layout": "ArtMaker: pestaña de diseño con las opciones de cuadrícula y estilo junto a la vista previa del folleto",
       "cores": "ArtMaker: paletas de colores en miniatura, una de ellas aplicada al folleto",
       "estilo": "ArtMaker: opciones de tipo de letra, marco, borde, esquinas y precio, en tema claro",
       "celular": "ArtMaker en el móvil: folleto final con Compartir y Descargar"
     },
     "unifydata": {
       "base": "UnifyData: base de empleados cargada e informes de compras de las tiendas listos para procesar",
+      "relatorio": "UnifyData: informe A4 del cierre de consumo, con el descuento de cada empleado por empresa",
       "pendencias": "UnifyData: pendientes del cruce, sin registro o sin empresa, con valor, número de empleado y tienda",
       "resultado": "UnifyData: cierre listo, con el total a descontar por empresa y por tienda y las salidas en Excel, CSV y PDF",
       "celular": "UnifyData en el móvil: cierre listo"
     },
     "deepchat": {
       "revisao-veredito": "DeepChat: revisión de una respuesta con el veredicto Incorrecta, puntos fuertes y qué mejorar",
+      "revisao-correta": "DeepChat: respuesta sobre interés simple y compuesto, con la revisión de ChatGPT que la marca como correcta",
       "revisao-codigo": "DeepChat: versión revisada de una función que valida el CPF y que ahora rechaza secuencias repetidas como 111.111.111-11, con el orden invertido (ChatGPT responde y DeepSeek revisa)",
       "inicio": "DeepChat: pantalla de inicio con los campos de las claves de API y el acceso a la demo",
       "celular": "DeepChat en el móvil: revisión con puntos fuertes, qué mejorar y sugerencias"
     },
     "praxis": {
       "kanban": "Praxis: tablero de pedidos en siete etapas, con el total de cada columna y tarjetas con empresa, plazo y valor",
+      "relatorios": "Praxis: informes con el gasto del periodo, los pedidos, el ahorro y el gráfico de gasto mensual",
       "cotacoes": "Praxis: tres cotizaciones de un pedido lado a lado, con valor, diferencia respecto a la más baja, plazo de entrega y condiciones",
       "aprovacao": "Praxis: pedido en aprobación, con la barra de etapas, el siguiente paso, la propuesta recomendada, el ahorro y las personas implicadas",
       "celular": "Praxis en el móvil: tablero de pedidos con las etapas en pestañas"
     },
     "flowtrack": {
       "dashboard": "FlowTrack: panel con saldo, ingresos y gastos",
+      "metas": "FlowTrack: límites de gasto anuales y una meta de ahorro, con el progreso de cada uno",
       "transacoes": "FlowTrack: lista de movimientos categorizados",
       "relatorios": "FlowTrack: informes con ingresos, gastos, saldo y gastos por categoría",
       "celular": "FlowTrack en el móvil: resumen del mes con saldo, ingresos, gastos y categorías"
     },
     "audistock": {
       "dashboard": "AudiStock: auditorías en curso, resumen de la última auditoría y los mayores faltantes y sobrantes en proporción a las existencias",
+      "contagem": "AudiStock: recuento en el ordenador, con el campo del producto y la lista de artículos ya contados",
       "relatorio": "AudiStock: informe de una auditoría con las existencias del sistema, lo contado y la diferencia de cada artículo, y salidas en Excel, PDF y CSV",
       "celular": "AudiStock en el móvil: recuento con teclado, lector y cámara y el progreso de la auditoría"
     },
     "fuelmind": {
       "lancamentos": "Fuel Mind: pantalla de registros con importación del XML de la NF-e",
+      "grupo": "Fuel Mind: vista del grupo con litros descargados, gasto en compras y flete por empresa, en gráfico y tabla",
       "fretes": "Fuel Mind: fletes mes a mes",
       "relatorios": "Fuel Mind: informes y cierre del mes",
       "dashboard": "Fuel Mind: panel con las facturas del combustible descargado, los litros y el gasto del mes",
@@ -509,6 +520,7 @@
     },
     "docke": {
       "dashboard": "Docke: panel de la empresa con 14 documentos, 4 carpetas, envíos de los últimos 14 días y documentos por carpeta",
+      "documento": "Docke: carpeta Fiscal con un documento seleccionado y el panel de detalles, con OCR completado, versiones, conservación y actividad",
       "documentos": "Docke: carpeta Fiscal con cuatro documentos, su tipo, tamaño y la marca del OCR",
       "atividade": "Docke: actividad con cada envío, visualización y descarga registrados por día",
       "celular": "Docke en el móvil: panel con los totales y la navegación abajo"

@@ -14,7 +14,7 @@
       "Fuel-Mind/src/core/firebase.js#L44-L67",
       "Fuel-Mind/src/screens/lancamentos.js#L89-L155",
       "Fuel-Mind/src/shared/utils.js#L869-L960",
-      "Fuel-Mind/README.pt-BR.md#L218-L257"
+      "Fuel-Mind/README.md#L214-L252"
     ]
   },
   "decisoes": [
@@ -53,7 +53,7 @@
       "Fuel-Mind/firestore.rules#L197-L239",
       "Fuel-Mind/firestore.rules#L256-L266",
       "Fuel-Mind/tests/regras/firestore-regras.test.js#L197-L230",
-      "Fuel-Mind/README.pt-BR.md#L185-L189"
+      "Fuel-Mind/README.md#L181-L185"
     ]
   },
   "testes": {
@@ -62,7 +62,7 @@
       "Fuel-Mind/tests/frete.test.js#L11-L23",
       "Fuel-Mind/tests/regras/firestore-regras.test.js",
       "Fuel-Mind/.github/workflows/testes.yml",
-      "Fuel-Mind/README.pt-BR.md#L163-L170"
+      "Fuel-Mind/README.md#L159-L166"
     ]
   }
 }

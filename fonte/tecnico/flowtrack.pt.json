@@ -10,22 +10,25 @@
       "Painel e relatórios"
     ],
     "fontes": [
-      "FlowTrack/README.pt-br.md#L60-L82",
-      "FlowTrack/backend/app/api/v1/imports.py#L67-L88",
+      "FlowTrack/README.pt-br.md#L62-L83",
+      "FlowTrack/backend/app/api/v1/imports.py#L74-L95",
       "FlowTrack/backend/app/api/v1/internal.py#L15-L19",
-      "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
+      "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
       "FlowTrack/frontend/src/services.ts#L25-L34"
     ]
   },
   "decisoes": [
     {
       "titulo": "Categorização numa fila, fora da importação",
-      "texto": "A importação não espera a IA: cada transação sem categoria vira um item `pending` na `categorization_queue`, e o worker processa a fila de 20 em 20 quando a rota interna é chamada. Na ADR 0004 registrei o motivo: a importação fica imediata, e a categoria chega depois. A consequência visível é que a transação aparece sem categoria até a próxima rodada; se a chamada ao modelo falhar, o item é marcado como `failed` e o lote segue.",
+      "texto": "A importação não espera a IA: cada transação sem categoria vira um item `pending` na `categorization_queue`, e o worker processa a fila de 20 em 20 quando a rota interna é chamada. Ele pega o lote com uma função SQL que usa `FOR UPDATE SKIP LOCKED` e marca os itens como `processing`, então duas chamadas ao mesmo tempo nunca pegam o mesmo item. Na ADR 0004 registrei o motivo da fila: a importação fica imediata, e a categoria chega depois. A consequência visível é que a transação aparece sem categoria até a próxima rodada. Se a chamada ao modelo falhar, o item volta para a fila e ganha até 3 novas tentativas; depois disso, fica `failed`.",
       "fontes": [
-        "FlowTrack/backend/app/api/v1/transactions.py#L71-L74",
-        "FlowTrack/backend/app/api/v1/imports.py#L84-L88",
-        "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
-        "FlowTrack/backend/app/integrations/claude_api.py#L226-L231",
+        "FlowTrack/backend/app/api/v1/transactions.py#L84-L87",
+        "FlowTrack/backend/app/api/v1/imports.py#L92-L95",
+        "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
+        "FlowTrack/backend/app/integrations/claude_api.py#L223-L228",
+        "FlowTrack/backend/app/integrations/claude_api.py#L253-L264",
+        "FlowTrack/docs/migrations.sql#L96-L115",
+        "FlowTrack/backend/tests/test_internal_jobs.py#L70-L103",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -33,9 +36,9 @@
       "titulo": "O modelo responde por uma ferramenta (tool use)",
       "texto": "Na terceira camada, o Claude Haiku não responde em texto livre: o `tool_choice` força a ferramenta `categorize`, cujo esquema limita a categoria às permitidas para aquela pessoa e a confiança a valores de 0 a 1. Mesmo assim, o worker confere a resposta: categoria fora da lista não é gravada, confiança inválida vira 0, abaixo de 0,85 a transação vai para A revisar, e só a resposta a partir desse corte entra no cache.",
       "fontes": [
-        "FlowTrack/backend/app/integrations/claude_api.py#L30-L64",
-        "FlowTrack/backend/app/integrations/claude_api.py#L178-L219",
-        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L170",
+        "FlowTrack/backend/app/integrations/claude_api.py#L33-L67",
+        "FlowTrack/backend/app/integrations/claude_api.py#L175-L216",
+        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L169",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -53,18 +56,18 @@
     "titulo": "Chave service_role sem misturar dados de usuários",
     "texto": "A API acessa o banco com a chave service_role, que ignora o RLS. Então cada rota confere o dono: `_require_account` e `_require_category` devolvem 404 para conta ou categoria de outra pessoa. O worker só lê a transação do dono do item da fila e só oferece ao modelo as categorias padrão e as dele. Para provar isso, escrevi um Supabase em memória (`fake_supabase.py`) cujos filtros filtram de verdade, e testei um usuário tentando alcançar os dados de outro.",
     "fontes": [
-      "FlowTrack/backend/app/api/v1/_helpers.py#L24-L42",
-      "FlowTrack/backend/app/integrations/claude_api.py#L67-L75",
-      "FlowTrack/backend/app/integrations/claude_api.py#L114-L122",
+      "FlowTrack/backend/app/api/v1/_helpers.py#L23-L40",
+      "FlowTrack/backend/app/integrations/claude_api.py#L70-L78",
+      "FlowTrack/backend/app/integrations/claude_api.py#L111-L119",
       "FlowTrack/backend/tests/fake_supabase.py#L1-L6",
       "FlowTrack/backend/tests/test_security.py#L1-L5",
-      "FlowTrack/backend/tests/test_security.py#L322-L355"
+      "FlowTrack/backend/tests/test_security.py#L322-L354"
     ]
   },
   "testes": {
-    "texto": "São 250 testes de backend com pytest, inclusive de autorização entre usuários e do worker com um Claude falso; 8 de frontend com `node --test`, sobre a exportação CSV e a fila offline; e 40 de ponta a ponta com Playwright: 20 cenários rodados no computador e no celular, contra um build local da demonstração. O GitHub Actions roda tudo a cada push no `main` e em pull requests e, depois dos E2E, mede o contraste dos selos.",
+    "texto": "São 255 testes de backend com pytest, inclusive de autorização entre usuários e do worker com um Claude falso; 8 de frontend com `node --test`, sobre a exportação CSV e a fila offline; e 40 de ponta a ponta com Playwright: 20 cenários rodados no computador e no celular, contra um build local da demonstração. O GitHub Actions roda tudo a cada push no `main` e em pull requests: no backend, o ruff confere o código antes do pytest e, depois dos E2E, um roteiro mede o contraste dos selos.",
     "fontes": [
-      "FlowTrack/README.pt-br.md#L141-L154",
+      "FlowTrack/README.pt-br.md#L143-L156",
       "FlowTrack/backend/tests/test_ai_categorization.py",
       "FlowTrack/frontend/tests/syncQueue.test.ts",
       "FlowTrack/frontend/tests/export.test.ts",

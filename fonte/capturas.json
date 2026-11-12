@@ -598,6 +598,12 @@
           "dispositivo": "tela"
         },
         {
+          "nome": "metas",
+          "rota": "/goals",
+          "esperaMs": 3000,
+          "dispositivo": "tela"
+        },
+        {
           "nome": "celular",
           "rota": "/dashboard",
           "entrarDeNovo": true,
@@ -653,6 +659,27 @@
           "rota": "/activity",
           "esperarTexto": "Exportar",
           "esperaMs": 2500,
+          "dispositivo": "tela"
+        },
+        {
+          "nome": "documento",
+          "rota": "/documents",
+          "passos": [
+            {
+              "esperarTexto": "Contratos"
+            },
+            {
+              "clicar": "Fiscal"
+            },
+            {
+              "esperarTexto": "NF-e_Fornecedor_10"
+            },
+            {
+              "clicar": "NF-e_Fornecedor_10",
+              "exato": false
+            }
+          ],
+          "esperaMs": 3000,
           "dispositivo": "tela"
         },
         {

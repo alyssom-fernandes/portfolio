@@ -13,7 +13,7 @@
       "ArtMaker/index.html#L1443-L1447",
       "ArtMaker/index.html#L2126-L2166",
       "ArtMaker/index.html#L3255-L3261",
-      "ArtMaker/README.pt-BR.md#L214-L226"
+      "ArtMaker/README.md#L219-L231"
     ]
   },
   "decisoes": [
@@ -21,8 +21,8 @@
       "titulo": "The whole app in one `index.html`",
       "texto": "I chose to ship the whole app in one `index.html`, so sending the file and opening it in a browser is enough. The default logo is embedded as WebP, because an external image opened straight from disk taints the canvas and the browser blocks the download. The CSP is set in a meta tag, with `default-src 'none'` and each inline script allowed by its SHA-256 hash; the only outside source is Google Fonts.",
       "fontes": [
-        "ArtMaker/README.pt-BR.md#L161-L164",
-        "ArtMaker/README.pt-BR.md#L174-L177",
+        "ArtMaker/README.md#L166-L169",
+        "ArtMaker/README.md#L179-L182",
         "ArtMaker/index.html#L9"
       ]
     },
@@ -45,7 +45,7 @@
         "ArtMaker/index.html#L1755",
         "ArtMaker/index.html#L1989-L1990",
         "ArtMaker/index.html#L2060",
-        "ArtMaker/README.pt-BR.md#L102-L104"
+        "ArtMaker/README.md#L104-L106"
       ]
     }
   ],
@@ -56,7 +56,7 @@
       "ArtMaker/index.html#L2176-L2213",
       "ArtMaker/index.html#L2215-L2260",
       "ArtMaker/index.html#L1419-L1441",
-      "ArtMaker/README.pt-BR.md#L119-L126"
+      "ArtMaker/README.md#L122-L130"
     ]
   },
   "testes": {

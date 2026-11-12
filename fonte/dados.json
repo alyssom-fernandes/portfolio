@@ -53,7 +53,7 @@
     { "id": "es", "codigo": "es" }
   ],
 
-  "_projetos": "Ordem na página = campo ordem. Todos têm o mesmo peso: resumo na página inicial e página de detalhe em projetos/<id>/. cor: tinta da cena (8% sobre o escuro). composicao.lado: lado da tela no resumo (dir|esq). composicao.celular: 'sempre' (produto de celular: o telefone fica no palco o tempo todo) ou 'destaque' (o telefone só entra no destaque 'celular'). itens: destaques; vitrine true = aparece no resumo (3 por projeto), todos aparecem na página de detalhe. testes: contagens conferidas em testesConferidos; o total é a soma. demo.ativa false esconde o botão e tira o projeto da contagem. comoRodar: link para a seção do README que ensina a rodar a demo local (quando não há demo hospedada).",
+  "_projetos": "Ordem na página = campo ordem. Todos têm o mesmo peso: resumo na página inicial e página de detalhe em projetos/<id>/. cor: tinta da cena (8% sobre o escuro). composicao.lado: lado da tela no resumo (dir|esq). abertura (opcional): tela da abertura da página do projeto, de preferência uma que não se repita nos itens; sem ela, a primeira de telas. composicao.celular: 'sempre' (produto de celular: o telefone fica no palco o tempo todo) ou 'destaque' (o telefone só entra no destaque 'celular'). itens: destaques; vitrine true = aparece no resumo (3 por projeto), todos aparecem na página de detalhe. testes: contagens conferidas em testesConferidos; o total é a soma. demo.ativa false esconde o botão e tira o projeto da contagem. comoRodar: link para a seção do README que ensina a rodar a demo local (quando não há demo hospedada).",
   "projetos": [
     {
       "id": "artmaker",
@@ -66,7 +66,7 @@
       "numeros": { "formato": "1080×1920", "paletas": "8" },
       "testes": { "unidade": 33 },
       "composicao": { "lado": "dir", "celular": "sempre" },
-      "telas": ["artmaker/editor", "artmaker/cores", "artmaker/estilo"],
+      "telas": ["artmaker/editor", "artmaker/cores", "artmaker/estilo"], "abertura": "artmaker/layout",
       "celular": "artmaker/celular",
       "foco": { "artmaker/editor": "62% 30%", "artmaker/cores": "20% 20%", "artmaker/estilo": "15% 30%" },
       "legenda": "demo",
@@ -91,7 +91,7 @@
       "numeros": {},
       "testes": { "web": 17, "python": 23 },
       "composicao": { "lado": "esq", "celular": "destaque" },
-      "telas": ["unifydata/base", "unifydata/pendencias", "unifydata/resultado"],
+      "telas": ["unifydata/base", "unifydata/pendencias", "unifydata/resultado"], "abertura": "unifydata/relatorio",
       "celular": "unifydata/celular",
       "foco": { "unifydata/base": "0 20%", "unifydata/pendencias": "0 30%", "unifydata/resultado": "0 25%" },
       "legenda": "demo",
@@ -113,7 +113,7 @@
       "numeros": {},
       "testes": { "unidade": 65 },
       "composicao": { "lado": "dir", "celular": "destaque" },
-      "telas": ["deepchat/revisao-veredito", "deepchat/revisao-codigo", "deepchat/inicio"],
+      "telas": ["deepchat/revisao-veredito", "deepchat/revisao-codigo", "deepchat/inicio"], "abertura": "deepchat/revisao-correta",
       "celular": "deepchat/celular",
       "foco": { "deepchat/revisao-veredito": "50% 60%", "deepchat/revisao-codigo": "50% 60%", "deepchat/inicio": "50% 40%" },
       "legenda": "demo",
@@ -135,7 +135,7 @@
       "numeros": { "perfis": "6", "eventos": "14", "etapas": "7" },
       "testes": { "unidade": 15, "regras": 30 },
       "composicao": { "lado": "esq", "celular": "sempre" },
-      "telas": ["praxis/kanban", "praxis/cotacoes", "praxis/aprovacao"],
+      "telas": ["praxis/kanban", "praxis/cotacoes", "praxis/aprovacao"], "abertura": "praxis/relatorios",
       "celular": "praxis/celular",
       "foco": { "praxis/kanban": "0 25%", "praxis/cotacoes": "20% 35%", "praxis/aprovacao": "10% 30%" },
       "legenda": "demo",
@@ -155,16 +155,17 @@
       "codigo": [{ "rotulo": "codigo", "url": "https://github.com/alyssom-fernandes/FlowTrack" }],
       "stack": ["React 19", "TypeScript", "FastAPI", "Supabase/PostgreSQL", { "texto": "projetos.flowtrack.stackModelo" }, "pytest", "Playwright"],
       "numeros": { "bancos": "4", "camadas": "3" },
-      "testes": { "backend": 250, "frontend": 8, "e2e": 40 },
+      "testes": { "backend": 255, "frontend": 8, "e2e": 40 },
       "composicao": { "lado": "dir", "celular": "destaque" },
-      "telas": ["flowtrack/dashboard", "flowtrack/transacoes", "flowtrack/relatorios"],
+      "telas": ["flowtrack/dashboard", "flowtrack/transacoes", "flowtrack/relatorios"], "abertura": "flowtrack/metas",
       "celular": "flowtrack/celular",
       "foco": { "flowtrack/dashboard": "10% 20%", "flowtrack/transacoes": "10% 25%", "flowtrack/relatorios": "10% 25%" },
       "legenda": "demo",
       "itens": [
         { "id": "camadas", "tela": "flowtrack/dashboard", "vitrine": true },
         { "id": "extratos", "tela": "flowtrack/transacoes", "vitrine": true },
-        { "id": "relatorios", "tela": "flowtrack/relatorios", "vitrine": true }
+        { "id": "relatorios", "tela": "flowtrack/relatorios", "vitrine": true },
+        { "id": "celular", "tela": "celular", "vitrine": false }
       ]
     },
     {
@@ -178,7 +179,7 @@
       "numeros": {},
       "testes": { "unidade": 84, "e2e": 46 },
       "composicao": { "lado": "esq", "celular": "sempre" },
-      "telas": ["audistock/dashboard", "audistock/relatorio"],
+      "telas": ["audistock/dashboard", "audistock/relatorio"], "abertura": "audistock/contagem",
       "celular": "audistock/celular",
       "foco": { "audistock/dashboard": "10% 20%", "audistock/relatorio": "10% 30%" },
       "legenda": "demo",
@@ -199,7 +200,7 @@
       "numeros": {},
       "testes": { "unidade": 120, "regras": 25 },
       "composicao": { "lado": "dir", "celular": "destaque" },
-      "telas": ["fuelmind/lancamentos", "fuelmind/fretes", "fuelmind/relatorios", "fuelmind/dashboard"],
+      "telas": ["fuelmind/lancamentos", "fuelmind/fretes", "fuelmind/relatorios", "fuelmind/dashboard"], "abertura": "fuelmind/grupo",
       "celular": "fuelmind/celular",
       "foco": { "fuelmind/lancamentos": "20% 25%", "fuelmind/fretes": "20% 25%", "fuelmind/relatorios": "20% 25%", "fuelmind/dashboard": "20% 20%" },
       "legenda": "demo",
@@ -249,7 +250,7 @@
       "numeros": {},
       "testes": { "backend": 83, "e2e": 6 },
       "composicao": { "lado": "dir", "celular": "destaque" },
-      "telas": ["docke/dashboard", "docke/documentos", "docke/atividade"],
+      "telas": ["docke/dashboard", "docke/documentos", "docke/atividade"], "abertura": "docke/documento",
       "celular": "docke/celular",
       "foco": { "docke/dashboard": "0 15%", "docke/documentos": "15% 20%", "docke/atividade": "0 20%" },
       "legenda": "demo",

@@ -10,22 +10,25 @@
       "Dashboard and reports"
     ],
     "fontes": [
-      "FlowTrack/README.pt-br.md#L60-L82",
-      "FlowTrack/backend/app/api/v1/imports.py#L67-L88",
+      "FlowTrack/README.md#L62-L83",
+      "FlowTrack/backend/app/api/v1/imports.py#L74-L95",
       "FlowTrack/backend/app/api/v1/internal.py#L15-L19",
-      "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
+      "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
       "FlowTrack/frontend/src/services.ts#L25-L34"
     ]
   },
   "decisoes": [
     {
       "titulo": "Categorization in a queue, outside the import",
-      "texto": "Importing doesn't wait for the AI: each transaction without a category becomes a `pending` item in `categorization_queue`, and the worker processes the queue 20 at a time when the internal route is called. I recorded the reason in ADR 0004: the import stays immediate, and the category arrives later. The visible consequence is that the transaction shows no category until the next run; if the call to the model fails, the item is marked `failed` and the batch continues.",
+      "texto": "Importing doesn't wait for the AI: each transaction without a category becomes a `pending` item in `categorization_queue`, and the worker processes the queue 20 at a time when the internal route is called. It takes the batch with a SQL function that uses `FOR UPDATE SKIP LOCKED` and marks the items as `processing`, so two calls at the same time never get the same item. I recorded the reason for the queue in ADR 0004: the import stays immediate, and the category arrives later. The visible consequence is that the transaction shows no category until the next run. If the call to the model fails, the item goes back to the queue and gets up to 3 more attempts; after that, it stays `failed`.",
       "fontes": [
-        "FlowTrack/backend/app/api/v1/transactions.py#L71-L74",
-        "FlowTrack/backend/app/api/v1/imports.py#L84-L88",
-        "FlowTrack/backend/app/integrations/claude_api.py#L78-L95",
-        "FlowTrack/backend/app/integrations/claude_api.py#L226-L231",
+        "FlowTrack/backend/app/api/v1/transactions.py#L84-L87",
+        "FlowTrack/backend/app/api/v1/imports.py#L92-L95",
+        "FlowTrack/backend/app/integrations/claude_api.py#L81-L100",
+        "FlowTrack/backend/app/integrations/claude_api.py#L223-L228",
+        "FlowTrack/backend/app/integrations/claude_api.py#L253-L264",
+        "FlowTrack/docs/migrations.sql#L96-L115",
+        "FlowTrack/backend/tests/test_internal_jobs.py#L70-L103",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -33,9 +36,9 @@
       "titulo": "The model answers through a tool",
       "texto": "In the third layer, Claude Haiku doesn't answer in free text: `tool_choice` forces the `categorize` tool, whose schema limits the category to the ones allowed for that person and the confidence to values from 0 to 1. Even so, the worker checks the answer: a category outside the list isn't saved, an invalid confidence becomes 0, below 0.85 the transaction goes to \"To review\", and only answers at or above that cutoff enter the cache.",
       "fontes": [
-        "FlowTrack/backend/app/integrations/claude_api.py#L30-L64",
-        "FlowTrack/backend/app/integrations/claude_api.py#L178-L219",
-        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L170",
+        "FlowTrack/backend/app/integrations/claude_api.py#L33-L67",
+        "FlowTrack/backend/app/integrations/claude_api.py#L175-L216",
+        "FlowTrack/backend/app/api/v1/_helpers.py#L167-L169",
         "FlowTrack/docs/adr/0004-ai-categorization-pipeline.md"
       ]
     },
@@ -53,18 +56,18 @@
     "titulo": "service_role key without mixing users' data",
     "texto": "The API accesses the database with the service_role key, which bypasses RLS. So every route checks the owner: `_require_account` and `_require_category` return 404 for another person's account or category. The worker only reads the transaction belonging to the queue item's owner and only offers the model the default categories and that person's own. To prove it, I wrote an in-memory Supabase (`fake_supabase.py`) whose filters really filter, and tested one user trying to reach another's data.",
     "fontes": [
-      "FlowTrack/backend/app/api/v1/_helpers.py#L24-L42",
-      "FlowTrack/backend/app/integrations/claude_api.py#L67-L75",
-      "FlowTrack/backend/app/integrations/claude_api.py#L114-L122",
+      "FlowTrack/backend/app/api/v1/_helpers.py#L23-L40",
+      "FlowTrack/backend/app/integrations/claude_api.py#L70-L78",
+      "FlowTrack/backend/app/integrations/claude_api.py#L111-L119",
       "FlowTrack/backend/tests/fake_supabase.py#L1-L6",
       "FlowTrack/backend/tests/test_security.py#L1-L5",
-      "FlowTrack/backend/tests/test_security.py#L322-L355"
+      "FlowTrack/backend/tests/test_security.py#L322-L354"
     ]
   },
   "testes": {
-    "texto": "There are 250 backend tests with pytest, including authorization between users and the worker with a fake Claude; 8 frontend tests with `node --test`, on CSV export and the offline queue; and 40 end-to-end tests with Playwright: 20 scenarios run on desktop and on phone, against a local build of the demo. GitHub Actions runs everything on every push to `main` and on pull requests and, after the E2E tests, measures the contrast of the badges.",
+    "texto": "There are 255 backend tests with pytest, including authorization between users and the worker with a fake Claude; 8 frontend tests with `node --test`, on CSV export and the offline queue; and 40 end-to-end tests with Playwright: 20 scenarios run on desktop and on phone, against a local build of the demo. GitHub Actions runs everything on every push to `main` and on pull requests: in the backend, ruff lints the code before pytest and, after the E2E tests, a script measures the contrast of the badges.",
     "fontes": [
-      "FlowTrack/README.pt-br.md#L141-L154",
+      "FlowTrack/README.md#L143-L156",
       "FlowTrack/backend/tests/test_ai_categorization.py",
       "FlowTrack/frontend/tests/syncQueue.test.ts",
       "FlowTrack/frontend/tests/export.test.ts",
